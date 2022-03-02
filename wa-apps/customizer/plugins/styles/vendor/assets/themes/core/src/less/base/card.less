@@ -1,0 +1,456 @@
+//
+// Component: Card
+//
+// ========================================================================
+
+
+// Variables
+// ========================================================================
+
+//
+// New
+//
+
+@card-badge-padding-vertical:                  0;
+@card-badge-padding-horizontal:                0;
+@card-badge-background:                        transparent;
+
+@card-default-color-mode:                      dark;
+
+@card-default-header-border-width:             @global-border-width;
+@card-default-header-border:                   @global-border;
+
+@card-default-footer-border-width:             @global-border-width;
+@card-default-footer-border:                   @global-border;
+
+@card-default-hover-top:                       0;
+@card-primary-hover-top:                       0;
+@card-secondary-hover-top:                     0;
+
+
+// Component
+// ========================================================================
+
+.hook-card() {
+    transition: 0.1s ease-in-out;
+    transition-property: color, background-color, border-color, box-shadow, top;
+}
+
+.hook-card() when not (@card-default-hover-top = 0), not (@card-primary-hover-top = 0), not (@card-secondary-hover-top = 0) {
+    top: 0;
+}
+
+
+// Sections
+// ========================================================================
+
+.hook-card-body() {}
+
+.hook-card-header() {}
+
+.hook-card-footer() {}
+
+
+// Media
+// ========================================================================
+
+.hook-card-media() {}
+
+.hook-card-media-top() {}
+
+.hook-card-media-bottom() {}
+
+.hook-card-media-left() {}
+
+.hook-card-media-right() {}
+
+
+// Title
+// ========================================================================
+
+.hook-card-title() {}
+
+
+// Badge
+// ========================================================================
+
+.hook-card-badge() when not (@card-badge-padding-vertical = 0), not (@card-badge-padding-horizontal = 0) {
+    padding: @card-badge-padding-vertical @card-badge-padding-horizontal;
+}
+
+.hook-card-badge() when not (@card-badge-background = transparent) {
+    background: @card-badge-background;
+}
+
+
+// Hover modifier
+// ========================================================================
+
+.hook-card-hover() {}
+
+
+// Style modifiers
+// ========================================================================
+
+.hook-card-default() {}
+
+.hook-card-default-title() {}
+
+.hook-card-default-hover() when not (@card-default-hover-top = 0) {
+    top: @card-default-hover-top;
+}
+
+.hook-card-default-header() { border-bottom: @card-default-header-border-width solid @card-default-header-border; }
+
+.hook-card-default-footer() { border-top: @card-default-footer-border-width  solid @card-default-footer-border; }
+
+//
+// Primary
+//
+
+.hook-card-primary() {}
+
+.hook-card-primary-title() {}
+
+.hook-card-primary-hover() when not (@card-primary-hover-top = 0) {
+    top: @card-primary-hover-top;
+}
+
+//
+// Secondary
+//
+
+.hook-card-secondary() {}
+
+.hook-card-secondary-title() {}
+
+.hook-card-secondary-hover() when not (@card-secondary-hover-top = 0) {
+    top: @card-secondary-hover-top;
+}
+
+
+// Miscellaneous
+// ========================================================================
+
+.hook-card-misc() {
+
+    //
+    // Color mode
+    //
+
+    .uk-card-default.uk-card-body:extend(.uk-dark all) when (@card-default-color-mode = dark) {}
+    .uk-card-default > :not([class*='uk-card-media']):extend(.uk-dark all) when (@card-default-color-mode = dark) {}
+    .uk-card-default.uk-card-body:extend(.uk-light all) when (@card-default-color-mode = light) {}
+    .uk-card-default > :not([class*='uk-card-media']):extend(.uk-light all) when (@card-default-color-mode = light) {}
+    .uk-card-default.uk-card-body:extend(.uk-primary all) when (@card-default-color-mode = primary) {}
+    .uk-card-default > :not([class*='uk-card-media']):extend(.uk-primary all) when (@card-default-color-mode = primary) {}
+
+    .uk-card-primary.uk-card-body:extend(.uk-primary all) when (@card-primary-color-mode = primary) {}
+    .uk-card-primary > :not([class*='uk-card-media']):extend(.uk-primary all) when (@card-primary-color-mode = primary) {}
+
+    .uk-card-secondary.uk-card-body:extend(.uk-primary all) when (@card-secondary-color-mode = primary) {}
+    .uk-card-secondary > :not([class*='uk-card-media']):extend(.uk-primary all) when (@card-secondary-color-mode = primary) {}
+
+
+    /*
+     * Default
+     */
+
+    .uk-card-body > .uk-nav-default {
+        margin-left: -@card-body-padding-horizontal;
+        margin-right: -@card-body-padding-horizontal;
+    }
+    .uk-card-body > .uk-nav-default:only-child {
+        // margin-top: (-@card-body-padding-vertical + 15px);
+        // margin-bottom: (-@card-body-padding-vertical + 15px);
+        margin-top: -@card-body-padding-vertical;
+        margin-bottom: -@card-body-padding-vertical;
+    }
+
+    .uk-card-body .uk-nav-default > li > a,
+    .uk-card-body .uk-nav-default .uk-nav-header,
+    .uk-card-body .uk-nav-default .uk-nav-divider {
+        padding-left: @card-body-padding-horizontal;
+        padding-right: @card-body-padding-horizontal;
+    }
+
+    .uk-card-body .uk-nav-default .uk-nav-sub { padding-left: @nav-sublist-deeper-padding-left + @card-body-padding-horizontal; }
+
+
+    /* Desktop and bigger */
+    @media (min-width: @breakpoint-large) {
+
+        .uk-card-body > .uk-nav-default {
+            margin-left: -@card-body-padding-horizontal-l;
+            margin-right: -@card-body-padding-horizontal-l;
+        }
+        .uk-card-body > .uk-nav-default:only-child {
+            // margin-top: (-@card-body-padding-vertical-l + 15px);
+            // margin-bottom: (-@card-body-padding-vertical-l + 15px);
+            margin-top: -@card-body-padding-vertical-l;
+            margin-bottom: -@card-body-padding-vertical-l;
+        }
+
+        .uk-card-body .uk-nav-default > li > a,
+        .uk-card-body .uk-nav-default .uk-nav-header,
+        .uk-card-body .uk-nav-default .uk-nav-divider {
+            padding-left: @card-body-padding-horizontal-l;
+            padding-right: @card-body-padding-horizontal-l;
+        }
+
+        .uk-card-body .uk-nav-default .uk-nav-sub { padding-left: @nav-sublist-deeper-padding-left + @card-body-padding-horizontal-l; }
+
+    }
+
+    /*
+     * Small
+     */
+
+    .uk-card-small > .uk-nav-default {
+        margin-left: -@card-small-body-padding-horizontal;
+        margin-right: -@card-small-body-padding-horizontal;
+    }
+    .uk-card-small > .uk-nav-default:only-child {
+        // margin-top: (-@card-small-body-padding-vertical + 15px);
+        // margin-bottom: (-@card-small-body-padding-vertical + 15px);
+        margin-top: -@card-small-body-padding-vertical;
+        margin-bottom: -@card-small-body-padding-vertical;
+    }
+
+    .uk-card-small .uk-nav-default > li > a,
+    .uk-card-small .uk-nav-default .uk-nav-header,
+    .uk-card-small .uk-nav-default .uk-nav-divider {
+        padding-left: @card-small-body-padding-horizontal;
+        padding-right: @card-small-body-padding-horizontal;
+    }
+
+    .uk-card-small .uk-nav-default .uk-nav-sub { padding-left: @nav-sublist-deeper-padding-left + @card-small-body-padding-horizontal; }
+
+    /*
+     * Large
+     */
+
+    /* Desktop and bigger */
+    @media (min-width: @breakpoint-large) {
+
+        .uk-card-large > .uk-nav-default { margin: 0; }
+        .uk-card-large > .uk-nav-default:only-child { margin: 0; }
+
+        .uk-card-large .uk-nav-default > li > a,
+        .uk-card-large .uk-nav-default .uk-nav-header,
+        .uk-card-large .uk-nav-default .uk-nav-divider {
+            padding-left: 0;
+            padding-right: 0;
+        }
+
+        .uk-card-large .uk-nav-default .uk-nav-sub { padding-left: @nav-sublist-deeper-padding-left; }
+
+    }
+
+}
+
+// card muted
+@card-muted-background:                      @global-muted-background;
+@card-muted-color:                           @global-color;
+@card-muted-title-color:                     @global-emphasis-color;
+@card-muted-hover-background:                darken(@card-default-background, 5%);
+@card-muted-color-mode:                      none;
+
+.hook-card-misc() {
+
+    .uk-card-muted {
+        background: @card-muted-background;
+        color: @card-muted-color;
+        .hook-card-muted();
+    }
+
+    .uk-card-muted .uk-card-title {
+        color: @card-muted-title-color;
+        .hook-card-muted-title();
+    }
+
+    .uk-card-muted.uk-card-hover:hover {
+        background-color: @card-muted-hover-background !important;
+        .hook-card-muted-hover();
+    }
+
+    // Color Mode
+    .uk-card-muted.uk-card-body:extend(.uk-light all) when (@card-muted-color-mode = light) {}
+    .uk-card-muted > :not([class*='uk-card-media']):extend(.uk-light all) when (@card-muted-color-mode = light) {}
+    .uk-card-muted.uk-card-body:extend(.uk-dark all) when (@card-muted-color-mode = dark) {}
+    .uk-card-muted > :not([class*='uk-card-media']):extend(.uk-dark all) when (@card-muted-color-mode = dark) {}
+    .uk-card-muted.uk-card-body:extend(.uk-primary all) when (@card-muted-color-mode = primary) {}
+    .uk-card-muted > :not([class*='uk-card-media']):extend(.uk-primary all) when (@card-muted-color-mode = primary) {}
+
+}
+
+.hook-card-muted() {};
+.hook-card-muted-title() {};
+.hook-card-muted-hover() {};
+
+// deprecated
+@card-sidebar-background:                      @global-background;
+@card-sidebar-color:                           @global-color;
+@card-sidebar-title-color:                     @global-inverse-color;
+@card-sidebar-header-background:               @global-primary-background;
+@card-sidebar-border:                          @global-border;
+@card-sidebar-border-width:                    @global-border-width;
+@card-sidebar-box-shadow:                      @global-small-box-shadow;
+
+@card-sidebar-primary-background:              @global-background;
+@card-sidebar-primary-color:                   @global-color;
+@card-sidebar-primary-title-color:             @global-inverse-color;
+@card-sidebar-primary-header-background:       red;
+@card-sidebar-primary-border:                  @global-border;
+@card-sidebar-primary-border-width:            @global-border-width;
+@card-sidebar-primary-box-shadow:              @global-small-box-shadow;
+
+@card-product-background:                      @global-background;
+@card-product-color:                           @global-color;
+@card-product-border:                          @global-border;
+@card-product-border-width:                    @global-border-width;
+@card-product-hover-background:                @card-product-background;
+@card-product-hover-border:                    @global-primary-background;
+@card-product-title-color:                     @card-product-color;
+
+.hook-card-misc() {
+
+    //
+	// Sidebar
+	//
+
+	.uk-card-sidebar {
+		background: @card-sidebar-background;
+		color: @card-sidebar-color;
+        border: @card-sidebar-border-width solid @card-sidebar-border;
+	}
+
+	.uk-card-sidebar .uk-card-title {
+		color: @card-sidebar-title-color;
+	}
+
+	.uk-card-sidebar .uk-card-header {
+		background: @card-sidebar-header-background;
+        margin: -1px -1px 0;
+	}
+
+	.uk-card-sidebar .uk-card-footer {}
+
+	.uk-card-sidebar .tags > * { display: inline-block; margin-right: 5px; }
+
+	.uk-card-sidebar.uk-card-body > .filters,
+	.uk-card-sidebar .uk-card-body > .filters {
+        margin-left: -@card-body-padding-horizontal;
+        margin-right: -@card-body-padding-horizontal;
+    }
+    .uk-card-sidebar.uk-card-body > .filters:only-child,
+	.uk-card-sidebar .uk-card-body > .filters:only-child, {
+		margin-top: -@card-body-padding-vertical;
+        margin-bottom: -@card-body-padding-vertical;
+    }
+
+
+    //
+	// Sidebar primary
+	//
+
+	.uk-card-sidebar-primary {
+		background: @card-sidebar-primary-background;
+		color: @card-sidebar-primary-color;
+        border: @card-sidebar-primary-border-width solid @card-sidebar-primary-border;
+	}
+
+	.uk-card-sidebar-primary .uk-card-title {
+		color: @card-sidebar-primary-title-color;
+	}
+
+	.uk-card-sidebar-primary .uk-card-header {
+		background: @card-sidebar-primary-header-background;
+		margin: -1px -1px 0;
+	}
+
+	.uk-card-sidebar-primary .uk-card-footer {}
+
+
+    //
+	// Product
+	//
+
+	.uk-card-product {
+		background: @card-product-background;
+		color: @card-product-color;
+		border: @card-product-border-width solid @card-product-border;
+	}
+
+	.uk-card-product.uk-card-hover:hover {
+		z-index: 2;
+		background-color: @card-product-hover-background;
+		border-color: @card-product-hover-border;
+		//outline: @card-product-border-width solid @card-product-hover-border;
+		box-shadow: 0 0 0 @card-product-border-width @card-product-hover-border;
+	}
+
+	.uk-card-product .uk-card-product {
+		margin: -1px -1px 0;
+	}
+
+	.uk-card-product.uk-card-hover:hover .uk-card-product {
+		background-color: @card-product-hover-background;
+		border-color: @card-product-hover-border;
+		//outline: @card-product-border-width solid @card-product-hover-border;
+		box-shadow: 0 @card-product-border-width 0 @card-product-border-width @card-product-hover-border;
+        max-width: none;
+	}
+
+	.uk-card-product.uk-card-hover:hover .uk-card-product::before {
+	    content: "";
+		display: block;
+		position: absolute;
+		background: @card-product-hover-background;
+		top: -@card-product-border-width;
+		right: 0;
+		left: 0;
+		height: @card-product-border-width;
+	}
+
+}
+
+
+// Inverse
+// ========================================================================
+
+@inverse-card-badge-background:                 transparent;
+
+.hook-inverse() {
+
+    .uk-card-badge {
+        .hook-inverse-card-badge;
+    }
+
+}
+
+.hook-inverse-card-badge() {}
+
+.hook-inverse-card-badge() when not ((@card-badge-background = transparent) and (@inverse-card-badge-background = transparent)) {
+    background: @inverse-card-badge-background;
+}
+
+
+// Primary
+// ========================================================================
+
+@primary-card-badge-background:                 transparent;
+
+.hook-primary() {
+
+    .uk-card-badge {
+        .hook-primary-card-badge;
+    }
+
+}
+
+.hook-primary-card-badge() {}
+
+.hook-primary-card-badge() when not ((@card-badge-background = transparent) and (@primary-card-badge-background = transparent)) {
+    background: @primary-card-badge-background;
+}

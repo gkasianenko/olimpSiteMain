@@ -1,0 +1,41 @@
+//
+// Component: Overlay
+//
+// ========================================================================
+
+
+// Variables
+// ========================================================================
+
+//
+// New
+//
+
+@overlay-default-color:                       @global-color;
+
+
+// Component
+// ========================================================================
+
+.hook-overlay() {}
+
+// Icon
+// ========================================================================
+
+.hook-overlay-icon() {}
+
+
+// Style modifiers
+// ========================================================================
+
+.hook-overlay-default() { color: @overlay-default-color; }
+
+.hook-overlay-primary() {}
+
+
+// Miscellaneous
+// ========================================================================
+
+.hook-overlay-misc() {
+    .uk-overlay-primary:extend(.uk-primary all) when (@overlay-primary-color-mode = primary) {}
+}

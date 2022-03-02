@@ -1,0 +1,212 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: customizer\n"
+"POT-Creation-Date: 2020-04-22 19:01+0300\n"
+"PO-Revision-Date: \n"
+"Last-Translator: customizer\n"
+"Language-Team: customizer\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=((((n%10)==1)&&((n%100)!=11))?(0):(((((n%10)>=2)&&((n%10)<=4))&&(((n%100)<10)||((n%100)>=20)))?(1):2));\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-Basepath: utf-8\n"
+"Language: ru_RU\n"
+"X-Generator: Poedit 2.2.4\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPath-1: .\n"
+
+msgid "This section is under construction ..."
+msgstr "Этот раздел находится в стадии разработки ..."
+
+msgid "For the application to work, just two steps are enough"
+msgstr "Для работы приложения достаточно всего два шага"
+
+msgid "Add to file"
+msgstr "Добавить в файл"
+
+msgid "before tag"
+msgstr "перед тегом"
+
+msgid "line"
+msgstr "строку"
+
+msgid "Install plugins"
+msgstr "Установить плагины"
+
+msgid "Enjoy!"
+msgstr "Пользуйтесь!"
+
+msgid "Home"
+msgstr "Главная"
+
+msgid "Helpers"
+msgstr "Хелперы"
+
+msgid "Settings"
+msgstr "Настройки"
+
+msgid "Plugins"
+msgstr "Плагины"
+
+msgid "Settings updated"
+msgstr "Настройки обновлены"
+
+msgid "Unused drafts"
+msgstr "Черновики"
+
+msgid "delete"
+msgstr "удалить"
+
+msgid "Draft prefix"
+msgstr "Префикс черновика"
+
+msgid "Frontend settings"
+msgstr "Настройки общедоступной части"
+
+msgid "Only admin"
+msgstr "Только администратор"
+
+msgid "Publish draft"
+msgstr "Опубликовать черновик"
+
+msgid "Save draft"
+msgstr "Сохранить черновик"
+
+msgid "Top"
+msgstr "Отступ сверху"
+
+msgid "Set the vertical position of the button in percentage."
+msgstr "Установите вертикальное положение кнопки в процентах."
+
+msgid "Save"
+msgstr "Сохранить"
+
+msgid "Expand sidebar"
+msgstr "Развернуть боковую панель"
+
+msgid "Collapse sidebar"
+msgstr "Свернуть боковую панель"
+
+msgid "Empty panel"
+msgstr "Пустая панель"
+
+msgid "You are customizing"
+msgstr "Вы настраиваете"
+
+msgid "go to instructions"
+msgstr "перейти к инструкциям"
+
+msgid "Install at least one plugin to work with design theme"
+msgstr "Установите хотя бы один плагин для работы с темой дизайна"
+
+msgid "search plugins"
+msgstr "поиск плагинов"
+
+msgid "Mismatch"
+msgstr "Несоответствие"
+
+msgid "Preview theme does not match customizable design theme."
+msgstr "Тема предварительного просмотра не соответствует настраиваемой теме оформления."
+
+msgid "Reload Preview"
+msgstr "Обновить предпросмотр"
+
+msgid "Close customizer"
+msgstr "Закрыть настройщик"
+
+msgid "Published"
+msgstr "Опубликовано"
+
+msgid "Сhanges applied"
+msgstr "Изменения применены"
+
+msgid "Return to customize"
+msgstr "Вернуться к настройке"
+
+msgid "Return to site"
+msgstr "Вернуться на сайт"
+
+msgid "Publish"
+msgstr "Публиковать"
+
+msgid "Save as"
+msgstr "Сохранить"
+
+msgid "Configure"
+msgstr "Настройка"
+
+msgid "The design theme you are customizing does not contain Customizer application integration code."
+msgstr "Настраиваемая тема дизайна не содержит кода интеграции приложения \"Настройщик тем\"."
+
+msgid "Follow instructions on"
+msgstr "Следуйте инструкциям на"
+
+msgid "main page of app"
+msgstr "главной странице приложения"
+
+msgid "App ID not defined or App not found"
+msgstr "Идентификатор приложения не определен или приложение не найдено"
+
+msgid "Back to site"
+msgstr "Вернуться на сайт"
+
+msgid "Not found"
+msgstr "Не найдено"
+
+msgid "App does not use design themes"
+msgstr "Приложение не использует темы дизайна"
+
+msgid "Theme ID not defined or Theme not found"
+msgstr "Идентификатор темы не определен или Тема не найдена"
+
+msgid "User not logged or not an administrator"
+msgstr "Пользователь не авторизован или не является администратором"
+
+msgid "Log in"
+msgstr "Войти"
+
+msgid "Forbidden"
+msgstr "Запрещено"
+
+msgid "Invalid theme id %s"
+msgstr "Идентификатор темы \"%s\" не определен"
+
+msgid "Customizer helpers page"
+msgstr "Хелперы"
+
+msgid "Access denied"
+msgstr "Доступ запрещен"
+
+msgid "Plugin settings page"
+msgstr "Страница настройки плагинов"
+
+msgid "Customizer settings page"
+msgstr "Настройки"
+
+msgid "Theme management"
+msgstr "Управление темой"
+
+msgid "Reload App"
+msgstr "Перезагрузить приложение"
+
+msgid "Number of products per page"
+msgstr "Количество товаров на странице"
+
+msgid "For mobile devices in frontend"
+msgstr "Для мобильных устройств во фронтенде"
+
+msgid "For desktop devices in frontend"
+msgstr "Для настольных устройств во фронтенде"
+
+msgid "For all devices in backend"
+msgstr "Для всех устройств в бекенде"
+
+msgid "Shop app config manage"
+msgstr "Управление конфигурацией приложения Магазин"
+
+msgid "Shop app config updated"
+msgstr "Конфигурация приложения Магазин обновлена"
+
+msgid "Shop app config manage page"
+msgstr "Страница управления конфигурацией приложения Магазин"

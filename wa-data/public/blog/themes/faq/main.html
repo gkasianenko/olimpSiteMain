@@ -1,0 +1,90 @@
+{* @event (frontend_action_default|frontend_action_post|frontend_action_page|frontend_action_error).%plugin_id%.nav_before *}
+{foreach $frontend_action as $plugin => $output}
+{if !empty($output.nav_before)}{$output.nav_before}{/if}
+{/foreach}
+<main class="main">
+    <style>
+        .header {
+            margin-bottom: 0 !important;
+        }
+        .blog__faq {
+            padding-top: 50px !important;
+            padding-bottom: 0px !important;
+            border-bottom: 1px solid #cfcfcf;
+        }
+    </style>
+
+    <div class="section blog__faq section__bg section__bg--gray">
+        <div class="container-fluid container-lg">
+            <div class="page">
+                <div class="row">
+
+                    {foreach $wa->blog->blogs() as $blog}
+                    {if $blog.id == '5'} {*портфолио*}
+                    {*if $blog.link == $wa->currentUrl(true)*}
+                    {if ($action eq 'default')}
+                    <div class="col-3 d-none d-md-flex">
+                        <!-- Категории блога -->
+                        <div class="block_menu_blog">
+                            <div class="sticky-top pt-2">
+                                <div>
+                                    <div class="block_menu">Категории</div>
+                                    {foreach $frontend_action as $plugin => $output}
+                                    {if !empty($output.sidebar)}{$output.sidebar}{/if}
+                                    {/foreach}
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /Категории блога -->
+                    </div>
+                    {/if}
+                    {*/if*}
+                    {/if}
+                    {/foreach}
+
+                    <div class="col" itemscope itemtype="http://schema.org/WebPage">
+                        {if empty($posts) && $wa->currentUrl() == $wa_app_url}
+
+                        <div class="welcome">
+                            <h1>[`Welcome to your new blog!`]</h1>
+                            <p>{sprintf('[`Start by <a href="%s">writing a post</a> in your blog backend.`]',
+                                $wa_backend_url|cat:'blog/')}</p>
+                        </div>
+
+                        {else}
+
+                        <!-- internal navigation breadcrumbs -->
+                        {if isset($breadcrumbs)}
+                        <div class="breadcrumbs" itemprop="breadcrumb">
+                            {if $wa->globals('isMyAccount')}
+                            {* within My Account we exclude first node from navigation because links are on the page
+                            already *}
+                            {$breadcrumbs[0] = null}
+                            {/if}
+                            {foreach $breadcrumbs as $breadcrumb}
+                            {if $breadcrumb}
+                            <a href="{$breadcrumb.url}">{$breadcrumb.name|escape}</a> <span class="rarr">&rarr;</span>
+                            {/if}
+                            {/foreach}
+                        </div>
+                        {/if}
+
+                        {$content}
+
+                        {/if}
+
+                        <div class="clear-both"></div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid">
+        {include file="`$wa_parent_theme_path`/components.html" inline}
+        {include file="`$wa_parent_theme_path`/form.html" inline}
+    </div>
+</main>
+
+{include file="`$wa_active_theme_path`/__menu.html" inline}

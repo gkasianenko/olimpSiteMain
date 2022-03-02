@@ -1,0 +1,349 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: shop\n"
+"POT-Creation-Date: 2015-07-11 12:44+0400\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Dmitry Koval <nebo.script@gmail.com>\n"
+"Language-Team: email_config\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=((((n%10)==1)&&((n%100)!=11))?(0):(((((n%10)>=2)&&((n%10)<=4))&&(((n%100)<10)||((n%100)>=20)))?(1):2));\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-Basepath: .\n"
+"X-Generator: Poedit 2.0.1\n"
+"Language: ru_RU\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPath-1: .\n"
+
+#: /wa-apps/email/lib/config/app.php
+msgid "Settings email"
+msgstr "Настройка email"
+
+#: /wa-apps/email/lib/config/logs.php:5
+msgid "change mail settings"
+msgstr "изменил настройки почты"
+
+#: /wa-apps/email/lib/config/logs.php:8
+msgid "deleted mail settings"
+msgstr "удалил настройки почты"
+
+#: /wa-apps/email/lib/config/logs.php:11
+msgid "added mail settings"
+msgstr "добавил настройку почты"
+
+#: /wa-apps/email/templates/actions/beckend/BeckendRecords.html:12
+msgid "Email"
+msgstr "Email"
+
+#: /wa-apps/email/templates/actions/beckend.html:23
+msgid "New rule"
+msgstr "Новое правило"
+
+#: /wa-apps/email/templates/actions/beckend.html:31
+#: /wa-apps/email/lib/action/backend/emailBackendRecords.action.php:27
+msgid "All records"
+msgstr "Все записи"
+
+#: /wa-apps/email/templates/actions/beckend/Beckend.html:34
+msgid "Domains"
+msgstr "Домены"
+
+#: /wa-apps/email/templates/actions/beckend/Beckend.html:47
+#: /wa-apps/email/templates/actions/backend/BackendSendEmail.html:2
+#: /wa-apps/email/templates/actions/backend/BackendSendEmail.html:51
+msgid "Send an Email"
+msgstr "Отправить Email"
+
+#: /wa-apps/email/templates/actions/beckend/Beckend.html:55
+msgid "Checking Email is enabled. Latest Cron execution time: <strong>%s</strong>"
+msgstr "Проверка Email включена. Последний запуск планировщика CRON: <strong>%s</strong>."
+
+#: /wa-apps/email/templates/actions/beckend/Beckend.html:46
+msgid "Notifications"
+msgstr "Уведомления"
+
+#: /wa-apps/email/templates/actions/beckend/Beckend.html:60
+msgid "Checking Email is not currently running, because cron is not properly configured."
+msgstr "Проверка Email в данный момент не работает, так как не настроен планировщик CRON."
+
+#: /wa-apps/email/templates/actions/beckend/Beckend.html:62
+msgid "How to set up?"
+msgstr "Как настроить?"
+
+#: /wa-apps/email/templates/actions/beckend/Beckend.html:72
+#: /wa-apps/email/templates/actions/backend/BeckendMail.html:5
+msgid "Loading..."
+msgstr "Загрузка..."
+
+#: /wa-apps/email/templates/actions/beckend/Beckend.html:80
+msgid "Follow-ups require CRON to be properly setup for the Shop-Script app, which is currently not the case."
+msgstr "Для автоматизированной отправки отложенных сообщений (фоллоу-апов) необходимо настроить CRON, который будет запускать скрипт отправки по расписанию без вашего участия."
+
+#: /wa-apps/email/templates/actions/beckend/Beckend.html:82
+msgid "Setup cron with the following command (<a href=\"%s\" target=\"_blank\">cron setup instructions</a>):"
+msgstr "Настройте CRON с указанной ниже командой в контрольной панели вашего хостинга (<a href=\"%s\" target=\"_blank\">документация по настройке</a>):"
+
+#: /wa-apps/email/templates/actions/beckend/Beckend.html:95
+msgid "Add new rule"
+msgstr "Добавьте новое правило"
+
+#: /wa-apps/email/templates/actions/beckend/Beckend.html:74
+msgid "Domain name"
+msgstr "Доменное имя"
+
+#: /wa-apps/email/templates/actions/beckend/Beckend.html:77
+#: /wa-apps/email/lib/action/backend/emailBackendMail.action.php:19
+msgid "The default setting for all email addresses"
+msgstr "Настройка по умолчанию для всех email адресов"
+
+#: /wa-apps/email/templates/actions/beckend/Beckend.html:89
+#: /wa-apps/email/templates/actions/backend/BeckendMail.html:13
+msgid "Login"
+msgstr "Логин"
+
+#: /wa-apps/email/templates/actions/beckend/Beckend.html:99
+msgid "Add"
+msgstr "Добавить"
+
+#: /wa-apps/email/templates/actions/beckend/Beckend.html:99
+msgid "or"
+msgstr "или"
+
+#: /wa-apps/email/templates/actions/beckend/Beckend.html:100
+msgid "cancel"
+msgstr "отменить"
+
+#: /wa-apps/email/templates/actions/beckend/Beckend.html:114
+msgid "Close"
+msgstr "Закрыть"
+
+#: /wa-apps/email/templates/actions/beckend/Beckend.html:158,159
+msgid "close"
+msgstr "закрыть"
+
+#: /wa-apps/email/lib/action/backend/emailBackendRecords.action.php:13
+msgid "Rules for all boxes @%s"
+msgstr "Правила для всех ящиков @%s"
+
+#: /wa-apps/email/templates/actions/beckend/BeckendRecords.html:13,58
+msgid "Connect to the SMTP-server"
+msgstr "Подключения к SMTP-серверу"
+
+#: /wa-apps/email/templates/actions/beckend/BeckendRecords.html:62
+msgid "connect to the SMTP-server established successfully"
+msgstr "подключения к SMTP-серверу установлено успешно"
+
+#: /wa-apps/email/templates/actions/beckend/BeckendRecords.html:66
+msgid "connect to the SMTP-server it wasn't possible"
+msgstr "подключения к SMTP-серверу не удалось"
+
+#: /wa-apps/email/templates/actions/beckend/BeckendRecords.html:70
+msgid "connect to the SMTP-server is not checked"
+msgstr "подключения к SMTP-серверу не проверялось"
+
+#: /wa-apps/email/templates/actions/beckend/BeckendRecords.html:73
+msgid "Time"
+msgstr "Время"
+
+#: /wa-apps/email/templates/actions/beckend/BeckendRecords.html:74
+msgid "time of the last check"
+msgstr "время последней проверки"
+
+#: /wa-apps/email/templates/actions/beckend/BeckendRecords.html:49
+msgid "Cheat sheet"
+msgstr "Шпаргалка"
+
+#: /wa-apps/email/templates/actions/beckend/BeckendRecords.html:20
+msgid "Records are absent"
+msgstr "Записи отсутствуют"
+
+#: /wa-apps/email/lib/action/backend/emailBackendMail.action.php:21
+msgid "The default setting of all email addresses @%s"
+msgstr "Настройка по умолчанию всех email адресов @%s"
+
+#: /wa-apps/email/lib/action/backend/emailBackendMail.action.php:23
+msgid "Mail setup"
+msgstr "Настройка почты"
+
+#: /wa-apps/email/templates/actions/backend/BeckendMail.html:4
+msgid "Delete rule"
+msgstr "Удалить правило"
+
+#: /wa-apps/email/templates/actions/backend/BeckendMail.html:18
+msgid "Password"
+msgstr "Пароль"
+
+#: /wa-apps/email/templates/actions/backend/BeckendMail.html:20
+msgid "change password"
+msgstr "изменить пароль"
+
+#: /wa-apps/email/templates/actions/backend/BeckendMail.html:28
+msgid "SMTP-server"
+msgstr "SMTP-сервер"
+
+#: /wa-apps/email/templates/actions/backend/BeckendMail.html:33
+msgid "Port"
+msgstr "Порт"
+
+#: /wa-apps/email/templates/actions/backend/BeckendMail.html:33
+msgid "This will delete a rule e-mail settings without the ability to recover. Are you sure?"
+msgstr "Будет удалено правило настройки электронной почты без возможности восстановления. Удалить?"
+
+#: /wa-apps/email/templates/actions/backend/BeckendMail.html:41
+msgid "Safe connection under the protocol SSL (recommended)"
+msgstr "Безопасное соединение по протоколу SSL (рекомендуется)"
+
+#: /wa-apps/email/templates/actions/backend/BeckendMail.html:44
+msgid "Safe connection under the protocol TLS"
+msgstr "Безопасное соединение по протоколу TLS"
+
+#: /wa-apps/email/templates/actions/backend/BeckendMail.html:46
+msgid "Not use encrypted connection"
+msgstr "Не использовать зашифрованное соединение"
+
+#: /wa-apps/email/templates/actions/backend/BeckendMail.html:52
+msgid "Check the connection to the SMTP server"
+msgstr "Проверить подключение к SMTP-серверу"
+
+#: /wa-apps/email/templates/actions/backend/BeckendMail.html:58
+msgid "Save"
+msgstr "Сохранить"
+
+#: /wa-apps/email/templates/actions/backend/BeckendMail.html:59
+msgid "Saved"
+msgstr "Сохранено"
+
+#: /wa-apps/email/lib/action/backend/emailBackendMailSave.Controller.php:21
+msgid "The mistake, data aren't kept!"
+msgstr "Ошибка, данные не сохранены!"
+
+#: /wa-apps/email/lib/action/backend/emailBackendMailSave.Controller.php:62
+msgid "Connection to the SMTP-server established successfully"
+msgstr "Подключение к SMTP-серверу установлено успешно"
+
+#: /wa-apps/email/templates/actions/backend/BackendSendEmail.html:12
+msgid "From"
+msgstr "От"
+
+#: /wa-apps/email/templates/actions/backend/BackendSendEmail.html:12
+msgid "Other email..."
+msgstr "Другой email..."
+
+#: /wa-apps/email/templates/actions/backend/BackendSendEmail.html:30
+#: /wa-apps/email/templates/actions/backend/BackendNotifications.html
+msgid "To"
+msgstr "Кому"
+
+#: /wa-apps/email/templates/actions/backend/BackendSendEmail.html:36
+msgid "Email subject"
+msgstr "Тема сообщения"
+
+#: /wa-apps/email/templates/actions/backend/BackendSendEmail.html:42
+msgid "Email body"
+msgstr "Текст сообщения"
+
+#: /wa-apps/email/templates/actions/backend/BackendSendEmail.html:53
+msgid "Your message has been sent."
+msgstr "Ваше сообщение было отправлено."
+
+#: /wa-apps/email/templates/actions/backend/BackendSendEmail.html:
+msgid "Error. The message isn't sent."
+msgstr "Ошибка.  Сообщение не отправлено."
+
+#: /wa-apps/email/lib/action/backend/BackendMailSend.controller.php:25,27,40
+msgid "Email is not valid"
+msgstr "Некорректный email-адрес"
+
+#: /wa-apps/email/lib/action/backend/BackendMailSend.controller.php:32,34,43
+msgid "Fill in all required fields"
+msgstr "Заполните все обязательные поля"
+
+#: /wa-apps/email/lib/action/backend/BackendMailSend.controller.php:68
+msgid "For Email %s, no rules setting! Create a new rule!"
+msgstr "Для Email %s, нету правил настройки! Создайте новое правило!"
+
+#: /wa-apps/email/lib/action/backend/BackendMailSend.controller.php:75
+#: /wa-apps/email/lib/action/backend/emailBackendMailSave.Controller.php:60
+msgid "In attempt of connection to the server SMTP occurred a mistake"
+msgstr "В попытке подключения к серверу SMTP произошла ошибка"
+
+#: /wa-apps/email/lib/action/backend/BackendDomenAdd.controller.php:25
+msgid "This rule already exists."
+msgstr "Данное правило уже существует."
+
+#: /wa-apps/email/lib/action/backend/BackendDomenAdd.controller.php:25
+msgid "Invalid email format"
+msgstr "Неверный формат email"
+
+#: /wa-apps/email/lib/action/classes/emailCheckSend.class.php:23.29
+msgid "Connection could not be established with host"
+msgstr "Соединение не может быть установлено с хостом"
+
+#: /wa-apps/email/lib/action/classes/emailCheckSend.class.php:34
+msgid "Server Welcome is not set"
+msgstr "Приветствие сервера не установлено"
+
+#: /wa-apps/email/lib/action/classes/emailCheckSend.class.php:39
+msgid "SMTP Authentication is not set"
+msgstr "Аутентификация SMTP не установлен"
+
+#: /wa-apps/email/lib/action/classes/emailCheckSend.class.php:44
+msgid "Failed to authenticate on SMTP server with username %s"
+msgstr "Не удалось пройти проверку подлинности SMTP-сервера с именем пользователя %s"
+
+#: /wa-apps/email/lib/action/classes/emailCheckSend.class.php:48
+msgid "Invalid login or password"
+msgstr "Неправильный логин или пароль"
+
+#: /wa-apps/email/templates/actions/backend/BackendNotifications.html
+msgid "SMS notifications"
+msgstr "СМС-уведомления"
+
+#: /wa-apps/email/templates/actions/backend/BackendNotifications.html
+msgid "Off"
+msgstr "Выкл"
+
+#: /wa-apps/email/templates/actions/backend/BackendNotifications.html
+msgid "On"
+msgstr "Вкл"
+
+#: /wa-apps/email/templates/actions/backend/BackendNotifications.html
+msgid "Sender"
+msgstr "Отправитель"
+
+#: /wa-apps/email/templates/actions/backend/BackendNotifications.html
+msgid "Phone number of the sender."
+msgstr "Номер телефона отправителя."
+
+#: /wa-apps/email/templates/actions/backend/BackendNotifications.html
+msgid "+1 212-555-1312"
+msgstr "+7 (916) 123-55-00"
+
+#: /wa-apps/email/templates/actions/backend/BackendNotifications.html
+msgid "On phone number will come SMS notification."
+msgstr "На телефонный номер будут приходить СМС уведомление"
+
+#: /wa-apps/email/templates/actions/backend/BackendNotifications.html
+msgid "if connections to the SMTP server it wasn't possible"
+msgstr "если подключения к SMTP-серверу не удалось"
+
+#: /wa-apps/email/templates/actions/backend/BackendNotifications.html
+msgid "if connections to the SMTP server it is established"
+msgstr "если подключения к SMTP-серверу установлено"
+
+#: /wa-apps/email/templates/actions/backend/BackendNotifications.html
+msgid "{$mail} - email"
+msgstr "{$mail} - почта"
+
+#: /wa-apps/email/templates/actions/backend/BackendNotifications.html
+msgid "Mail {$mail} isn&apos;t available"
+msgstr "Почта {$mail} не доступна"
+
+#: /wa-apps/email/templates/actions/backend/BackendNotifications.html
+msgid "Mail {$mail} is again available"
+msgstr "Почта {$mail} снова доступна"
+
+#: /wa-apps/email_config/lib/actions/backend/files/email_configUploadimageFiles.controller.php
+msgid "Files with extensions %s are allowed only."
+msgstr "Разрешены только файлы с разширениями %s."

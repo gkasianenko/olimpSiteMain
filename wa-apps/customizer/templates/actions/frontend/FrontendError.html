@@ -1,0 +1,43 @@
+{strip}
+
+
+<!DOCTYPE html>
+<html lang="{substr($wa->locale(), 0, 2)}" dir="ltr">
+
+	<head>
+		<meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>{$wa->title()|default:$wa->appName()|escape}</title>
+		
+		<!-- CSS -->
+		<link href="{$wa_app_static_url}css/uikit/uikit.min.css?v3.0.0" rel="stylesheet" />
+		{*
+		<link href="{$wa_app_static_url}css/frontend/app.css?v{$wa_app_version}" rel="stylesheet" />
+		*}
+		
+		<!-- JS -->
+		{* 
+		<script src="{$wa_app_static_url}js/jquery/jquery.min.js?v3.3.1"></script>
+		<script src="{$wa_app_static_url}js/uikit/uikit.min.js?v3.0.0"></script>
+		<script src="{$wa_app_static_url}js/uikit/uikit-icons.min.js?v3.0.0"></script>
+		*}
+	</head>
+
+	<body>
+		
+		<div class="uk-panel uk-position-center">
+			<div class="uk-alert uk-alert-danger" data-uk-alert>
+				<h1>
+					{if $error_code}{$error_code}. {/if}
+					{if $error_message}{$error_message}{else}[s`Error`]{/if}
+				</h1>
+				{if $error_description}{$error_description}{else}[s`The requested resource is not available.`]{/if}
+			</div>
+		</div>
+		
+	</body>
+
+</html>
+
+
+{/strip}

@@ -1,0 +1,54 @@
+<div class="section section__partners d-none d-md-block">
+    <div class="container-lg">
+        <h1 class="section__title">
+            Наши партнеры
+        </h1>
+
+        {$photos = $wa->photos->photos("/album/4", "0x300")}
+        {$grid = siteCustomerHelper::getPartnerGrids($photos)}
+
+        <div class="partner-items">
+            <div class="row">
+                <div class="col-12 col-md-6 pr-md-0">
+                    <h3 class="text-left">
+                        Чтобы достичь успеха - нужно быть уникальным и неповторимым!
+                    </h3>
+
+                    <div class="row no-gutters">
+                        <div class="col-12 col-lg-6 px-0">
+                            {foreach $grid.col1 as $p}
+                            <a href="{$p.frontend_link}" class="partner__item d-flex align-items-center" data-aos="flip-left">
+                                <img class="img-fluid" loading="lazy" src="{$p.image_url}" alt=""></a>
+                            {/foreach}
+                        </div>
+                        <div class="col-12 col-lg-6 px-0">
+                            {foreach $grid.col2 as $p}
+                            <a href="{$p.frontend_link}" class="partner__item d-flex align-items-center" data-aos="flip-left">
+                                <img class="img-fluid" loading="lazy" src="{$p.image_url}" alt=""></a>
+                            {/foreach}
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 pl-md-0">
+                    <div class="row no-gutters">
+                        <div class="col-12 col-lg-6 px-0">
+                            {foreach $grid.col3 as $p}
+                            <a href="{$p.frontend_link}" class="partner__item d-flex align-items-center" data-aos="flip-left">
+                                <img class="img-fluid" loading="lazy" src="{$p.image_url}" alt=""></a>
+                            {/foreach}
+                        </div>
+                        <div class="col-12 col-lg-6 px-0">
+                            {foreach $grid.col4 as $p}
+                            <a href="{$p.frontend_link}" class="partner__item d-flex align-items-center" data-aos="flip-left">
+                                <img class="img-fluid" loading="lazy" src="{$p.image_url}" alt=""></a>
+                            {/foreach}
+                            <div class="partner__item partner__item--more d-flex align-items-center justify-content-center" data-aos="flip-left"><a href="/photos/partnery/">Все партнеры<i></i></a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+<!--        <div class="section__detail mb-5"><a class="btn btn-outline-white" href="/photos/partnery/">Все партнеры</a></div>-->
+    </div>
+</div>

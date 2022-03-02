@@ -1,0 +1,236 @@
+//
+// Component: Button
+//
+// ========================================================================
+
+
+// Variables
+// ========================================================================
+
+//
+// New
+//
+
+@button-font-family:                            @global-secondary-font-family;
+@button-font-weight:                            @global-secondary-font-weight;
+@button-text-transform:                         @global-secondary-text-transform;
+@button-letter-spacing:                         @global-secondary-letter-spacing;
+@button-font-style:                             @global-secondary-font-style;
+
+@button-link-text-decoration:                   none;
+// @button-link-hover-text-decoration:             underline;
+@button-link-disabled-text-decoration:          none;
+
+
+// Component
+// ========================================================================
+
+.hook-button() {}
+
+.hook-button() when not (@button-font-family = inherit) {
+    font-family: @button-font-family;
+}
+
+.hook-button() when not (@button-font-weight = inherit) {
+    font-weight: @button-font-weight;
+}
+
+.hook-button() when not (@button-text-transform = inherit) {
+    text-transform: @button-text-transform;
+}
+
+.hook-button() when not (@button-letter-spacing = inherit) {
+    letter-spacing: @button-letter-spacing;
+}
+
+.hook-button() when not (@button-font-style = inherit) {
+    font-style: @button-font-style;
+}
+
+.hook-button-hover() {}
+
+.hook-button-focus() {}
+
+.hook-button-active() {}
+
+
+// Style modifiers
+// ========================================================================
+
+.hook-button-default() {}
+
+.hook-button-default-hover() {}
+
+.hook-button-default-active() {}
+
+//
+// Primary
+//
+
+.hook-button-primary() {}
+
+.hook-button-primary-hover() {}
+
+.hook-button-primary-active() {}
+
+//
+// Secondary
+//
+
+.hook-button-secondary() {}
+
+.hook-button-secondary-hover() {}
+
+.hook-button-secondary-active() {}
+
+//
+// Danger
+//
+
+.hook-button-danger() {}
+
+.hook-button-danger-hover() {}
+
+.hook-button-danger-active() {}
+
+
+// Disabled
+// ========================================================================
+
+.hook-button-disabled() {}
+
+
+// Size modifiers
+// ========================================================================
+
+.hook-button-small() {}
+
+.hook-button-large() {}
+
+
+// Text modifier
+// ========================================================================
+
+.hook-button-text() {}
+
+.hook-button-text-hover() {}
+
+.hook-button-text-disabled() {}
+
+
+// Link modifier
+// ========================================================================
+
+.hook-button-link() { text-decoration: @button-link-text-decoration; }
+.hook-button-link-hover() {}
+.hook-button-link-disabled() { text-decoration: @button-link-disabled-text-decoration; }
+
+
+// Feature modifier
+// ========================================================================
+
+.hook-button-feature() {}
+.hook-button-feature-hover() {}
+.hook-button-feature-active() {}
+.hook-button-feature-disabled() {}
+.hook-button-feature-disabled-active() {}
+
+
+// Color modifier
+// ========================================================================
+
+.hook-button-color() {}
+.hook-button-color-hover() {}
+.hook-button-color-active() {}
+.hook-button-color-disabled() {}
+.hook-button-color-disabled-active() {}
+
+
+// Miscellaneous
+// ========================================================================
+
+.hook-button-misc() {}
+
+
+// Inverse
+// ========================================================================
+
+@inverse-button-link-text-decoration:                   none;
+@inverse-button-link-hover-text-decoration:             underline;
+@inverse-button-link-disabled-text-decoration:          none;
+
+.hook-inverse-button-default() {}
+.hook-inverse-button-default-hover() {}
+.hook-inverse-button-default-active() {}
+
+.hook-inverse-button-primary() {}
+.hook-inverse-button-primary-hover() {}
+.hook-inverse-button-primary-active() {}
+
+.hook-inverse-button-secondary() {}
+.hook-inverse-button-secondary-hover() {}
+.hook-inverse-button-secondary-active() {}
+
+.hook-inverse-button-disabled() {}
+
+.hook-inverse-button-text() {}
+.hook-inverse-button-text-hover() {}
+.hook-inverse-button-text-disabled() {}
+
+.hook-inverse-button-link() { text-decoration: @inverse-button-link-text-decoration; }
+.hook-inverse-button-link-hover() { text-decoration: @inverse-button-link-hover-text-decoration; }
+.hook-inverse-button-link-disabled() { text-decoration: @inverse-button-link-disabled-text-decoration; }
+
+.hook-inverse-button-feature() {}
+.hook-inverse-button-feature-hover() {}
+.hook-inverse-button-feature-active() {}
+.hook-inverse-button-feature-disabled() {}
+.hook-inverse-button-feature-disabled-active() {}
+
+.hook-inverse-button-color() {}
+.hook-inverse-button-color-hover() {}
+.hook-inverse-button-color-active() {}
+.hook-inverse-button-color-disabled() {}
+.hook-inverse-button-color-disabled-active() {}
+
+
+// Primary
+// ========================================================================
+
+@primary-button-link-text-decoration:                   none;
+@primary-button-link-hover-text-decoration:             underline;
+@primary-button-link-disabled-text-decoration:          none;
+
+.hook-primary-button-default() {}
+.hook-primary-button-default-hover() {}
+.hook-primary-button-default-active() {}
+
+.hook-primary-button-primary() {}
+.hook-primary-button-primary-hover() {}
+.hook-primary-button-primary-active() {}
+
+.hook-primary-button-secondary() {}
+.hook-primary-button-secondary-hover() {}
+.hook-primary-button-secondary-active() {}
+
+.hook-primary-button-disabled() {}
+
+.hook-primary-button-text() {}
+.hook-primary-button-text-hover() {}
+.hook-primary-button-text-disabled() {}
+
+.hook-primary-button-link() { text-decoration: @primary-button-link-text-decoration; }
+.hook-primary-button-link-hover() { text-decoration: @primary-button-link-hover-text-decoration; }
+.hook-primary-button-link-disabled() { text-decoration: @primary-button-link-disabled-text-decoration; }
+
+.hook-primary-button-feature() {}
+.hook-primary-button-feature-hover() {}
+.hook-primary-button-feature-active() {}
+.hook-primary-button-feature-disabled() {}
+.hook-primary-button-feature-disabled-active() {}
+
+.hook-primary-button-color() {}
+.hook-primary-button-color-hover() {}
+.hook-primary-button-color-active() {}
+.hook-primary-button-color-disabled() {}
+.hook-primary-button-color-disabled-active() {}

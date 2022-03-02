@@ -1,0 +1,57 @@
+<!-- plugin hook -->
+{* @event frontend_layout.%plugin_id%.header *}
+{foreach $frontend_layout as $item}{if !empty($item.header)}{$item.header}{/if}{/foreach}
+
+<main class="main">
+    <div class="container-fluid {if $wa->param('action') eq 'album'}container_album{/if}">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb" itemprop="breadcrumb">
+                <li class="breadcrumb-item">
+                    <a href="/">Главная</a>
+                </li>
+
+                <li class="breadcrumb-item active" aria-current="page">
+                    {$breadcrumbSection = null}
+                    {foreach $wa->photos->albums(false,true) as $album}
+                    {if $album.url == $wa->currentUrl(true)}
+                        {$breadcrumbSection = $album.name}
+                    {/if}
+                    {/foreach}
+
+                    {if $breadcrumbSection}
+                        {$breadcrumbSection}
+                    {else}
+                        {if !empty($breadcrumbs)}
+                            {foreach $breadcrumbs as $breadcrumb}
+                                {if $breadcrumb}
+                                    {$breadcrumb.name|escape}
+                                {/if}
+                            {/foreach}
+                        {else}
+                            Наши партнеры и сертификаты
+                        {/if}
+                    {/if}
+                </li>
+            </ol>
+        </nav>
+
+        <div class="container">
+            <div class="page">
+                <article class="content" itemscope itemtype="http://schema.org/{if $action == 'photo'}Photograph{else}WebPage{/if}">
+                    {$content}
+
+                    <div class="clear-both"></div>
+                </article>
+            </div>
+        </div>
+
+
+    </div>
+
+    <div class="container-fluid px-0">
+        {include file="`$wa_parent_theme_path`/components.html" inline}
+        {include file="`$wa_parent_theme_path`/form.html" inline}
+    </div>
+</main>
+
+{include file="`$wa_active_theme_path`/__menu.html" inline}

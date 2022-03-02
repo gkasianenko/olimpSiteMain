@@ -1,0 +1,147 @@
+//
+// Component: Base
+//
+// ========================================================================
+
+
+// Variables
+// ========================================================================
+
+//
+// New
+//
+
+@text-medium-font-size:                         @global-medium-font-size;
+@text-medium-line-height:                       1.4;
+
+@text-xlarge-font-size:                         @global-xlarge-font-size;
+@text-xlarge-line-height:                       1.3;
+
+@text-2xlarge-font-size:                        @global-2xlarge-font-size;
+@text-2xlarge-line-height:                      1.2;
+
+@text-meta-link-color:                          @text-meta-color;
+@text-meta-link-hover-color:                    @global-color;
+
+
+// Style modifiers
+// ========================================================================
+
+.hook-text-lead() {}
+
+.hook-text-meta() {
+
+    a { color: @text-meta-link-color; }
+
+    a:hover {
+        color: @text-meta-link-hover-color;
+        text-decoration: none;
+    }
+
+}
+
+
+// Size modifiers
+// ========================================================================
+
+.hook-text-small() {}
+
+.hook-text-large() {}
+
+
+// Background modifier
+// ========================================================================
+
+.hook-text-background() {}
+
+
+// Miscellaneous
+// ========================================================================
+
+.hook-text-misc() {
+
+    .uk-text-medium {
+        font-size: @text-medium-font-size;
+        line-height: @text-medium-line-height;
+        .hook-text-medium();
+    }
+
+    .uk-text-xlarge {
+        font-size: @text-xlarge-font-size;
+        line-height: @text-xlarge-line-height;
+        .hook-text-xlarge();
+    }
+
+    .uk-text-xxlarge {
+        font-size: @text-2xlarge-font-size;
+        line-height: @text-2xlarge-line-height;
+        .hook-text-xxlarge();
+    }
+
+}
+
+.hook-text-medium() {}
+.hook-text-xlarge() {}
+.hook-text-xxlarge() {}
+
+
+// Inverse
+// ========================================================================
+
+@inverse-text-meta-link-color:                 @inverse-global-muted-color;
+@inverse-text-meta-link-hover-color:           @inverse-global-color;
+
+.hook-inverse-text-lead() {}
+.hook-inverse-text-meta() {
+
+    a { color: @inverse-text-meta-link-color; }
+
+    a:hover {
+        color: @inverse-text-meta-link-hover-color;
+        text-decoration: none;
+    }
+
+}
+
+
+// Primary
+// ========================================================================
+
+@primary-text-lead-color:                      @primary-global-color;
+@primary-text-meta-color:                      @primary-global-muted-color;
+@primary-text-meta-link-color:                 @primary-global-muted-color;
+@primary-text-meta-link-hover-color:           @primary-global-color;
+@primary-text-muted-color:                     @primary-global-muted-color;
+@primary-text-emphasis-color:                  @primary-global-emphasis-color;
+@primary-text-primary-color:                   @primary-global-primary-background;
+@primary-text-secondary-color:                 @primary-global-primary-background;
+
+.hook-primary() {
+
+    .uk-text-lead {
+        color: @primary-text-lead-color;
+        .hook-primary-text-lead();
+    }
+
+    .uk-text-meta {
+        color: @primary-text-meta-color;
+
+        a { color: @primary-text-meta-link-color; }
+
+        a:hover {
+            color: @primary-text-meta-link-hover-color;
+            text-decoration: none;
+        }
+
+        .hook-primary-text-meta();
+    }
+
+    .uk-text-muted { color: @primary-text-muted-color !important; }
+    .uk-text-emphasis { color: @primary-text-emphasis-color !important; }
+    .uk-text-primary { color: @primary-text-primary-color !important; }
+    .uk-text-secondary { color: @primary-text-secondary-color !important; }
+
+}
+
+.hook-primary-text-lead() {}
+.hook-primary-text-meta() {}

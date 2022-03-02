@@ -1,0 +1,228 @@
+// Name:            Product
+// Description:
+//
+// Component:       `uk-product`
+//
+// ========================================================================
+
+
+// Variables
+// ========================================================================
+
+@product-price-compare-color:							@global-muted-color;
+@product-price-compare-font-size:						1em;
+@product-price-color:									@global-color;
+@product-price-with-compare-color:						@global-danger-background;
+@product-price-font-size:								1.25em;
+
+@product-unavailable-option-color:               		@global-muted-color;
+@product-unavailable-option-background:           		#f5f5f5; // @global-muted-background;
+
+@product-compare-active-color:                          @global-success-background;
+@product-compare-active-background:                     transparent;
+@product-favorite-active-color:                         @product-compare-active-color;
+@product-favorite-active-background:                    @product-compare-active-background;
+
+
+/* ========================================================================
+   Component: Product
+ ========================================================================== */
+
+/*
+ * Status
+ */
+
+.uk-product:not(.uk-product-unavailable) .uk-product-unavailable-visible,
+.uk-product.uk-product-unavailable .uk-product-unavailable-hidden { display: none !important; }
+
+
+/*
+ * Unavailable
+ */
+
+label.uk-unavailable-option {
+    position: relative;
+    display: inline-block;
+	text-decoration: line-through;
+    text-decoration-color: @product-unavailable-option-color;
+}
+
+label.uk-unavailable-option::before {
+	content: "";
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	position: absolute;
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+	background-color: rgba(255, 255, 255, 0.6);
+}
+
+.sku-feature option:disabled,
+.sku-feature option.uk-unavailable-option {
+	color: @product-unavailable-option-color !important;
+	background-color: @product-unavailable-option-background !important;
+}
+
+
+/*
+ * Prices
+ */
+
+.compare-at-price,
+.uk-compare-price {
+    color: @product-price-compare-color;
+    font-size: @product-price-compare-font-size;
+	text-decoration: line-through;
+    .hook-product-compare-price();
+}
+
+.price,
+.uk-price {
+    font-size: @product-price-font-size;
+	color: @product-price-color;
+    .hook-product-price();
+}
+
+.compare-at-price:not([hidden]) + .price,
+.compare-at-price:not([hidden]) + .uk-price,
+.uk-compare-price:not([hidden]) + .price,
+.uk-compare-price:not([hidden]) + .uk-price {
+	color: @product-price-with-compare-color;
+    .hook-product-price-with-compare();
+}
+
+/*
+ * Compare & Favorite
+ */
+
+.uk-product-compare.uk-active {
+    color: @product-compare-active-color !important;
+    & when not (@product-compare-active-background = transparent) { background: @product-compare-active-background; }
+    .hook-product-compare-active();
+}
+.uk-product-favorite.uk-active {
+    color: @product-favorite-active-color !important;
+    & when not (@product-favorite-active-background = transparent) { background: @product-favorite-active-background; }
+    .hook-product-favorite-active();
+}
+
+// fix visible in active
+.uk-product-compare.uk-active[class*='uk-transition-slide'],
+.uk-product-favorite.uk-active[class*='uk-transition-slide'] {
+	opacity: 1;
+    transform: translate(0,0);
+}
+
+.uk-visible-toggle:not(:hover):not(:focus) .uk-product-compare.uk-active.uk-invisible-hover,
+.uk-visible-toggle:not(:hover):not(:focus) .uk-product-favorite.uk-active.uk-invisible-hover {
+	opacity: 1 !important;
+}
+
+
+// Hooks
+// ========================================================================
+
+.hook-product-misc;
+
+.hook-product-compare-price() {}
+.hook-product-price() {}
+.hook-product-price-with-compare() {}
+.hook-product-compare-active() {}
+.hook-product-favorite-active() {}
+.hook-product-misc() {}
+
+
+// Inverse
+// ========================================================================
+
+@inverse-product-compare-active-color:                  @product-compare-active-color;
+@inverse-product-compare-active-background:             transparent;
+@inverse-product-favorite-active-color:                 @inverse-product-compare-active-color;
+@inverse-product-favorite-active-background:            @inverse-product-compare-active-background;
+
+.hook-inverse() {
+
+    .compare-at-price,
+    .uk-compare-price {
+        .hook-inverse-product-compare-price();
+    }
+
+    .price,
+    .uk-price {
+        .hook-inverse-product-price();
+    }
+
+    .compare-at-price:not([hidden]) + .price,
+    .compare-at-price:not([hidden]) + .uk-price,
+    .uk-compare-price:not([hidden]) + .price,
+    .uk-compare-price:not([hidden]) + .uk-price {
+        .hook-inverse-product-price-with-compare();
+    }
+
+    .uk-product-compare.uk-active {
+        color: @inverse-product-compare-active-color !important;
+        & when not (@inverse-product-compare-active-background = @product-compare-active-background) { background: @inverse-product-compare-active-background; }
+        .hook-inverse-product-compare-active();
+    }
+    .uk-product-favorite.uk-active {
+        color: @inverse-product-favorite-active-color !important;
+        & when not (@inverse-product-favorite-active-background = @product-favorite-active-background) { background: @inverse-product-favorite-active-background; }
+        .hook-inverse-product-favorite-active();
+    }
+
+}
+
+.hook-inverse-product-compare-price() {}
+.hook-inverse-product-price() {}
+.hook-inverse-product-price-with-compare() {}
+.hook-inverse-product-compare-active() {}
+.hook-inverse-product-favorite-active() {}
+
+
+// Primary
+// ========================================================================
+
+@primary-product-compare-active-color:                  @product-compare-active-color;
+@primary-product-compare-active-background:             transparent;
+@primary-product-favorite-active-color:                 @primary-product-compare-active-color;
+@primary-product-favorite-active-background:            @primary-product-compare-active-background;
+
+.hook-primary() {
+
+    .compare-at-price,
+    .uk-compare-price {
+        .hook-primary-product-compare-price();
+    }
+
+    .price,
+    .uk-price {
+        .hook-primary-product-price();
+    }
+
+    .compare-at-price:not([hidden]) + .price,
+    .compare-at-price:not([hidden]) + .uk-price,
+    .uk-compare-price:not([hidden]) + .price,
+    .uk-compare-price:not([hidden]) + .uk-price {
+        .hook-primary-product-price-with-compare();
+    }
+
+    .uk-product-compare.uk-active {
+        color: @primary-product-compare-active-color !important;
+        & when not (@primary-product-compare-active-background = @product-compare-active-background) { background: @primary-product-compare-active-background; }
+        .hook-primary-product-compare-active();
+    }
+    .uk-product-favorite.uk-active {
+        color: @primary-product-favorite-active-color !important;
+        & when not (@primary-product-favorite-active-background = @product-favorite-active-background) { background: @primary-product-favorite-active-background; }
+        .hook-primary-product-favorite-active();
+    }
+
+}
+
+.hook-primary-product-compare-price() {}
+.hook-primary-product-price() {}
+.hook-primary-product-price-with-compare() {}
+.hook-primary-product-compare-active() {}
+.hook-primary-product-favorite-active() {}

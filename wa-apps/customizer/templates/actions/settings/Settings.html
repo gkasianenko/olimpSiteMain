@@ -1,0 +1,104 @@
+{strip}
+
+
+<div class="shadowed">
+
+	{if isset($saved) && $saved}
+		<div class="block double-padded bordered-bottom c-message-success">
+			<i class="icon16 yes"></i>[`Settings updated`]
+		</div>
+	{/if}
+	
+	<div class="block double-padded bordered-bottom">
+		[`Unused drafts`] <span class="unused-drafts-count">{$unused_drafts_count}</span>{if $unused_drafts_count} <a class="unused-drafts-delete" href="?module=backend&action=delete">[`delete`]</a>{/if}
+	</div>
+
+	<form action="?module=settings" method="post">
+
+		{$wa->csrf()}
+
+		<div class="block double-padded">			
+			<div class="fields form">
+				
+				{*
+				<div class="field-group">
+					<div class="field">
+						<div class="name">[`Draft prefix`]</div>                
+						<div class="value">
+							<input type="text" name="draft_prefix" id="settings-draft-prefix" value="{$settings['draft_prefix']|default:''}" placeholder="draft-" />
+						</div>
+					</div>
+				</div>
+				*}
+				
+				<h6 class="heading">[`Frontend settings`]</h6>
+				<div class="field-group">
+					<div class="field">
+						<div class="name">[`Only admin`]</div>
+						<div class="value no-shift">
+							<input type="checkbox" name="is_admin" id="settings-is-admin"{if !empty($settings['is_admin'])} checked="checked"{/if} value="1" />
+						</div>
+					</div>
+					<div class="field">
+						<div class="name">[`Publish draft`]</div>
+						<div class="value no-shift">
+							<input type="checkbox" name="draft_publish" id="settings-draft-publish"{if !empty($settings['draft_publish'])} checked="checked"{/if} value="1" />
+						</div>
+					</div>
+					<div class="field">
+						<div class="name">[`Save draft`]</div>
+						<div class="value no-shift">
+							<input type="checkbox" name="draft_save" id="settings-draft-save"{if !empty($settings['draft_save'])} checked="checked"{/if} value="1" disabled />
+						</div>
+					</div>
+					<div class="field">
+						<div class="name">[`Top`]</div>
+						<div class="value no-shift">
+							<input type="text" name="open_top" id="settings-open-top" class="short" value="{$settings['open_top']|default:50}" /> %
+							<br />
+							<span class="hint">[`Set the vertical position of the button in percentage.`]</span>
+						</div>
+					</div>
+				</div>
+				
+				<div class="field">
+					<div class="value submit">
+						<input type="submit" name="save" class="button green" value="[`Save`]" />
+					</div>
+				</div>
+				
+			</div>
+			<div class="clear-both"></div>
+		</div>
+		
+	</form>
+  
+</div>
+<script>
+(function($) { 'use strict';
+
+$(function() {
+	var loader = $('<i class="icon16 loading"></i>');
+	$('.unused-drafts-delete').on('click', function(e) {
+		e.preventDefault();
+		var that = this;
+		$(this).after(loader);
+		$.ajax({
+			url: $(this).attr('href')
+		}).then(
+			function() {
+				$(that).attr('hidden', true);
+				$('.unused-drafts-count').text(0);
+				loader.remove();
+			},
+			function() {
+			}
+		);
+	});
+});
+
+})(jQuery);
+</script>
+
+
+{/strip}

@@ -1,0 +1,22 @@
+//
+// Component: Width
+//
+// ========================================================================
+
+
+// Variables
+// ========================================================================
+
+
+// Miscellaneous
+// ========================================================================
+
+.hook-width-misc() {
+
+    /* Tablet landscape and bigger */
+    @media (min-width: @breakpoint-medium) {
+        .tm-child-width-2-3\@m > *:nth-child(10n+1),
+        .tm-child-width-2-3\@m > *:nth-child(10n+7) { width: ~'calc(100% * 2 / 3.001)'; }
+    }
+
+}

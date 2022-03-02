@@ -1,0 +1,121 @@
+{if $wa->blog}
+<div class="section section__reviews d-none d-md-block">
+    <div class="container-fluid container-lg">
+        <h1 class="section__title mb-3">
+            Репутационные гарантии
+
+        </h1>
+        <div class="section__nav">
+            <div class="row">
+                <div class="col">
+                    <p class="lead">Достижения высокого результата</p>
+                </div>
+                <div class="col-auto">
+                    <ul class="nav justify-content-center flex-column flex-sm-row">
+                        <li class="nav-item"><a class="nav-link" href="#yandeks" id="yandeks-tab" data-toggle="tab"
+                            role="tab" aria-controls="yandeks" aria-selected="true">Яндекс.Карты</a></li>
+                        <li class="nav-item"><a class="nav-link active" href="#letter" id="letter-tab" data-toggle="tab"
+                                                role="tab" aria-controls="letter" aria-selected="true">Письма</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#video" id="video-tab" data-toggle="tab" role="tab"
+                                                aria-controls="video" aria-selected="true">Видео</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#audio" id="audio-tab" data-toggle="tab" role="tab"
+                                                aria-controls="audio" aria-selected="true">Аудио</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="section__content" data-aos="fade-up">
+            <div class="tab-content">
+                <div class="tab-pane show" id="yandeks" role="tabpanel" aria-labelledby="yandeks-tab">
+                    <div class="yandeks-tab">
+
+                        <div style="width: 50%;height:800px;overflow:hidden;position:relative;margin-bottom: 50px;"><iframe style="width:100%;height:100%;border:0px solid #e6e6e6;border-radius:8px;box-sizing:border-box;margin-left:auto;margin-right:auto" src="https://yandex.ru/maps-reviews-widget/1023756622?comments"></iframe><a href="https://yandex.ru/maps/org/olimp/1023756622/" target="_blank" style="box-sizing:border-box;text-decoration:none;color:#b3b3b3;font-size:10px;font-family:YS Text,sans-serif;padding:0 20px;position:absolute;bottom:8px;width:100%;text-align:center;left:0">Олимп на карте Королёва — Яндекс.Карты</a></div>
+                    </div>
+                </div>
+                <div class="tab-pane show active" id="letter" role="tabpanel" aria-labelledby="letter-tab">
+                    {$posts1 = $wa->blog->posts(4,100)}
+                    {capture}{$posts1|@shuffle}{/capture}
+                    {if !empty($posts1)}
+                    <div class="owl-carousel owl-theme" id="review-text-carousel">
+                        {foreach $posts1 as $post}
+                        <div class="item">
+                            <div class="review-item">
+                                <div class="review-item__content">
+                                    <div class="review-item__label"><a class="btn" href="{$post.image}" data-lightbox="{$post.id}">Просмотреть письмо</a></div>
+                                    <div class="review-item__header"><strong>{$post.title|strip_tags}</strong></div>
+                                    <div class="review-item__text">
+                                        {$post.text|strip_tags|truncate:250:"..."}
+                                    </div>
+                                </div>
+                                <div class="review-item__detail"><a class="btn btn-block d-flex justify-content-between align-items-baseline stretched-link" href="{$post.link}"><span>Подробнее</span><i></i></a></div>
+                            </div>
+                        </div>
+                        {/foreach}
+                    </div>
+                    {else}
+                    <p>Отзывы не опубликованы</p>
+                    {/if}
+                </div>
+                <div class="tab-pane" id="video" role="tabpanel" aria-labelledby="video-tab">
+                    {$posts2 = $wa->blog->posts(7,9)}
+                    {if !empty($posts2)}
+                    <div class="owl-carousel owl-theme" id="review-video-carousel">
+                        {foreach $posts2 as $post}
+                        <div class="item">
+                            <div class="review-media">
+                                <div class="embed-responsive embed-responsive-16by9">
+                                    <video class="embed-responsive-item" muted playsinline controls preload="metadata">
+                                        <source src="{$post.src}" type="video/mp4">
+                                        Your browser does not support the video tag.
+                                    </video>
+                                </div>
+                            </div>
+                        </div>
+                        {/foreach}
+                    </div>
+                    {else}
+                    <p>Отзывы не опубликованы</p>
+                    {/if}
+                </div>
+                <div class="tab-pane" id="audio" role="tabpanel" aria-labelledby="audio-tab">
+                    {$posts3 = $wa->blog->posts(6,10)}
+                    {if !empty($posts3)}
+                    <div class="owl-carousel owl-theme" id="review-audio-carousel">
+                        {$posts3 = $wa->blog->posts(6,9)}
+                        {foreach $posts3 as $post}
+                        <div class="item">
+                            <div class="review-media review-media--audio">
+                                <div class="review-media__body">
+                                    <div class="review-media__content">
+                                        <div class="review-media__header">{$post.title|strip_tags}</div>
+                                        {if isset($post.personName) && $post.personName}
+                                        <div class="review-media__post">
+                                            <span>{$post.personName|strip_tags}</span>
+                                            {if isset($post.personPost) && $post.personPost}<i>{$post.personPost|strip_tags}</i>{/if}
+                                        </div>
+                                        {/if}
+                                    </div>
+                                    {if isset($post.logo) && $post.logo}
+                                    <div class="review-media__logo"><img src="{$post.logo}"></div>
+                                    {/if}
+                                </div>
+                                <div class="review-media__embed">
+                                    <audio controls preload="none">
+                                        <source src="{$post.src}" type="audio/mpeg">
+                                        Your browser does not support the audio tag.
+                                    </audio>
+                                </div>
+                            </div>
+                        </div>
+                        {/foreach}
+                    </div>
+                    {else}
+                    <p>Отзывы не опубликованы</p>
+                    {/if}
+                </div>
+            </div>
+        </div>
+        <div class="section__detail"><a href="/otzyvy/">Все отзывы<i></i></a></div>
+    </div>
+</div>
+{/if}

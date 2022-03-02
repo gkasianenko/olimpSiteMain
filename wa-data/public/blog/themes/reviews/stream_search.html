@@ -1,0 +1,17 @@
+{* post stream (list): minimalistic view mode; used for post filtering by tags, author, search, etc. *}
+
+{foreach array_chunk($posts, 2) as $row}
+    <div class="row">
+        {foreach $row as $post}
+        <div class="col-6">
+            <section class="post post__review search-match" id="post-{$post.id}" {if $wa->param('blog_url')}itemprop="blogPosts"{/if} itemscope itemtype="http://schema.org/BlogPosting">
+                {include file="stream_posts_item.html" inline}
+            </section>
+        </div>
+        {/foreach}
+    </div>
+{foreachelse}
+    {if !isset($page) || $page lt 2}
+        {_w('%d post','%d posts',0)}
+    {/if}
+{/foreach}

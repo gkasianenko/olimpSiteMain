@@ -1,0 +1,229 @@
+@media (min-width: 1200px) {
+    .calc_block_title {
+        font-size: 55px;
+    }
+}
+
+@media (min-width: 992px) {
+    .calc_block_title {
+        font-size: 45px;
+    }
+}
+
+@media (min-width: 768px) {
+    .calc_block_title {
+        font-size: 40px;
+    }
+}
+
+@media (min-width: 576px) {
+    .calc_block_title {
+        font-size: 38px;
+    }
+}
+
+.calc_block_title {
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 40px;
+    color: #000;
+}
+
+.calc_block_title:after {
+    content: "";
+    display: block;
+    width: 89px;
+    height: 4px;
+    background: #e30014;
+    margin-bottom: 35px;
+}
+
+/*----------------------------------Количество филиалов----------------------*/
+.calc-filials {
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin-bottom: 49px;
+
+}
+.calc-filials span {
+    font-size: 18px;
+    line-height: 20px;
+    font-weight: 400;
+    margin-right: 16px;
+}
+
+.calc-filials input {
+    width: 100%;
+    max-width: 90px;
+    height: 31px;
+    border-radius: 5px;
+    border: 0.3px solid rgba(0, 0, 0, 0.35);
+    background: rgba(198, 220, 238, 0.15);
+    text-align: center;
+    font-size: 14px;
+    line-height: 1.2;
+    font-weight: 400;
+}
+
+.calc-filials input:focus {
+    border: 0.3px solid rgba(0, 0, 0, 0.75);
+}
+.calc-filials input[type="number"]::-webkit-outer-spin-button,
+.calc-filials input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+.calc-filials input[type="number"] {
+    -moz-appearance: textfield;
+}
+.calc-filials input[type="number"]:hover,
+.calc-filials input[type="number"]:focus {
+    -moz-appearance: number-input;
+}
+.calc-filials input[type=number]::-webkit-inner-spin-button,
+.calc-filials input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/*---------------------------------/Количество филиалов----------------------*/
+
+.type_platform_reviews img {
+    height: 31px;
+    max-height: 31px;
+    width: auto;
+    margin-left: 24px;
+    margin-right: 32px;
+}
+
+.type_platform_reviews {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.review-icon {
+    display: block;
+    width: 20px;
+    height: 20px;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.review-plus {
+    background-image: url(/wa-data/public/site/themes/default/img/calculate/plus.svg);
+}
+
+.review-minus {
+    background-image: url(/wa-data/public/site/themes/default/img/calculate/minus.svg);
+}
+
+.review-question {
+    background-image: url(/wa-data/public/site/themes/default/img/calculate/question.svg);
+}
+
+#select-review {
+    max-height: 120px;
+    overflow-y: scroll;
+    position: absolute;
+    display: none;
+}
+
+/* W3C standard
+сейчас только для Firefox */
+#select-review {
+    scrollbar-width: thin;
+    scrollbar-color: blue orange;
+}
+
+/* для Chrome/Edge/Safari */
+#select-review::-webkit-scrollbar {
+    height: 12px;
+    width: 12px;
+}
+
+#select-review::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+#select-review::-webkit-scrollbar-thumb {
+    background-color: red;
+    border-radius: 5px;
+    border: 3px solid red;
+}
+
+.add-platform {
+    position: relative;
+}
+
+.icons-wrapper {
+    display: flex;
+    align-items: center;
+
+}
+
+#select-review.select-review-open {
+    display: block;
+}
+
+.count_wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.count_wrapper input[type="number"] {
+    -moz-appearance: textfield;
+    -webkit-appearance: textfield;
+    appearance: textfield;
+}
+
+.count_wrapper input[type="number"]::-webkit-outer-spin-button,
+.count_wrapper input[type="number"]::-webkit-inner-spin-button {
+    display: none;
+}
+
+/*-------------------------------------Подсказки-------------------*/
+.help-module {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0;
+}
+
+span.help-describe {
+    width: 100%;
+    max-width: 378px;
+    background: #FFF6DD;
+    border-radius: 5px;
+    padding: 10px 5px;
+    font-weight: 300;
+    font-size: 9px;
+    line-height: 1.2;
+    color: #000000;
+}
+
+.calc-filials .hider {
+    margin-left: 9px;
+}
+
+@media (max-width: 800px) {
+    span.help-describe {
+        position: absolute;
+        top: 35px;
+        left: 0;
+    }
+}
+
+.hidden {
+    display: none;
+}
+
+/*------------------------------------/Подсказки-------------------*/
+
+/*----------------------------Строки платформ-------------------------*/
+.type_platform_reviews img.img-prodoctor {
+    width: 217px;
+}
+/*---------------------------/Строки платформ-------------------------*/

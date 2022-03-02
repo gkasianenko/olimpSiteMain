@@ -1,0 +1,179 @@
+//
+// Component: Subnav
+//
+// ========================================================================
+
+
+// Variables
+// ========================================================================
+
+//
+// New
+//
+
+@subnav-item-text-decoration:                   none;
+
+@subnav-pill-item-text-decoration:              none;
+@subnav-pill-item-hover-text-decoration:        none;
+
+
+// Component
+// ========================================================================
+
+.hook-subnav() {}
+
+.hook-subnav-item() {
+    text-decoration: @subnav-item-text-decoration;
+    transition: 0.1s ease-in-out;
+    transition-property: color, background-color, border-color, box-shadow;
+}
+
+.hook-subnav-item-hover() {}
+
+.hook-subnav-item-active() {}
+
+
+// Divider modifier
+// ========================================================================
+
+.hook-subnav-divider() {}
+
+
+// Pill modifier
+// ========================================================================
+
+.hook-subnav-pill-item() {
+    text-decoration: @subnav-pill-item-text-decoration;
+}
+
+.hook-subnav-pill-item-hover() {
+    text-decoration: @subnav-pill-item-hover-text-decoration;
+}
+
+.hook-subnav-pill-item-onclick() {}
+
+.hook-subnav-pill-item-active() {}
+
+
+// Disabled
+// ========================================================================
+
+.hook-subnav-item-disabled() {}
+
+
+// Miscellaneous
+// ========================================================================
+
+.hook-subnav-misc() {}
+
+
+// Inverse
+// ========================================================================
+
+.hook-inverse-subnav-item() {}
+.hook-inverse-subnav-item-hover() {}
+.hook-inverse-subnav-item-active() {}
+
+.hook-inverse-subnav-divider() {}
+
+.hook-inverse-subnav-pill-item() {}
+.hook-inverse-subnav-pill-item-hover() {}
+.hook-inverse-subnav-pill-item-onclick() {}
+.hook-inverse-subnav-pill-item-active() {}
+
+.hook-inverse-subnav-item-disabled() {}
+
+
+// Primary
+// ========================================================================
+
+@primary-subnav-item-color:                    @primary-global-muted-color;
+@primary-subnav-item-hover-color:              @primary-global-color;
+@primary-subnav-item-active-color:             @primary-global-emphasis-color;
+@primary-subnav-divider-border:                @primary-global-border;
+@primary-subnav-pill-item-background:          transparent;
+@primary-subnav-pill-item-color:               @primary-global-muted-color;
+@primary-subnav-pill-item-hover-background:    @primary-global-muted-background;
+@primary-subnav-pill-item-hover-color:         @primary-global-color;
+@primary-subnav-pill-item-onclick-background:  @primary-subnav-pill-item-hover-background;
+@primary-subnav-pill-item-onclick-color:       @primary-subnav-pill-item-hover-color;
+@primary-subnav-pill-item-active-background:   @primary-global-primary-background;
+@primary-subnav-pill-item-active-color:        @primary-global-inverse-color;
+@primary-subnav-item-disabled-color:           @primary-global-muted-color;
+
+.hook-primary() {
+
+    .uk-subnav > * > :first-child {
+        color: @primary-subnav-item-color;
+        .hook-primary-subnav-item();
+    }
+
+    .uk-subnav > * > a:hover,
+    .uk-subnav > * > a:focus {
+        color: @primary-subnav-item-hover-color;
+        .hook-primary-subnav-item-hover();
+    }
+
+    .uk-subnav > .uk-active > a {
+        color: @primary-subnav-item-active-color;
+        .hook-primary-subnav-item-active();
+    }
+
+    //
+    // Divider
+    //
+
+    .uk-subnav-divider > :nth-child(n+2):not(.uk-first-column)::before {
+        border-left-color: @primary-subnav-divider-border;
+        .hook-primary-subnav-divider();
+    }
+
+    //
+    // Pill
+    //
+
+    .uk-subnav-pill > * > :first-child {
+        background-color: @primary-subnav-pill-item-background;
+        color: @primary-subnav-pill-item-color;
+        .hook-primary-subnav-pill-item();
+    }
+
+    .uk-subnav-pill > * > a:hover,
+    .uk-subnav-pill > * > a:focus {
+        background-color: @primary-subnav-pill-item-hover-background;
+        color: @primary-subnav-pill-item-hover-color;
+        .hook-primary-subnav-pill-item-hover();
+    }
+
+    .uk-subnav-pill > * > a:active {
+        background-color: @primary-subnav-pill-item-onclick-background;
+        color: @primary-subnav-pill-item-onclick-color;
+        .hook-primary-subnav-pill-item-onclick();
+    }
+
+    .uk-subnav-pill > .uk-active > a {
+        background-color: @primary-subnav-pill-item-active-background;
+        color: @primary-subnav-pill-item-active-color;
+        .hook-primary-subnav-pill-item-active();
+    }
+
+    //
+    // Disabled
+    //
+
+    .uk-subnav > .uk-disabled > a {
+        color: @primary-subnav-item-disabled-color;
+        .hook-primary-subnav-item-disabled();
+    }
+
+}
+
+.hook-primary-subnav-item() {}
+.hook-primary-subnav-item-hover() {}
+.hook-primary-subnav-item-active() {}
+.hook-primary-subnav-divider() {}
+.hook-primary-subnav-pill-item() {}
+.hook-primary-subnav-pill-item-hover() {}
+.hook-primary-subnav-pill-item-onclick() {}
+.hook-primary-subnav-pill-item-active() {}
+.hook-primary-subnav-item-disabled() {}

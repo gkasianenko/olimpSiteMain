@@ -1,0 +1,136 @@
+<FilesMatch "\.md5$">
+    Deny from all
+</FilesMatch>
+
+DirectoryIndex index.php
+Options -Indexes
+# Comment the following line, if option Multiviews not allowed here
+Options -MultiViews
+
+AddDefaultCharset utf-8
+
+<ifModule mod_rewrite.c>
+    RewriteEngine On
+    
+    # Uncomment the following line, if you are having trouble
+    #RewriteBase /
+
+    # if request js file from ROOT
+    RewriteCond %{REQUEST_URI} ^\/?[^\/]+\.js$ [or]
+    # or if NOT request certain static file from anywhere
+    RewriteCond %{REQUEST_URI} !\.(js|css|jpg|jpeg|gif|png|svg|ttf|eot|otf|woff|woff2)$ [or]
+    # or if request apple-touch-icon.png icon
+    RewriteCond %{REQUEST_URI} apple-touch-icon\.png$ [or]
+
+    # or if other conditions for webdav and caldav are passed
+    RewriteCond %{REQUEST_METHOD} ^(POST|PUT|COPY|MOVE|DELETE|PROPFIND|OPTIONS|MKCOL)$ [or]
+    RewriteCond %{HTTP:Translate} ^.+$ [or]
+    RewriteCond %{HTTP_USER_AGENT} ^(DavClnt|litmus|gvfs|davfs|wdfs|WebDAV|cadaver|Cyberduck)
+
+    # or if file doesnt' exist
+    RewriteCond %{REQUEST_FILENAME} !-f
+    # or if directory doesnt' exist
+    RewriteCond %{REQUEST_FILENAME} !-d
+
+    # dispatch it to index.php
+    RewriteRule ^(.*)$ index.php [L,QSA]
+</ifModule>
+
+<ifModule mod_headers.c>
+    <FilesMatch "\.(jpg|jpeg|png|gif|js|css|svg|ttf|eot|otf|woff|woff2)$">
+        Header set Cache-Control "max-age=3153600, public"
+    </FilesMatch>
+</ifModule>
+
+php_value upload_max_filesize 256M
+php_value post_max_size 256M
+
+Redirect 301 /about https://olimp.ltd/o-kompanii
+Redirect 301 /state https://olimp.ltd/news
+Redirect 301 /contacts https://olimp.ltd/kontakty
+Redirect 301 /price https://olimp.ltd/tseny
+Redirect 301 /poleznoe https://olimp.ltd/klientam
+Redirect 301 /create https://olimp.ltd/sozdanie-saytov/internet-magazin
+Redirect 301 /pay https://olimp.ltd/oplata-uslug
+Redirect 301 /poleznoe/terminy https://olimp.ltd/klientam/slovar-terminov
+Redirect 301 /poleznoe/cveta https://olimp.ltd/klientam/tablitsa-tsvetov
+Redirect 301 /poleznoe/ofsetnaya https://olimp.ltd/klientam/tekhnicheskie-trebovaniya-dlya-maketov-ofsetnaya-pechat
+Redirect 301 /uslugi/context https://olimp.ltd/reklama-v-internete/kontekstnaya-reklama
+Redirect 301 /create/drupal https://olimp.ltd/sozdanie-saytov/__cms/drupal
+Redirect 301 /uslugi/text https://olimp.ltd/uslugi/kopirayting
+Redirect 301 /uslugi/polygraph https://olimp.ltd/dizayn/vizitki
+Redirect 301 /create/opencms https://olimp.ltd/sozdanie-saytov/__cms/opencms
+Redirect 301 /uslugi/hosting https://olimp.ltd/uslugi/khosting
+Redirect 301 /uslugi/style https://olimp.ltd/dizayn
+Redirect 301 /poleznoe/shirokoformatnaya https://olimp.ltd/klientam/tekhnicheskie-trebovaniya-dlya-maketov-shirokoformatnaya-pechat
+Redirect 301 /create/bitrix https://olimp.ltd/sozdanie-saytov/__cms/1s-bitriks
+Redirect 301 /create/joomla https://olimp.ltd/sozdanie-saytov/__cms/joomla
+Redirect 301 /pay/beznal https://olimp.ltd/oplata-uslug/beznalichnyy-raschet
+Redirect 301 /create/netcat https://olimp.ltd/sozdanie-saytov/__cms/netcat
+Redirect 301 /create/phpshop https://olimp.ltd/sozdanie-saytov/__cms/phpshop
+Redirect 301 /pay https://olimp.ltd/oplata-uslug
+Redirect 301 /uslugi/support https://olimp.ltd/tseny-na-nashi-uslugi/tekhnicheskaya-podderzhka
+Redirect 301 /uslugi/domen https://olimp.ltd/uslugi/domeny
+Redirect 301 /pay/tinkoff https://olimp.ltd/oplata-uslug/tinkoff-bank
+Redirect 301 /pay/qiwi https://olimp.ltd/oplata-uslug/oplata-cherez-platezhnuyu-sistemu-qiwi
+Redirect 301 /state/state_532.html https://olimp.ltd/news/news-532
+Redirect 301 /state/state_210.html https://olimp.ltd/news/news-210
+Redirect 301 /state/state_164.html https://olimp.ltd/news/news-164
+Redirect 301 /state/state_22.html https://olimp.ltd/news/news-22
+Redirect 301 /state/state_982.html https://olimp.ltd/news/news-982
+Redirect 301 /state/state_978.html https://olimp.ltd/news/news-978
+Redirect 301 /state/state_212.html https://olimp.ltd/news/news-212
+Redirect 301 /state/state_566.html https://olimp.ltd/news/news-566
+Redirect 301 /state/state_108.html https://olimp.ltd/news/news-108
+Redirect 301 /state/state_217.html https://olimp.ltd/news/news-217
+Redirect 301 /state/state_162.html https://olimp.ltd/news/news-162
+Redirect 301 /state/state_580.html https://olimp.ltd/news/news-580
+Redirect 301 /state/state_993.html https://olimp.ltd/news/news-993
+Redirect 301 /state/state_444.html https://olimp.ltd/news/news-444
+Redirect 301 /state/state_66.html https://olimp.ltd/news/news-66
+Redirect 301 /state/state_232.html https://olimp.ltd/news/news-232
+Redirect 301 /state/state_779.html https://olimp.ltd/news/news-779
+Redirect 301 /uslugi/naruzhnaya-reklama https://olimp.ltd/naruzhnaya-i-interernaya-reklama
+Redirect 301 /state/state_569.html https://olimp.ltd/news/news-569
+Redirect 301 /state/state_994.html https://olimp.ltd/news/news-994
+Redirect 301 /state/state_196.html https://olimp.ltd/news/news-196
+Redirect 301 /otzyvy/otzyvy_9.html https://olimp.ltd/otzyvy/otzyv-9
+Redirect 301 /portfolio/portfolio_487.html https://olimp.ltd/portfolio/portfolio-487
+Redirect 301 /portfolio/portfolio_486.html https://olimp.ltd/portfolio/portfolio-486
+Redirect 301 /state/state_114.html https://olimp.ltd/news/news-114
+Redirect 301 /portfolio/portfolio_257.html https://olimp.ltd/portfolio/portfolio-257
+Redirect 301 /state/state_203.html https://olimp.ltd/news/news-203
+Redirect 301 /state/state_216.html https://olimp.ltd/news/news-216
+Redirect 301 /otzyvy/otzyvy_26.html https://olimp.ltd/otzyvy/otzyv-26
+Redirect 301 /otzyvy/otzyvy_14.html https://olimp.ltd/otzyvy/otzyv-14
+Redirect 301 /otzyvy/otzyvy_6.html https://olimp.ltd/otzyvy/otzyv-6
+Redirect 301 /state/state_47.html https://olimp.ltd/news/news-47
+Redirect 301 /otzyvy/otzyvy_3.html https://olimp.ltd/otzyvy/otzyv-3
+Redirect 301 /state/state_97.html https://olimp.ltd/news/news-97
+Redirect 301 /state/state_988.html https://olimp.ltd/news/news-988
+Redirect 301 /state/state_927.html https://olimp.ltd/news/news-927
+Redirect 301 /portfolio/portfolio_490.html https://olimp.ltd/portfolio/portfolio-490
+Redirect 301 /state/state_199.html https://olimp.ltd/news/news-199
+Redirect 301 /state/state_990.html https://olimp.ltd/news/news-990
+Redirect 301 /portfolio/portfolio_255.html https://olimp.ltd/portfolio/portfolio-255
+Redirect 301 /otzyvy/otzyvy_28.html https://olimp.ltd/otzyvy/otzyv-28
+Redirect 301 /state/state_655.html https://olimp.ltd/news/news-655
+Redirect 301 /portfolio/portfolio_336.html https://olimp.ltd/portfolio/portfolio-336
+Redirect 301 /state/state_489.html https://olimp.ltd/news/news-489
+Redirect 301 /state/state_172.html https://olimp.ltd/news/news-172
+Redirect 301 /otzyvy/otzyvy_16.html https://olimp.ltd/otzyvy/otzyv-16
+Redirect 301 /otzyvy/otzyvy_15.html https://olimp.ltd/otzyvy/otzyv-15
+Redirect 301 /otzyvy/otzyvy_13.html https://olimp.ltd/otzyvy/otzyv-13
+Redirect 301 /portfolio/portfolio_289.html https://olimp.ltd/portfolio/portfolio-289
+Redirect 301 /otzyvy/otzyvy_10.html https://olimp.ltd/otzyvy/otzyv-10
+Redirect 301 /state/state_987.html https://olimp.ltd/news/news-987
+Redirect 301 /otzyvy/otzyvy_30.html https://olimp.ltd/otzyvy/otzyv-30
+Redirect 301 /otzyvy/otzyvy_20.html https://olimp.ltd/otzyvy/otzyv-20
+Redirect 301 /state/state_165.html https://olimp.ltd/news/news-165
+Redirect 301 /state/state_243.html https://olimp.ltd/news/news-243
+Redirect 301 /state/state_799.html https://olimp.ltd/news/news-799
+Redirect 301 /state/state_583.html https://olimp.ltd/news/news-583
+Redirect 301 /portfolio/portfolio_493.html https://olimp.ltd/portfolio/portfolio-493
+Redirect 301 /state/state_14.html https://olimp.ltd/news/news-14
+Redirect 301 /otzyvy/otzyvy_22.html https://olimp.ltd/otzyvy/otzyv-22
+Redirect 301 /state/state_326.html https://olimp.ltd/news/news-326

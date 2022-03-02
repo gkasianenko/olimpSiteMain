@@ -1,0 +1,55 @@
+<p><a href="{$wa_app_url}">Назад</a> </p>
+
+<h1>Настройки приложения</h1>
+<p class="red">Внимание! Если Вы не уверены не меняйте значения</p>
+
+
+<form action="" method="post">
+<div class="field-group">
+
+    <div class="field">
+
+        <div class="name">
+            <label>Пропускать файлы больше чем</label>
+        </div>
+
+        <div class="value">
+            Размер в Мб:<br>
+            <input type="text" name="max_filesize" value="{$post.max_filesize|default:3|escape}">
+            <p>Максимальное значение зависит от значения memory_limit на вашем сервере (текущее {$memory_limit}) и max_execution_time (текущее {$max_execution_time})</p>
+            <p>Увеличивайте если хотите проверять большие файлы, уменьшайте если в процессе сканирования возникает ошибка: <em>Fatal error: Allowed memory size</em></p>
+        </div>
+
+    </div>
+
+    <div class="field">
+
+        <div class="name">
+            <label>Время одной итерации</label>
+        </div>
+
+        <div class="value">
+            При проверки файлов, в секундах:<br>
+            <input type="text" name="max_duration" value="{$post.max_duration|default:3|escape}">
+            <p>Максимальное значение зависит от max_execution_time (текущее {$max_execution_time}) и не может превышать {$max_execution_time/2}</p>
+            <p>Увеличивайте если системе не хватает времени на проверку одного файла, уменьшайте если в
+                процессе сканирования возникает ошибка: <em>Fatal error: Maximum execution time</em>
+                или если вы хотите увеличить отзывчивость интерфейса при сканировании</p>
+        </div>
+
+    </div>
+
+</div>
+
+    <div class="field-group">
+
+        <div class="field">
+
+            <div class="value submit">
+                <input type="submit" name="save" class="button green" value="Сохранить">
+            </div>
+
+        </div>
+
+    </div>
+</form>

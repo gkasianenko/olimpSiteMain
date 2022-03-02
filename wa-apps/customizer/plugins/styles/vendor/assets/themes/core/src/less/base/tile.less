@@ -1,0 +1,73 @@
+//
+// Component: Tile
+//
+// ========================================================================
+
+
+// Variables
+// ========================================================================
+
+//
+// New
+//
+
+@tile-default-color-mode:                      dark;
+@tile-muted-color-mode:                        dark;
+
+
+// Component
+// ========================================================================
+
+.hook-tile() {}
+
+
+// Style modifiers
+// ========================================================================
+
+.hook-tile-default() {}
+
+.hook-tile-muted() {}
+
+.hook-tile-primary() {}
+
+.hook-tile-secondary() {}
+
+
+// Miscellaneous
+// ========================================================================
+
+.hook-tile-misc() {
+
+    //
+    // Default
+    //
+
+    // Color Mode
+    .uk-tile-default:not(.uk-preserve-color):extend(.uk-light all) when (@tile-default-color-mode = light) {}
+    .uk-tile-default:not(.uk-preserve-color):extend(.uk-dark all) when (@tile-default-color-mode = dark) {}
+    .uk-tile-default:not(.uk-preserve-color):extend(.uk-primary all) when (@tile-default-color-mode = primary) {}
+
+    //
+    // Muted
+    //
+
+    // Color Mode
+    .uk-tile-muted:not(.uk-preserve-color):extend(.uk-light all) when (@tile-muted-color-mode = light) {}
+    .uk-tile-muted:not(.uk-preserve-color):extend(.uk-dark all) when (@tile-muted-color-mode = dark) {}
+    .uk-tile-muted:not(.uk-preserve-color):extend(.uk-primary all) when (@tile-muted-color-mode = primary) {}
+
+    //
+    // Primary
+    //
+
+    // Color Mode
+    .uk-tile-primary:not(.uk-preserve-color):extend(.uk-primary all) when (@tile-primary-color-mode = primary) {}
+
+    //
+    // Secondary
+    //
+
+    // Color Mode
+    .uk-tile-secondary:not(.uk-preserve-color):extend(.uk-primary all) when (@tile-secondary-color-mode = primary) {}
+
+}

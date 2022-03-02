@@ -1,0 +1,150 @@
+//
+// Component: Nav
+//
+// ========================================================================
+
+
+// Variables
+// ========================================================================
+
+@nav-item-padding-vertical:                     15px;
+
+@nav-default-font-size:                         @global-small-font-size;
+@nav-default-line-height:                       1.2;
+
+// @nav-default-border-width:                      @global-border-width;
+// @nav-default-border:                            @global-border;
+
+// @nav-default-item-padding-vertical:             8px;
+// @nav-default-item-padding-horizontal:           15px;
+
+@nav-default-item-hover-background:             rgba(0,0,0,0.03);
+@nav-default-item-active-background:            rgba(0,0,0,0.03);
+@nav-default-item-border-mode:                  -top;
+@nav-default-item-border-width:                 @global-border-width;
+@nav-default-item-border:                       @global-border;
+
+@nav-default-header-padding-vertical:           @nav-default-item-padding-vertical;
+@nav-default-header-padding-horizontal:         @nav-default-item-padding-horizontal;
+
+@nav-default-divider-padding-vertical:          20px;
+@nav-default-divider-border:                    @global-border;
+
+// @nav-default-sublist-border-mode:               -left;
+// @nav-default-sublist-border-width:              6px;
+// @nav-default-sublist-border:                    @global-border;
+
+
+// Sublists
+// ========================================================================
+
+.hook-nav-sub() {}
+
+
+// Parent icon modifier
+// ========================================================================
+
+.hook-nav-parent-icon() {}
+
+
+// Header
+// ========================================================================
+
+.hook-nav-header() {}
+
+
+// Divider
+// ========================================================================
+
+.hook-nav-divider() {}
+
+
+// Default style modifier
+// ========================================================================
+
+.hook-nav-default() {}
+
+.hook-nav-default-item() {}
+
+.hook-nav-default-item-hover() {}
+
+.hook-nav-default-item-active() {}
+
+.hook-nav-default-header() {
+    margin: 0;
+    &:not(:first-child) { padding-top: @nav-header-margin-top; }
+}
+
+.hook-nav-default-divider() { margin: 0; }
+
+
+// Primary style modifier
+// ========================================================================
+
+.hook-nav-primary() {}
+
+.hook-nav-primary-item() {}
+
+.hook-nav-primary-item-hover() {}
+
+.hook-nav-primary-item-active() {}
+
+.hook-nav-primary-header() {}
+
+.hook-nav-primary-divider() {}
+
+
+// Miscellaneous
+// ========================================================================
+
+.hook-nav-misc() {}
+
+
+// Inverse
+// ========================================================================
+
+@inverse-nav-default-border:                            @inverse-global-border;
+@inverse-nav-default-item-border:                       @inverse-nav-default-border;
+@inverse-nav-default-divider-border:                    @inverse-nav-default-border;
+@inverse-nav-default-sublist-border:                    @inverse-global-border;
+
+.hook-inverse-nav-parent-icon() {}
+
+.hook-inverse-nav-default() {}
+.hook-inverse-nav-default-item() {}
+.hook-inverse-nav-default-item-hover() {}
+.hook-inverse-nav-default-item-active() {}
+.hook-inverse-nav-default-header() {}
+.hook-inverse-nav-default-divider() {}
+
+.hook-inverse-nav-primary() {}
+.hook-inverse-nav-primary-item() {}
+.hook-inverse-nav-primary-item-hover() {}
+.hook-inverse-nav-primary-item-active() {}
+.hook-inverse-nav-primary-header() {}
+.hook-inverse-nav-primary-divider() {}
+
+
+// Primary
+// ========================================================================
+
+@primary-nav-default-border:                            @primary-global-border;
+@primary-nav-default-item-border:                       @primary-nav-default-border;
+@primary-nav-default-divider-border:                    @primary-nav-default-border;
+@primary-nav-default-sublist-border:                    @primary-global-border;
+
+.hook-primary-nav-parent-icon() {}
+
+.hook-primary-nav-default() {}
+.hook-primary-nav-default-item() {}
+.hook-primary-nav-default-item-hover() {}
+.hook-primary-nav-default-item-active() {}
+.hook-primary-nav-default-header() {}
+.hook-primary-nav-default-divider() {}
+
+.hook-primary-nav-primary() {}
+.hook-primary-nav-primary-item() {}
+.hook-primary-nav-primary-item-hover() {}
+.hook-primary-nav-primary-item-active() {}
+.hook-primary-nav-primary-header() {}
+.hook-primary-nav-primary-divider() {}

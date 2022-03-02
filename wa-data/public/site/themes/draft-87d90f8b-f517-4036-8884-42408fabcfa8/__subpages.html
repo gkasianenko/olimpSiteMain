@@ -1,0 +1,104 @@
+{$subpages = $wa->site->pages($page.id)}
+
+{if $subpages}
+{if isset($page.layout)}
+
+{if $page.layout === 'price__list2'}
+<div class="price__list page__price">
+    {foreach $subpages as $p}
+    {$p2 = $wa->site->page($p.id)}
+
+    <div class="page_price price__item price-item">
+        <div class="price__title">
+            <h3><a href="#blog-item__{$p2.id}" itemprop="url" data-toggle="collapse">{$p2.name}</a></h3>
+        </div>
+
+        <div class="price__text collapse" id="blog-item__{$p2.id}">
+            <div>{$p2.content}</div>
+        </div>
+
+        <div class="price__icon">
+            <a href="#blog-item__{$p2.id}" data-toggle="collapse">
+                <i class="icon fas"></i>
+            </a>
+        </div>
+    </div>
+
+    {/foreach}
+</div>
+{/if}
+
+{if $page.layout === 'price__list'}
+<div class="price__list">
+    <div class="row">
+        {foreach $subpages as $p}
+        {$p2 = $wa->site->page($p.id)}
+
+        <div class="col-12 col-lg-6 col-xl-4 text-center mb-4">
+            <div class="price__item price-item d-flex flex-column">
+                <div class="price-item__content">
+                    <div class="price-item__title">{$p2.name}</div>
+                    {if isset($p2.icon) && $p2.icon}
+                    <div class="price-item__icon">
+                        <svg class="icon">
+                            <use xlink:href="{$wa_theme_url}img/{$p2.icon}"></use>
+                        </svg>
+                    </div>
+                    {/if}
+                    {if isset($p2.price) && $p2.price}
+                    <div class="price-item__price">{$p2.price}</div>
+                    {/if}
+                    {if isset($p2.price_old) && $p2.price_old}
+                    <div class="price-item__price_old">{$p2.price_old}</div>
+                    {/if}
+                    {if isset($p2.brief) && $p2.brief}
+                    <div class="price-item__brief">{$p2.brief}</div>
+                    {/if}
+                </div>
+                <div class="price-item__detail">
+                    <a class="btn btn-outline-white btn-block d-flex justify-content-between align-items-baseline" href="{$p2.url}">
+                        <span>Подробнее</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        {/foreach}
+    </div>
+</div>
+{/if}
+
+{if $page.layout === 'payment'}
+<div class="section__grid section__grid--payment">
+    <div class="row">
+        {foreach $subpages as $p}
+        <div class="col-12 col-lg-6 col-xl-4 mb-4">
+            <div class="section__item d-flex flex-column">
+                <div class="section-item__content">
+                    <a class="section-item__title mb-2 stretched-link" href="{$p.url}">
+                        {$p.name}
+                    </a>
+
+                    {if isset($p.image)}
+                    <div class="section-item__icon my-3" style="background-image: url({$p.image})"></div>
+                    {/if}
+                </div>
+            </div>
+        </div>
+        {/foreach}
+    </div>
+</div>
+{/if}
+
+{else}
+
+{if !in_array($page.id, [7,101,85,5,16,17,18])}
+    <ul class="sub-links mb-5 list-style-none {if $page.params.sub_none} d-none{/if}">
+        {foreach $subpages as $p}
+        <li><a href="{$p.url}">{$p.name}</a></li>
+        {/foreach}
+    </ul>
+{/if}
+{/if}
+{/if}
+

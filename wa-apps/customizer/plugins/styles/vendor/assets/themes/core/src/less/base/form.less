@@ -1,0 +1,371 @@
+//
+// Component: Form
+//
+// ========================================================================
+
+
+// Variables
+// ========================================================================
+
+@form-label-font-size:                          @global-font-size;
+
+
+// Component
+// ========================================================================
+
+.hook-form() {
+    transition: 0.2s ease-in-out;
+    transition-property: color, background-color, border-color, box-shadow;
+}
+
+.hook-form-single-line() {}
+
+.hook-form-multi-line() {}
+
+.hook-form-focus() {}
+
+.hook-form-disabled() {}
+
+
+// Style modifiers
+// ========================================================================
+
+.hook-form-danger() {
+    color: @form-danger-color !important;
+}
+
+.hook-form-success() {
+    color: @form-success-color !important;
+}
+
+.hook-form-blank() {}
+
+.hook-form-blank-focus() {}
+
+
+// Radio and checkbox
+// ========================================================================
+
+.hook-form-radio() {
+    transition: 0.2s ease-in-out;
+    transition-property: background-color, border-color, box-shadow;
+}
+
+.hook-form-radio-focus() {}
+
+.hook-form-radio-checked() {}
+
+.hook-form-radio-checked-focus() { }
+
+.hook-form-radio-disabled() {}
+
+
+// Legend
+// ========================================================================
+
+.hook-form-legend() {}
+
+
+// Label
+// ========================================================================
+
+.hook-form-label() { font-size: @form-label-font-size; }
+
+
+// Layout
+// ========================================================================
+
+.hook-form-stacked-label() {}
+
+.hook-form-horizontal-label() {}
+
+
+// Miscellaneous
+// ========================================================================
+
+// Transparent `background-color` doesn't work in IE11 and Edge and the background will apear white.
+// This is why the text color is set to black.
+.hook-form-misc() when (@form-background = transparent),
+                       (@form-background = rgba(0, 0, 0, 0)) {
+    // IE10+
+    @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+        .uk-select:not([multiple]):not([size]) option { color: #444; }
+    }
+
+    // Edge
+    @supports (-ms-accelerator:true) {
+        .uk-select:not([multiple]):not([size]) option { color: #444; }
+    }
+
+}
+
+.hook-form-misc() {
+
+    //
+    // Webasyst
+    //
+
+    .wa-dropdown > .wa-dropdown-toggle.uk-select:extend(.uk-select all) { &::after { display: none !important; } }
+
+    // input:not([type="search"]):not([type="radio"]):not([type="checkbox"]):extend(.uk-input all) {}
+    // input:not([type="search"]):not([type="radio"]):not([type="checkbox"]).uk-form-width-xsmall:extend(input.uk-form-width-xsmall) {}
+    // input:not([type="search"]):not([type="radio"]):not([type="checkbox"]).uk-form-width-small:extend(.uk-form-width-small) {}
+    // input:not([type="search"]):not([type="radio"]):not([type="checkbox"]).uk-form-width-medium:extend(.uk-form-width-medium) {}
+    // input:not([type="search"]):not([type="radio"]):not([type="checkbox"]).uk-form-width-large:extend(.uk-form-width-large) {}
+
+    input[type=phone]:extend(.uk-input all) {}
+	input[type=email]:extend(.uk-input all) {}
+	input[type=text]:extend(.uk-input all) {}
+	input[type="password"]:extend(.uk-input all) {}
+
+    input[type=phone].uk-form-width-xsmall:extend(input.uk-form-width-xsmall) {}
+	input[type=email].uk-form-width-xsmall:extend(input.uk-form-width-xsmall) {}
+	input[type=text].uk-form-width-xsmall:extend(input.uk-form-width-xsmall) {}
+	input[type="password"].uk-form-width-xsmall:extend(input.uk-form-width-xsmall) {}
+
+    input[type=phone].uk-form-width-small:extend(.uk-form-width-small) {}
+	input[type=email].uk-form-width-small:extend(.uk-form-width-small) {}
+	input[type=text].uk-form-width-small:extend(.uk-form-width-small) {}
+	input[type="password"].uk-form-width-small:extend(.uk-form-width-small) {}
+
+    input[type=phone].uk-form-width-medium:extend(.uk-form-width-medium) {}
+	input[type=email].uk-form-width-medium:extend(.uk-form-width-medium) {}
+	input[type=text].uk-form-width-medium:extend(.uk-form-width-medium) {}
+	input[type="password"].uk-form-width-medium:extend(.uk-form-width-medium) {}
+
+    input[type=phone].uk-form-width-large:extend(.uk-form-width-large) {}
+	input[type=email].uk-form-width-large:extend(.uk-form-width-large) {}
+	input[type=text].uk-form-width-large:extend(.uk-form-width-large) {}
+	input[type="password"].uk-form-width-large:extend(.uk-form-width-large) {}
+
+    input[type="radio"]:extend(.uk-radio all) {}
+    input[type="checkbox"]:extend(.uk-checkbox all) {}
+    textarea:extend(.uk-textarea all) {}
+    select:extend(.uk-select all) {}
+
+}
+
+
+// Inverse
+// ========================================================================
+
+@inverse-form-disabled-background:             fade(@inverse-global-muted-background, 5%);
+@inverse-form-disabled-color:                  fade(@inverse-global-muted-color, 40%);
+
+@inverse-form-select-disabled-icon-color:      fade(@inverse-global-muted-color, 40%);
+
+@inverse-form-radio-disabled-background:       fade(@inverse-global-muted-background, 5%);
+@inverse-form-radio-disabled-icon-color:       fade(@inverse-global-muted-color, 40%);
+
+.hook-inverse() {
+
+    // disabled
+    .uk-input:disabled,
+    .uk-select:disabled,
+    .uk-textarea:disabled {
+        background-color: @inverse-form-disabled-background;
+        color: @inverse-form-disabled-color;
+        .hook-inverse-form-disabled();
+    }
+
+    .uk-radio:disabled,
+    .uk-checkbox:disabled {
+        background-color: @inverse-form-radio-disabled-background;
+        .hook-inverse-form-radio-disabled();
+    }
+
+    .uk-select:not([multiple]):not([size]):disabled { .svg-fill(@internal-form-select-image, "#000", @inverse-form-select-disabled-icon-color); }
+
+    .uk-radio:disabled:checked { .svg-fill(@internal-form-radio-image, "#000", @inverse-form-radio-disabled-icon-color); }
+    .uk-checkbox:disabled:checked { .svg-fill(@internal-form-checkbox-image, "#000", @inverse-form-radio-disabled-icon-color); }
+    .uk-checkbox:disabled:indeterminate { .svg-fill(@internal-form-checkbox-indeterminate-image, "#000", @inverse-form-radio-disabled-icon-color); }
+
+    //
+    // Blank
+    //
+
+    .uk-form-blank {
+        .hook-inverse-form-blank();
+    }
+
+    .uk-form-blank:focus {
+        .hook-inverse-form-blank-focus();
+    }
+
+}
+
+.hook-inverse-form() {}
+.hook-inverse-form-focus() {}
+.hook-inverse-form-disabled() {}
+.hook-inverse-form-radio() {}
+.hook-inverse-form-radio-focus() {}
+.hook-inverse-form-radio-checked() {}
+.hook-inverse-form-radio-checked-focus() {}
+.hook-inverse-form-radio-disabled() {}
+.hook-inverse-form-blank() {}
+.hook-inverse-form-blank-focus() {}
+.hook-inverse-form-label() {}
+
+
+// Primary
+// ========================================================================
+
+@primary-form-background:                      @primary-global-muted-background;
+@primary-form-color:                           @primary-global-color;
+@primary-form-focus-background:                @primary-global-muted-background;
+@primary-form-focus-color:                     @primary-global-color;
+
+@primary-form-disabled-background:             fade(@primary-global-muted-background, 5%);
+@primary-form-disabled-color:                  fade(@primary-global-muted-color, 40%);
+
+@primary-form-placeholder-color:               @primary-global-muted-color;
+
+@primary-form-select-icon-color:               @primary-global-color;
+@primary-form-select-disabled-icon-color:      fade(@primary-global-muted-color, 40%);
+
+@primary-form-datalist-icon-color:             @primary-global-color;
+
+@primary-form-radio-background:                darken(@primary-global-muted-background, 5%);
+
+@primary-form-radio-checked-background:        @primary-global-primary-background;
+@primary-form-radio-checked-icon-color:        @primary-global-inverse-color;
+
+@primary-form-radio-checked-focus-background:  darken(@primary-global-primary-background, 10%);
+
+@primary-form-radio-disabled-background:       fade(@primary-global-muted-background, 5%);
+@primary-form-radio-disabled-icon-color:       fade(@primary-global-muted-color, 40%);
+
+@primary-form-icon-color:                      @primary-global-muted-color;
+@primary-form-icon-hover-color:                @primary-global-color;
+
+.hook-primary() {
+
+    .uk-input,
+    .uk-select,
+    .uk-textarea {
+        background-color: @primary-form-background;
+        color: @primary-form-color;
+        background-clip: padding-box;
+        .hook-primary-form();
+
+        &:focus {
+            background-color: @primary-form-focus-background;
+            color: @primary-form-focus-color;
+            .hook-primary-form-focus();
+        }
+    }
+
+    .uk-input:disabled,
+    .uk-select:disabled,
+    .uk-textarea:disabled {
+        background-color: @primary-form-disabled-background;
+        color: @primary-form-disabled-color;
+        .hook-primary-form-disabled();
+    }
+
+    //
+    // Placeholder
+    //
+
+    .uk-input::-ms-input-placeholder { color: @primary-form-placeholder-color !important; }
+    .uk-input::placeholder { color: @primary-form-placeholder-color; }
+
+    .uk-textarea::-ms-input-placeholder { color: @primary-form-placeholder-color !important; }
+    .uk-textarea::placeholder { color: @primary-form-placeholder-color; }
+
+    //
+    // Select
+    //
+
+    .uk-select:not([multiple]):not([size]) { .svg-fill(@internal-form-select-image, "#000", @primary-form-select-icon-color); }
+    .uk-select:not([multiple]):not([size]):disabled { .svg-fill(@internal-form-select-image, "#000", @inverse-form-select-disabled-icon-color); }
+
+    //
+    // Datalist
+    //
+
+    .uk-input[list]:hover,
+    .uk-input[list]:focus { .svg-fill(@internal-form-datalist-image, "#000", @primary-form-datalist-icon-color); }
+
+    //
+    // Radio and checkbox
+    //
+
+    .uk-radio,
+    .uk-checkbox {
+        background-color: @primary-form-radio-background;
+        .hook-primary-form-radio();
+    }
+
+    // Focus
+    .uk-radio:focus,
+    .uk-checkbox:focus {
+        .hook-primary-form-radio-focus();
+    }
+
+    // Checked
+    .uk-radio:checked,
+    .uk-checkbox:checked,
+    .uk-checkbox:indeterminate {
+        background-color: @primary-form-radio-checked-background;
+        .hook-primary-form-radio-checked();
+    }
+
+    // Focus
+    .uk-radio:checked:focus,
+    .uk-checkbox:checked:focus,
+    .uk-checkbox:indeterminate:focus {
+        background-color: @primary-form-radio-checked-focus-background;
+        .hook-primary-form-radio-checked-focus();
+    }
+
+    // Icon
+    .uk-radio:checked { .svg-fill(@internal-form-radio-image, "#000", @primary-form-radio-checked-icon-color); }
+    .uk-checkbox:checked { .svg-fill(@internal-form-checkbox-image, "#000", @primary-form-radio-checked-icon-color); }
+    .uk-checkbox:indeterminate { .svg-fill(@internal-form-checkbox-indeterminate-image, "#000", @primary-form-radio-checked-icon-color); }
+
+    // disabled
+    .uk-radio:disabled,
+    .uk-checkbox:disabled {
+        background-color: @primary-form-radio-disabled-background;
+        .hook-primary-form-radio-disabled();
+    }
+
+    .uk-radio:disabled:checked { .svg-fill(@internal-form-radio-image, "#000", @primary-form-radio-disabled-icon-color); }
+    .uk-checkbox:disabled:checked { .svg-fill(@internal-form-checkbox-image, "#000", @primary-form-radio-disabled-icon-color); }
+    .uk-checkbox:disabled:indeterminate { .svg-fill(@internal-form-checkbox-indeterminate-image, "#000", @primary-form-radio-disabled-icon-color); }
+
+    //
+    // Blank
+    //
+
+    .uk-form-blank {
+        .hook-primary-form-blank();
+    }
+
+    .uk-form-blank:focus {
+        .hook-primary-form-blank-focus();
+    }
+
+    // Label
+    .uk-form-label {
+        .hook-primary-form-label();
+    }
+
+    // Icon
+    .uk-form-icon { color: @primary-form-icon-color; }
+    .uk-form-icon:hover { color: @primary-form-icon-hover-color; }
+
+}
+
+.hook-primary-form() {}
+.hook-primary-form-focus() {}
+.hook-primary-form-disabled() {}
+.hook-primary-form-radio() {}
+.hook-primary-form-radio-focus() {}
+.hook-primary-form-radio-checked() {}
+.hook-primary-form-radio-checked-focus() {}
+.hook-primary-form-radio-disabled() {}
+.hook-primary-form-blank() {}
+.hook-primary-form-blank-focus() {}
+.hook-primary-form-label() {}

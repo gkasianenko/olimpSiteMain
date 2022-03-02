@@ -1,0 +1,37 @@
+<div class="section section__about">
+    <div class="container-fluid container-lg">
+        <div class="row">
+            <div class="col-12 text-center mb-4">
+                <h1 class="section__title section__title--center mb-3">О компании</h1>
+                <p class="lead lead--blue"><strong>Чтобы достичь успеха – нужно быть уникальным и неповторимым!</strong></p>
+                <p>Понимая это, мы подчеркиваем уникальность своих клиентов в каждом проекте!</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 col-lg-6 mb-4 mb-lg-0 pr-lg-0 text-center">
+                <div class="section-about__video">
+                    <div class="preview">
+                        <div class="video__preview">
+                            <img loading="lazy" itemprop="image" class="img-fluid" src="{$wa_theme_url}img/about-banner.jpg" alt="">
+                        </div>
+
+                        <div class="video__play">
+                            <button id="play">
+                                <i class="fab fa-youtube"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="youtube">
+                        <div id="player"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-lg-6 pl-lg-0">
+                <div class="section-about__content">
+                    {$wa->block("home.company")}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,19 @@
+{literal}
+<h1>[`Instruction`]</h1>
+<p>[`In order for the plugin to work correctly, the Site application must be present in the site structure.`]</p>
+<h2>[`Site`]</h2>
+<p>[`Edit the file page.html in your design theme.`]</p>
+<p>[`Replace`] {$page.content} [`with`] <b>&lt;div data-editable data-name="main-content-editor" data-page-id={$page.id}>{$page.content}&lt;/div></b></p> 
+<h2>[`Blog`]</h2>
+<p>[`Edit the file post.html in your design theme.`]</p>
+<p>[`Replace`] {$post.text} [`with`] <b>&lt;div data-editable data-name="main-content-editor" data-post-id={$post.id}>{$post.text}&lt;/div></b></p> 
+<p>[`Edit the file page.html in your design theme.`]</p>
+<p>[`Replace`] {$page.content} [`with`] <b>&lt;div data-editable data-name="main-content-editor" data-page-id={$page.id}>{$page.content}&lt;/div></b></p> 
+<h2>[`Shop`]</h2>
+<p>[`Edit the file product.html in your design theme.`]</p>
+<p>[`Replace`] {$page.description} [`with`] <b>&lt;div data-editable data-name="main-content-editor" data-product-id="{$product.id}">{$product.description}&lt;/div></b></p> 
+<p>[`Edit the file page.html in your design theme.`]</p>
+<p>[`Replace`] {$page.content} [`with`] <b>&lt;div data-editable data-name="main-content-editor" data-page-id={$page.id}>{$page.content}&lt;/div></b></p> 
+<p>[`Edit the file product.page.html in your design theme.`]</p>
+<p>[`Replace`] {$page.content} [`with`] <b>&lt;div data-editable data-name="main-content-editor" data-product-page-id="{$page.id}">{$page.content}&lt;/div></b></p> 
+{/literal}

@@ -1,0 +1,69 @@
+<p><a href="{$wa_app_url}">Назад</a> </p>
+
+{if !empty($scan)}
+<div class="b-security__process {if $scan.count_mailware>0}b-security__process--danger{/if}" style="display: block">
+    <div class="b-security__header">
+        <div class="b-security__time">завершено {wa_date('humandatetime', $scan.end)|lower}</div>
+        Сканирование №{$scan.id}
+        {if $scan.full_scan == 1}[полное]{/if}
+        {if $scan.status == securityHelper::SCAN_CANCEL}[прервано пользователем]{/if}
+    </div>
+    <div class="b-security__body">
+        <div class="b-security__total">Проверено: {$scan.count_scan|default:'0'} из {$scan.count_files|default:'0'}<span class="b-security__known"> (известных <span class="b-security__count_known">{$scan.count_known|default:0}</span>)</span>, затрачено {securityHelper::DateDiff($scan.start, $scan.end)}<br>
+            {if $scan.count_mailware>0}<strong class="red">Угроз обнаружено: {$scan.count_mailware|default:'0'}</strong>{else}<strong class="green">Угроз не найдено</strong>{/if},
+            предупреждений: {$count_warnings}
+        </div>
+    </div>
+
+
+    <div class="b-security__scan">
+
+        {$est=false}
+            {foreach $dangers as $found}
+                {$est=true}
+                <div class="b-security__scan_item">
+                    <div class="red">{$found.filename|base64_decode}</div>
+                    <div>
+                        {securityHelper::getErrorDetailed($found)}
+                    </div>
+                </div>
+            {/foreach}
+
+        {if ($est)}
+            <div class="b-security__danger_parent">
+            <br><a href="" class="s-security__get_filelist">Получить список файлов</a><br>
+            <textarea class="b-security__danger_filelist">{foreach $dangers as $found}{$found.filename|base64_decode|escape}
+{/foreach}</textarea>
+            </div>
+        {/if}
+    </div>
+
+    {if $count_warnings>0}
+        <h2>Предупреждений</h2>
+        {if (!empty($warnings))}
+            <div class="b-security__scan">
+                {foreach $warnings as $found}
+                <div class="b-security__scan_item">
+                    <div class="yellow">{$found.filename|base64_decode}</div>
+                    <div>
+                        {securityHelper::getErrorDetailed($found)}
+                    </div>
+                </div>
+                {/foreach}
+            </div>
+        {/if}
+
+        {if (!empty($warnings_big))}
+        <div class="b-security__scan">
+            {foreach $warnings_big as $found}
+            <div class="b-security__scan_item">
+                <div class="yellow">{$found.filename|base64_decode} [{$found.human_size}]</div>
+            </div>
+            {/foreach}
+        </div>
+        {/if}
+    {/if}
+</div>
+{else}
+    <h1>Сканирование не найдено</h1>
+{/if}

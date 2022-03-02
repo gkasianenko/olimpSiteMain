@@ -1,0 +1,78 @@
+{if strlen($item.name)}
+    <div>
+        {strip}
+            <header class="dialog-header">
+                <h1>
+                    {if $item.type == 'photo'}
+                        {sprintf_wp('META tags for photo <span class="gray">%s</span>', $item.name|escape)}
+                    {elseif $item.type == 'album'}
+                        {sprintf_wp('META tags for album <span class="gray">%s</span>', $item.name|escape)}
+                    {elseif $item.type == 'tag'}
+                        {sprintf_wp('META tags for tag <span class="gray">%s</span>', $item.name|escape)}
+                    {/if}
+                </h1>
+            </header>
+        {/strip}
+
+        <div class="dialog-content">
+            <div class="fields">
+                <form action="">
+                    {$controls}
+                </form>
+                <hr class="custom-my-20">
+                <div class="field">
+                    <div class="value">
+                        <p>[`You can use any Smarty code in these fields; e.g.:`]</p>
+
+                        <ul class="smaller">
+                            {if $item.type == 'photo'}
+                                <li>
+                                    <code class="bold">{literal}{photosPmPlugin::photo()}{/literal}</code> — [`current photo data array`]
+                                </li>
+                                <li>
+                                    <code class="bold">{literal}{photosPmPlugin::photo('name')}{/literal}</code> — [`photo name without extension`]
+                                </li>
+                                <li>
+                                    <code class="bold">{literal}{photosPmPlugin::photo()}{/literal}</code> — [`current photo data array`]
+                                </li>
+                                <li>
+                                    <code class="bold">{literal}{photosPmPlugin::photo('name')}.{photosPmPlugin::photo('ext')}{/literal}</code> — [`photo name with extension`]
+                                </li>
+                                <li>
+                                    <code class="bold">{literal}{photosPmPlugin::photo('description')}{/literal}</code> — [`photo description`]
+                                </li>
+                                <li>
+                                    <code class="bold">{literal}{photosPmPlugin::photoTags()}{/literal}</code> — [`photo tags separated by comma`]
+                                </li>
+                                <li>
+                                    <code class="bold">{literal}{photosPmPlugin::photoTags(' ')}{/literal}</code> — [`photo tags separated by space`]
+                                </li>
+                                {elseif $item.type == 'album'}
+                                <li>
+                                    <code class="bold">{literal}{photosPmPlugin::album()}{/literal}</code> — [`current album data array`]
+                                </li>
+                                <li>
+                                    <code class="bold">{literal}{photosPmPlugin::album('name')}{/literal}</code> — [`album name`]
+                                </li>
+                                <li>
+                                    <code class="bold">{literal}{photosPmPlugin::album('note')}{/literal}</code> — [`album subtitle`]
+                                </li>
+                            {elseif $item.type == 'tag'}
+                                <li>
+                                    <code class="bold">{literal}{waRequest::param('tag')}{/literal}</code> — [`this tag’s name`]
+                                </li>
+                            {/if}
+
+                            <li>
+                                <code class="bold">{literal}{waRequest::param('_name', 'Photos')}{/literal}</code> — [`Photos route name from Site app "Structure" section`]
+                            </li>
+                            <li>
+                                <code class="bold">{literal}{$wa->setting('name', 'Webasyst', 'webasyst')}{/literal}</code> — [`account name from Installer settings`]
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{/if}

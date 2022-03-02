@@ -1,0 +1,159 @@
+// Name:            Autocomplete
+// Description:
+//
+// Component:       ``
+//
+// ========================================================================
+
+
+// Variables
+// ========================================================================
+
+@autocomplete-dropdown-z-index:                              @global-z-index + 20;
+@autocomplete-dropdown-min-width:                            200px;
+@autocomplete-dropdown-padding:                              15px;
+@autocomplete-dropdown-background:                           @global-muted-background;
+@autocomplete-dropdown-color:                                @global-color;
+@autocomplete-dropdown-margin:                               @global-small-margin;
+
+@autocomplete-dropdown-nav-item-color:                       @global-muted-color;
+@autocomplete-dropdown-nav-item-hover-color:                 @global-color;
+@autocomplete-dropdown-nav-header-color:                     @global-emphasis-color;
+@autocomplete-dropdown-nav-divider-border-width:             @global-border-width;
+@autocomplete-dropdown-nav-divider-border:                   @global-border;
+@autocomplete-dropdown-nav-sublist-item-color:               @global-muted-color;
+@autocomplete-dropdown-nav-sublist-item-hover-color:         @global-color;
+@autocomplete-dropdown-nav-match-color:                      @global-danger-background;
+
+//@autocomplete-dropdown-box-shadow:             				 0 5px 12px rgba(0,0,0,0.15);
+
+
+/* ========================================================================
+   Component: Autocomplete
+ ========================================================================== */
+
+/* Loading modifiers
+ ========================================================================== */
+
+.uk-autocomplete.uk-autocomplete-loading {
+ 	background-size: 3rem 3rem;
+ 	animation: autocomplete-loading 1s linear infinite;
+ 	background-image: linear-gradient(
+		45deg,
+		rgba(0, 0, 0, 0.03) 25%,
+		transparent 25%,
+		transparent 50%,
+		rgba(0, 0, 0, 0.03) 50%,
+		rgba(0, 0, 0, 0.03) 75%,
+		transparent 75%,
+		transparent
+	);
+}
+
+@keyframes autocomplete-loading {
+ 	from {
+     	background-position: 3rem 0;
+ 	}
+ 	to {
+     	background-position: 0 0;
+ 	}
+}
+
+/*
+ * 1. Hide by default
+ * 2. Set position
+ * 3. Set a default width
+ * 4. Style
+ */
+
+.uk-autocomplete-dropdown {
+    /* 1 */
+    display: none;
+    /* 2 */
+    position: absolute;
+    z-index: @autocomplete-dropdown-z-index;
+    /* 3 */
+    box-sizing: border-box;
+    min-width: @autocomplete-dropdown-min-width;
+    /* 4 */
+    padding: @autocomplete-dropdown-padding;
+    background: @autocomplete-dropdown-background;
+    color: @autocomplete-dropdown-color;
+    .hook-autocomplete-dropdown;
+}
+
+/* Show */
+.uk-autocomplete-dropdown.uk-open { display: block; }
+
+/* Nav
+ * Adopts `uk-nav`
+ ========================================================================== */
+
+.uk-autocomplete-dropdown-nav {
+    white-space: nowrap;
+    .hook-autocomplete-dropdown-nav;
+}
+
+/*
+ * Items
+ */
+
+.uk-autocomplete-dropdown-nav > li > a {
+    color: @autocomplete-dropdown-nav-item-color;
+    .hook-autocomplete-dropdown-nav-item;
+}
+
+/* Hover + Focus + Active */
+.uk-autocomplete-dropdown-nav > li > a:hover,
+.uk-autocomplete-dropdown-nav > li > a:focus,
+.uk-autocomplete-dropdown-nav > li.uk-active > a {
+    color: @autocomplete-dropdown-nav-item-hover-color;
+    .hook-autocomplete-dropdown-nav-item-hover;
+}
+
+/* Match */
+.uk-autocomplete-dropdown-nav .match {
+ 	color: @autocomplete-dropdown-nav-match-color;
+	.hook-autocomplete-dropdown-nav-match;
+}
+
+/* Deprecated */
+.uk-autocomplete-item-img {
+	margin: 5px 0;
+	max-width: 48px;
+	max-height: 48px;
+	vertical-align: middle;
+	float: left;
+}
+.uk-autocomplete-item-name,
+.uk-autocomplete-item-pricing {
+	display: block;
+	margin-left: 60px;
+}
+
+
+/* Direction / Alignment modifiers
+ ========================================================================== */
+
+/* Direction */
+[class*='uk-autocomplete-dropdown-top'] { margin-top: -@autocomplete-dropdown-margin; }
+[class*='uk-autocomplete-dropdown-bottom'] { margin-top: @autocomplete-dropdown-margin; }
+[class*='uk-autocomplete-dropdown-left'] { margin-left: -@autocomplete-dropdown-margin; }
+[class*='uk-autocomplete-dropdown-right'] { margin-left: @autocomplete-dropdown-margin; }
+
+
+// Hooks
+// ========================================================================
+
+.hook-autocomplete-misc;
+
+.hook-autocomplete-dropdown() {}
+.hook-autocomplete-dropdown-nav() {}
+.hook-autocomplete-dropdown-nav-item() {}
+.hook-autocomplete-dropdown-nav-item-hover() {}
+.hook-autocomplete-dropdown-nav-match() {}
+.hook-autocomplete-misc() {}
+
+
+// Inverse
+// ========================================================================

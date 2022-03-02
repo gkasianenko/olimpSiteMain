@@ -1,0 +1,61 @@
+<div class="notifications-content">
+	<h1 class="name"><span class="title"> </span>[`Notifications`]</h1>
+
+	<div class="cc-content s-editor">
+	<form method="post" action="?module=settings&action=save" id="content-save">
+		<div class="fields form">
+	        <div class="field">
+	            <div class="name">[`SMS notifications`]</div>
+	            <div class="value"><label>
+	                <input type="radio" name="settings[notifications_sms]" value="Off" {if $notifications_sms == "Off"}checked=""{/if}>
+	                [`Off`]
+	            </label></div>
+	            <div class="value"><label>
+	                <input type="radio" name="settings[notifications_sms]" value="On" {if $notifications_sms == "On"}checked=""{/if}>
+	                [`On`]
+	            </label></div>
+	        </div>
+
+	        <div class="field">
+                    <div class="name">[`Sender`]</div>
+                    <div class="value">
+                        <input type="text" name="settings[phone_sender]" value="{$phone_sender|escape}" placeholder="[`+1 212-555-1312`]"><br>
+                        <span class="hint">[`Phone number of the sender.`]</span>
+                    </div>
+            </div>
+            
+            <div class="field">
+                    <div class="name">[`To`]</div>
+                    <div class="value">
+                        <input type="text" name="settings[phone_to]" value="{$phone_to|escape}" placeholder="[`+1 212-555-1312`]"><br>
+                        <span class="hint">[`On phone number will come SMS notification.`]</span>
+                    </div>
+            </div>
+
+            <div class="field">
+                    <div class="name">[`Email body`], [`if connections to the SMTP server it wasn't possible`]</div>
+                    <div class="value">
+                        <textarea name="settings[possible]">{$possible|escape}</textarea><br>
+                        <span class="hint">{literal}[`{$mail} - email`]{/literal}</span>
+                    </div>
+            </div>
+
+            <div class="field">
+                    <div class="name">[`Email body`], [`if connections to the SMTP server it is established`]</div>
+                    <div class="value">
+                        <textarea name="settings[established]">{$established|escape}</textarea><br>
+                        <span class="hint">{literal}[`{$mail} - email`]{/literal}</span>
+                    </div>
+            </div>
+
+	        <div class="field">
+	                <div class="value">
+	                    <input type="submit" name="save" class="button green" value="[`Save`]">
+                        <i class="icon16 loading" style="display:none"></i>
+                        <span id="s-settings-form-status" style="display:none"><i class="icon16 yes"></i>[`Saved`]</span>
+	                </div>
+            </div>
+    	</div>
+	</form>
+	</div>
+</div>

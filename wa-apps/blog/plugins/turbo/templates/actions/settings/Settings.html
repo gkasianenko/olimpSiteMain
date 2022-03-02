@@ -1,0 +1,18 @@
+<script>
+	window.turbo = {
+		resource_base_url: '{$wa_app_static_url}plugins/turbo/assets',
+	};
+</script>
+
+<div id="blog-turbo-plugin-settings-mount-root"></div>
+
+<link rel="stylesheet" href="{$wa_app_static_url}plugins/turbo/assets/settings_page.css?v={blogTurboHelper::getAssetVersion()}" />
+<script src="{$wa_app_static_url}plugins/turbo/assets/settings_page.js?v={blogTurboHelper::getAssetVersion()}"></script>
+
+<script>
+	$(function() {
+		var state = {$state|json_encode};
+
+		window.blog_turbo_plugin_settings_controller.render(state, 'blog-turbo-plugin-settings-mount-root');
+	});
+</script>

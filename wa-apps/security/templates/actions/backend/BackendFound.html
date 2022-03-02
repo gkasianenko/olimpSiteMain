@@ -1,0 +1,16 @@
+{if (!empty($founds))}
+    {foreach $founds as $found}
+        <div class="b-security__found b-security__found--{if $found.result==securityHelper::RESULT_WARNING}warning{else}danger{/if}">
+            <div class="b-security__found_caption">
+                <a href="" class="b-security__found_more">подробнее</a>
+                <strong title="{if $found.result==securityHelper::RESULT_WARNING}[`Предупреждение`]{else}[`Опасность`]{/if}">{securityHelper::getError($found)}</strong>
+            </div>
+            <div class="b-security__found_filename">
+                {$found.filename|base64_decode}
+            </div>
+            <div class="b-security__found_detail">
+                {securityHelper::getErrorDetailed($found)}
+            </div>
+        </div>
+    {/foreach}
+{/if}

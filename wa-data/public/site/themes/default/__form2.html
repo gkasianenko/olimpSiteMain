@@ -1,0 +1,19 @@
+{* <!-- modal wrapper --> *}
+
+<form class="form entry_form" id="feedback-form-modal" method="post" action="" style="overflow: hidden">
+    {include file="__form-content.html" inline}
+</form>
+
+<div id="success-selector-modal" style="display: none; width: 100%; text-align: center">
+    {$wa->block("feedback.message.success")}
+    <p class="string__timer">&nbsp;</p>
+</div>
+
+<div id="error-selector-modal" style="display: none; width: 100%; text-align: center">
+    {$wa->block("feedback.message.error")}
+    <p class="string__timer">&nbsp;</p>
+</div>
+
+{if $wa->site && class_exists('siteFeedbackPlugin')}
+    {siteFeedbackPluginHelper::handler('#feedback-form-modal', false, '#success-selector-modal', '#error-selector-modal')}
+{/if}

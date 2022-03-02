@@ -1,0 +1,130 @@
+//
+// Component: Background
+//
+// ========================================================================
+
+
+// Variables
+// ========================================================================
+
+//
+// New
+//
+
+// Gradient
+@internal-background-default-gradient:               ~'';
+@internal-background-muted-gradient:                 ~'';
+@internal-background-primary-gradient:               ~'';
+@internal-background-secondary-gradient:             ~'';
+@internal-background-danger-gradient:                ~'';
+
+// Image
+@internal-background-default-image:                  ~'';
+@internal-background-muted-image:                    ~'';
+@internal-background-primary-image:                  ~'';
+@internal-background-secondary-image:                ~'';
+@internal-background-danger-image:                   ~'';
+
+
+// Style modifiers
+// ========================================================================
+
+//
+// Default
+//
+
+// Gradient only
+.hook-background-default() when not (@internal-background-default-gradient = ~'') and (@internal-background-default-image = ~'') {
+    background-image: @internal-background-default-gradient;
+}
+
+// Image only
+.hook-background-default() when not (@internal-background-default-image = ~'') and (@internal-background-default-gradient = ~'') {
+    background-image: url("@{internal-background-default-image}");
+}
+
+// Both
+.hook-background-default() when not (@internal-background-default-gradient = ~'') and not (@internal-background-default-image = ~'') {
+    background-image: url("@{internal-background-default-image}"), @internal-background-default-gradient;
+}
+
+//
+// Muted
+//
+
+// Gradient only
+.hook-background-muted() when not (@internal-background-muted-gradient = ~'') and (@internal-background-muted-image = ~'') {
+    background-image: @internal-background-muted-gradient;
+}
+
+// Image only
+.hook-background-muted() when not (@internal-background-muted-image = ~'') and (@internal-background-muted-gradient = ~'') {
+    background-image: url("@{internal-background-muted-image}");
+}
+
+// Both
+.hook-background-muted() when not (@internal-background-muted-gradient = ~'') and not (@internal-background-muted-image = ~'') {
+    background-image: url("@{internal-background-muted-image}"), @internal-background-muted-gradient;
+}
+
+//
+// Primary
+//
+
+// Gradient only
+.hook-background-primary() when not (@internal-background-primary-gradient = ~'') and (@internal-background-primary-image = ~'') {
+    background-image: @internal-background-primary-gradient;
+}
+
+// Image only
+.hook-background-primary() when not (@internal-background-primary-image = ~'') and (@internal-background-primary-gradient = ~'') {
+    background-image: url("@{internal-background-primary-image}");
+}
+
+// Both
+.hook-background-primary() when not (@internal-background-primary-gradient = ~'') and not (@internal-background-primary-image = ~'') {
+    background-image: url("@{internal-background-primary-image}"), @internal-background-primary-gradient;
+}
+
+//
+// Secondary
+//
+
+// Gradient only
+.hook-background-secondary() when not (@internal-background-secondary-gradient = ~'') and (@internal-background-secondary-image = ~'') {
+    background-image: @internal-background-secondary-gradient;
+}
+
+// Image only
+.hook-background-secondary() when not (@internal-background-secondary-image = ~'') and (@internal-background-secondary-gradient = ~'') {
+    background-image: url("@{internal-background-secondary-image}");
+}
+
+// Both
+.hook-background-secondary() when not (@internal-background-secondary-gradient = ~'') and not (@internal-background-secondary-image = ~'') {
+    background-image: url("@{internal-background-secondary-image}"), @internal-background-secondary-gradient;
+}
+
+//
+// Danger
+//
+
+// Gradient only
+.hook-background-danger() when not (@internal-background-danger-gradient = ~'') and (@internal-background-danger-image = ~'') {
+    background-image: @internal-background-danger-gradient;
+}
+
+// Image only
+.hook-background-danger() when not (@internal-background-danger-image = ~'') and (@internal-background-danger-gradient = ~'') {
+    background-image: url("@{internal-background-danger-image}");
+}
+
+// Both
+.hook-background-danger() when not (@internal-background-danger-gradient = ~'') and not (@internal-background-danger-image = ~'') {
+    background-image: url("@{internal-background-danger-image}"), @internal-background-danger-gradient;
+}
+
+// Miscellaneous
+// ========================================================================
+
+.hook-background-misc() {}

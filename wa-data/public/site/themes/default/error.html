@@ -1,0 +1,23 @@
+{if $error_code == '404'}
+<div class="section section__error section__error--404">
+	<div class="container">
+		<div class="row">
+			<div class="col-12 text-center"><img src="{$wa_theme_url}img/error-404.png">
+				<h2>Извините, запрашиваемая вами страница не найдена</h2>
+				<div class="buttons-wrapper">
+					{if isset($smarty.server.HTTP_REFERER) && strpos($smarty.server.HTTP_REFERER, $smarty.server.HTTP_HOST) != false}
+					<a class="btn btn-link" href="{$smarty.server.HTTP_REFERER}" style="border-radius: 0;">Назад</a>
+					{/if}
+					<a class="btn btn-link" href="/" style="background-color: #e30014; border-color: #e30014; border-radius: 0;">Главная</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+{else}
+<h1>
+	{if $error_code}{$error_code}. {/if}
+	{if $error_message}{$error_message}{else}[s`Error`]{/if}
+</h1>
+[s`The requested resource is not available.`]
+{/if}

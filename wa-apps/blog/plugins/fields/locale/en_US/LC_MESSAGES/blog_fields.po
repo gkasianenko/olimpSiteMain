@@ -1,0 +1,24 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: blog/plugins/fields\n"
+"POT-Creation-Date: 2016-10-18 14:12+0300\n"
+"PO-Revision-Date: \n"
+"Last-Translator: blog/plugins/fields\n"
+"Language-Team: blog/plugins/fields\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-Basepath: .\n"
+"X-Generator: Poedit 1.5.7\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPath-1: .\n"
+
+#: /wa-apps/blog/plugins/fields/templates/hooks/backend_post_edit.sidebar.html:6
+#: /wa-apps/blog/plugins/fields/templates/hooks/backend_post_edit.sidebar.html:43
+msgid "Social meta"
+msgstr ""
+
+#: /wa-apps/blog/plugins/fields/templates/hooks/backend_post_edit.sidebar.html:46
+msgid "No meta parameters are defined for this blog post."
+msgstr ""

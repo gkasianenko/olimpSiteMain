@@ -1,0 +1,96 @@
+<div class="mail-content">
+	<h1 class="name"><span class="title"> </span>{$email_title|escape}</h1>
+    <ul class="menu-h">
+        <li><a id="s-delete" href="#"><i class="icon16 delete"></i>[`Delete rule`]</a></li>
+        <div class="block double-padded" id='loading'>[`Loading...`] <i class="icon16 loading"></i></div>
+    </ul>
+
+	<div class="cc-content s-editor">
+		<div class="double-padded">
+			<form id="mail" method="post">
+			<input type="hidden" name="mail" value="{$mail|escape}">
+				<div class="field">
+                    <div class="name bold">[`Login`]</div>
+                    <div class="value"><input type="text" class="bold" name="login" value="{$config.login|escape}"></div>
+                </div>
+
+                <div class="field">
+                    <div class="name bold">[`Password`]</div>
+                    <div class="value no-shift">
+        				<input id="s-mail-password" class="mail-password" type="checkbox" name="a2"> <label for="s-mail-password">[`change password`]</label>
+        				<div style="display: none;" id="mail-password-div">
+        					<input type="password" class="bold" name="password" value=""><br>
+        				</div>
+        			</div>
+                </div>
+
+				<div class="field">
+                    <div class="name bold">[`SMTP-server`]</div>
+                    <div class="value"><input type="text" class="bold" name="host" value="{$config.host|escape}"></div>
+                </div>
+
+                <div class="field">
+                    <div class="name bold">[`Port`]</div>
+                    <div class="value"><input type="text" class="bold" name="port" value="{$config.port|escape}"></div>
+                </div>
+
+                <div class="field">
+                    <div class="name"></div>
+                    <div class="value">
+                    	<input id="sm465_1" type="radio" name="encryption" value="0" {if $config.encryption == 'ssl'} checked=""{/if}>
+                    	<label for="sm465_1">[`Safe connection under the protocol SSL (recommended)`]</label>
+						<br>
+                    	<input id="sm465_2" type="radio" name="encryption" value="1" {if $config.encryption == 'tls'} checked=""{/if}>
+                    	<label for="sm465_2">[`Safe connection under the protocol TLS`]</label>
+						<br>
+						<input id="sm465_3" type="radio" name="encryption" value="2" {if $config.encryption == ''} checked=""{/if}>
+                    	<label for="sm465_3">[`Not use encrypted connection`]</label>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <div class="name"></div>
+                    <div class="value">
+                        <input id="sm5_1" type="checkbox" name="check" value="yes" >
+                        <label for="sm5_1">[`Check the connection to the SMTP server`]</label><br>
+                    </div>
+                </div>
+
+            	<div class="field">
+	                <div class="value">
+	                    <input type="submit" name="save" class="button green" value="[`Save`]">
+                        <i class="icon16 loading" style="display:none"></i>
+                        <span id="s-settings-form-status" style="display:none"><i class="icon16 yes"></i>[`Saved`]</span>
+	                </div>
+            	</div>
+
+			</form>
+		</div>
+
+
+	</div>
+</div>
+<script type="text/javascript">
+	$("input[name='a2']:checkbox").change(function(){
+		if (this.checked) {
+        	$('#mail-password-div').show();
+    	} else {
+    		$('#mail-password-div').hide();
+    	}
+    });
+    $("#s-delete").click(function () {
+        if (!confirm('[`This will delete a rule e-mail settings without the ability to recover. Are you sure?`]')) {
+            return false;
+        }
+        $.post('?module=settings&action=delete', "mail={$mail}", function (response) {
+            if (response.status == 'ok') {
+                document.getElementById('loading').style.display = 'block';
+                setTimeout(function() {
+                    location.href = '';
+                }, 4000);
+            }
+        }, "json")
+        return false;
+    });
+
+</script>

@@ -1,0 +1,393 @@
+//
+// Component: Nav
+//
+// ========================================================================
+
+//
+// New
+//
+
+@nav-parent-icon-margin-right:                  0;
+
+@nav-default-line-height:                       @global-line-height;
+
+@nav-default-item-padding-vertical:             @nav-item-padding-vertical;
+@nav-default-item-padding-horizontal:           @nav-item-padding-horizontal;
+
+@nav-default-header-padding-vertical:           @nav-header-padding-vertical;
+@nav-default-header-padding-horizontal:         @nav-header-padding-horizontal;
+
+@nav-default-divider-padding-vertical:          0;
+@nav-default-divider-padding-horizontal:        0;
+
+@nav-default-item-hover-background:             transparent;
+@nav-default-item-active-background:            transparent;
+@nav-default-sublist-background:                transparent;
+
+@nav-primary-item-padding-vertical:             @nav-item-padding-vertical;
+@nav-primary-item-padding-horizontal:           @nav-item-padding-horizontal;
+
+@nav-primary-header-padding-vertical:           @nav-header-padding-vertical;
+@nav-primary-header-padding-horizontal:         @nav-header-padding-horizontal;
+
+@nav-primary-divider-padding-vertical:          0;
+@nav-primary-divider-padding-horizontal:        0;
+
+@nav-primary-item-hover-background:             transparent;
+@nav-primary-item-active-background:            transparent;
+@nav-primary-sublist-background:                transparent;
+
+@nav-parent-icon-background:                    transparent;
+@nav-parent-icon-hover-background:              fade(@nav-parent-icon-color, 5%);
+// @nav-parent-icon-active-background:             transparent;
+
+
+// Variables
+// ========================================================================
+
+
+// Sublists
+// ========================================================================
+
+.hook-nav-sub() {}
+
+
+// Parent icon modifier
+// ========================================================================
+
+.hook-nav-parent-icon() { margin-right: @nav-parent-icon-margin-right; }
+
+
+// Header
+// ========================================================================
+
+.hook-nav-header() {}
+
+
+// Divider
+// ========================================================================
+
+.hook-nav-divider() {}
+
+
+// Default style modifier
+// ========================================================================
+
+.hook-nav-default() {
+    line-height: @nav-default-line-height;
+    & li > a {
+        position: relative;
+        padding: @nav-default-item-padding-vertical @nav-default-item-padding-horizontal;
+    }
+    & ul {
+        padding: 0;
+        background-color: @nav-default-sublist-background;
+    }
+}
+
+.hook-nav-default-item() {
+    transition: 0.1s ease-in-out;
+    transition-property: color, background-color, border-color, box-shadow;
+}
+
+.hook-nav-default-item-hover() { background-color: @nav-default-item-hover-background; }
+
+.hook-nav-default-item-active() { background-color: @nav-default-item-active-background; }
+
+.hook-nav-default-header() { padding: @nav-default-header-padding-vertical @nav-default-header-padding-horizontal; }
+
+.hook-nav-default-divider() { padding: @nav-default-divider-padding-vertical @nav-default-divider-padding-horizontal; }
+
+
+// Primary style modifier
+// ========================================================================
+
+.hook-nav-primary() {
+    & li > a {
+        position: relative;
+        padding: @nav-primary-item-padding-vertical @nav-primary-item-padding-horizontal;
+    }
+    & ul {
+        padding: 0;
+        background-color: @nav-primary-sublist-background;
+    }
+}
+
+.hook-nav-primary-item() {
+    transition: 0.1s ease-in-out;
+    transition-property: color, background-color, border-color, box-shadow;
+}
+
+.hook-nav-primary-item-hover() { background-color: @nav-primary-item-hover-background; }
+
+.hook-nav-primary-item-active() { background-color: @nav-primary-item-active-background; }
+
+.hook-nav-primary-header() { padding: @nav-primary-header-padding-vertical @nav-primary-header-padding-horizontal; }
+
+.hook-nav-primary-divider() { padding: @nav-primary-divider-padding-vertical @nav-primary-divider-padding-horizontal; }
+
+
+// Miscellaneous
+// ========================================================================
+
+.hook-nav-misc() {
+
+    //
+    // Parent icon
+    //
+
+    .uk-nav-parent-icon .uk-parent > a::after {
+        position: absolute;
+        right: @nav-item-padding-vertical;
+        top: 50%;
+        margin-top: -(@nav-parent-icon-height / 2);
+    }
+
+    .uk-nav-default.uk-nav-parent-icon .uk-parent > a::after { right: @nav-default-item-padding-vertical; }
+    .uk-nav-primary.uk-nav-parent-icon .uk-parent > a::after { right: @nav-primary-item-padding-vertical; }
+
+
+    //
+    // Accordion(parent) icon
+    //
+
+    .uk-nav-accordion-icon .uk-parent > a > .uk-parent-icon:extend(.uk-nav-parent-icon > .uk-parent > a::after) {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        width: ~'calc(@{nav-parent-icon-width} + @{nav-item-padding-vertical} * 2)';
+        height: auto;
+        background-color: @nav-parent-icon-background;
+    }
+
+    .uk-nav-accordion-icon .uk-parent > a > .uk-parent-icon:hover { background-color: @nav-parent-icon-hover-background; }
+
+    .uk-nav-accordion-icon .uk-parent.uk-open > a > .uk-parent-icon:extend(.uk-nav-parent-icon > .uk-parent.uk-open > a::after) {}
+
+    // .uk-nav-accordion-icon .uk-parent.uk-active > a > .uk-parent-icon { background-color: @nav-parent-icon-active-background; }
+
+    .uk-nav-default.uk-nav-accordion-icon .uk-parent > a > .uk-parent-icon { width: ~'calc(@{nav-parent-icon-width} + @{nav-default-item-padding-vertical} * 2)'; }
+    .uk-nav-primary.uk-nav-accordion-icon .uk-parent > a > .uk-parent-icon { width: ~'calc(@{nav-parent-icon-width} + @{nav-primary-item-padding-vertical} * 2)'; }
+
+}
+
+
+// Inverse
+// ========================================================================
+
+@inverse-nav-default-item-hover-background:             transparent;
+@inverse-nav-default-item-active-background:            transparent;
+@inverse-nav-default-sublist-background:                transparent;
+
+@inverse-nav-primary-item-hover-background:             transparent;
+@inverse-nav-primary-item-active-background:            transparent;
+@inverse-nav-primary-sublist-background:                transparent;
+
+@inverse-nav-parent-icon-background:                    transparent;
+@inverse-nav-parent-icon-hover-background:              transparent;
+
+.hook-inverse() {
+
+    .uk-nav-default {
+        & ul {
+            background-color: @inverse-nav-default-sublist-background;
+        }
+        .hook-inverse-nav-default();
+    }
+
+    .uk-nav-primary {
+        & ul {
+            background-color: @inverse-nav-primary-sublist-background;
+        }
+        .hook-inverse-nav-primary();
+    }
+
+    //
+    // Accordion(parent) icon
+    //
+
+    .uk-nav-accordion-icon .uk-parent > a > .uk-parent-icon:extend(.uk-light .uk-nav-parent-icon > .uk-parent > a::after) { background-color: @inverse-nav-parent-icon-background; }
+    .uk-nav-accordion-icon .uk-parent > a > .uk-parent-icon:hover { background-color: @inverse-nav-parent-icon-hover-background; }
+    .uk-nav-accordion-icon .uk-parent.uk-open > a > .uk-parent-icon:extend(.uk-light .uk-nav-parent-icon > .uk-parent.uk-open > a::after) {}
+
+}
+
+.hook-inverse-nav-parent-icon() {}
+
+.hook-inverse-nav-default() {}
+.hook-inverse-nav-default-item() {}
+.hook-inverse-nav-default-item-hover() { background-color: @inverse-nav-default-item-hover-background; }
+.hook-inverse-nav-default-item-active() { background-color: @inverse-nav-default-item-active-background; }
+.hook-inverse-nav-default-header() {}
+.hook-inverse-nav-default-divider() {}
+
+.hook-inverse-nav-primary() {}
+.hook-inverse-nav-primary-item() {}
+.hook-inverse-nav-primary-item-hover() { background-color: @inverse-nav-primary-item-hover-background; }
+.hook-inverse-nav-primary-item-active() { background-color: @inverse-nav-primary-item-active-background; }
+.hook-inverse-nav-primary-header() {}
+.hook-inverse-nav-primary-divider() {}
+
+
+
+// Primary
+// ========================================================================
+
+@primary-nav-parent-icon-color:                         @primary-global-color;
+@primary-nav-default-item-color:                        @primary-global-muted-color;
+@primary-nav-default-item-hover-background:             transparent;
+@primary-nav-default-item-hover-color:                  @primary-global-color;
+@primary-nav-default-item-active-background:            transparent;
+@primary-nav-default-item-active-color:                 @primary-global-emphasis-color;
+@primary-nav-default-header-color:                      @primary-global-emphasis-color;
+@primary-nav-default-divider-border:                    @primary-global-border;
+@primary-nav-default-sublist-background:                transparent;
+@primary-nav-default-sublist-item-color:                @primary-global-muted-color;
+@primary-nav-default-sublist-item-hover-color:          @primary-global-color;
+@primary-nav-default-sublist-item-active-color:         @primary-global-emphasis-color;
+
+@primary-nav-primary-item-color:                        @primary-global-muted-color;
+@primary-nav-primary-item-hover-background:             transparent;
+@primary-nav-primary-item-hover-color:                  @primary-global-color;
+@primary-nav-primary-item-active-background:            transparent;
+@primary-nav-primary-item-active-color:                 @primary-global-emphasis-color;
+@primary-nav-primary-header-color:                      @primary-global-emphasis-color;
+@primary-nav-primary-divider-border:                    @primary-global-border;
+@primary-nav-primary-sublist-background:                transparent;
+@primary-nav-primary-sublist-item-color:                @primary-global-muted-color;
+@primary-nav-primary-sublist-item-hover-color:          @primary-global-color;
+@primary-nav-primary-sublist-item-active-color:         @primary-global-emphasis-color;
+
+@primary-nav-parent-icon-background:                    transparent;
+@primary-nav-parent-icon-hover-background:              transparent;
+
+.hook-primary() {
+
+    //
+    // Parent icon modifier
+    //
+
+    .uk-nav-parent-icon > .uk-parent > a::after {
+        .svg-fill(@internal-nav-parent-close-image, "#000", @primary-nav-parent-icon-color);
+        .hook-primary-nav-parent-icon;
+    }
+
+    .uk-nav-parent-icon > .uk-parent.uk-open > a::after { .svg-fill(@internal-nav-parent-open-image, "#000", @primary-nav-parent-icon-color); }
+
+    //
+    // Accordion(parent) icon
+    //
+
+    .uk-nav-accordion-icon .uk-parent > a > .uk-parent-icon:extend(.uk-primary .uk-nav-parent-icon > .uk-parent > a::after) { background-color: @primary-nav-parent-icon-background; }
+    .uk-nav-accordion-icon .uk-parent > a > .uk-parent-icon:hover { background-color: @primary-nav-parent-icon-hover-background; }
+    .uk-nav-accordion-icon .uk-parent.uk-open > a > .uk-parent-icon:extend(.uk-primary .uk-nav-parent-icon > .uk-parent.uk-open > a::after) {}
+
+
+    //
+    // Default
+    //
+
+    .uk-nav-default {
+        & ul {
+            background-color: @primary-nav-default-sublist-background;
+        }
+        .hook-primary-nav-default();
+    }
+
+    .uk-nav-default > li > a {
+        color: @primary-nav-default-item-color;
+        .hook-primary-nav-default-item;
+    }
+
+    .uk-nav-default > li > a:hover,
+    .uk-nav-default > li > a:focus {
+        background-color: @primary-nav-default-item-hover-background;
+        color: @primary-nav-default-item-hover-color;
+        .hook-primary-nav-default-item-hover;
+    }
+
+    .uk-nav-default > li.uk-active > a {
+        background-color: @primary-nav-default-item-active-background;
+        color: @primary-nav-default-item-active-color;
+        .hook-primary-nav-default-item-active;
+    }
+
+    .uk-nav-default .uk-nav-header {
+        color: @primary-nav-default-header-color;
+        .hook-primary-nav-default-header;
+    }
+
+    .uk-nav-default .uk-nav-divider {
+        border-top-color: @primary-nav-default-divider-border;
+        .hook-primary-nav-default-divider;
+    }
+
+    .uk-nav-default .uk-nav-sub a { color: @primary-nav-default-sublist-item-color; }
+
+    .uk-nav-default .uk-nav-sub a:hover,
+    .uk-nav-default .uk-nav-sub a:focus { color: @primary-nav-default-sublist-item-hover-color; }
+
+    .uk-nav-default .uk-nav-sub li.uk-active > a { color: @primary-nav-default-sublist-item-active-color; }
+
+    //
+    // Primary
+    //
+
+    .uk-nav-primary {
+        & ul {
+            background-color: @primary-nav-primary-sublist-background;
+        }
+        .hook-primary-nav-primary();
+    }
+
+    .uk-nav-primary > li > a {
+        color: @primary-nav-primary-item-color;
+        .hook-primary-nav-primary-item;
+    }
+
+    .uk-nav-primary > li > a:hover,
+    .uk-nav-primary > li > a:focus {
+        background-color: @primary-nav-primary-item-hover-background;
+        color: @primary-nav-primary-item-hover-color;
+        .hook-primary-nav-primary-item-hover;
+    }
+
+    .uk-nav-primary > li.uk-active > a {
+        background-color: @primary-nav-primary-item-active-background;
+        color: @primary-nav-primary-item-active-color;
+        .hook-primary-nav-primary-item-active;
+    }
+
+    .uk-nav-primary .uk-nav-header {
+        color: @primary-nav-primary-header-color;
+        .hook-primary-nav-primary-header;
+    }
+
+    .uk-nav-primary .uk-nav-divider {
+        border-top-color: @primary-nav-primary-divider-border;
+        .hook-primary-nav-primary-divider;
+    }
+
+    .uk-nav-primary .uk-nav-sub a { color: @primary-nav-primary-sublist-item-color; }
+
+    .uk-nav-primary .uk-nav-sub a:hover,
+    .uk-nav-primary .uk-nav-sub a:focus { color: @primary-nav-primary-sublist-item-hover-color; }
+
+    .uk-nav-primary .uk-nav-sub li.uk-active > a { color: @primary-nav-primary-sublist-item-active-color; }
+
+}
+
+.hook-primary-nav-parent-icon() {}
+.hook-primary-nav-default() {}
+.hook-primary-nav-default-item() {}
+.hook-primary-nav-default-item-hover() {}
+.hook-primary-nav-default-item-active() {}
+.hook-primary-nav-default-header() {}
+.hook-primary-nav-default-divider() {}
+.hook-primary-nav-primary() {}
+.hook-primary-nav-primary-item() {}
+.hook-primary-nav-primary-item-hover() {}
+.hook-primary-nav-primary-item-active() {}
+.hook-primary-nav-primary-header() {}
+.hook-primary-nav-primary-divider() {}

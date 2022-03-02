@@ -1,0 +1,30 @@
+{if $wa->blog}
+<div class="section section__news">
+    <div class="container-fluid container-lg">
+        <h1 class="section__title mb-5">
+            Новости и статьи
+        </h1>
+        <div class="section__content">
+            <div class="row" data-aos="fade-up">
+                {$posts = $wa->blog->posts(3,3)}
+                {foreach $posts as $p}
+                <div class="col-sm-12 col-lg-4">
+                    <div class="news-item">
+                        <div class="news-item__date mb-2">
+                            {$p.datetime|wa_datetime:"humandate"}
+                        </div>
+                        <div class="news-item__title mb-3">
+                            <a href="{$p.link}">{$p.title}</a>
+                        </div>
+                        <div class="news-item__brief">
+                            {$p.text|strip_tags|truncate:250}
+                        </div>
+                    </div>
+                </div>
+                {/foreach}
+            </div>
+        </div>
+        <div class="section__detail"><a href="/news/">Все новости и статьи<i></i></a></div>
+    </div>
+</div>
+{/if}

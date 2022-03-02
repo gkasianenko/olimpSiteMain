@@ -1,0 +1,119 @@
+//
+// Component: Link
+//
+// ========================================================================
+
+
+// Variables
+// ========================================================================
+
+//
+// New
+//
+
+@link-muted-font-size:                          inherit;
+@link-muted-font-family:                        inherit;
+@link-muted-font-weight:                        inherit;
+@link-muted-font-style:                         inherit;
+@link-muted-text-transform:                     inherit;
+
+@link-text-color:                               inherit;
+
+@link-heading-color:                            inherit;
+
+// Muted
+// ========================================================================
+
+.hook-link-muted() when not (@link-muted-font-size = inherit) {
+    font-size: @link-muted-font-size;
+}
+
+.hook-link-muted() when not (@link-muted-font-family = inherit) {
+    font-family: @link-muted-font-family;
+}
+
+.hook-link-muted() when not (@link-muted-font-weight = inherit) {
+    font-weight: @link-muted-font-weight;
+}
+
+.hook-link-muted() when not (@link-muted-font-style = inherit) {
+    font-style: @link-muted-font-style;
+}
+
+.hook-link-muted() when not (@link-muted-text-transform = inherit) {
+    text-transform: @link-muted-text-transform;
+}
+
+.hook-link-muted-hover() {}
+
+
+// Text
+// ========================================================================
+
+.hook-link-text() when not (@link-text-color = inherit) {
+    color: @link-text-color;
+}
+
+.hook-link-text-hover() {}
+
+
+// Heading
+// ========================================================================
+
+.hook-link-heading() when not (@link-heading-color = inherit) {
+    color: @link-heading-color;
+}
+
+.hook-link-heading-hover() {}
+
+
+// Reset
+// ========================================================================
+
+.hook-link-reset() {}
+
+
+// Miscellaneous
+// ========================================================================
+
+.hook-link-misc() {}
+
+
+// Inverse
+// ========================================================================
+
+@inverse-link-text-color:                               inherit;
+@inverse-link-heading-color:                            inherit;
+
+.hook-inverse-link-muted() {}
+.hook-inverse-link-muted-hover() {}
+
+.hook-inverse-link-text() when not (@inverse-link-text-color = inherit) {
+    color: @inverse-link-text-color;
+}
+.hook-inverse-link-text-hover() {}
+
+.hook-inverse-link-heading() when not (@inverse-link-heading-color = inherit) {
+    color: @inverse-link-heading-color;
+}
+.hook-inverse-link-heading-hover() {}
+
+
+// Primary
+// ========================================================================
+
+@primary-link-text-color:                               inherit;
+@primary-link-heading-color:                            inherit;
+
+.hook-primary-link-muted() {}
+.hook-primary-link-muted-hover() {}
+
+.hook-primary-link-text() when not (@primary-link-text-color = inherit) {
+    color: @primary-link-text-color;
+}
+.hook-primary-link-text-hover() {}
+
+.hook-primary-link-heading() when not (@primary-link-heading-color = inherit) {
+    color: @primary-link-heading-color;
+}
+.hook-primary-link-heading-hover() {}

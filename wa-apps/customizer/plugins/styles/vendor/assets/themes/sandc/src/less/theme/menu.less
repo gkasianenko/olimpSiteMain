@@ -1,0 +1,53 @@
+//
+// Component: Menu
+//
+// ========================================================================
+
+
+// Variables
+// ========================================================================
+
+@menu-dropdown-nav-item-padding-vertical:            15px;
+
+@menu-dropdown-nav-default-item-hover-background:    @global-muted-background;
+@menu-dropdown-nav-default-item-active-background:   @global-muted-background;
+
+@menu-dropdown-nav-icons-item-hover-background:      @global-muted-background;
+@menu-dropdown-nav-icons-item-active-background:     @global-muted-background;
+
+@menu-accordion-nav-item-padding-vertical:           15px;
+@menu-accordion-nav-item-border-width:               @global-border-width;
+@menu-accordion-nav-item-border:                     @global-border;
+
+@menu-accordion-nav-default-item-hover-background:   @global-muted-background;
+@menu-accordion-nav-default-item-active-background:  @global-muted-background;
+
+@menu-accordion-nav-icons-item-hover-background:     @global-muted-background;
+@menu-accordion-nav-icons-item-active-background:    @global-muted-background;
+@menu-accordion-nav-default-item-color:              @global-color;
+
+@internal-menu-parent-chevron-down-image:            "../../../../sandc/src/images/backgrounds/menu-parent-chevron-up.svg";
+@internal-menu-parent-chevron-left-image:            "../../../../sandc/src/images/backgrounds/menu-parent-chevron-down.svg";
+
+@menu-dropbar-nav-item-level1-text-transform:        none;
+@menu-dropbar-nav-item-level1-font-weight:           700;
+@menu-dropbar-nav-default-item-color:                @global-color;
+@menu-dropbar-nav-default-item-hover-color:          @global-primary-background;
+
+@menu-dropbar-nav-secondary-item-color:              @global-color;
+@menu-dropbar-nav-secondary-item-hover-color:        @global-primary-background;
+@menu-dropbar-nav-secondary-item-active-color:       @global-primary-background;
+
+// Component
+// ========================================================================
+
+
+// Miscellaneous
+// ========================================================================
+
+.hook-menu-misc() {
+    .uk-menu-dropbar > li > ul > li > a {
+        font-weight: @menu-dropbar-nav-item-level1-font-weight;
+        text-transform: @menu-dropbar-nav-item-level1-text-transform;
+    }
+}

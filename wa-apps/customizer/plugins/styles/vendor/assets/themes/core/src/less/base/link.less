@@ -1,0 +1,152 @@
+//
+// Component: Link
+//
+// ========================================================================
+
+
+// Variables
+// ========================================================================
+
+//
+// New
+//
+
+@link-muted-text-decoration:                    none;
+@link-muted-hover-text-decoration:              none;
+
+@link-text-text-decoration:                     none;
+@link-text-hover-text-decoration:               none;
+
+@link-heading-text-decoration:                  none;
+@link-heading-hover-text-decoration:            none;
+
+
+// Muted
+// ========================================================================
+
+.hook-link-muted() when not (@link-muted-text-decoration = none) {
+    text-decoration: @link-muted-text-decoration;
+}
+
+.hook-link-muted-hover() when not (@link-muted-hover-text-decoration = @link-muted-text-decoration) {
+    text-decoration: @link-muted-hover-text-decoration;
+}
+
+
+// Text
+// ========================================================================
+
+.hook-link-text() when not (@link-text-text-decoration = none) {
+    text-decoration: @link-text-text-decoration;
+}
+
+.hook-link-text-hover() when not (@link-text-hover-text-decoration = @link-text-text-decoration) {
+    text-decoration: @link-text-hover-text-decoration;
+}
+
+
+// Heading
+// ========================================================================
+
+.hook-link-heading() when not (@link-heading-text-decoration = none) {
+    text-decoration: @link-heading-text-decoration;
+}
+
+.hook-link-heading-hover() when not (@link-heading-hover-text-decoration = @link-heading-text-decoration) {
+    text-decoration: @link-heading-hover-text-decoration;
+}
+
+
+// Reset
+// ========================================================================
+
+.hook-link-reset() {}
+
+
+// Miscellaneous
+// ========================================================================
+
+.hook-link-misc() {}
+
+
+// Inverse
+// ========================================================================
+
+.hook-inverse() {
+
+    a.uk-link-text,
+    .uk-link-text a {
+        .hook-inverse-link-text();
+    }
+
+    a.uk-link-heading,
+    .uk-link-heading a {
+        .hook-inverse-link-heading();
+    }
+
+}
+
+.hook-inverse-link-muted() {}
+.hook-inverse-link-muted-hover() {}
+
+.hook-inverse-link-text() {}
+.hook-inverse-link-text-hover() {}
+
+.hook-inverse-link-heading() {}
+.hook-inverse-link-heading-hover() {}
+
+
+// Primary
+// ========================================================================
+
+@primary-link-muted-color:                        @primary-global-muted-color;
+@primary-link-muted-hover-color:                  @primary-global-color;
+@primary-link-text-hover-color:                   @primary-global-muted-color;
+@primary-link-heading-hover-color:                @primary-global-primary-background;
+
+.hook-primary() {
+
+    a.uk-link-muted,
+    .uk-link-muted a {
+        color: @primary-link-muted-color;
+        .hook-primary-link-muted();
+    }
+
+    .uk-link-muted:hover,
+    .uk-link-muted a:hover {
+        color: @primary-link-muted-hover-color;
+        .hook-primary-link-muted-hover();
+    }
+
+    a.uk-link-text,
+    .uk-link-text a {
+        .hook-primary-link-text();
+    }
+
+    .uk-link-text:hover,
+    .uk-link-text a:hover {
+        color: @primary-link-text-hover-color;
+        .hook-primary-link-text-hover();
+    }
+
+    a.uk-link-heading,
+    .uk-link-heading a {
+        .hook-primary-link-heading();
+    }
+
+    .uk-link-heading:hover,
+    .uk-link-heading a:hover {
+        color: @primary-link-heading-hover-color;
+        .hook-primary-link-heading-hover();
+    }
+
+}
+
+.hook-primary-link-muted() {}
+.hook-primary-link-muted-hover() {}
+
+.hook-primary-link-text() {}
+.hook-primary-link-text-hover() {}
+
+.hook-primary-link-heading() {}
+.hook-primary-link-heading-hover() {}

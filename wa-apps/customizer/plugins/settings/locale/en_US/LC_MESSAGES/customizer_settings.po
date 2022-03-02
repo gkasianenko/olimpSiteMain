@@ -1,0 +1,94 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: customizer/plugins/settings\n"
+"POT-Creation-Date: 2020-04-23 20:16+0300\n"
+"PO-Revision-Date: \n"
+"Last-Translator: customizer/plugins/settings\n"
+"Language-Team: customizer/plugins/settings\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-Language: en_US\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-Basepath: utf-8\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPath-1: .\n"
+
+msgid "Select Image"
+msgstr ""
+
+msgid "Select"
+msgstr ""
+
+msgid "Base"
+msgstr ""
+
+msgid "Specific"
+msgstr ""
+
+msgid "Cover"
+msgstr ""
+
+msgid "Enabled/Disabled"
+msgstr ""
+
+msgid "go to instructions"
+msgstr ""
+
+msgid "Delete"
+msgstr ""
+
+msgid "from"
+msgstr ""
+
+msgid "to"
+msgstr ""
+
+msgid "Width"
+msgstr ""
+
+msgid "Height"
+msgstr ""
+
+msgid "Apply"
+msgstr ""
+
+msgid "Settings changed"
+msgstr ""
+
+msgid "Settings have been changed but no changes have been accepted"
+msgstr ""
+
+msgid "Close"
+msgstr ""
+
+msgid "General settings"
+msgstr ""
+
+msgid "Settings"
+msgstr ""
+
+msgid "Show hidden settings"
+msgstr ""
+
+msgid "Failed to upload file %s."
+msgstr ""
+
+msgid "Failed to upload file."
+msgstr ""
+
+msgid "Manage theme settings"
+msgstr ""
+
+msgid "Auto apply"
+msgstr ""
+
+msgid "Apply changes to draft immediately"
+msgstr ""
+
+msgid "toStringTag"
+msgstr ""
+
+msgid "Cancel"
+msgstr ""

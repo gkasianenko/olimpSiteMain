@@ -1,0 +1,46 @@
+{strip}
+
+<a href="" id="pm-plugin-dialog-link"><i class="icon16 text"></i>[`META tags`]</a>
+
+
+
+{* normal dialog *}
+
+<script type="text/x-jquery-tmpl" id="pm-meta-dialog-content-normal">
+<div><i class="icon16 loading"></i></div>
+</script>
+
+<script type="text/x-jquery-tmpl" id="pm-meta-dialog-buttons-normal">
+<input type="submit" class="button green" value="[`Save`]" disabled="disabled"> <a href="" class="cancel">[`cancel`]</a>
+</script>
+
+
+
+{* deleted item dialog *}
+
+<script type="text/x-jquery-tmpl" id="pm-meta-dialog-content-deleted-album">
+<h1><i class="icon16 no" style="vertical-align: baseline;"></i>[`This album does not exist any more.`]</h1>
+</script>
+
+<script type="text/x-jquery-tmpl" id="pm-meta-dialog-content-deleted-photo">
+<h1><i class="icon16 no" style="vertical-align: baseline;"></i>[`This photo does not exist any more.`]</h1>
+</script>
+
+<script type="text/x-jquery-tmpl" id="pm-meta-dialog-content-deleted-tag">
+<h1><i class="icon16 no" style="vertical-align: baseline;"></i>[`This tag does not exist any more.`]</h1>
+</script>
+
+
+
+{* fallback dialog *}
+
+<script type="text/x-jquery-tmpl" id="pm-meta-dialog-content-fallback">
+<h1>[`META fields are not available for this item`]</h1>
+<p><i class="icon16 exclamation" style="vertical-align: middle;"></i> [`Select a <em>photo</em>, an <em>album</em>, or a <em>tag</em> to edit META tags.`]</p>
+</script>
+
+<script type="text/x-jquery-tmpl" id="pm-meta-dialog-buttons-fallback">
+<input type="button" class="button blue cancel" value="[`Close`]">
+</script>
+
+{/strip}

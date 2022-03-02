@@ -1,0 +1,129 @@
+//
+// Component:       Bar
+//
+// ========================================================================
+
+
+// Variables
+// ========================================================================
+
+@bar-border-width:                              0;
+@bar-border-style:                              solid;
+@bar-border:                                    transparent;
+@bar-default-border:                            transparent;
+@bar-muted-border:                              transparent;
+@bar-primary-border:                            transparent;
+@bar-secondary-border:                          transparent;
+@bar-overlay-light-border:                      transparent;
+@bar-overlay-dark-border:                       transparent;
+
+
+// Component
+// ========================================================================
+
+.hook-bar() {}
+.hook-bar-container() when not (@bar-border-width = 0) {
+    &.uk-bar-top { border-bottom: @bar-border-width @bar-border-style @bar-border; }
+    &.uk-bar-middle { border-top: @bar-border-width @bar-border-style @bar-border; border-bottom: @bar-border-width @bar-border-style @bar-border; }
+    &.uk-bar-bottom { border-top: @bar-border-width @bar-border-style @bar-border; }
+}
+
+.hook-bar-nav-item() {}
+.hook-bar-nav-item-hover() {}
+.hook-bar-nav-item-onclick() {}
+.hook-bar-nav-item-active() {}
+
+.hook-bar-item() {}
+
+.hook-bar-toggle() {}
+.hook-bar-toggle-hover() {}
+.hook-bar-toggle-active() {}
+.hook-bar-toggle-inverted() {}
+
+.hook-bar-title() {}
+
+.hook-bar-link() {}
+.hook-bar-link-hover() {}
+.hook-bar-link-active() {}
+
+.hook-bar-small() {}
+.hook-bar-medium() {}
+.hook-bar-large() {}
+
+.hook-bar-default() when not (@bar-border-width = 0) {
+    &.uk-bar-top { border-bottom-color: @bar-default-border; }
+    &.uk-bar-middle { border-top-color: @bar-default-border; border-bottom-color: @bar-default-border; }
+    &.uk-bar-bottom { border-top-color: @bar-default-border; }
+}
+.hook-bar-muted() when not (@bar-border-width = 0) {
+    &.uk-bar-top { border-bottom-color: @bar-muted-border; }
+    &.uk-bar-middle { border-top-color: @bar-muted-border; border-bottom-color: @bar-muted-border; }
+    &.uk-bar-bottom { border-top-color: @bar-muted-border; }
+}
+.hook-bar-primary() when not (@bar-border-width = 0) {
+    &.uk-bar-top { border-bottom-color: @bar-primary-border; }
+    &.uk-bar-middle { border-top-color: @bar-primary-border; border-bottom-color: @bar-primary-border; }
+    &.uk-bar-bottom { border-top-color: @bar-primary-border; }
+}
+.hook-bar-secondary() when not (@bar-border-width = 0) {
+    &.uk-bar-top { border-bottom-color: @bar-secondary-border; }
+    &.uk-bar-middle { border-top-color: @bar-secondary-border; border-bottom-color: @bar-secondary-border; }
+    &.uk-bar-bottom { border-top-color: @bar-secondary-border; }
+}
+.hook-bar-overlay-light() when not (@bar-border-width = 0) {
+    &.uk-bar-top { border-bottom-color: @bar-overlay-light-border; }
+    &.uk-bar-middle { border-top-color: @bar-overlay-light-border; border-bottom-color: @bar-overlay-light-border; }
+    &.uk-bar-bottom { border-top-color: @bar-overlay-light-border; }
+}
+.hook-bar-overlay-dark() when not (@bar-border-width = 0) {
+    &.uk-bar-top { border-bottom-color: @bar-overlay-dark-border; }
+    &.uk-bar-middle { border-top-color: @bar-overlay-dark-border; border-bottom-color: @bar-overlay-dark-border; }
+    &.uk-bar-bottom { border-top-color: @bar-overlay-dark-border; }
+}
+.hook-bar-sticky() {}
+
+
+// Hooks
+// ========================================================================
+
+.hook-bar-misc() when not (@bar-border-width = 0) {
+    .uk-bar-top .uk-bar-toggle-inverted:not(.uk-cart-empty) { margin-bottom:-@bar-border-width; }
+    .uk-bar-middle .uk-bar-toggle-inverted:not(.uk-cart-empty) { margin-bottom:-@bar-border-width; margin-top:-@bar-border-width; }
+    .uk-bar-bottom .uk-bar-toggle-inverted:not(.uk-cart-empty) { margin-top:-@bar-border-width; }
+}
+
+
+// Inverse
+// ========================================================================
+
+.hook-inverse-bar-nav-item() {}
+.hook-inverse-bar-nav-item-hover() {}
+.hook-inverse-bar-nav-item-onclick() {}
+.hook-inverse-bar-nav-item-active() {}
+.hook-inverse-bar-item() {}
+.hook-inverse-bar-toggle() {}
+.hook-inverse-bar-toggle-hover() {}
+.hook-inverse-bar-toggle-active() {}
+.hook-inverse-bar-toggle-inverted() {}
+.hook-inverse-bar-title() {}
+.hook-inverse-bar-link() {}
+.hook-inverse-bar-link-hover() {}
+.hook-inverse-bar-link-active() {}
+
+
+// Primary
+// ========================================================================
+
+.hook-primary-bar-nav-item() {}
+.hook-primary-bar-nav-item-hover() {}
+.hook-primary-bar-nav-item-onclick() {}
+.hook-primary-bar-nav-item-active() {}
+.hook-primary-bar-item() {}
+.hook-primary-bar-toggle() {}
+.hook-primary-bar-toggle-hover() {}
+.hook-primary-bar-toggle-active() {}
+.hook-primary-bar-toggle-inverted() {}
+.hook-primary-bar-title() {}
+.hook-primary-bar-link() {}
+.hook-primary-bar-link-hover() {}
+.hook-primary-bar-link-active() {}

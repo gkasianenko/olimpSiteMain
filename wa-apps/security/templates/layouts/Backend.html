@@ -1,0 +1,50 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>{$wa->appName()} &mdash; {$wa->accountName()}</title>
+	{$wa->css()}
+	<script type="text/javascript" src="{$wa_url}wa-content/js/jquery/jquery-1.8.2.min.js"></script>
+	<script type="text/javascript" src="{$wa_url}wa-content/js/jquery-wa/wa.core.js"></script>
+	<script type="text/javascript" src="{$wa_url}wa-content/js/jquery-wa/wa.dialog.js"></script>
+	<script type="text/javascript" src="{$wa_url}wa-content/js/jquery-ui/jquery.ui.core.min.js"></script>
+	<script type="text/javascript" src="{$wa_url}wa-content/js/jquery-ui/jquery.ui.widget.min.js"></script>
+	<script type="text/javascript" src="{$wa_url}wa-content/js/jquery-ui/jquery.ui.mouse.min.js"></script>
+	<script type="text/javascript" src="{$wa_url}wa-content/js/jquery-ui/jquery.ui.position.min.js"></script>
+	<script type="text/javascript" src="{$wa_url}wa-content/js/jquery-ui/jquery.ui.draggable.min.js"></script>
+	<script type="text/javascript" src="{$wa_url}wa-content/js/jquery-ui/jquery.ui.droppable.min.js"></script>
+	<script type="text/javascript" src="{$wa_url}wa-content/js/jquery-ui/jquery.ui.sortable.min.js"></script>
+	<script type="text/javascript" src="{$wa_url}wa-content/js/jquery-ui/jquery.ui.sortable.min.js"></script>
+	<script type="text/javascript" src="{$wa_app_static_url}js/security.js"></script>
+
+</head>
+<body>
+	<div id="wa">
+		{$wa->header()}
+		<div id="wa-app">
+			<div class="sidebar left200px">
+				<div class="block b-sidebar">
+					<ul class="menu-v with-icons category-menu">
+						<li class="bottom-padded ">
+							<a href="{$wa_app_url}?action=scanlist">
+								<i class="icon16 folders"></i>[`История сканирования`]
+							</a>
+						</li>
+						<li class="bottom-padded ">
+							<a href="{$wa_app_url}?action=settings">
+								<i class="icon16 settings"></i>[`Настройки`]
+							</a>
+						</li>
+					</ul>
+				</div>
+
+			</div>
+			<div class="content left200px">
+				<div class="block double-padded">
+					{$content}
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

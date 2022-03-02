@@ -1,0 +1,23 @@
+<div class="post__title">
+    <h3><a href="#blog-item__{$post.id}" itemprop="url" data-toggle="collapse">{$post.title}</a></h3>
+    {* @event prepare_posts_frontend.%plugin_id%.post_title *}
+    {if !empty($post.plugins.post_title)}
+    {foreach $post.plugins.post_title as $plugin => $output}{$output}{/foreach}
+    {/if}
+</div>
+
+<div class="post__text collapse" id="blog-item__{$post.id}">
+    <div>{$post.text}</div>
+</div>
+
+<div class="post__icon">
+    <a href="#blog-item__{$post.id}" data-toggle="collapse">
+        <i class="icon fas"></i>
+    </a>
+</div>
+
+{*
+<div class="post__date">
+    <span class="hint">{$post.datetime|wa_datetime:"humandate"}</span>
+</div>
+*}

@@ -1,0 +1,60 @@
+<div class="row">
+    <div class="post__content col">
+        <div class="post__label">
+            <a class="btn" href="{$post.image}" data-lightbox="{$post.id}">Просмотреть письмо</a>
+        </div>
+        <div class="post__title mt-2">
+            <h3><a href="{$post.link}" itemprop="url">{$post.title}</a></h3>
+
+            {* @event prepare_posts_frontend.%plugin_id%.post_title *}
+            {if !empty($post.plugins.post_title)}
+            {foreach $post.plugins.post_title as $plugin => $output}{$output}{/foreach}
+            {/if}
+        </div>
+
+        <div class="post__text mb-4">
+            {* @event prepare_posts_frontend.%plugin_id%.before *}
+            {if !empty($post.plugins.before)}
+            <div class="post__text-before">
+                {foreach $post.plugins.before as $plugin => $output}{$output}{/foreach}
+            </div>
+            {/if}
+
+            <p>{$post.text|strip_tags}</p>
+
+            {* @event prepare_posts_frontend.%plugin_id%.after *}
+            {if !empty($post.plugins.after)}
+            <div class="post__text-after">
+                {foreach $post.plugins.after as $plugin => $output}{$output}{/foreach}
+            </div>
+            {/if}
+        </div>
+
+        {if $post.cutted}
+        <div class="post__detail">
+            <a href="{$post.link}">Подробнее</a>
+        </div>
+        {/if}
+    </div>
+    {*if isset($post.image) && $post.image}
+    <div class="post__picture col-md-auto d-none d-lg-flex">
+        <div class="post__picture__cover">
+            <a href="{$post.image}" data-lightbox="review-item">
+                <img src="{$post.image}" class="img-fluid">
+            </a>
+        </div>
+    </div>
+    {/if*}
+
+    {* attached album photo thumbs *}
+    {if $post.album_id && $post.album.id && $post.album.photos}
+    {$photos_loaded = 1} {* required for proper photo thumbs retinification *}
+    <div class="photo-album-attachment">
+        <ul class="thumbs">
+            {foreach $post.album.photos as $p}
+            <li><a href="{$post.link}#photo{$p.id}"><img src="{$p.thumb_crop.url}" class="retinify" width="96" height="96" alt="{$p.name|escape}"></a></li>
+            {/foreach}
+        </ul>
+    </div>
+    {/if}
+</div>

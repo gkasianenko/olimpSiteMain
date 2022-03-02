@@ -1,0 +1,200 @@
+{$items = siteCustomerHelper::multiPages(array(7,101,85,5,16,17,18))}
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+				<div class="container-fluid">
+                    <div class="row row-contacts no-gutters">
+                        <div class="col-6 col-sm-auto">
+                            <div class="d-flex flex-row align-items-center" style="height: 100%">
+                                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                                    <img src="{$wa_theme_url}img/times.svg" alt="">
+                                </button>
+                                <div class="logo"><img src="{$wa_theme_url}img/logo_bl.svg" alt=""></div>
+                            </div>
+                        </div>
+
+                        <div class="col-6 col-sm-auto block-ticket-top ml-auto">
+                            <div class="navbar-text">
+                                <div class="header__contacts align-items-center">
+                                    <div class="contacts__tel">
+                                        <div class="contacts__icon"><i class="icon-phone"></i></div>
+                                        <div class="contacts__items">
+                                            <div class="contacts__item"><a href="tel:84956496680">8 (495) 649-66-80</a></div>
+                                            <div class="contacts__item mr-0 pr-0"><a href="tel:88003331107">8 (800) 333-11-07</a></div>
+                                        </div>
+                                    </div>
+                                    <div class="contacts__mail mr-0 d-none d-lg-flex">
+                                        <div class="contacts__icon"><i class="far fa-envelope"></i></div>
+                                        <div class="contacts__items">
+                                            <div class="contacts__item"><span class="mail"><a href="mailto:mail@olimp.ltd" target="_blank">mail@olimp.ltd</a></span></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="header__links d-none d-md-flex"><a class="call-to-action" href="https://wa.me/74956496680"><i class="icon-whatsapp"></i></a><a href="https://crm.olimp.ltd" target="_blank"><i class="icon-sign-in"></i></a></div>
+                                <div class="header__buttons d-none d-md-block"><a class="btn btn-red text-nowrap" href="#" data-toggle="modal" data-target="#formModal" style="line-height: 36px">Оставить заявку</a></div>
+                            </div>
+
+                            {*<div class="row">
+                                <div class="col-12 col-sm-auto">
+                                    <div class="row flex-column flex-md-row align-items-end align-items-md-center " style="justify-content: center; height: 100%;">
+                                        <div class="col-auto px-2 px-lg-3">
+                                            <div class="tel">
+                                                <!--<small>Москва</small>-->
+                                                <a href="tel:84956496680">8 (495) 649-66-80</a>
+                                            </div>
+                                        </div>
+                                        <div class="col-auto px-2 px-lg-3">
+                                            <div class="tel">
+                                                <!--<small>Россия</small>-->
+                                                <a href="tel:88003331107">8 (800) 333-11-07</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-auto d-none d-sm-block">
+                                    <a class="btn btn-red" href="#" data-toggle="modal" data-target="#formModal"
+                                       style="line-height: 36px">
+                                        Оставить заявку
+                                    </a>
+                                </div>
+                            </div>*}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-body">
+                <div class="container-fluid new__submenu">
+                    <div class="row">
+                        <div class="col-12 col-lg-8 text-left left_column">
+                            <div class="row">
+                                <div class="col-12">
+                                    <ul class="nav flex-column pb-0">
+                                        <li class="nav-item">
+                                            <span class="nav-link nav-link-main">Продукты и услуги</span>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                {foreach $items as $page}
+                                {if $page}
+                                <div class="col-12 col-sm-6">
+                                    <div class="row">
+                                        <div class="col-12 col-lg-auto d-none d-sm-block">
+                                            <div class="icon">
+                                                {if isset($page.icon) && $page.icon}
+                                                <div class="icon mx-0 mx-md-auto">
+                                                    <img src="{$wa_theme_url}img/{$page.icon}" alt="" style="width: 80px; max-width: 80px; max-height: 80px">
+                                                </div>
+                                                {/if}
+                                            </div>
+                                        </div>
+
+                                        <div class="col-12 col-sm">
+                                            <div class="list-group">
+                                            <ul class="nav flex-column">
+                                                <div class="list-group__header">
+                                                    <li class="nav-item">
+                                                        <span class="nav-link nav-link-cat">
+                                                            <p>{$page.name}</p>
+                                                        </span>
+                                                    </li>
+                                                    <i class="list-icon"></i>
+                                                </div>
+                                                <div class="list-content">
+                                                    <li class="nav-item">
+                                                        <span>
+                                                            <a class="nav-link" href="/{$page.url}">{$page.name}</a>
+                                                        </span>
+                                                    </li>
+                                                    {$subpages = $wa->site->pages($page.id)}
+                                                    {if $subpages && count($subpages) > 0}
+                                                    {foreach $subpages as $s}
+                                                    <li class="nav-item">
+                                                        <a href="{$s.url}" class="nav-link">{$s.name}</a>
+                                                    </li>
+                                                    {/foreach}
+                                                    {/if}
+
+                                                </div>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                {/if}
+                                {/foreach}
+                            </div>
+                        </div>
+
+                        <div class="col-lg-1 d-none d-lg-block border-left opacity-80">
+
+                        </div>
+
+                        <div class="col-12 col-lg-3">
+                            <div class="row">
+                                <div class="col-12">
+                                    <ul class="nav flex-column pb-0">
+                                        <li class="nav-item">
+                                            <span class="nav-link nav-link-main">Компания</span>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <div class="col-12 col-sm-6 col-lg-12">
+                                    {$data = siteCustomerHelper::multiPages(array(2,21,19,4,20))}
+                                    <ul class="nav flex-column">
+                                        {foreach $data as $menuItem}
+                                        <li class="nav-item">
+                                            {if "/{$menuItem.full_url}" == $wa->currentUrl(false)}
+                                            <span class="nav-link nav-link-cat active">{$menuItem.name|escape}</span>
+                                            {else}
+                                            <a href="/{$menuItem.full_url}" class="nav-link">{$menuItem.name|escape}</a>
+                                            {/if}
+                                        </li>
+                                        {if $menuItem.id == 2}
+                                        <li class="nav-item">
+                                            {if "/portfolio/" == $wa->currentUrl(false)}
+                                            <span class="nav-link nav-link-cat active">Портфолио</span>
+                                            {else}
+                                            <a href="/portfolio/" class="nav-link">Портфолио</a>
+                                            {/if}
+                                        </li>
+                                        {elseif $menuItem.id == 19}
+                                        <li class="nav-item">
+                                            {if "/faq/" == $wa->currentUrl(false)}
+                                            <span class="nav-link nav-link-cat active">Частые вопросы</span>
+                                            {else}
+                                            <a href="/faq/" class="nav-link">Частые вопросы</a>
+                                            {/if}
+                                        </li>
+                                        <li class="nav-item">
+                                            {if "/otzyvy/" == $wa->currentUrl(false)}
+                                            <span class="nav-link nav-link-cat active">Отзывы</span>
+                                            {else}
+                                            <a href="/otzyvy/" class="nav-link">Отзывы</a>
+                                            {/if}
+                                        </li>
+                                        <li class="nav-item">
+                                            {if "/news/" == $wa->currentUrl(false)}
+                                            <span class="nav-link nav-link-cat active">Новости и статьи</span>
+                                            {else}
+                                            <a href="/news/" class="nav-link">Новости и статьи</a>
+                                            {/if}
+                                        </li>
+                                        {/if}
+                                        {/foreach}
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

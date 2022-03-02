@@ -1,0 +1,152 @@
+//
+// Component: Pagination
+//
+// ========================================================================
+
+
+// Variables
+// ========================================================================
+
+//
+// New
+//
+
+@pagination-item-min-width:                     0;
+@pagination-item-padding-vertical:              0;
+@pagination-item-padding-horizontal:            0;
+@pagination-item-line-height:                   @global-line-height;
+@pagination-item-background:                    transparent;
+@pagination-item-text-decoration:               none;
+@pagination-item-hover-background:              transparent;
+@pagination-item-active-background:             transparent;
+@pagination-item-active-text-decoration:        none;
+@pagination-item-disabled-background:           transparent;
+
+@internal-pagination-item-mode:                 none; // none, flicker
+
+
+// Component
+// ========================================================================
+
+.hook-pagination() {}
+
+
+// Items
+// ========================================================================
+
+.hook-pagination-item() {
+    box-sizing: border-box;
+    min-width: @pagination-item-min-width;
+    padding: @pagination-item-padding-vertical @pagination-item-padding-horizontal;
+    background: @pagination-item-background;
+    text-decoration: @pagination-item-text-decoration;
+    line-height: @pagination-item-line-height;
+    text-align: center;
+    transition: 0.1s ease-in-out;
+    transition-property: color, background-color, border-color, box-shadow;
+}
+
+.hook-pagination-item-hover() { background-color: @pagination-item-hover-background; }
+
+.hook-pagination-item-active() {
+    background-color: @pagination-item-active-background;
+    text-decoration: @pagination-item-active-text-decoration;
+}
+
+.hook-pagination-item-disabled() { background-color: @pagination-item-disabled-background; }
+
+// Mode
+.hook-pagination-item-hover() when (@internal-pagination-item-mode = flicker) {
+    animation: uk-flicker 0.2s ease both;
+}
+
+
+// Miscellaneous
+// ========================================================================
+
+.hook-pagination-misc() { .uk-pagination > .selected > *:extend(.uk-pagination > .uk-active > *) {} }
+
+
+// Inverse
+// ========================================================================
+
+@inverse-pagination-item-background:                    transparent;
+@inverse-pagination-item-text-decoration:               none;
+@inverse-pagination-item-hover-background:              transparent;
+@inverse-pagination-item-hover-text-decoration:         none;
+@inverse-pagination-item-active-background:             transparent;
+@inverse-pagination-item-active-text-decoration:        none;
+@inverse-pagination-item-disabled-background:           transparent;
+
+.hook-inverse() { .uk-pagination > .selected > *:extend(.uk-light .uk-pagination > .uk-active > *) {} }
+
+.hook-inverse-pagination-item() {
+    background-color: @inverse-pagination-item-background;
+    text-decoration: @inverse-pagination-item-text-decoration;
+}
+.hook-inverse-pagination-item-hover() {
+    background-color: @inverse-pagination-item-hover-background;
+    text-decoration: @inverse-pagination-item-hover-text-decoration;
+}
+.hook-inverse-pagination-item-active() {
+    background-color: @inverse-pagination-item-active-background;
+    text-decoration: @inverse-pagination-item-active-text-decoration;
+}
+.hook-inverse-pagination-item-disabled() { background-color: @inverse-pagination-item-disabled-background; }
+
+
+// Primary
+// ========================================================================
+
+@primary-pagination-item-color:                         @primary-global-muted-color;
+@primary-pagination-item-background:                    transparent;
+@primary-pagination-item-text-decoration:               none;
+
+@primary-pagination-item-hover-color:                   @primary-global-color;
+@primary-pagination-item-hover-background:              transparent;
+@primary-pagination-item-hover-text-decoration:         none;
+
+@primary-pagination-item-active-color:                  @primary-global-color;
+@primary-pagination-item-active-background:             transparent;
+@primary-pagination-item-active-text-decoration:        none;
+
+@primary-pagination-item-disabled-color:                @primary-global-muted-color;
+@primary-pagination-item-disabled-background:           transparent;
+
+.hook-primary() {
+
+    .uk-pagination > * > * {
+        color: @primary-pagination-item-color;
+        background-color: @primary-pagination-item-background;
+        text-decoration: @primary-pagination-item-text-decoration;
+        .hook-primary-pagination-item();
+    }
+
+    .uk-pagination > * > :hover,
+    .uk-pagination > * > :focus {
+        color: @primary-pagination-item-hover-color;
+        background-color: @primary-pagination-item-hover-background;
+        text-decoration: @primary-pagination-item-hover-text-decoration;
+        .hook-primary-pagination-item-hover();
+    }
+
+    .uk-pagination > .selected > *,
+    .uk-pagination > .uk-active > * {
+        color: @primary-pagination-item-active-color;
+        background-color: @primary-pagination-item-active-background;
+        text-decoration: @primary-pagination-item-active-text-decoration;
+        .hook-primary-pagination-item-active();
+    }
+
+    .uk-pagination > .uk-disabled > * {
+        color: @primary-pagination-item-disabled-color;
+        background-color: @primary-pagination-item-disabled-background;
+        .hook-primary-pagination-item-disabled();
+    }
+
+}
+
+.hook-primary-pagination-item() {}
+.hook-primary-pagination-item-hover() {}
+.hook-primary-pagination-item-active() {}
+.hook-primary-pagination-item-disabled() {}

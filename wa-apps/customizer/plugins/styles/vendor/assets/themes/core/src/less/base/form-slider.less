@@ -1,0 +1,117 @@
+// Name:            Form Slider
+// Description:     Styles for the two input
+//
+// Component:       `ui-slider`
+//
+// ========================================================================
+
+
+// Variables
+// ========================================================================
+
+@form-slider-control-background:                          @global-primary-background;
+@form-slider-control-border-width:                        0;
+@form-slider-control-border-radius:                       0;
+@form-slider-control-border:                              transparent;
+@form-slider-control-hover-border:                        transparent;
+@form-slider-control-box-shadow:                          none;
+@form-slider-control-hover-box-shadow:                    none;
+
+
+/* ========================================================================
+   Component: Form Slider
+ ========================================================================== */
+
+.ui-slider {
+	position: relative;
+	text-align: left;
+}
+.ui-slider .ui-slider-handle {
+	position: absolute;
+	z-index: 2;
+	width: 1.2em;
+	height: 1.2em;
+	cursor: default;
+}
+.ui-slider .ui-slider-range {
+	position: absolute;
+	z-index: 1;
+	font-size: .7em;
+	display: block;
+	border: 0;
+	background-position: 0 0;
+}
+
+.ui-slider-horizontal { height: .8em; }
+.ui-slider-horizontal .ui-slider-handle {
+    top: -.3em;
+    margin-left: -.6em;
+}
+.ui-slider-horizontal .ui-slider-range {
+    top: 0;
+    height: 100%;
+}
+.ui-slider-horizontal .ui-slider-range-min { left: 0; }
+.ui-slider-horizontal .ui-slider-range-max { right: 0; }
+
+.ui-slider-vertical {
+    width: .8em;
+    height: 100px;
+}
+.ui-slider-vertical .ui-slider-handle {
+    left: -.3em;
+    margin-left: 0;
+    margin-bottom: -.6em;
+}
+.ui-slider-vertical .ui-slider-range {
+    left: 0;
+    width: 100%;
+}
+.ui-slider-vertical .ui-slider-range-min { bottom: 0; }
+.ui-slider-vertical .ui-slider-range-max { top: 0; }
+
+
+/* Adopts
+ ========================================================================== */
+
+.filters .slider { background: transparent; }
+.filters .ui-slider { margin: 20px 5px 5px; }
+.filters .ui-slider-horizontal {
+	height: 10px;
+	background: #f8f8f8;
+}
+.filters .ui-slider-horizontal .ui-slider-range { background: #e2e2e2; }
+.filters .ui-slider-horizontal .ui-slider-handle {
+	top: -5px;
+	margin-left: -5px;
+	width: 8px;
+	height: 18px;
+	background: @form-slider-control-background;
+    & when not (@form-slider-control-border-radius = 0) {
+        border-radius: @form-slider-control-border-radius;
+    }
+    & when not (@form-slider-control-border-width = 0) {
+        border: @form-slider-control-border-width solid @form-slider-control-border;
+    }
+	& when not (@form-slider-control-box-shadow = none) { box-shadow: @form-slider-control-box-shadow; }
+    .hook-form-slider-control();
+}
+.filters .ui-slider-horizontal .ui-slider-handle.ui-state-focus,
+.filters .ui-slider-horizontal .ui-slider-handle.ui-state-hover {
+	& when not (@form-slider-control-border-width = 0) and not (@form-slider-control-border = @form-slider-control-hover-border) {
+        border-color: @form-slider-control-hover-border;
+    }
+    & when not (@form-slider-control-box-shadow = @form-slider-control-hover-box-shadow) { box-shadow: @form-slider-control-hover-box-shadow; }
+    .hook-form-slider-control-hover();
+}
+.filters .ui-slider-horizontal .ui-slider-handle:focus { outline: none; }
+
+
+// Hooks
+// ========================================================================
+
+.hook-form-slider-misc;
+
+.hook-form-slider-control() {}
+.hook-form-slider-control-hover() {}
+.hook-form-slider-misc() {}

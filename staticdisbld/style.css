@@ -1,0 +1,118 @@
+@import url(http://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700&subset=latin,cyrillic-ext);
+
+*:after,
+*:before {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    background: url(https://olimp.ltd/error_static/image/bg.jpg);
+}
+
+img {
+    max-width: 100%;
+}
+
+.contacts * {
+    color: #000;
+}
+
+    .contacts p {
+        font-size: 1.375em;
+    }
+
+    .contacts span {
+        display: block;
+        font-size: 1.375em;
+        margin: 10px 0;
+    }
+
+    .contacts a {
+        text-decoration: none;
+    }
+
+        .contacts a:hover {
+            background: #cf5403;
+        }
+
+.footer {
+    background: url(https://olimp.ltd/error_static/image/bg-footer.jpg);
+}
+
+    .footer .alogo {
+        display: inline-block;
+        margin: 20px 0 20px 0;
+    }
+
+.dcontent {
+    padding: 5vw 0 0 0;
+}
+
+.dtext {
+    font-size: 1.75em;
+}
+
+h3 {
+	color: #0971b7 !important;
+	font-size: 2.5em !important;
+	margin: 15px 0 10px !important;
+}
+
+/********************************************/
+
+@media only screen and (max-width: 1200px) {
+
+}
+
+@media only screen and (max-width: 992px) {
+
+}
+
+@media only screen and (max-width: 768px) {
+    footer .row > div {
+        text-align: center;
+    }
+
+        footer .contacts * {
+            text-align: center;
+        }
+}
+
+@media only screen and (max-width: 480px) {
+
+}
+
+@media only screen and (max-width: 320px) {
+
+}
+
+/*==========  Mobile First Method  ==========*/
+
+@media only screen and (min-width: 320px) {
+
+}
+
+@media only screen and (min-width: 480px) {
+
+}
+
+@media only screen and (min-width: 768px) {
+
+}
+
+@media only screen and (min-width: 992px) {
+
+}
+
+@media only screen and (min-width: 1200px) {
+
+}

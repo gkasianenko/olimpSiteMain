@@ -1,0 +1,100 @@
+{$new_jumbotron_pages = array(102,103,104,105,139, 19,30,31,34,35,36,28, 4,50,52,53,56,54,55,51,57,58,59, 20,2,21)}
+
+{if $page.id == "19"}
+    {$page = $wa->site->page(28)}
+{/if}
+
+{if !empty($page.content)}
+
+    {$jumbotron = $wa->block("page_`$page.id`")}
+
+    {if !$jumbotron}
+    <h1 itemprop="name" class="section__title mb-md-5">{$page.name}</h1>
+    {/if}
+
+    {if $jumbotron && !in_array($page.id, $new_jumbotron_pages)}
+        {$jumbotron = false}
+    {/if}
+
+    {if in_array($page.id, array(19)) || in_array($page.parent_id, array(19))}
+        {$payment_methods = $wa->site->pages(19)}
+
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 col-md-auto px-0 section__bg section__bg--gray">
+                    <div class="section__page-nav">
+                        <div class="page-nav__container">
+                            <div class="nav">
+                                <ul>
+                                    {foreach $payment_methods as $p}
+                                    <li{if $p.id == $page.id} class="active"{/if}><a href="{$p.url}">{$p.name}</a></li>
+                                    {/foreach}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md pl-0">
+                    <div class="section__page-content">
+                        <h1 class="section__title">{$page.name}</h1>
+
+                        <div id="page" role="main" itemprop="description">
+                            {$page.content}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {else if in_array($page.id, array(4)) || in_array($page.parent_id, array(4))}
+        {$price_sections = $wa->site->pages(4)}
+
+        <div class="container-fluid" style="max-width: initial">
+            <div class="row">
+                <div class="col-12 col-md-auto px-0 section__bg section__bg--gray">
+                    <div class="section__page-nav">
+                        <div class="page-nav__container">
+                            <div class="nav">
+                                <ul>
+                                    {foreach $price_sections as $p}
+                                    <li{if $p.id == $page.id} class="active"{/if}><a href="{$p.url}">{$p.name}</a></li>
+                                    {/foreach}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md pl-0">
+                    <div class="section__page-content">
+                        <h1 class="section__title">{$page.name}</h1>
+
+                        <div id="page" role="main" itemprop="description">
+                            {$page.content}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {else}
+
+        {include file="__subpages.html" inline}
+
+        <div id="page" role="main" itemprop="description" class="{if !isset($page.full_width) || !$page.full_width}container-fluid container-lg{/if}">
+            {$page.content}
+        </div>
+
+    {/if}
+
+{else}
+
+    <div class="section section__page section__page--empty">
+        <div class="container container-lg">
+            {$wa->block("site.page_dev")}
+        </div>
+    </div>
+
+{/if}
+
+
+
+
+

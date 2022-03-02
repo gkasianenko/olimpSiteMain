@@ -1,0 +1,57 @@
+<header class="header header_landing " id="header">
+    <div class="container-fluid ">
+        {$siteMessage = $wa->block("site.header_message")}
+        {if !empty($siteMessage)}
+        <div class="row header__site-message">
+            <div class="col">
+                {$siteMessage}
+            </div>
+        </div>
+        {/if}
+
+        <div class="row">
+            <div class="col-12">
+                <nav class="navbar navbar-expand-xl navbar-light">
+                    <button class="navbar-toggler" type="button" data-toggle="modal" data-target="#exampleModal"><span class="burger"></span></button><a class="navbar-brand" href="/">
+                    <div class="logo js-logo"><img width="50%" src="{$wa_theme_url}img/logo-landing.svg"></div></a>
+                    <nav class="navbar d-none d-md-block">
+                        {$items = array(
+                        ['url'=>'/portfolio/', 'name'=>'Портфолио'],
+                        ['url'=>'/tseny/', 'name'=>'Цены'],
+                        ['url'=>'/klientam/', 'name'=>'Клиентам'],
+                        ['url'=>'/news/', 'name'=>'Новости и статьи'],
+                        ['url'=>'/faq/', 'name'=>'Частые вопросы'],
+                        ['url'=>'/otzyvy/', 'name'=>'Отзывы'],
+                        ['url'=>'/kontakty/', 'name'=>'Контакты']
+                        )}
+
+                        <ul class="navbar-nav justify-content-between">
+
+                            {foreach $items as $itemKey => $itemValue}
+                            {$showDropdown = isset($itemValue.dropdown) && $itemValue.dropdown == '1'}
+                            <li class="nav-item{if $itemValue.url == $wa->currentUrl(false)} active{/if}{if $showDropdown} dropdown{/if}">
+                                <a class="nav-link{if $showDropdown} dropdown-toggle{/if}" href="{$itemValue.url}">
+                                    {$itemValue.name}</a>
+
+                                {*if $showDropdown}
+                                <div class="dropdown-menu border-top d-lg-flex flex-lg-row">
+                                    {$dropdownItems = array(7,101,85,5)}
+
+                                    {foreach $dropdownItems as $dropdownItem}
+                                    {$subPage = $wa->site->page($dropdownItem)}
+                                    <a class="dropdown-item" href="{$subPage.url}">{$subPage.name}</a>
+                                    {/foreach}
+                                </div>
+                                {/if*}
+                            </li>
+                            {/foreach}
+                        </ul>
+                    </nav>
+                    <div class="navbar-text text-center">
+                        <div class="header__buttons"><a class="btn btn-red text-nowrap" href="#" data-toggle="modal" data-target="#formModal" style="line-height: 36px">Оставить заявку</a></div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>

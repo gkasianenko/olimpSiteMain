@@ -1,0 +1,27 @@
+{capture}{$posts|@shuffle}{/capture}
+
+{* post stream (list): default view mode *}
+{foreach array_chunk($posts, 3) as $row}
+    <div class="row no-gutters">
+        {foreach $row as $post}
+        <div class="col-12 col-lg-6 col-xl-4">
+            <section class="post post__portfolio">
+                <div class="post post__item" id="post-{$post.id}" {if $wa->param('blog_url')}itemprop="blogPosts" {/if}itemscope itemtype="http://schema.org/BlogPosting">
+                    {include file="stream_posts_item.html" inline}
+                </div>
+            </section>
+        </div>
+        {/foreach}
+    </div>
+{foreachelse}
+    {if $page lt 2}
+        {_w('%d post','%d posts',0)}
+    {/if}
+{/foreach}
+
+{if !empty($photos_loaded) && blogPhotosBridge::is2xEnabled()}
+    <script src="{$wa_static_url}wa-content/js/jquery-plugins/jquery.retina.min.js"></script>
+    <script>$(function() { "use strict";
+        $.Retina && $('img.retinify').retina();
+    });</script>
+{/if}

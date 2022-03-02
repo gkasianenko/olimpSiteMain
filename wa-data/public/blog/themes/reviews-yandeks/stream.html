@@ -1,0 +1,81 @@
+{* post stream (list) wrapper *}
+
+{if $page eq 1 || ($page > 1 && !$is_lazyloading)}
+{foreach $wa->blog->blogs() as $blog}
+{if $blog.link == $wa->currentUrl(true)|regex_replace:"/\?.+/":""}
+
+<div class="row mb-sm-5">
+    <div class="col-12 col-sm">
+        <h1 class="display-4">{$blog.name}</h1>
+    </div>
+</div>
+
+
+<div class="page__nav">
+    <div class="row">
+        <div class="col d-none d-md-block">
+            <a class="btn btn-red" href="#" data-toggle="modal" data-target="#reviewFormModal" style="line-height: 36px">
+                Оставить отзыв
+            </a>
+        </div>
+        <div class="col-12 col-md-auto">
+            <ul class="nav justify-content-center flex-column flex-sm-row">
+                <li class="nav-item d-sm-none"><a class="nav-link" href="#" data-toggle="modal" data-target="#reviewFormModal">Оставить отзыв</a></li>
+                <li class="nav-item"><a class="nav-link active" href="/otzyvy-yandeks/">Яндекс.Карты</a></li>
+                <li class="nav-item"><a class="nav-link" href="/otzyvy/">Письма</a></li>
+                <li class="nav-item"><a class="nav-link" href="/otzyvy-video/">Видео</a></li>
+                <li class="nav-item"><a class="nav-link" href="/otzyvy-audio/">Аудио</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-12 col-sm-6 m-auto">
+        <div style="width:auto;height:800px;overflow:hidden;position:relative;margin-bottom: 50px;"><iframe style="width:100%;height:100%;border:1px solid #e6e6e6;border-radius:8px;box-sizing:border-box" src="https://yandex.ru/maps-reviews-widget/1023756622?comments"></iframe><a href="https://yandex.ru/maps/org/olimp/1023756622/" target="_blank" style="box-sizing:border-box;text-decoration:none;color:#b3b3b3;font-size:10px;font-family:YS Text,sans-serif;padding:0 20px;position:absolute;bottom:8px;width:100%;text-align:center;left:0">Олимп на карте Королёва — Яндекс.Карты</a></div>
+    </div>
+   </div>
+
+
+
+{/if}
+{/foreach}
+{/if}
+
+
+{if $page eq 1 && !$wa->globals('disable_pageless')}
+<script type="text/javascript" src="{$wa_active_theme_url}jquery.pageless2.js"></script>
+<script type="text/javascript">
+    $.pageless({
+        auto: false, // auto load next pages
+        url: '?layout=lazyloading{if $blog_query}&query={urlencode($blog_query)}{/if}',
+        times: 1,
+        target: '.lazyloading:first',
+        scroll: function (response) {
+            var progress = '';
+            if (response) {
+                progress = '<i class="icon16 loading"><' + '/i> <em>[`Loading`]...<' + '/em>';
+            }
+        },
+        beforeLoad: function () {
+            $('.blog-stream > nav').addClass('old');
+        },
+        afterLoad: function () {
+            AOS.init();
+        },
+
+        count: {$pages},
+        //paging_selector: '#stream-paging',
+
+        {if $blog_query}
+        prepareContent: function (html) {
+            // hightlight search query in content text after lazyloading
+            var tmp = $('<div></div>').append(html);
+            $.blog_utils.highlight(tmp);
+            var html = tmp.html();
+            tmp.remove();
+            return html;
+        }
+        {/if}
+    });
+</script>
+{/if}

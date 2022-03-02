@@ -1,0 +1,138 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>{$wa->appName()} &mdash; {$wa->accountName()}</title>
+	{$wa->css()}
+	<script type="text/javascript" src="{$wa_url}wa-content/js/jquery/jquery-1.8.2.min.js"></script>
+	<script type="text/javascript" src="{$wa_url}wa-content/js/jquery-wa/wa.core.js"></script>
+	<script type="text/javascript" src="{$wa_url}wa-content/js/jquery-wa/wa.dialog.js"></script>
+	<script type="text/javascript" src="{$wa_url}wa-content/js/jquery-plugins/jquery.history.js"></script>
+	<script type="text/javascript" src="{$wa_app_static_url}js/mail.js"></script>
+
+	<link rel="stylesheet" type="text/css" href="{$wa_app_static_url}css/mail.css?{$wa->version()}" media="screen" />
+</head>
+<body>
+	<div id="wa">
+		{$wa->header()}
+		<div id="wa-app">
+			<div class="sidebar left250px" id="left">
+
+				<div class="block align-center">
+					<a id="add-new-records" href="#" class="bold no-underline">
+						<i class="icon16 add"></i><strong class="underline">[`New rule`]</strong>
+					</a>
+				</div>
+
+				<div class="block">
+					<ul class="menu-v with-icons">
+						<li id="sb-all-contacts-li">
+							<span class="count">{$count}</span>
+							<a class="bold" href=""><i class="icon16 blogs"></i><b class="c-item-bold">[`All records`]</b></a>
+						</li>
+					</ul>
+					<h5 class="heading"><b>[`Domains`]</b></h5>
+					<ul class="menu-v s-domains-tree">
+						 {foreach from=$getRouting key=i item=r}
+						 <li class="routing-{$i}">
+						 	<span class="count">{$r}</span>
+							<a href="#/domains/{$i}/"><i class="icon16 blog"></i><b>{$i}</b></a>
+						 </li>
+						 {/foreach}
+					</ul>
+					<div class="hr"></div>
+					<ul class="menu-v with-icons">
+
+						<li><a href="#/notifications/"><i class="icon16 email"></i>[`Notifications`]</a></li>
+                        <li><a href="#/send/"><i class="icon16 email"></i>[`Send an Email`]</a></li>
+        			</ul>
+
+	        <div class="block double-padded hr align-center">
+
+	            {if $cron_ok}
+	                <p class="hint">
+	                    <i class="icon10 yes"></i>
+{$last_cron|wa_datetime:'humandatetime'|string_format:"[`Checking Email is enabled. Latest Cron execution time: <strong>%s</strong>`]"}
+	                </p>
+	            {else}
+	                <p class="red bold small s-cron-error">
+	                    <i class="icon10 no"></i>
+	                    [`Checking Email is not currently running, because cron is not properly configured.`]
+	                    <br>
+	                    <a id="cron-message-link" href="javascript:void(0)">[`How to set up?`]</a>
+	                </p>
+	            {/if}
+	        </div>
+
+				</div>
+				<div class="hr"></div>
+				<div class="block">
+					{if $lang == 'en'}
+					<p><span class="hint">Version "Settings email" <b>1.4</b></span></p>
+					<p>Developer <a href="https://www.webasyst.com/store/vendor/1027522/" target="_blank">nebo-script</a></p>
+					{else}
+					<p><span class="hint">Версия приложения &laquo;Настройка email&raquo; <b>1.4</b></span></p>
+					<p>Разработчик <a href="https://www.webasyst.ru/store/vendor/1027522/" target="_blank">nebo-script</a></p>
+					{/if}
+				</div>
+			</div>
+			<div class="content left300px" id="c-core">
+				<div class="block not-padded c-core-content" id="content">
+					<div class="block">
+						<h1 class="wa-page-heading">[`Loading...`]</h1>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	{if !$cron_ok}
+    <div id="cron-message-dialog" style="display:none">
+        <p>[`Follow-ups require CRON to be properly setup for the Shop-Script app, which is currently not the case.`]
+        {sprintf(
+            '[`Setup cron with the following command (<a href="%s" target="_blank">cron setup instructions</a>):`]',
+            '[`http://www.webasyst.com/framework/docs/server/cron/`]'
+        )}</p>
+        <p><strong class="highlighted">{$cron_command}</strong></p>
+    </div>
+{/if}
+<script type="text/javascript">
+		function myDomen(value){
+			if(value === 'default') {
+				document.getElementById('emailLogin').disabled = true;
+				document.getElementById("emailLoginText").innerHTML= " ";
+				$("#records-add .other").hide();
+    			$("#records-add .login").show();
+			} else if(value === 'other') {
+				$("#records-add .other").hide();
+    			$("#records-add .login").show();
+    			document.getElementById("emailLoginText").innerHTML= "";
+    			document.getElementById('emailLogin').disabled = false;
+			} else {
+				document.getElementById('emailLogin').disabled = false;
+				document.getElementById("emailLoginText").innerHTML= "@"+value;
+				$("#records-add .other").hide();
+    			$("#records-add .login").show();
+			}
+		}
+		$.email.init();
+		{if !$cron_ok}
+        // Dialog with info how to set up cron
+        $('#cron-message-link').click(function() {
+            $('#cron-message-dialog').waDialog({
+                'height': '200px',
+                'width': '500px',
+                'buttons': $('<button class="button"></button>').text("[`Close`]").click(function() {
+                    $(this).trigger('close');
+                })
+            })
+        });
+    	{/if}
+$.wa.locale = $.extend($.wa.locale, {
+	"Add new rule": "[`Add new rule`]",
+	"or": "[`or`]",
+	"cancel": "[`cancel`]",
+	"Add": "[`Add`]",
+});
+</script>
+</body>
+</html>

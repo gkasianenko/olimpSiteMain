@@ -1,0 +1,218 @@
+//
+// Component: Search
+//
+// ========================================================================
+
+
+// Variables
+// ========================================================================
+
+@search-default-icon-background:                            transparent;
+@search-default-icon-color:                                 @search-icon-color;
+@search-default-icon-hover-background:                      transparent;
+@search-default-icon-hover-color:                           @search-icon-color;
+
+
+// Component
+// ========================================================================
+
+.hook-search-input() {
+    transition: 0.2s ease-in-out;
+    transition-property: color, background-color, border-color, box-shadow;
+}
+
+
+// Default modifiers
+// ========================================================================
+
+.hook-search-default-input() {}
+
+.hook-search-default-input-focus() {}
+
+
+// Navbar modifiers
+// ========================================================================
+
+.hook-search-navbar-input() {}
+
+
+// Large modifiers
+// ========================================================================
+
+.hook-search-large-input() {}
+
+
+// Toggle
+// ========================================================================
+
+.hook-search-toggle() {}
+
+.hook-search-toggle-hover() {}
+
+
+// Miscellaneous
+// ========================================================================
+
+.hook-search-misc() {
+
+    .uk-search-default .uk-search-icon {
+        background-color: @search-default-icon-background;
+        color: @search-default-icon-color;
+        .hook-search-default-icon();
+    }
+    .uk-search-default .uk-search-icon:hover {
+        background-color: @search-default-icon-hover-background;
+        color: @search-default-icon-hover-color;
+        .hook-search-default-icon-hover();
+    }
+    .uk-search-default .uk-search-icon-flip {
+        left: auto;
+        .hook-search-default-icon-flip();
+    }
+
+}
+
+.hook-search-default-icon() {}
+.hook-search-default-icon-hover() {}
+.hook-search-default-icon-flip() {}
+
+
+// Inverse
+// ========================================================================
+
+@inverse-search-default-icon-background:                            transparent;
+@inverse-search-default-icon-color:                                 @inverse-search-icon-color;
+@inverse-search-default-icon-hover-background:                      transparent;
+@inverse-search-default-icon-hover-color:                           @inverse-search-icon-color;
+
+.hook-inverse() {
+
+    .uk-search-default .uk-search-icon {
+        background-color: @inverse-search-default-icon-background;
+        color: @inverse-search-default-icon-color;
+        .hook-inverse-search-default-icon();
+    }
+
+    .uk-search-default .uk-search-icon:hover {
+        background-color: @inverse-search-default-icon-hover-background;
+        color: @inverse-search-default-icon-hover-color;
+        .hook-inverse-search-default-icon-hover();
+    }
+
+}
+
+.hook-inverse-search-default-input() {}
+.hook-inverse-search-default-input-focus() {}
+.hook-inverse-search-default-icon() {}
+.hook-inverse-search-default-icon-hover() {}
+
+.hook-inverse-search-navbar-input() {}
+
+.hook-inverse-search-large-input() {}
+
+.hook-inverse-search-toggle() {}
+.hook-inverse-search-toggle-hover() {}
+
+
+// Primary
+// ========================================================================
+
+@primary-search-color:                                              @primary-global-color;
+@primary-search-placeholder-color:                                  @primary-global-muted-color;
+
+@primary-search-icon-color:                                         @primary-global-muted-color;
+
+@primary-search-default-background:                                 @primary-global-muted-background;
+@primary-search-default-focus-background:                           @primary-search-default-background;
+@primary-search-default-icon-background:                            transparent;
+@primary-search-default-icon-color:                                 @primary-search-icon-color;
+@primary-search-default-icon-hover-background:                      transparent;
+@primary-search-default-icon-hover-color:                           @primary-search-icon-color;
+
+@primary-search-navbar-background:                                  transparent;
+
+@primary-search-large-background:                                   transparent;
+
+@primary-search-toggle-color:                                       @primary-global-muted-color;
+@primary-search-toggle-hover-color:                                 @primary-global-color;
+
+.hook-primary() {
+
+    //
+    // Input
+    //
+
+    .uk-search-input { color: @primary-search-color; }
+
+    .uk-search-input:-ms-input-placeholder { color: @primary-search-placeholder-color !important; }
+    .uk-search-input::placeholder { color: @primary-search-placeholder-color; }
+
+
+    //
+    // Icon
+    //
+
+    .uk-search .uk-search-icon { color: @primary-search-icon-color; }
+    .uk-search .uk-search-icon:hover { color: @primary-search-icon-color; }
+
+    //
+    // Style modifier
+    //
+
+    .uk-search-default .uk-search-input {
+        background-color: @primary-search-default-background;
+        .hook-primary-search-default-input;
+    }
+
+    .uk-search-default .uk-search-input:focus {
+        background-color: @primary-search-default-focus-background;
+        .hook-primary-search-default-input-focus;
+    }
+
+    .uk-search-default .uk-search-icon {
+        background-color: @primary-search-default-icon-background;
+        color: @primary-search-default-icon-color;
+        .hook-primary-search-default-icon();
+    }
+
+    .uk-search-default .uk-search-icon:hover {
+        background-color: @primary-search-default-icon-hover-background;
+        color: @primary-search-default-icon-hover-color;
+        .hook-primary-search-default-icon-hover();
+    }
+
+    .uk-search-navbar .uk-search-input {
+        background-color: @primary-search-navbar-background;
+        .hook-primary-search-navbar-input;
+    }
+
+    .uk-search-large .uk-search-input {
+        background-color: @primary-search-large-background;
+        .hook-primary-search-large-input;
+    }
+
+    //
+    // Toggle
+    //
+
+    .uk-search-toggle {
+        color: @primary-search-toggle-color;
+        .hook-primary-search-toggle;
+    }
+
+    .uk-search-toggle:hover,
+    .uk-search-toggle:focus {
+        color: @primary-search-toggle-hover-color;
+        .hook-primary-search-toggle-hover;
+    }
+
+}
+
+.hook-primary-search-default-input() {}
+.hook-primary-search-default-input-focus() {}
+.hook-primary-search-default-icon() {}
+.hook-primary-search-default-icon-hover() {}
+.hook-primary-search-navbar-input() {}
+.hook-primary-search-large-input() {}
+.hook-primary-search-toggle() {}
+.hook-primary-search-toggle-hover() {}

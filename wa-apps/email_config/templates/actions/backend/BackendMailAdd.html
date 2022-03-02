@@ -1,0 +1,24 @@
+<div class="dialog-content-indent">
+	<h1>[`Add new rule`]</h1>
+	<div class="field-group">
+			<div class="field">
+				<div class="name w130">[`Domain name`]</div>
+				<div class="value">
+					<select name="domen" onchange="myDomen(this.value)">
+									  <option value="default">[`The default setting for all email addresses`]</option>
+									  {foreach from=$getRouting key=i item=r}
+									  <option value="{$i}">{$i}</option>
+									  {/foreach}
+									  <option value="other">[`Other email...`]</option>
+					</select>
+					<span class="other" style="display:none">
+						<input type="text" name="mail_other" class="other" />
+					</span>
+				</div>
+			</div>
+		<div class="field login">
+			<div class="name w130">[`Login`]</div>
+			<div class="value"><input type="text" name="login" id="emailLogin" disabled /><span id="emailLoginText"></span></div>
+		</div>
+	</div>
+</div>

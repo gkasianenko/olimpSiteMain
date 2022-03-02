@@ -1,0 +1,95 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: customizer/plugins/settings\n"
+"POT-Creation-Date: 2020-04-23 20:16+0300\n"
+"PO-Revision-Date: \n"
+"Last-Translator: customizer/plugins/settings\n"
+"Language-Team: customizer/plugins/settings\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=((((n%10)==1)&&((n%100)!=11))?(0):(((((n%10)>=2)&&((n%10)<=4))&&(((n%100)<10)||((n%100)>=20)))?(1):2));\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-Basepath: utf-8\n"
+"Language: ru_RU\n"
+"X-Generator: Poedit 2.2.4\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPath-1: .\n"
+
+msgid "Select Image"
+msgstr "Выберите изображение"
+
+msgid "Select"
+msgstr "Выберите"
+
+msgid "Base"
+msgstr "Базовый"
+
+msgid "Specific"
+msgstr "Конкретный"
+
+msgid "Cover"
+msgstr "Перекрыть"
+
+msgid "Enabled/Disabled"
+msgstr "Вкл/Выкл"
+
+msgid "go to instructions"
+msgstr "перейти к инструкциям"
+
+msgid "Delete"
+msgstr "Удалить"
+
+msgid "from"
+msgstr "от"
+
+msgid "to"
+msgstr "до"
+
+msgid "Width"
+msgstr "Ширина"
+
+msgid "Height"
+msgstr "Высота"
+
+msgid "Apply"
+msgstr "Применить"
+
+msgid "Settings changed"
+msgstr "Настройки изменены"
+
+msgid "Settings have been changed but no changes have been accepted"
+msgstr "Настройки были изменены, но изменения не были приняты"
+
+msgid "Close"
+msgstr "Закрыть"
+
+msgid "General settings"
+msgstr "Общие настройки"
+
+msgid "Settings"
+msgstr "Настройки"
+
+msgid "Show hidden settings"
+msgstr "Показать скрытые настройки"
+
+msgid "Failed to upload file %s."
+msgstr "Не удалось загрузить файл %s."
+
+msgid "Failed to upload file."
+msgstr "Не удалось загрузить файл."
+
+msgid "Manage theme settings"
+msgstr "Управление настройками темы"
+
+msgid "Auto apply"
+msgstr "Авто применение"
+
+msgid "Apply changes to draft immediately"
+msgstr "Применить изменения к черновику немедленно"
+
+msgid "toStringTag"
+msgstr ""
+
+msgid "Cancel"
+msgstr "Отмена"

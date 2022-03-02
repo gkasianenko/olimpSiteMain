@@ -1,0 +1,43 @@
+{strip}
+<h1>[`Settings`]</h1>
+<form action="?module=settings&action=save" method="post" id="settings-form">
+    {$wa->csrf()}
+    <div class="field-group">
+        <div class="field">
+            <div class="name">
+                Глубина ротации
+            </div>
+            <div class="value submit">
+                <input type="number" name="max_count" value="{$settings.max_count}">
+            </div>
+        </div>
+    </div>
+
+    <div class="field-group">
+        <div class="field">
+            <div class="value submit">
+                <button type="submit" name="save" class="button green">[`Save`]</button>
+            </div>
+        </div>
+    </div>
+</form>
+
+<div>
+    Команда ротации логов:
+</div>
+<div>
+    {$cliCommandRotate|escape}
+</div>
+{*
+<div>
+    {$cliCommandCron|escape}
+</div>
+*}
+
+{/strip}
+<script type="text/javascript" src="{$wa_app_static_url}js/settings.js?v{$wa->version()}"></script>
+<script type="text/javascript">
+    {literal}
+    $.rlogs.settings.init({});
+    {/literal}
+</script>

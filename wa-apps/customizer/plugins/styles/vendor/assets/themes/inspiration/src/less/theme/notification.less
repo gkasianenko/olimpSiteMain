@@ -1,0 +1,63 @@
+//
+// Component: Notification
+//
+// ========================================================================
+
+
+// Variables
+// ========================================================================
+
+@notification-message-border:                   @global-border;
+@notification-message-border-width:             @global-border-width;
+
+
+@notification-message-primary-background:       lighten(@global-primary-background, 35%);
+@notification-message-success-background:       lighten(@global-success-background, 40%);
+@notification-message-warning-background:       lighten(@global-warning-background, 30%);
+@notification-message-danger-background:        lighten(@global-danger-background, 32%);
+
+
+@notification-message-primary-color-mode:       dark;
+@notification-message-success-color-mode:       dark;
+@notification-message-warning-color-mode:       dark;
+@notification-message-danger-color-mode:        dark;
+
+@notification-message-primary-color:            @global-primary-background;
+@notification-message-success-color:            @global-success-background;
+@notification-message-warning-color:            darken(@global-warning-background, 20);
+@notification-message-danger-color:             @global-danger-background;
+
+// Component
+// ========================================================================
+
+.hook-notification() {}
+
+
+// Message
+// ========================================================================
+
+.hook-notification-message() {}
+
+
+// Close
+// ========================================================================
+
+.hook-notification-close() {}
+
+
+// Style modifiers
+// ========================================================================
+
+.hook-notification-message-primary() {}
+
+.hook-notification-message-success() {}
+
+.hook-notification-message-warning() {}
+
+.hook-notification-message-danger() {}
+
+
+// Miscellaneous
+// ========================================================================
+
+.hook-notification-misc() {}

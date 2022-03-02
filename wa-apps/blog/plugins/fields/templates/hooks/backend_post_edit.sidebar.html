@@ -1,0 +1,89 @@
+<div class="dialog width650px" id="plugin-fields-dialog">
+    <div class="dialog-background"></div>
+    <div class="dialog-window">
+        <div class="dialog-content">
+            <div class="dialog-content-indent">
+                <h1>[`Social meta`]</h1>
+                <div class="fields form">
+                    <div class="field">
+                        <div class="name">[s`Social sharing title`] <span class="hint">og:title</span></div>
+                        <div class="value">
+                            <input value="{ifempty($plugin_fields['og:title'])|escape}" name="plugin_fields[og:title]" type="text" class="long bold">
+                        </div>
+                    </div>
+                    <div class="field">
+                        <div class="name">[s`Social sharing image URL`] <span class="hint">og:image</span></div>
+                        <div class="value no-shift">
+                            <input value="{ifempty($plugin_fields['og:image'])|escape}" name="plugin_fields[og:image]" type="text" class="long bold">
+                        </div>
+                    </div>
+                    <div class="field">
+                        <div class="name">[s`Social sharing video URL`] <span class="hint">og:video</span></div>
+                        <div class="value no-shift">
+                            <input value="{ifempty($plugin_fields['og:video'])|escape}" name="plugin_fields[og:video]" type="text" class="long bold">
+                        </div>
+                    </div>
+                    <div class="field">
+                        <div class="name">[s`Social sharing description`] <span class="hint">og:description</span></div>
+                        <div class="value no-shift">
+                            <textarea name="plugin_fields[og:description]">{ifempty($plugin_fields['og:description'])|escape}</textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="dialog-buttons">
+            <div class="dialog-buttons-gradient">
+                <a href="#" class="button green cancel" data-update>[s`Save`]</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="block" id="plugin-fields-edit">
+    <h6>[`Social meta`]</h6>
+    <p class="small" style="overflow: hidden">
+        <span data-text></span>
+        <span data-text-empty class="gray" style="display: none">[`No meta parameters are defined for this blog post.`]</span>
+        <a href="#" data-action="edit" class="nowrap">[s`Edit`]</a>
+    </p>
+</div>
+<script>
+$(function () {
+    var $edit = $('#plugin-fields-edit'),
+        $dialog = $('#plugin-fields-dialog'),
+        updateMeta = function () {
+            var fields = [];
+            $dialog.find('.fields.form .field').each(function (i, v) {
+                var val = $(v).find('.value input, .value textarea').val();
+
+                if(val) {
+                    fields.push('<span>'+
+                        '<span class="gray">' +
+                        $(v).find('.name .hint').text() +
+                        '</span> <span class="val">'+ val +'</span><br>'+
+                        '</span>'
+                    );
+                }
+            });
+
+            if(fields.length) {
+                $edit.find('[data-text]').html(fields.join(''));
+                $edit.find('[data-text-empty]').hide();
+            } else {
+                $edit.find('[data-text]').html('');
+                $edit.find('[data-text-empty]').show();
+            }
+        };
+
+    $('[data-action="edit"]', $edit).click(function() {
+        $dialog.waDialog({
+            onCancel: function(d) {
+                updateMeta();
+            }
+        });
+        return false;
+    });
+
+    updateMeta();
+})
+</script>

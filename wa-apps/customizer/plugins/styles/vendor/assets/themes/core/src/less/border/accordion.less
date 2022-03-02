@@ -1,0 +1,104 @@
+//
+// Component: Accordion
+//
+// ========================================================================
+
+
+// Variables
+// ========================================================================
+
+@accordion-border-width:                       0;
+@accordion-border:                             transparent;
+
+@accordion-item-border-width:                  @accordion-border-width;
+@accordion-item-border:                        @accordion-border;
+
+@accordion-content-border-width:               @accordion-border-width;
+@accordion-content-border:                     @accordion-border;
+
+
+// Component
+// ========================================================================
+
+.hook-accordion() when not (@accordion-border-width = 0) {
+    border: @accordion-border-width solid @accordion-border;
+}
+
+
+// Item
+// ========================================================================
+
+.hook-accordion-item() when not (@accordion-item-border-width = 0) {
+     border-top: @accordion-item-border-width solid @accordion-item-border;
+}
+
+
+// Title
+// ========================================================================
+
+.hook-accordion-title() {}
+
+.hook-accordion-title-hover() {}
+
+
+// Content
+// ========================================================================
+
+.hook-accordion-content() when (@accordion-content-border-width = 0) {
+    padding-top: 0;
+}
+.hook-accordion-content() when not (@accordion-content-border-width = 0) {
+    border-top: @accordion-content-border-width solid @accordion-content-border;
+}
+
+
+// Miscellaneous
+// ========================================================================
+
+.hook-accordion-misc() {}
+
+
+// Inverse
+// ========================================================================
+
+@inverse-accordion-border:                     transparent;
+@inverse-accordion-item-border:                @inverse-accordion-border;
+@inverse-accordion-content-border:             @inverse-accordion-border;
+
+.hook-inverse-accordion() when not (@accordion-border-width = 0) and not (@accordion-border = @inverse-accordion-border) {
+    border-color: @inverse-accordion-border;
+}
+
+.hook-inverse-accordion-item() when not (@accordion-item-border-width = 0) and not (@accordion-item-border = @inverse-accordion-item-border) {
+    border-top-color: @inverse-accordion-item-border;
+}
+
+.hook-inverse-accordion-title() {}
+.hook-inverse-accordion-title-hover() {}
+
+.hook-inverse-accordion-content() when not (@accordion-content-border-width = 0) and not (@accordion-content-border = @inverse-accordion-content-border) {
+    border-top-color: @inverse-accordion-content-border;
+}
+
+
+// Primary
+// ========================================================================
+
+@primary-accordion-border:                     transparent;
+@primary-accordion-item-border:                @primary-accordion-border;
+@primary-accordion-content-border:             @primary-accordion-border;
+
+.hook-primary-accordion() when not (@accordion-border-width = 0) and not (@accordion-border = @primary-accordion-border) {
+    border-color: @primary-accordion-border;
+}
+
+.hook-primary-accordion-item() when not (@accordion-item-border-width = 0) and not (@accordion-item-border = @primary-accordion-item-border) {
+    border-top-color: @primary-accordion-item-border;
+}
+
+.hook-primary-accordion-title() {}
+.hook-primary-accordion-title-hover() {}
+
+.hook-primary-accordion-content() when not (@accordion-content-border-width = 0) and not (@accordion-content-border = @primary-accordion-content-border) {
+    border-top-color: @primary-accordion-content-border;
+}

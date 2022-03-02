@@ -1,0 +1,185 @@
+//
+// Component: Accordion
+//
+// ========================================================================
+
+
+// Variables
+// ========================================================================
+
+//
+// New
+//
+
+@accordion-title-padding-vertical:             0;
+@accordion-title-padding-horizontal:           0;
+@accordion-title-background:                   transparent;
+@accordion-title-hover-background:             transparent;
+@accordion-title-active-background:            transparent;
+
+@accordion-content-padding-vertical:           @accordion-title-padding-vertical;
+@accordion-content-padding-horizontal:         @accordion-title-padding-horizontal;
+
+@accordion-icon-margin-left:                   10px;
+@accordion-icon-color:                         @global-color;
+
+@internal-accordion-icon-close-image:          "../../../../core/src/images/backgrounds/accordion-close.svg";
+@internal-accordion-icon-open-image:           "../../../../core/src/images/backgrounds/accordion-open.svg";
+
+
+// Component
+// ========================================================================
+
+.hook-accordion() when not (@accordion-title-background = @accordion-title-active-background) {
+    .uk-open > .uk-accordion-title { background: @accordion-title-active-background; }
+}
+
+
+// Item
+// ========================================================================
+
+.hook-accordion-item() {}
+
+
+// Title
+// ========================================================================
+
+.hook-accordion-title() {
+    padding: @accordion-title-padding-vertical @accordion-title-padding-horizontal;
+    background: @accordion-title-background;
+    overflow: hidden;
+    text-decoration: none;
+
+    &::before {
+        content: "";
+        width: (@accordion-title-line-height * 1em);
+        height: (@accordion-title-line-height * 1em);
+        margin-left: @accordion-icon-margin-left;
+        float: right;
+        .svg-fill(@internal-accordion-icon-close-image, "#000", @accordion-icon-color);
+        background-repeat: no-repeat;
+        background-position: 50% 50%;
+    }
+
+    .uk-open > &::before { .svg-fill(@internal-accordion-icon-open-image, "#000", @accordion-icon-color); }
+
+}
+
+.hook-accordion-title-hover() when not (@accordion-title-background = @accordion-title-hover-background) {
+    background: @accordion-title-hover-background;
+}
+
+
+// Content
+// ========================================================================
+
+.hook-accordion-content() {
+    padding: @accordion-content-padding-vertical @accordion-content-padding-horizontal;
+}
+
+
+// Miscellaneous
+// ========================================================================
+
+.hook-accordion-misc() {
+    .filters .uk-accordion-title { font-size: 0.875rem; }
+    .filters .uk-accordion-title::before { width: 1.5em; height: 1.5em; }
+}
+
+
+// Inverse
+// ========================================================================
+
+@inverse-accordion-title-background:           transparent;
+@inverse-accordion-title-hover-background:     transparent;
+@inverse-accordion-title-active-background:    transparent;
+@inverse-accordion-icon-color:                 @inverse-global-color;
+
+.hook-inverse-accordion() when not (@accordion-title-active-background = @inverse-accordion-title-active-background) {
+    .uk-open > .uk-accordion-title { background-color: @inverse-accordion-title-active-background; }
+}
+
+.hook-inverse-accordion-item() {}
+
+.hook-inverse-accordion-title() when not (@accordion-title-background = @inverse-accordion-title-background) {
+    background-color: @inverse-accordion-title-background;
+}
+
+.hook-inverse-accordion-title-hover() when not (@accordion-title-hover-background = @inverse-accordion-title-hover-background) {
+    background-color: @inverse-accordion-title-hover-background;
+}
+
+.hook-inverse-accordion-content() {}
+
+.hook-inverse() {
+
+    .uk-accordion {
+        .hook-inverse-accordion();
+    }
+
+    .uk-accordion-content {
+        .hook-inverse-accordion-content();
+    }
+
+    .uk-accordion-title::before { .svg-fill(@internal-accordion-icon-close-image, "#000", @inverse-accordion-icon-color); }
+
+    .uk-open > .uk-accordion-title::before { .svg-fill(@internal-accordion-icon-open-image, "#000", @inverse-accordion-icon-color); }
+
+}
+
+
+// Primary
+// ========================================================================
+
+@primary-accordion-title-background:           transparent;
+@primary-accordion-title-color:                @primary-global-emphasis-color;
+@primary-accordion-title-hover-background:     transparent;
+@primary-accordion-title-hover-color:          @primary-global-color;
+@primary-accordion-title-active-background:    transparent;
+@primary-accordion-icon-color:                 @primary-global-color;
+
+.hook-primary() {
+
+    .uk-accordion {
+        & when not (@accordion-title-active-background = @primary-accordion-title-active-background) {
+            .uk-open > .uk-accordion-title { background-color: @primary-accordion-title-active-background; }
+        }
+        .hook-primary-accordion();
+    }
+
+    .uk-accordion > :nth-child(n+2) {
+        .hook-primary-accordion-item();
+    }
+
+    .uk-accordion-title {
+        & when not (@accordion-title-background = @primary-accordion-title-background) {
+            background-color: @primary-accordion-title-background;
+        }
+        color: @primary-accordion-title-color;
+        .hook-primary-accordion-title();
+    }
+
+    .uk-accordion-title:hover,
+    .uk-accordion-title:focus {
+        & when not (@accordion-title-hover-background = @primary-accordion-title-hover-background) {
+            background-color: @primary-accordion-title-hover-background;
+        }
+        color: @primary-accordion-title-hover-color;
+        .hook-primary-accordion-title-hover();
+    }
+
+    .uk-accordion-content {
+        .hook-primary-accordion-content();
+    }
+
+    .uk-accordion-title::before { .svg-fill(@internal-accordion-icon-close-image, "#000", @primary-accordion-icon-color); }
+
+    .uk-open > .uk-accordion-title::before { .svg-fill(@internal-accordion-icon-open-image, "#000", @primary-accordion-icon-color); }
+
+}
+
+.hook-primary-accordion() {}
+.hook-primary-accordion-item() {}
+.hook-primary-accordion-title() {}
+.hook-primary-accordion-title-hover() {}
+.hook-primary-accordion-content() {}

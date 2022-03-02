@@ -1,0 +1,91 @@
+<div class="footer">
+    <div class="footer__container container-fluid" style="max-width: 100%">
+        <div class="container-fluid container-lg" style="padding-top: 25px; padding-bottom: 15px">
+            <div class="row footer__contacts">
+                <div class="col-12 col-md-auto text-center text-md-left">
+                    <div class="logo mb-2 mb-md-0">
+                        <a href="{$wa->domainUrl()}/">
+                            <img class="img-fluid" src="{$wa_theme_url}img/logo-white.svg" alt="">
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md d-md-flex flex-md-row justify-content-md-end align-items-md-center">
+                    <div class="contacts text-center text-md-right">
+                        <div class="row">
+                            <div class="col-12 col-lg-auto contacts__tel">
+                                <i class="icon-phone"></i>
+                                <div class="contacts__tel-wrapper">
+                                    <span class="tel"><a href="tel:84956496680">8 (495) 649-66-80</a></span>
+                                    <span class="tel"><a href="tel:88003331107">8 (800) 333-11-07</a></span>
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg contacts__mail">
+                                <i class="far fa-envelope"></i>
+                                <span class="mail"><a href="mailto:mail@olimp.ltd" target="_blank">mail@olimp.ltd</a></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="social justify-content-center">
+                        <ul class="list-unstyled">
+                            {if !empty($theme_settings.vk)}
+                            <li>
+                                <a class="d-flex align-items-center" href="{$theme_settings.vk}" title="[s`VK`]" target="_blank">
+                                    <i class="fab fa-vk"></i>
+                                </a>
+                            </li>
+                            {/if}
+                            {if !empty($theme_settings.instagram)}
+                            <li>
+                                <a class="d-flex align-items-center" href="{$theme_settings.instagram}" title="[s`Instagram`]" target="_blank">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                            </li>
+                            {/if}
+                            {if !empty($theme_settings.youtube)}
+                            <li>
+                                <a class="d-flex align-items-center" href="{$theme_settings.youtube}" title="[s`Youtube`]" target="_blank">
+                                    <i class="fab fa-youtube"></i>
+                                </a>
+                            </li>
+                            {/if}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="row footer__menu d-none d-md-flex">
+                <div class="col">
+                    {$wa->block("footer.menu_col1")}
+                </div>
+                <div class="col">
+                    {$wa->block("footer.menu_col2")}
+                </div>
+                <div class="col">
+                    {$wa->block("footer.menu_col3")}
+                </div>
+                <div class="col">
+                    {$wa->block("footer.menu_col4")}
+                </div>
+                <div class="col">
+                    <ul class="list-unstyled menu">
+                        <li><a href="/sitemap/" target="_blank">Карта сайта</a></li>
+                        <li><a href="/wa-data/public/site/file/soglashenie_confid.pdf" target="_blank">Пользовательское соглашение</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="container-fluid container-lg container__copyright text-center text-md-right pt-2">
+                    <div class="row">
+                        <div class="col">
+                            <p class="my-0">Copyright © 2005. {$wa->accountName()}</p>
+                            <p>Все права защищены. Любое использование материалов сайта без разрешения запрещено</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{$wa->block("counter")}

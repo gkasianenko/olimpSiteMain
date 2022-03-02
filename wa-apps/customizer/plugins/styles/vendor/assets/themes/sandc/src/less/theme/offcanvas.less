@@ -1,0 +1,77 @@
+//
+// Component: Off-canvas
+//
+// ========================================================================
+
+
+// Variables
+// ========================================================================
+
+@offcanvas-bar-background:                      @global-background;
+@offcanvas-bar-color-mode:                      dark;
+
+
+// Bar
+// ========================================================================
+
+.hook-offcanvas-bar() {}
+
+
+// Close
+// ========================================================================
+
+.hook-offcanvas-close() {}
+
+
+// Overlay
+// ========================================================================
+
+.hook-offcanvas-overlay() {}
+
+
+// Miscellaneous
+// ========================================================================
+
+.hook-offcanvas-misc() {
+
+    .uk-offcanvas-bar > .uk-nav-default {
+		margin-left: -@offcanvas-bar-padding-horizontal;
+		margin-right: -@offcanvas-bar-padding-horizontal;
+	}
+
+	@media (min-width: @breakpoint-medium) {
+
+		.uk-offcanvas-bar > .uk-nav-default {
+			margin-left: -@offcanvas-bar-padding-horizontal-m;
+			margin-right: -@offcanvas-bar-padding-horizontal-m;
+		}
+
+	}
+
+	.uk-offcanvas-bar .uk-nav-default > li > a,
+    .uk-offcanvas-bar .uk-nav-default .uk-nav-header,
+    .uk-offcanvas-bar .uk-nav-default .uk-nav-divider {
+		padding-left: @offcanvas-bar-padding-horizontal;
+		padding-right: @offcanvas-bar-padding-horizontal;
+	}
+
+	.uk-offcanvas-bar .uk-nav-default.uk-menu-parent-icon > li.uk-parent > a {
+		padding-right: @offcanvas-bar-padding-horizontal * 2;
+	}
+
+	@media (min-width: @breakpoint-medium) {
+
+		.uk-offcanvas-bar .uk-nav-default > li > a,
+        .uk-offcanvas-bar .uk-nav-default .uk-nav-header,
+        .uk-offcanvas-bar .uk-nav-default .uk-nav-divider {
+			padding-left: @offcanvas-bar-padding-horizontal-m;
+			padding-right: @offcanvas-bar-padding-horizontal-m;
+		}
+
+		.uk-offcanvas-bar .uk-nav-default.uk-menu-parent-icon > li.uk-parent > a {
+			padding-right: @offcanvas-bar-padding-horizontal-m * 2;
+		}
+
+	}
+
+}

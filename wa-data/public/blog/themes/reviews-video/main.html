@@ -1,0 +1,124 @@
+{* @event (frontend_action_default|frontend_action_post|frontend_action_page|frontend_action_error).%plugin_id%.nav_before *}
+{foreach $frontend_action as $plugin => $output}
+{if !empty($output.nav_before)}{$output.nav_before}{/if}
+{/foreach}
+
+<main class="main">
+    {*<nav aria-label="breadcrumb">
+        <ol class="breadcrumb" itemprop="breadcrumb">
+            <li class="breadcrumb-item">
+                <a href="/">Главная</a>
+            </li>
+            {if isset($error_code) && $error_code}
+            *}{*<li class="breadcrumb-item active">
+                Ошибка
+            </li>*}
+            {*{else}
+            {if $action == 'post'}
+            <li class="breadcrumb-item">
+                <a href="/{$post.blog_url}">{$post.blog_name}</a>
+            </li>
+            <li class="breadcrumb-item active" aria-current="page">
+                {$post.title}
+            </li>
+            {else if $stream_title}
+            <li class="breadcrumb-item">
+                {foreach $posts as $p}
+                <a href="/{$p.blog_url}">{$p.blog_name}</a>
+                {break}
+                {/foreach}
+            </li>
+            <li class="breadcrumb-item active">
+                {$stream_title}
+            </li>
+            {else}
+            <li class="breadcrumb-item active" aria-current="page">
+                {if isset($posts)}
+                {foreach $posts as $p}
+                <a href="/{$p.blog_url}">{$p.blog_name}</a>
+                {break}
+                {/foreach}
+                {else}
+                {foreach $wa->blog->blogs() as $blog}
+                {if $blog.link == $wa->currentUrl(true)}{$blog.name}{/if}
+                {/foreach}
+                {/if}
+            </li>
+            {/if}
+            {/if}
+        </ol>
+    </nav>*}
+
+    <div class="container-fluid container-lg">
+        <div class="page">
+            <div class="row">
+
+                {foreach $wa->blog->blogs() as $blog}
+                {if $blog.id == '5'} {*портфолио*}
+                {*if $blog.link == $wa->currentUrl(true)*}
+                {if ($action eq 'default')}
+                <div class="col-3 d-none d-md-flex">
+                    <!-- Категории блога -->
+                    <div class="block_menu_blog">
+                        <div class="sticky-top pt-2">
+                            <div>
+                                <div class="block_menu">Категории</div>
+                                {foreach $frontend_action as $plugin => $output}
+                                {if !empty($output.sidebar)}{$output.sidebar}{/if}
+                                {/foreach}
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /Категории блога -->
+                </div>
+                {/if}
+                {*/if*}
+                {/if}
+                {/foreach}
+
+                <div class="col" itemscope itemtype="http://schema.org/WebPage">
+                    {if empty($posts) && $wa->currentUrl() == $wa_app_url}
+
+                    <div class="welcome">
+                        <h1>[`Welcome to your new blog!`]</h1>
+                        <p>{sprintf('[`Start by <a href="%s">writing a post</a> in your blog backend.`]',
+                            $wa_backend_url|cat:'blog/')}</p>
+                    </div>
+
+                    {else}
+
+                    <!-- internal navigation breadcrumbs -->
+                    {if isset($breadcrumbs)}
+                    <div class="breadcrumbs" itemprop="breadcrumb">
+                        {if $wa->globals('isMyAccount')}
+                        {* within My Account we exclude first node from navigation because links are on the page
+                        already *}
+                        {$breadcrumbs[0] = null}
+                        {/if}
+                        {foreach $breadcrumbs as $breadcrumb}
+                        {if $breadcrumb}
+                        <a href="{$breadcrumb.url}">{$breadcrumb.name|escape}</a> <span class="rarr">&rarr;</span>
+                        {/if}
+                        {/foreach}
+                    </div>
+                    {/if}
+
+                    {$content}
+
+                    {/if}
+
+                    <div class="clear-both"></div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid px-0">
+        {include file="`$wa_parent_theme_path`/components.html" inline}
+        {include file="`$wa_parent_theme_path`/form.html" inline}
+    </div>
+</main>
+
+{include file="`$wa_active_theme_path`/__menu.html" inline}
+{include file="`$wa_active_theme_path`/__form-review.html" inline}

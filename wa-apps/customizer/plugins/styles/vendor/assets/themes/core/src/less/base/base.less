@@ -1,0 +1,311 @@
+//
+// Component: Base
+//
+// ========================================================================
+
+
+// Variables
+// ========================================================================
+
+//
+// New
+//
+
+@internal-base-body-mode:                       none; // none, overlay
+@internal-base-body-overlay-z-index:            @global-z-index + 100;
+@internal-base-body-overlay-image:              ~'';
+@internal-base-body-overlay-opacity:            0.1;
+
+@base-code-padding-horizontal:                  0;
+@base-code-padding-vertical:                    0;
+@base-code-background:                          transparent;
+
+@base-blockquote-padding-left:                  0;
+@base-blockquote-padding-right:                 0;
+@base-blockquote-padding-vertical:              0;
+@base-blockquote-background:                    transparent;
+
+@base-pre-padding:                              0;
+@base-pre-background:                           transparent;
+
+@base-blockquote-footer-em-dash:                true;
+
+
+// Body
+// ========================================================================
+
+.hook-base-body() {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+}
+
+
+.hook-base-body() when (@internal-base-body-mode = overlay) {
+
+    position: relative;
+
+    &::after {
+        content: '';
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: @internal-base-body-overlay-z-index;
+        background-image: url("@{internal-base-body-overlay-image}");
+        opacity: @internal-base-body-overlay-opacity;
+        pointer-events: none;
+    }
+
+}
+
+
+// Links
+// ========================================================================
+
+.hook-base-link() {}
+
+.hook-base-link-hover() {}
+
+
+// Text-level semantics
+// ========================================================================
+
+.hook-base-code() when not (@base-code-padding-vertical = 0), not (@base-code-padding-horizontal = 0) {
+    padding: @base-code-padding-vertical @base-code-padding-horizontal;
+}
+
+.hook-base-code() when not (@base-code-background = transparent) {
+    background: @base-code-background;
+}
+
+
+// Headings
+// ========================================================================
+
+.hook-base-heading() {}
+
+.hook-base-h1() {}
+
+.hook-base-h2() {}
+
+.hook-base-h3() {}
+
+.hook-base-h4() {}
+
+.hook-base-h5() {}
+
+.hook-base-h6() {}
+
+
+// Horizontal rules
+// ========================================================================
+
+.hook-base-hr() {}
+
+
+// Blockquotes
+// ========================================================================
+
+.hook-base-blockquote() when not (@base-blockquote-padding-vertical = 0), not (@base-blockquote-padding-left = 0), not (@base-blockquote-padding-right = 0) {
+    padding: @base-blockquote-padding-vertical @base-blockquote-padding-right @base-blockquote-padding-vertical @base-blockquote-padding-left;
+}
+
+.hook-base-blockquote() when not (@base-blockquote-background = transparent) {
+    background: @base-blockquote-background;
+}
+
+.hook-base-blockquote-footer() when (@base-blockquote-footer-em-dash = true) {
+
+    &::before { content: "— "; }
+
+}
+
+
+// Preformatted text
+// ========================================================================
+
+.hook-base-pre() when not (@base-pre-padding = 0) {
+    padding: @base-pre-padding;
+}
+
+.hook-base-pre() when not (@base-pre-background = transparent) {
+    background: @base-pre-background;
+}
+
+
+// Miscellaneous
+// ========================================================================
+
+.hook-base-misc() {}
+
+
+// Inverse
+// ========================================================================
+
+@inverse-base-code-background:                          transparent;
+@inverse-base-blockquote-background:                    transparent;
+
+.hook-inverse-base-link() {}
+.hook-inverse-base-link-hover() {}
+
+.hook-inverse-base-code() when not ((@base-code-background = transparent) and (@inverse-base-code-background = transparent)) {
+    background-color: @inverse-base-code-background;
+}
+
+.hook-inverse-base-heading() {}
+
+.hook-inverse-base-h1() {}
+.hook-inverse-base-h2() {}
+.hook-inverse-base-h3() {}
+.hook-inverse-base-h4() {}
+.hook-inverse-base-h5() {}
+.hook-inverse-base-h6() {}
+
+.hook-inverse-base-blockquote() when not ((@base-blockquote-background = transparent) and (@inverse-base-blockquote-background = transparent)) {
+    background-color: @inverse-base-blockquote-background;
+}
+.hook-inverse-base-blockquote-footer() {}
+
+.hook-inverse-base-hr() {}
+
+
+// Primary
+// ========================================================================
+
+@primary-base-color:                           @primary-global-color;
+@primary-base-link-color:                      @primary-global-emphasis-color;
+@primary-base-link-hover-color:                @primary-global-emphasis-color;
+@primary-base-code-background:                 transparent;
+@primary-base-code-color:                      @primary-global-color;
+@primary-base-em-color:                        @primary-global-emphasis-color;
+@primary-base-heading-color:                   @primary-global-emphasis-color;
+@primary-base-blockquote-background:           transparent;
+@primary-base-hr-border:                       @primary-global-border;
+
+.hook-primary() {
+
+    color: @primary-base-color;
+
+    // Base
+    // ========================================================================
+
+    //
+    // Link
+    //
+
+    a,
+    .uk-link  {
+        color: @primary-base-link-color;
+        .hook-primary-base-link();
+    }
+
+    a:hover,
+    .uk-link:hover {
+        color: @primary-base-link-hover-color;
+        .hook-primary-base-link-hover();
+    }
+
+    //
+    // Code
+    //
+
+    :not(pre) > code,
+    :not(pre) > kbd,
+    :not(pre) > samp {
+        color: @primary-base-code-color;
+        & when not ((@base-code-background = transparent) and (@primary-base-code-background = transparent)) {
+            background-color: @primary-base-code-background;
+        }
+        .hook-primary-base-code();
+    }
+
+    //
+    // Emphasize
+    //
+
+    em { color: @primary-base-em-color; }
+
+    //
+    // Headings
+    //
+
+    h1, .uk-h1,
+    h2, .uk-h2,
+    h3, .uk-h3,
+    h4, .uk-h4,
+    h5, .uk-h5,
+    h6, .uk-h6,
+    .uk-heading-small,
+    .uk-heading-medium,
+    .uk-heading-large,
+    .uk-heading-xlarge,
+    .uk-heading-2xlarge {
+        color: @primary-base-heading-color;
+        .hook-primary-base-heading();
+    }
+
+    h1, .uk-h1 {
+        .hook-primary-base-h1();
+    }
+
+    h2, .uk-h2 {
+        .hook-primary-base-h2();
+    }
+
+    h3, .uk-h3 {
+        .hook-primary-base-h3();
+    }
+
+    h4, .uk-h4 {
+        .hook-primary-base-h4();
+    }
+
+    h5, .uk-h5 {
+        .hook-primary-base-h5();
+    }
+
+    h6, .uk-h6 {
+        .hook-primary-base-h6();
+    }
+
+    //
+    // Blockquotes
+    //
+
+    blockquote {
+        & when not ((@base-blockquote-background = transparent) and (@primary-base-blockquote-background = transparent)) {
+            background-color: @primary-base-blockquote-background;
+        }
+        .hook-primary-base-blockquote();
+    }
+
+    blockquote footer {
+        .hook-primary-base-blockquote-footer();
+    }
+
+    //
+    // Horizontal rules
+    //
+
+    hr, .uk-hr {
+        border-top-color: @primary-base-hr-border;
+        .hook-primary-base-hr();
+    }
+
+}
+
+.hook-primary-base-link() {}
+.hook-primary-base-link-hover() {}
+.hook-primary-base-code() {}
+.hook-primary-base-heading() {}
+.hook-primary-base-h1() {}
+.hook-primary-base-h2() {}
+.hook-primary-base-h3() {}
+.hook-primary-base-h4() {}
+.hook-primary-base-h5() {}
+.hook-primary-base-h6() {}
+.hook-primary-base-blockquote() {}
+.hook-primary-base-blockquote-footer() {}
+.hook-primary-base-hr() {}

@@ -1,0 +1,50 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2018-01-15T12:41:25+00:00\n"
+"PO-Revision-Date: 2018-01-15T12:41:25+00:00\n"
+"Language: \n"
+
+#: /wa-apps/apps/templates/actions/backend/BackendDefault.html:4
+msgid "Apps"
+msgstr "Дополнения"
+
+#: /wa-apps/apps/templates/actions/Sidebar.html:10
+msgid "Main"
+msgstr "Главная"
+
+#: /wa-apps/apps/templates/actions/Sidebar.html:31
+msgid "Plugins"
+msgstr "Плагины"
+
+#: /wa-apps/apps/templates/actions/Sidebar.html:35
+#: /wa-apps/apps/templates/layouts/Settings.html:62
+msgid "Settings"
+msgstr "Настройки"
+
+#: /wa-apps/apps/templates/actions/settings/SettingsGeneral.html:3
+#: /wa-apps/apps/templates/layouts/Settings.html:77
+msgid "General settings"
+msgstr "Общие настройки"
+
+#: /wa-apps/apps/lib/actions/backend/appsBackend.actions.php:13
+msgid "App to unite all events from other apps for common plugins."
+msgstr "Приложение, объединяющее все события других приложений, для создания общих плагинов."
+
+#: /wa-apps/apps/lib/actions/plugins/appsPlugins.actions.php:12
+msgid "Access denied"
+msgstr "Доступ запрещен"
+
+#: /wa-apps/apps/lib/actions/plugins/appsPlugins.actions.php:14
+msgid "Plugin settings page"
+msgstr "Страница настроек плагина "
+
+#: /wa-apps/apps/lib/actions/plugins/appsPlugins.actions.php:14
+msgid "Test"
+msgstr ""

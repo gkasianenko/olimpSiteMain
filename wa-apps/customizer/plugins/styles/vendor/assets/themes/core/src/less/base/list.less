@@ -1,0 +1,64 @@
+//
+// Component: List
+//
+// ========================================================================
+
+
+// Variables
+// ========================================================================
+
+
+// Style modifiers
+// ========================================================================
+
+.hook-list-divider() {}
+
+.hook-list-striped() {}
+
+.hook-list-bullet() {}
+
+
+// Miscellaneous
+// ========================================================================
+
+.hook-list-misc() {}
+
+
+// Inverse
+// ========================================================================
+
+.hook-inverse-list-divider() {}
+.hook-inverse-list-striped() {}
+.hook-inverse-list-bullet() {}
+
+
+// Primary
+// ========================================================================
+
+@primary-list-divider-border:                     @primary-global-border;
+@primary-list-striped-background:                 @primary-global-muted-background;
+@primary-list-bullet-icon-color:                  @primary-global-color;
+
+.hook-primary() {
+
+    .uk-list-divider > li:nth-child(n+2) {
+        border-top-color: @primary-list-divider-border;
+        .hook-primary-list-divider();
+    }
+
+    .uk-list-striped > li {
+        .hook-primary-list-striped();
+    }
+
+    .uk-list-striped > li:nth-of-type(odd) { background-color: @primary-list-striped-background; }
+
+    .uk-list-bullet > li::before {
+        .svg-fill(@internal-list-bullet-image, "#000", @primary-list-bullet-icon-color);
+        .hook-primary-list-bullet();
+    }
+
+}
+
+.hook-primary-list-divider() {}
+.hook-primary-list-striped() {}
+.hook-primary-list-bullet() {}

@@ -1,0 +1,22 @@
+//
+// Fonts
+//
+
+@internal-fonts: ~'';
+
+.font() when not (@internal-fonts = ~'') {
+    @import (css) 'https://fonts.googleapis.com/css?family=@{internal-fonts}&display=swap';
+}
+
+.font();
+
+//
+// Core
+//
+
+@import "base/import.less";
+@import "typo/import.less";
+@import "border/import.less";
+@import "border-radius/import.less";
+@import "background-image/import.less";
+@import "box-shadow/import.less";

@@ -1,0 +1,600 @@
+<div id="blogmeta" class="blogmeta">
+    <h3>META-теги для блога</h3>
+
+    <p><span class="blogmeta_name">Метатеги для записей блога</span></p>
+    <div class="blogmeta_block">
+        <div class="field-group">
+            <div class="field">
+                <div class="name">
+                    Переопределять существующие метатеги
+                </div>
+                <div class="value">
+                    <input type="checkbox" name="blogmeta_post_replace" value="1" {if isset($blogmeta.post.meta_replace) && $blogmeta.post.meta_replace == 1} checked="checked" {/if}>
+                </div>
+            </div>
+        </div>
+        <div class="field-group">
+            <div class="field">
+                <div class="name">
+                    META Title 
+                </div>
+                <div class="value">
+                    <textarea class="blogmetaInput" name='blogmeta_post_title'>{if isset($blogmeta.post.title)}{$blogmeta.post.title|escape}{/if}</textarea>
+                </div>
+            </div>
+        </div>
+        <div class="field-group">
+            <div class="field">
+                <div class="name">
+                    META Description
+                </div>
+                <div class="value">
+                    <textarea class="blogmetaInput" name='blogmeta_post_description'>{if isset($blogmeta.post.description)}{$blogmeta.post.description|escape}{/if}</textarea>
+                </div>
+            </div>
+        </div>
+        <div class="field-group">
+            <div class="field">
+                <div class="name">
+                    META Keywords
+                </div>
+                <div class="value">
+                    <textarea class="blogmetaInput" name='blogmeta_post_keywords'>{if isset($blogmeta.post.keywords)}{$blogmeta.post.keywords|escape}{/if}</textarea>
+                </div>
+            </div>
+        </div>
+        <div class="field-group">
+            <div class="field">
+                <div class="name">
+                    Переменные для вставки
+                </div>
+                <div class="value">
+                    <p class="variables">
+                        <strong>&#123;title&#125;</strong> - Название записи * <br/>
+                        <strong>&#123;text&#125;</strong> - Текст записи ** <br/>
+                        <strong>&#123;blog_name&#125;</strong> - Название блога * <br/>
+                        <strong>&#123;comment_count&#125;</strong> - Количество комментариев записи <br/>
+                        <strong>&#123;company_name&#125;</strong> - Название компании * (Общие настройки приложения "Сайт") <br/>
+                        <strong>&#123;shop_name&#125;</strong> - Название магазина * (Общие настройки приложения "Магазина") <br/>
+                        <strong>&#123;shop_email&#125;</strong> - Основной email-адрес (Общие настройки приложения "Магазина") <br/>
+                        <strong>&#123;shop_phone&#125;</strong> - Номер телефона (Общие настройки приложения "Магазина") <br/>
+                        * - К переменным могут быть добавлены модификаторы: <br/>
+                        <strong>lcfirst</strong> - первый символ с маленькой строки (пример: &#123;title|lcfirst&#125;), <br/>
+                        <strong>ucfirst</strong> - первый символ с большой строки (пример: &#123;blog_name|ucfirst&#125;) <br/>
+                        ** - К переменной text может быть добавлен модификатор: <br/>
+                        <strong>N</strong> (челое число) - вывод первых N символов (пример: &#123;text|300&#125;, &#123;text|300|lcfirst&#125;)
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <p><span class="blogmeta_name">Метатеги для главной страницы блога</span></p>
+    <div class="blogmeta_block">
+        <div class="field-group">
+            <div class="field">
+                <div class="name">
+                    Отдельные метагеги для страниц пагинации
+                </div>
+                <div class="value">
+                    <input type="checkbox" class="blogmeta_pagination" name="blogmeta_blog_pagination" value="1" {if isset($blogmeta.blog.pagination) && $blogmeta.blog.pagination == 1} checked="checked" {/if}>
+                </div>
+            </div>
+        </div>
+        <div class="field-group">
+            <div class="field">
+                <div class="name">
+                    META Title 
+                </div>
+                <div class="value">
+                    <textarea class="blogmetaTextarea" name='blogmeta_blog_title'>{if isset($blogmeta.blog.title)}{$blogmeta.blog.title|escape}{/if}</textarea>
+                </div>
+            </div>
+        </div>
+        <div class="field-group field-group_pagin">
+            <div class="field">
+                <div class="name">
+                    META Title для страниц пагинации
+                </div>
+                <div class="value">
+                    <textarea class="blogmetaTextarea" name='blogmeta_blog_title_pagin'>{if isset($blogmeta.blog.title_pagin)}{$blogmeta.blog.title_pagin|escape}{/if}</textarea>
+                </div>
+            </div>
+        </div>
+        <div class="field-group">
+            <div class="field">
+                <div class="name">
+                    META Description
+                </div>
+                <div class="value">
+                    <textarea class="blogmetaInput" name='blogmeta_blog_description'>{if isset($blogmeta.blog.description)}{$blogmeta.blog.description|escape}{/if}</textarea>
+                </div>
+            </div>
+        </div>
+        <div class="field-group field-group_pagin">
+            <div class="field">
+                <div class="name">
+                    META Description для страниц пагинации
+                </div>
+                <div class="value">
+                    <textarea class="blogmetaTextarea" name='blogmeta_blog_description_pagin'>{if isset($blogmeta.blog.description_pagin)}{$blogmeta.blog.description_pagin|escape}{/if}</textarea>
+                </div>
+            </div>
+        </div>
+        <div class="field-group">
+            <div class="field">
+                <div class="name">
+                    META Keywords
+                </div>
+                <div class="value">
+                    <textarea class="blogmetaInput" name='blogmeta_blog_keywords'>{if isset($blogmeta.blog.keywords)}{$blogmeta.blog.keywords|escape}{/if}</textarea>
+                </div>
+            </div>
+        </div>
+        <div class="field-group field-group_pagin">
+            <div class="field">
+                <div class="name">
+                    META Keywords для страниц пагинации
+                </div>
+                <div class="value">
+                    <textarea class="blogmetaTextarea" name='blogmeta_blog_keywords_pagin'>{if isset($blogmeta.blog.keywords_pagin)}{$blogmeta.blog.keywords_pagin|escape}{/if}</textarea>
+                </div>
+            </div>
+        </div>
+        <div class="field-group">
+            <div class="field">
+                <div class="name">
+                    Переменные для вставки
+                </div>
+                <div class="value">
+                    <p class="variables">
+                        <strong>&#123;page&#125;</strong> - Номер страницы <br/>
+                        <strong>&#123;blog_name&#125;</strong> - Название блога * <br/>
+                        <strong>&#123;company_name&#125;</strong> - Название компании * (Общие настройки приложения "Сайт") <br/>
+                        <strong>&#123;shop_name&#125;</strong> - Название магазина * (Общие настройки приложения "Магазина") <br/>
+                        <strong>&#123;shop_email&#125;</strong> - Основной email-адрес (Общие настройки приложения "Магазина") <br/>
+                        <strong>&#123;shop_phone&#125;</strong> - Номер телефона (Общие настройки приложения "Магазина") <br/>
+                        * - К переменным могут быть добавлены модификаторы: <br/>
+                        <strong>lcfirst</strong> - первый символ с маленькой строки (пример: &#123;company_name|lcfirst&#125;), <br/>
+                        <strong>ucfirst</strong> - первый символ с большой строки (пример: &#123;blog_name|ucfirst&#125;) 
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <p><span class="blogmeta_name">Метатеги для страниц тегирования записей по году/месяцу</span></p>
+    <div class="blogmeta_block">
+        <div class="field-group">
+            <div class="field">
+                <div class="name">
+                    Отдельные метагеги для страниц пагинации
+                </div>
+                <div class="value">
+                    <input type="checkbox" class="blogmeta_pagination" name="blogmeta_tag_pagination" value="1" {if isset($blogmeta.tag.pagination) && $blogmeta.tag.pagination == 1} checked="checked" {/if}>
+                </div>
+            </div>
+        </div>
+        <div class="field-group">
+            <div class="field">
+                <div class="name">
+                    META Title 
+                </div>
+                <div class="value">
+                    <textarea class="blogmetaInput" name='blogmeta_tag_title'>{if isset($blogmeta.tag.title)}{$blogmeta.tag.title|escape}{/if}</textarea>
+                </div>
+            </div>
+        </div>
+        <div class="field-group field-group_pagin">
+            <div class="field">
+                <div class="name">
+                    META Title для страниц пагинации
+                </div>
+                <div class="value">
+                    <textarea class="blogmetaTextarea" name='blogmeta_tag_title_pagin'>{if isset($blogmeta.tag.title_pagin)}{$blogmeta.tag.title_pagin|escape}{/if}</textarea>
+                </div>
+            </div>
+        </div>
+        <div class="field-group">
+            <div class="field">
+                <div class="name">
+                    META Description
+                </div>
+                <div class="value">
+                    <textarea class="blogmetaInput" name='blogmeta_tag_description'>{if isset($blogmeta.tag.description)}{$blogmeta.tag.description|escape}{/if}</textarea>
+                </div>
+            </div>
+        </div>
+        <div class="field-group field-group_pagin">
+            <div class="field">
+                <div class="name">
+                    META Description для страниц пагинации
+                </div>
+                <div class="value">
+                    <textarea class="blogmetaTextarea" name='blogmeta_tag_description_pagin'>{if isset($blogmeta.tag.description_pagin)}{$blogmeta.tag.description_pagin|escape}{/if}</textarea>
+                </div>
+            </div>
+        </div>
+        <div class="field-group">
+            <div class="field">
+                <div class="name">
+                    META Keywords
+                </div>
+                <div class="value">
+                    <textarea class="blogmetaInput" name='blogmeta_tag_keywords'>{if isset($blogmeta.tag.keywords)}{$blogmeta.tag.keywords|escape}{/if}</textarea>
+                </div>
+            </div>
+        </div>
+        <div class="field-group field-group_pagin">
+            <div class="field">
+                <div class="name">
+                    META Keywords для страниц пагинации
+                </div>
+                <div class="value">
+                    <textarea class="blogmetaTextarea" name='blogmeta_tag_keywords_pagin'>{if isset($blogmeta.tag.keywords_pagin)}{$blogmeta.tag.keywords_pagin|escape}{/if}</textarea>
+                </div>
+            </div>
+        </div>
+        <div class="field-group">
+            <div class="field">
+                <div class="name">
+                    Переменные для вставки
+                </div>
+                <div class="value">
+                    <p class="variables">
+                        <strong>&#123;year&#125;</strong> - Год <br/>
+                        <strong>&#123;month&#125;</strong> - Месяц * <br/>
+                        <strong>&#123;page&#125;</strong> - Номер страницы <br/>
+                        <strong>&#123;blog_name&#125;</strong> - Название блога * <br/>
+                        <strong>&#123;company_name&#125;</strong> - Название компании * (Общие настройки приложения "Сайт") <br/>
+                        <strong>&#123;shop_name&#125;</strong> - Название магазина * (Общие настройки приложения "Магазина") <br/>
+                        <strong>&#123;shop_email&#125;</strong> - Основной email-адрес (Общие настройки приложения "Магазина") <br/>
+                        <strong>&#123;shop_phone&#125;</strong> - Номер телефона (Общие настройки приложения "Магазина") <br/>
+                        * - К переменным могут быть добавлены модификаторы: <br/>
+                        <strong>lcfirst</strong> - первый символ с маленькой строки (пример: &#123;company_name|lcfirst&#125;), <br/>
+                        <strong>ucfirst</strong> - первый символ с большой строки (пример: &#123;blog_name|ucfirst&#125;) 
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <p><span class="blogmeta_name">Метатеги для страниц тегирования записей по автору</span></p>
+    <div class="blogmeta_block">
+        <div class="field-group">
+            <div class="field">
+                <div class="name">
+                    Отдельные метагеги для страниц пагинации
+                </div>
+                <div class="value">
+                    <input type="checkbox" class="blogmeta_pagination" name="blogmeta_author_pagination" value="1" {if isset($blogmeta.author.pagination) && $blogmeta.author.pagination == 1} checked="checked" {/if}>
+                </div>
+            </div>
+        </div>
+        <div class="field-group">
+            <div class="field">
+                <div class="name">
+                    META Title 
+                </div>
+                <div class="value">
+                    <textarea class="blogmetaInput" name='blogmeta_author_title'>{if isset($blogmeta.author.title)}{$blogmeta.author.title|escape}{/if}</textarea>
+                </div>
+            </div>
+        </div>
+        <div class="field-group field-group_pagin">
+            <div class="field">
+                <div class="name">
+                    META Title для страниц пагинации
+                </div>
+                <div class="value">
+                    <textarea class="blogmetaTextarea" name='blogmeta_author_title_pagin'>{if isset($blogmeta.author.title_pagin)}{$blogmeta.author.title_pagin|escape}{/if}</textarea>
+                </div>
+            </div>
+        </div>
+        <div class="field-group">
+            <div class="field">
+                <div class="name">
+                    META Description
+                </div>
+                <div class="value">
+                    <textarea class="blogmetaInput" name='blogmeta_author_description'>{if isset($blogmeta.author.description)}{$blogmeta.author.description|escape}{/if}</textarea>
+                </div>
+            </div>
+        </div>
+        <div class="field-group field-group_pagin">
+            <div class="field">
+                <div class="name">
+                    META Description для страниц пагинации
+                </div>
+                <div class="value">
+                    <textarea class="blogmetaTextarea" name='blogmeta_author_description_pagin'>{if isset($blogmeta.author.description_pagin)}{$blogmeta.author.description_pagin|escape}{/if}</textarea>
+                </div>
+            </div>
+        </div>
+        <div class="field-group">
+            <div class="field">
+                <div class="name">
+                    META Keywords
+                </div>
+                <div class="value">
+                    <textarea class="blogmetaInput" name='blogmeta_author_keywords'>{if isset($blogmeta.author.keywords)}{$blogmeta.author.keywords|escape}{/if}</textarea>
+                </div>
+            </div>
+        </div>
+        <div class="field-group field-group_pagin">
+            <div class="field">
+                <div class="name">
+                    META Keywords для страниц пагинации
+                </div>
+                <div class="value">
+                    <textarea class="blogmetaTextarea" name='blogmeta_author_keywords_pagin'>{if isset($blogmeta.author.keywords_pagin)}{$blogmeta.author.keywords_pagin|escape}{/if}</textarea>
+                </div>
+            </div>
+        </div>
+        <div class="field-group">
+            <div class="field">
+                <div class="name">
+                    Переменные для вставки
+                </div>
+                <div class="value">
+                    <p class="variables">
+                        <strong>&#123;author&#125;</strong> - Автор записи * <br/>
+                        <strong>&#123;page&#125;</strong> - Номер страницы <br/>
+                        <strong>&#123;blog_name&#125;</strong> - Название блога * <br/>
+                        <strong>&#123;company_name&#125;</strong> - Название компании * (Общие настройки приложения "Сайт") <br/>
+                        <strong>&#123;shop_name&#125;</strong> - Название магазина * (Общие настройки приложения "Магазина") <br/>
+                        <strong>&#123;shop_email&#125;</strong> - Основной email-адрес (Общие настройки приложения "Магазина") <br/>
+                        <strong>&#123;shop_phone&#125;</strong> - Номер телефона (Общие настройки приложения "Магазина") <br/>
+                        * - К переменным могут быть добавлены модификаторы: <br/>
+                        <strong>lcfirst</strong> - первый символ с маленькой строки (пример: &#123;company_name|lcfirst&#125;), <br/>
+                        <strong>ucfirst</strong> - первый символ с большой строки (пример: &#123;blog_name|ucfirst&#125;) 
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <p><span class="blogmeta_name">Метатеги для бесплатного плагина "Категории"</span></p>
+    <div class="blogmeta_block">
+        <div class="field-group">
+            <div class="field">
+                <div class="name">
+                    Отдельные метагеги для страниц пагинации
+                </div>
+                <div class="value">
+                    <input type="checkbox" class="blogmeta_pagination" name="blogmeta_category_pagination" value="1" {if isset($blogmeta.category.pagination) && $blogmeta.category.pagination == 1} checked="checked" {/if}>
+                </div>
+            </div>
+        </div>
+        <div class="field-group">
+            <div class="field">
+                <div class="name">
+                    META Title 
+                </div>
+                <div class="value">
+                    <textarea class="blogmetaInput" name='blogmeta_category_title'>{if isset($blogmeta.category.title)}{$blogmeta.category.title|escape}{/if}</textarea>
+                </div>
+            </div>
+        </div>
+        <div class="field-group field-group_pagin">
+            <div class="field">
+                <div class="name">
+                    META Title для страниц пагинации
+                </div>
+                <div class="value">
+                    <textarea class="blogmetaTextarea" name='blogmeta_category_title_pagin'>{if isset($blogmeta.category.title_pagin)}{$blogmeta.category.title_pagin|escape}{/if}</textarea>
+                </div>
+            </div>
+        </div>
+        <div class="field-group">
+            <div class="field">
+                <div class="name">
+                    META Description
+                </div>
+                <div class="value">
+                    <textarea class="blogmetaInput" name='blogmeta_category_description'>{if isset($blogmeta.category.description)}{$blogmeta.category.description|escape}{/if}</textarea>
+                </div>
+            </div>
+        </div>
+        <div class="field-group field-group_pagin">
+            <div class="field">
+                <div class="name">
+                    META Description для страниц пагинации
+                </div>
+                <div class="value">
+                    <textarea class="blogmetaTextarea" name='blogmeta_category_description_pagin'>{if isset($blogmeta.category.description_pagin)}{$blogmeta.category.description_pagin|escape}{/if}</textarea>
+                </div>
+            </div>
+        </div>
+        <div class="field-group">
+            <div class="field">
+                <div class="name">
+                    META Keywords
+                </div>
+                <div class="value">
+                    <textarea class="blogmetaInput" name='blogmeta_category_keywords'>{if isset($blogmeta.category.keywords)}{$blogmeta.category.keywords|escape}{/if}</textarea>
+                </div>
+            </div>
+        </div>
+        <div class="field-group field-group_pagin">
+            <div class="field">
+                <div class="name">
+                    META Keywords для страниц пагинации
+                </div>
+                <div class="value">
+                    <textarea class="blogmetaTextarea" name='blogmeta_category_keywords_pagin'>{if isset($blogmeta.category.keywords_pagin)}{$blogmeta.category.keywords_pagin|escape}{/if}</textarea>
+                </div>
+            </div>
+        </div>
+        <div class="field-group">
+            <div class="field">
+                <div class="name">
+                    Переменные для вставки
+                </div>
+                <div class="value">
+                    <p class="variables">
+                        <strong>&#123;category&#125;</strong> - Название категории * <br/>
+                        <strong>&#123;page&#125;</strong> - Номер страницы <br/>
+                        <strong>&#123;blog_name&#125;</strong> - Название блога * <br/>
+                        <strong>&#123;company_name&#125;</strong> - Название компании * (Общие настройки приложения "Сайт") <br/>
+                        <strong>&#123;shop_name&#125;</strong> - Название магазина * (Общие настройки приложения "Магазина") <br/>
+                        <strong>&#123;shop_email&#125;</strong> - Основной email-адрес (Общие настройки приложения "Магазина") <br/>
+                        <strong>&#123;shop_phone&#125;</strong> - Номер телефона (Общие настройки приложения "Магазина") <br/>
+                        * - К переменным могут быть добавлены модификаторы: <br/>
+                        <strong>lcfirst</strong> - первый символ с маленькой строки (пример: &#123;company_name|lcfirst&#125;), <br/>
+                        <strong>ucfirst</strong> - первый символ с большой строки (пример: &#123;blog_name|ucfirst&#125;) 
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <p><span class="blogmeta_name">Метатеги для бесплатного плагина "Теги"</span></p>
+    <div class="blogmeta_block">
+        <div class="field-group">
+            <div class="field">
+                <div class="name">
+                    Отдельные метагеги для страниц пагинации
+                </div>
+                <div class="value">
+                    <input type="checkbox" class="blogmeta_pagination" name="blogmeta_pluginTag_pagination" value="1" {if isset($blogmeta.pluginTag.pagination) && $blogmeta.pluginTag.pagination == 1} checked="checked" {/if}>
+                </div>
+            </div>
+        </div>
+        <div class="field-group">
+            <div class="field">
+                <div class="name">
+                    META Title 
+                </div>
+                <div class="value">
+                    <textarea class="blogmetaInput" name='blogmeta_pluginTag_title'>{if isset($blogmeta.pluginTag.title)}{$blogmeta.pluginTag.title|escape}{/if}</textarea>
+                </div>
+            </div>
+        </div>
+        <div class="field-group field-group_pagin">
+            <div class="field">
+                <div class="name">
+                    META Title для страниц пагинации
+                </div>
+                <div class="value">
+                    <textarea class="blogmetaTextarea" name='blogmeta_pluginTag_title_pagin'>{if isset($blogmeta.pluginTag.title_pagin)}{$blogmeta.pluginTag.title_pagin|escape}{/if}</textarea>
+                </div>
+            </div>
+        </div>
+        <div class="field-group">
+            <div class="field">
+                <div class="name">
+                    META Description
+                </div>
+                <div class="value">
+                    <textarea class="blogmetaInput" name='blogmeta_pluginTag_description'>{if isset($blogmeta.pluginTag.description)}{$blogmeta.pluginTag.description|escape}{/if}</textarea>
+                </div>
+            </div>
+        </div>
+        <div class="field-group field-group_pagin">
+            <div class="field">
+                <div class="name">
+                    META Description для страниц пагинации
+                </div>
+                <div class="value">
+                    <textarea class="blogmetaTextarea" name='blogmeta_pluginTag_description_pagin'>{if isset($blogmeta.pluginTag.description_pagin)}{$blogmeta.pluginTag.description_pagin|escape}{/if}</textarea>
+                </div>
+            </div>
+        </div>
+        <div class="field-group">
+            <div class="field">
+                <div class="name">
+                    META Keywords
+                </div>
+                <div class="value">
+                    <textarea class="blogmetaInput" name='blogmeta_pluginTag_keywords'>{if isset($blogmeta.pluginTag.keywords)}{$blogmeta.pluginTag.keywords|escape}{/if}</textarea>
+                </div>
+            </div>
+        </div>
+        <div class="field-group field-group_pagin">
+            <div class="field">
+                <div class="name">
+                    META Keywords для страниц пагинации
+                </div>
+                <div class="value">
+                    <textarea class="blogmetaTextarea" name='blogmeta_pluginTag_keywords_pagin'>{if isset($blogmeta.pluginTag.keywords_pagin)}{$blogmeta.pluginTag.keywords_pagin|escape}{/if}</textarea>
+                </div>
+            </div>
+        </div>
+        <div class="field-group">
+            <div class="field">
+                <div class="name">
+                    Переменные для вставки
+                </div>
+                <div class="value">
+                    <p class="variables">
+                        <strong>&#123;tag&#125;</strong> - Название тега * <br/>
+                        <strong>&#123;page&#125;</strong> - Номер страницы <br/>
+                        <strong>&#123;blog_name&#125;</strong> - Название блога * <br/>
+                        <strong>&#123;company_name&#125;</strong> - Название компании * (Общие настройки приложения "Сайт") <br/>
+                        <strong>&#123;shop_name&#125;</strong> - Название магазина * (Общие настройки приложения "Магазина") <br/>
+                        <strong>&#123;shop_email&#125;</strong> - Основной email-адрес (Общие настройки приложения "Магазина") <br/>
+                        <strong>&#123;shop_phone&#125;</strong> - Номер телефона (Общие настройки приложения "Магазина") <br/>
+                        * - К переменным могут быть добавлены модификаторы: <br/>
+                        <strong>lcfirst</strong> - первый символ с маленькой строки (пример: &#123;company_name|lcfirst&#125;), <br/>
+                        <strong>ucfirst</strong> - первый символ с большой строки (пример: &#123;blog_name|ucfirst&#125;) 
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <input type='hidden' name='blogmeta_blog_id' value='{$id}'>
+
+</div>
+<br/>
+
+<style>
+.blogmeta_block {
+    display: none;
+}
+#blogmeta p {
+    margin-bottom: 0;
+    padding:5px 0;
+}
+.blogmeta .blogmeta_name {
+    border-bottom: 1px dotted;
+    cursor: pointer;
+    font-weight: 100;
+}
+.blogmeta textarea {
+    min-height: 60px;
+    height: 60px;
+}
+.variables {
+    background: #f6eeea;
+    padding: 10px;
+    width: 610px;
+    font-size: 0.95em;
+}
+.field-group_pagin {
+    display:none;
+}
+</style>
+
+<script>
+$(document).ready(function(){
+    $('.blogmeta .blogmeta_name').on('click', function() {
+        $(this).parent().next().toggle('normal');
+    });
+
+    $('#blog-form input[type="submit"]').on('click', function(e) {
+        e.preventDefault();
+        $.post('?plugin=blogmeta&module=backend&action=save', $('#blog-form').serialize(), function(response) {
+            $('#blog-form').submit();
+        },'json');  
+    });
+
+    $('.blogmeta_pagination').on('change', function() {
+        if ($(this).is(":checked")) $(this).parents('.blogmeta_block').find('.field-group_pagin').show();
+        else $(this).parents('.blogmeta_block').find('.field-group_pagin').hide();
+    });
+    $('.blogmeta_pagination').trigger('change');
+});
+</script>

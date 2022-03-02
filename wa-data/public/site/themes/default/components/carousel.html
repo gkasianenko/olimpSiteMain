@@ -1,0 +1,37 @@
+{$photos = $wa->photos->photos("/album/6", "2000x0")}
+
+{if !empty($photos)}
+{$photos = array_values($photos)}
+<div class="section section__carousel d-none d-lg-block" data-aos="fade">
+    <div class="carousel slide" data-ride="carousel" id="carouselControls">
+        <ul class="list-unstyled carousel-indicators justify-content-start">
+            {foreach $photos as $index => $photo}
+            <li {if $index == 0}class="active"{/if} data-target="#carouselControls" data-slide-to="{$index}">
+            <svg width="48px" height="48px" viewBox="0 0 48 48" preserveAspectRatio="xMidYMid meet">
+                <circle class="sector" r="12" cx="24" cy="24" />
+                <circle class="segment" r="12" cx="24" cy="24" />
+            </svg>
+            </li>
+            {/foreach}
+        </ul>
+        <a class="carousel-control-prev" href="#carouselControls" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        </a>
+        <a class="carousel-control-next" href="#carouselControls" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        </a>
+        <div class="carousel-inner">
+            {foreach $photos as $index => $photo}
+            <div class="carousel-item slide {$photo.name}{if $index == 0} active{/if}"
+                 style="background-image: url({$photo.thumb_2000x0.url})">
+                <div class="carousel-caption d-none d-md-block">
+                    <div class="container-fluid" style="padding-top: 150px">
+                        {$photo.description}
+                    </div>
+                </div>
+            </div>
+            {/foreach}
+        </div>
+    </div>
+</div>
+{/if}

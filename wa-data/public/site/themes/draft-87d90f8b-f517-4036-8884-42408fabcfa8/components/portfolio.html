@@ -1,0 +1,41 @@
+{if $wa->blog}
+{*$photos = $wa->photos->photos("/album/7", "970x670")*}
+{$photos = siteBlogCustomHelper::posts(5, 80)}
+{if !empty($photos)}
+{capture}{$photos|@shuffle}{/capture}
+
+<div class="section section__portfolio d-none d-md-block">
+    <div class="container-fluid px-0" style="overflow-x: hidden;">
+        <div class="portfolio-carousel-main__container">
+            <div class="row no-gutters">
+                {foreach $photos|@array_slice:0:8 as $photo}
+                <div class="col-6 col-xl-3">
+                    <div class="item">
+                        <div class="slide-item">
+                            <div class="slide__image">
+                                {if $photo.album_id}
+                                    {$album_photos = $wa->photos->photos("/album/`$photo.album_id`", "970x670")}
+                                    {assign var="ap" value=$album_photos|reset}
+                                    {if $ap}
+                                        <img loading="lazy" itemprop="image" src="{$ap.thumb_970x670.url}" alt="">
+                                    {/if}
+                                {else}
+                                    <img loading="lazy" itemprop="image" src="{$photo.image}" alt="">
+                                {/if}
+                            </div>
+                            <div class="slide__content text-center" data-aos="fade" data-aos-delay="750">
+                                <a href="/portfolio/{$photo.url}" class="slide__link" target="_blank">{$photo.title}</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {/foreach}
+            </div>
+        </div>
+        <div class="portfolio-carousel-nav__container">
+            <div class="text-center"><a class="btn btn-red section__detail" href="/portfolio/" target="_blank">Все портфолио </a></div>
+        </div>
+    </div>
+</div>
+{/if}
+{/if}

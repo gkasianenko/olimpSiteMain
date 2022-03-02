@@ -1,0 +1,56 @@
+//
+// Component: Close
+//
+// ========================================================================
+
+
+// Variables
+// ========================================================================
+
+
+// Component
+// ========================================================================
+
+.hook-close() {
+    transition: 0.1s ease-in-out;
+    transition-property: color, opacity;
+}
+
+.hook-close-hover() {}
+
+
+// Miscellaneous
+// ========================================================================
+
+.hook-close-misc() {}
+
+
+// Inverse
+// ========================================================================
+
+.hook-inverse-close() {}
+.hook-inverse-close-hover() {}
+
+// Primary
+// ========================================================================
+
+@primary-close-color:                           @primary-global-muted-color;
+@primary-close-hover-color:                     @primary-global-color;
+
+.hook-primary() {
+
+    .uk-close {
+        color: @primary-close-color;
+        .hook-primary-close();
+    }
+
+    .uk-close:hover,
+    .uk-close:focus {
+        color: @primary-close-hover-color;
+        .hook-primary-close-hover();
+    }
+
+}
+
+.hook-primary-close() {}
+.hook-primary-close-hover() {}

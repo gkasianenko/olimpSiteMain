@@ -1,0 +1,81 @@
+//
+// Component: Slidenav
+//
+// ========================================================================
+
+
+// Variables
+// ========================================================================
+
+@slidenav-box-shadow:                           none;
+@slidenav-hover-box-shadow:                     none;
+
+
+// Component
+// ========================================================================
+
+.hook-slidenav() when not (@slidenav-box-shadow = none) {
+    box-shadow: @slidenav-box-shadow;
+}
+
+.hook-slidenav-hover() when not (@slidenav-hover-box-shadow = none) {
+    box-shadow: @slidenav-hover-box-shadow;
+}
+
+.hook-slidenav-active() {}
+
+
+// Icon modifier
+// ========================================================================
+
+.hook-slidenav-previous() {}
+
+.hook-slidenav-next() {}
+
+
+// Size modifier
+// ========================================================================
+
+.hook-slidenav-large() {}
+
+
+// Container
+// ========================================================================
+
+.hook-slidenav-container() {}
+
+
+// Miscellaneous
+// ========================================================================
+
+.hook-icon-misc() {}
+
+
+// Inverse
+// ========================================================================
+
+@inverse-slidenav-box-shadow:                           none;
+@inverse-slidenav-hover-box-shadow:                     none;
+
+.hook-inverse-slidenav() when not (@slidenav-box-shadow = @inverse-slidenav-box-shadow) {
+    box-shadow: @inverse-slidenav-box-shadow;
+}
+.hook-inverse-slidenav-hover() when not (@slidenav-hover-box-shadow = @inverse-slidenav-hover-box-shadow) {
+    box-shadow: @inverse-slidenav-hover-box-shadow;
+}
+.hook-inverse-slidenav-active() {}
+
+
+// Primary
+// ========================================================================
+
+@primary-slidenav-box-shadow:                           none;
+@primary-slidenav-hover-box-shadow:                     none;
+
+.hook-primary-slidenav() when not (@slidenav-box-shadow = @primary-slidenav-box-shadow) {
+    box-shadow: @primary-slidenav-box-shadow;
+}
+.hook-primary-slidenav-hover() when not (@slidenav-hover-box-shadow = @primary-slidenav-hover-box-shadow) {
+    box-shadow: @primary-slidenav-hover-box-shadow;
+}
+.hook-primary-slidenav-active() {}

@@ -1,0 +1,32 @@
+{* <!-- section wrapper --> *}
+
+<form class="form entry_form" id="feedback-form-section" method="post" action="" style="overflow: hidden">
+    <h1 class="section__title mb-3">
+        Оставить заявку
+    </h1>
+
+    <div class="row mb-5">
+        <div class="col-12 col-lg-7">
+            <p class="lead">Мы придерживаемся принципов честного открытого диалога.</p>
+        </div>
+        <div class="col-12 col-lg-5">
+            <!--<p>Общение, экспертиза, реализация совместных проектов — по любому вопросу обращайтесь</p>-->
+        </div>
+    </div>
+
+    {include file="__form-content.html" inline}
+</form>
+
+<div id="success-selector-section" style="display: none; width: 100%; text-align: center">
+    {$wa->block("feedback.message.success")}
+    <p class="string__timer">&nbsp;</p>
+</div>
+
+<div id="error-selector-section" style="display: none; width: 100%; text-align: center">
+    {$wa->block("feedback.message.error")}
+    <p class="string__timer">&nbsp;</p>
+</div>
+
+{if $wa->site && class_exists('siteFeedbackPlugin')}
+    {siteFeedbackPluginHelper::handler('#feedback-form-section', false, '#success-selector-section', '#error-selector-section')}
+{/if}

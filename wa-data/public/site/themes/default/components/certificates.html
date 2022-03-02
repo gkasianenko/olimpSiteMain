@@ -1,0 +1,33 @@
+<div class="section section__certificates d-none d-md-block">
+    <div class="container-lg">
+        <h1 class="section__title mb-3">
+            Сертификаты и дипломы
+
+        </h1>
+        <div class="certificate-items">
+            <div class="row">
+                <div class="col-7">
+                    <p class="lead">Мы — сертифицированные партнеры</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="owl-carousel owl-theme" id="certificate-carousel">
+                        {if $wa->photos}
+                        {$photos = $wa->photos->photos("/album/1:b2c0611345f4d4eacb055be05988c8d2/", "970,0x300")}
+                        {capture}{$photos|@shuffle}{/capture}
+                        {foreach $photos as $photo}
+                        <div class="item">
+                            <div class="certificate__item">
+                                <a href="{$photo.thumb_970.url}" data-lightbox="certificate_{$photo.id}"><img
+                                        loading="lazy" itemprop="image"  src="{$photo.thumb_0x300.url}" alt="{$photo.name}.{$photo.ext}"></a></div>
+                        </div>
+                        {/foreach}
+                        {/if}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="section__detail"><a href="/photos/sertifikaty/">Все сертификаты<i></i></a></div>
+    </div>
+</div>

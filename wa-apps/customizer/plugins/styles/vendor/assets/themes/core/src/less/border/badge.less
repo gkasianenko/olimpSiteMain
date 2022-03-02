@@ -1,0 +1,234 @@
+//
+// Component: Badge
+//
+// ========================================================================
+
+
+// Variables
+// ========================================================================
+
+//
+// New
+//
+
+@badge-border-width:                            0;
+@badge-border:                                  transparent;
+@badge-default-border:                          transparent;
+@badge-muted-border:                            transparent;
+@badge-primary-border:                          transparent;
+@badge-secondary-border:                        transparent;
+@badge-bestseller-border:                       transparent;
+@badge-low-price-border:                        transparent;
+@badge-new-border:                              transparent;
+@badge-success-border:                          transparent;
+@badge-warning-border:                          transparent;
+@badge-danger-border:                           transparent;
+
+
+// Component
+// ========================================================================
+
+.hook-badge() when not (@badge-border-width = 0) {
+    border: @badge-border-width solid @badge-border;
+}
+.hook-badge-hover() {}
+
+.hook-badge-default() when not (@badge-border-width = 0) {
+    border-color: @badge-default-border !important;
+}
+.hook-badge-default-hover() {}
+
+.hook-badge-muted() when not (@badge-border-width = 0) {
+    border-color: @badge-muted-border !important;
+}
+.hook-badge-muted-hover() {}
+
+.hook-badge-primary() when not (@badge-border-width = 0) {
+    border-color: @badge-primary-border !important;
+}
+.hook-badge-primary-hover() {}
+
+.hook-badge-secondary() when not (@badge-border-width = 0) {
+    border-color: @badge-secondary-border !important;
+}
+.hook-badge-secondary-hover() {}
+
+.hook-badge-bestseller() when not (@badge-border-width = 0) {
+    border-color: @badge-bestseller-border !important;
+}
+.hook-badge-bestseller-hover() {}
+
+.hook-badge-low-price() when not (@badge-border-width = 0) {
+    border-color: @badge-low-price-border !important;
+}
+.hook-badge-low-price-hover() {}
+
+.hook-badge-new() when not (@badge-border-width = 0) {
+    border-color: @badge-new-border !important;
+}
+.hook-badge-new-hover() {}
+
+.hook-badge-danger() when not (@badge-border-width = 0) {
+    border-color: @badge-danger-border !important;
+}
+.hook-badge-danger-hover() {}
+
+.hook-badge-success() when not (@badge-border-width = 0) {
+    border-color: @badge-success-border !important;
+}
+.hook-badge-success-hover() {}
+
+.hook-badge-warning() when not (@badge-border-width = 0) {
+    border-color: @badge-warning-border !important;
+}
+.hook-badge-warning-hover() {}
+
+.hook-badge-large() {}
+
+
+// Miscellaneous
+// ========================================================================
+
+.hook-badge-misc() {}
+
+
+// Inverse
+// ========================================================================
+
+@inverse-badge-border:                                 transparent;
+@inverse-badge-default-border:                         @badge-default-border;
+@inverse-badge-muted-border:                           @badge-muted-border;
+@inverse-badge-primary-border:                         @badge-primary-border;
+@inverse-badge-secondary-border:                       @badge-secondary-border;
+@inverse-badge-bestseller-border:                      @badge-bestseller-border;
+@inverse-badge-low-price-border:                       @badge-low-price-border;
+@inverse-badge-new-border:                             @badge-new-border;
+@inverse-badge-success-border:                         @badge-success-border;
+@inverse-badge-warning-border:                         @badge-warning-border;
+@inverse-badge-danger-border:                          @badge-danger-border;
+
+.hook-inverse-badge() when not (@badge-border-width = 0) {
+    border-color: @inverse-badge-border;
+}
+.hook-inverse-badge-hover() {}
+
+.hook-inverse-badge-default() when not (@badge-border-width = 0) and not (@inverse-badge-default-border = @badge-default-border) {
+    border-color: @inverse-badge-default-border;
+}
+.hook-inverse-badge-default-hover() {}
+
+.hook-inverse-badge-muted() when not (@badge-border-width = 0) and not (@inverse-badge-muted-border = @badge-muted-border) {
+    border-color: @inverse-badge-muted-border;
+}
+.hook-inverse-badge-muted-hover() {}
+
+.hook-inverse-badge-primary() when not (@badge-border-width = 0) and not (@inverse-badge-primary-border = @badge-primary-border) {
+    border-color: @inverse-badge-primary-border;
+}
+.hook-inverse-badge-primary-hover() {}
+
+.hook-inverse-badge-secondary() when not (@badge-border-width = 0) and not (@inverse-badge-secondary-border = @badge-secondary-border) {
+    border-color: @inverse-badge-secondary-border;
+}
+.hook-inverse-badge-secondary-hover() {}
+
+.hook-inverse-badge-bestseller() when not (@badge-border-width = 0) and not (@inverse-badge-bestseller-border = @badge-bestseller-border) {
+    border-color: @inverse-badge-bestseller-border;
+}
+.hook-inverse-badge-bestseller-hover() {}
+
+.hook-inverse-badge-low-price() when not (@badge-border-width = 0) and not (@inverse-badge-low-price-border = @badge-low-price-border) {
+    border-color: @inverse-badge-low-price-border;
+}
+.hook-inverse-badge-low-price-hover() {}
+
+.hook-inverse-badge-new() when not (@badge-border-width = 0) and not (@inverse-badge-new-border = @badge-new-border) {
+    border-color: @inverse-badge-new-border;
+}
+.hook-inverse-badge-new-hover() {}
+
+.hook-inverse-badge-danger() when not (@badge-border-width = 0) and not (@inverse-badge-danger-border = @badge-danger-border) {
+    border-color: @inverse-badge-danger-border;
+}
+.hook-inverse-badge-danger-hover() {}
+
+.hook-inverse-badge-success() when not (@badge-border-width = 0) and not (@inverse-badge-success-border = @badge-success-border) {
+    border-color: @inverse-badge-success-border;
+}
+.hook-inverse-badge-success-hover() {}
+
+.hook-inverse-badge-warning() when not (@badge-border-width = 0) and not (@inverse-badge-warning-border = @badge-warning-border) {
+    border-color: @inverse-badge-warning-border;
+}
+.hook-inverse-badge-warning-hover() {}
+
+
+// Primary
+// ========================================================================
+
+@primary-badge-border:                                 transparent;
+@primary-badge-default-border:                         @badge-default-border;
+@primary-badge-muted-border:                           @badge-muted-border;
+@primary-badge-primary-border:                         @badge-primary-border;
+@primary-badge-secondary-border:                       @badge-secondary-border;
+@primary-badge-bestseller-border:                      @badge-bestseller-border;
+@primary-badge-low-price-border:                       @badge-low-price-border;
+@primary-badge-new-border:                             @badge-new-border;
+@primary-badge-success-border:                         @badge-success-border;
+@primary-badge-warning-border:                         @badge-warning-border;
+@primary-badge-danger-border:                          @badge-danger-border;
+
+.hook-primary-badge() when not (@badge-border-width = 0) {
+    border-color: @primary-badge-border;
+}
+.hook-primary-badge-hover() {}
+
+.hook-primary-badge-default() when not (@badge-border-width = 0) and not (@primary-badge-default-border = @badge-default-border) {
+    border-color: @primary-badge-default-border;
+}
+.hook-primary-badge-default-hover() {}
+
+.hook-primary-badge-muted() when not (@badge-border-width = 0) and not (@primary-badge-muted-border = @badge-muted-border) {
+    border-color: @primary-badge-muted-border;
+}
+.hook-primary-badge-muted-hover() {}
+
+.hook-primary-badge-primary() when not (@badge-border-width = 0) and not (@primary-badge-primary-border = @badge-primary-border) {
+    border-color: @primary-badge-primary-border;
+}
+.hook-primary-badge-primary-hover() {}
+
+.hook-primary-badge-secondary() when not (@badge-border-width = 0) and not (@primary-badge-secondary-border = @badge-secondary-border) {
+    border-color: @primary-badge-secondary-border;
+}
+.hook-primary-badge-secondary-hover() {}
+
+.hook-primary-badge-bestseller() when not (@badge-border-width = 0) and not (@primary-badge-bestseller-border = @badge-bestseller-border) {
+    border-color: @primary-badge-bestseller-border;
+}
+.hook-primary-badge-bestseller-hover() {}
+
+.hook-primary-badge-low-price() when not (@badge-border-width = 0) and not (@primary-badge-low-price-border = @badge-low-price-border) {
+    border-color: @primary-badge-low-price-border;
+}
+.hook-primary-badge-low-price-hover() {}
+
+.hook-primary-badge-new() when not (@badge-border-width = 0) and not (@primary-badge-new-border = @badge-new-border) {
+    border-color: @primary-badge-new-border;
+}
+.hook-primary-badge-new-hover() {}
+
+.hook-primary-badge-danger() when not (@badge-border-width = 0) and not (@primary-badge-danger-border = @badge-danger-border) {
+    border-color: @primary-badge-danger-border;
+}
+.hook-primary-badge-danger-hover() {}
+
+.hook-primary-badge-success() when not (@badge-border-width = 0) and not (@primary-badge-success-border = @badge-success-border) {
+    border-color: @primary-badge-success-border;
+}
+.hook-primary-badge-success-hover() {}
+
+.hook-primary-badge-warning() when not (@badge-border-width = 0) and not (@primary-badge-warning-border = @badge-warning-border) {
+    border-color: @primary-badge-warning-border;
+}
+.hook-primary-badge-warning-hover() {}

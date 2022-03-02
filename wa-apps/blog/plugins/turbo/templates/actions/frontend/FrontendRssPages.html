@@ -1,0 +1,16 @@
+<!doctype html>
+<html>
+<head>
+
+</head>
+<body>
+<h1>Список RSS-фидов</h1>
+<ul>
+	{foreach $urls as $url}
+	<li>
+		<a href="{$url}">{$url}</a>
+	</li>
+	{/foreach}
+</ul>
+</body>
+</html>

@@ -1,0 +1,127 @@
+//
+// Component: Breadcrumb
+//
+// ========================================================================
+
+
+// Variables
+// ========================================================================
+
+//
+// New
+//
+
+@breadcrumb-item-text-decoration:                      none;
+@breadcrumb-item-hover-text-decoration:                none;
+@breadcrumb-item-active-text-decoration:               underline;
+
+
+// Component
+// ========================================================================
+
+.hook-breadcrumb() {}
+
+
+// Items
+// ========================================================================
+
+.hook-breadcrumb-item() {
+    text-decoration: @breadcrumb-item-text-decoration;
+}
+
+.hook-breadcrumb-item-hover() {
+    text-decoration: @breadcrumb-item-hover-text-decoration;
+}
+
+.hook-breadcrumb-item-disabled() {}
+
+.hook-breadcrumb-item-active() {
+    text-decoration: @breadcrumb-item-active-text-decoration;
+}
+
+.hook-breadcrumb-divider() {}
+
+
+// Miscellaneous
+// ========================================================================
+
+.hook-breadcrumb-misc() {}
+
+
+// Inverse
+// ========================================================================
+
+@inverse-breadcrumb-item-text-decoration:        none;
+@inverse-breadcrumb-item-hover-text-decoration:  underline;
+@inverse-breadcrumb-item-active-text-decoration: none;
+
+.hook-inverse-breadcrumb-item() {
+    text-decoration: @inverse-breadcrumb-item-text-decoration;
+}
+.hook-inverse-breadcrumb-item-hover() {
+    text-decoration: @inverse-breadcrumb-item-hover-text-decoration;
+}
+.hook-inverse-breadcrumb-item-disabled() {}
+.hook-inverse-breadcrumb-item-active() {
+    text-decoration: @inverse-breadcrumb-item-active-text-decoration;
+}
+
+.hook-inverse-breadcrumb-divider() {}
+
+
+// Primary
+// ========================================================================
+
+@primary-breadcrumb-item-color:                  @primary-global-muted-color;
+@primary-breadcrumb-item-text-decoration:        none;
+
+@primary-breadcrumb-item-hover-color:            @primary-global-color;
+@primary-breadcrumb-item-hover-text-decoration:  underline;
+
+@primary-breadcrumb-item-active-color:           @primary-global-color;
+@primary-breadcrumb-item-active-text-decoration: none;
+
+@primary-breadcrumb-divider-color:               @primary-global-muted-color;
+
+.hook-primary() {
+
+    .uk-breadcrumb > * > * {
+        color: @primary-breadcrumb-item-color;
+        text-decoration: @primary-breadcrumb-item-text-decoration;
+        .hook-primary-breadcrumb-item();
+    }
+
+    .uk-breadcrumb > * > :hover,
+    .uk-breadcrumb > * > :focus {
+        color: @primary-breadcrumb-item-hover-color;
+        text-decoration: @primary-breadcrumb-item-hover-text-decoration;
+        .hook-primary-breadcrumb-item-hover();
+    }
+
+    .uk-breadcrumb > .uk-disabled > * {
+        .hook-primary-breadcrumb-item-disabled();
+    }
+
+    .uk-breadcrumb > :last-child > * {
+        color: @primary-breadcrumb-item-active-color;
+        text-decoration: @primary-breadcrumb-item-active-text-decoration;
+        .hook-primary-breadcrumb-item-active();
+    }
+
+    //
+    // Divider
+    //
+
+    .uk-breadcrumb > :nth-child(n+2):not(.uk-first-column)::before {
+        color: @primary-breadcrumb-divider-color;
+        .hook-primary-breadcrumb-divider();
+    }
+
+}
+
+.hook-primary-breadcrumb-item() {}
+.hook-primary-breadcrumb-item-hover() {}
+.hook-primary-breadcrumb-item-disabled() {}
+.hook-primary-breadcrumb-item-active() {}
+
+.hook-primary-breadcrumb-divider() {}

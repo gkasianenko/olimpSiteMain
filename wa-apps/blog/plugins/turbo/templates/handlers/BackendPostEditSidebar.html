@@ -1,0 +1,43 @@
+<div class="block">
+	<h6>Turbo</h6>
+	<div class="b-ibutton-checkbox" id="turbo-switcher-ibutton-checkbox">
+		<ul class="menu-h">
+			<li>
+				<span id="turbo-switcher-off-label" class="b-unselected">[`Off`]</span>
+			</li>
+			<li>
+				<input id="turbo-switcher" type="checkbox" name="turbo" value="1"
+						{if $is_turbo}checked="checked"{/if}>
+			</li>
+			<li>
+				<span id="turbo-switcher-on-label">[`On`]</span>
+			</li>
+		</ul>
+	</div>
+</div>
+<script>
+	jQuery(function ($) {
+		var switcher = $('#turbo-switcher');
+
+		var handler = function () {
+			var onLabelSelector = '#' + this.id + '-on-label',
+				offLabelSelector = '#' + this.id + '-off-label';
+
+			if (!this.checked) {
+				$(onLabelSelector).addClass('b-unselected');
+				$(offLabelSelector).removeClass('b-unselected');
+			} else {
+				$(onLabelSelector).removeClass('b-unselected');
+				$(offLabelSelector).addClass('b-unselected');
+			}
+		};
+
+		switcher.iButton({
+			labelOn: '',
+			labelOff: '',
+			className: 'mini'
+		}).change(handler);
+
+		handler.call(switcher.get(0));
+	});
+</script>

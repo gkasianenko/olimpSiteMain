@@ -1,0 +1,109 @@
+//
+// Component: Search
+//
+// ========================================================================
+
+
+// Variables
+// ========================================================================
+
+@search-default-box-shadow:                               none;
+@search-default-focus-box-shadow:                         none;
+
+
+// Component
+// ========================================================================
+
+.hook-search-input() {}
+
+
+// Default modifiers
+// ========================================================================
+
+.hook-search-default-input() when not (@search-default-box-shadow = none) {
+    box-shadow: @search-default-box-shadow;
+}
+
+.hook-search-default-input-focus() when not (@search-default-focus-box-shadow = none) {
+    box-shadow: @search-default-focus-box-shadow;
+}
+
+.hook-search-default-icon() {}
+.hook-search-default-icon-hover() {}
+.hook-search-default-icon-flip() {}
+
+
+// Navbar modifiers
+// ========================================================================
+
+.hook-search-navbar-input() {}
+
+
+// Large modifiers
+// ========================================================================
+
+.hook-search-large-input() {}
+
+
+// Toggle
+// ========================================================================
+
+.hook-search-toggle() {}
+
+.hook-search-toggle-hover() {}
+
+
+// Miscellaneous
+// ========================================================================
+
+.hook-search-misc() {}
+
+
+// Inverse
+// ========================================================================
+
+@inverse-search-default-box-shadow:                               none;
+@inverse-search-default-focus-box-shadow:                         none;
+
+.hook-inverse-search-default-input() when not (@search-default-box-shadow = @inverse-search-default-box-shadow) {
+    box-shadow: @inverse-search-default-box-shadow;
+}
+
+.hook-inverse-search-default-input-focus() when not (@search-default-focus-box-shadow = @inverse-search-default-focus-box-shadow) {
+    box-shadow: @inverse-search-default-focus-box-shadow;
+}
+
+.hook-inverse-search-default-icon() {}
+.hook-inverse-search-default-icon-hover() {}
+
+.hook-inverse-search-navbar-input() {}
+
+.hook-inverse-search-large-input() {}
+
+.hook-inverse-search-toggle() {}
+.hook-inverse-search-toggle-hover() {}
+
+
+// Primary
+// ========================================================================
+
+@primary-search-default-box-shadow:                               none;
+@primary-search-default-focus-box-shadow:                         none;
+
+.hook-primary-search-default-input() when not (@search-default-box-shadow = @primary-search-default-box-shadow) {
+    box-shadow: @primary-search-default-box-shadow;
+}
+
+.hook-primary-search-default-input-focus() when not (@search-default-focus-box-shadow = @primary-search-default-focus-box-shadow) {
+    box-shadow: @primary-search-default-focus-box-shadow;
+}
+
+.hook-primary-search-default-icon() {}
+.hook-primary-search-default-icon-hover() {}
+
+.hook-primary-search-navbar-input() {}
+
+.hook-primary-search-large-input() {}
+
+.hook-primary-search-toggle() {}
+.hook-primary-search-toggle-hover() {}

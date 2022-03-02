@@ -1,0 +1,79 @@
+//
+// Component: Pagination
+//
+// ========================================================================
+
+
+// Variables
+// ========================================================================
+
+//
+// New
+//
+
+@pagination-item-box-shadow:                    none;
+@pagination-item-hover-box-shadow:              none;
+
+
+// Component
+// ========================================================================
+
+.hook-pagination() {}
+
+
+// Items
+// ========================================================================
+
+.hook-pagination-item() when not (@pagination-item-box-shadow = none) {
+    box-shadow: @pagination-item-box-shadow;
+}
+
+.hook-pagination-item-hover() when not (@pagination-item-hover-box-shadow = none) {
+    box-shadow: @pagination-item-hover-box-shadow;
+}
+
+.hook-pagination-item-active() {}
+
+.hook-pagination-item-disabled() {}
+
+
+// Miscellaneous
+// ========================================================================
+
+.hook-pagination-misc() {}
+
+
+// Inverse
+// ========================================================================
+
+@inverse-pagination-item-box-shadow:                    none;
+@inverse-pagination-item-hover-box-shadow:              none;
+
+.hook-inverse-pagination-item() when not (@inverse-pagination-item-box-shadow = @pagination-item-box-shadow) {
+    box-shadow: @inverse-pagination-item-box-shadow;
+}
+
+.hook-inverse-pagination-item-hover() when not (@inverse-pagination-item-hover-box-shadow = @pagination-item-hover-box-shadow) {
+    box-shadow: @inverse-pagination-item-hover-box-shadow;
+}
+
+.hook-inverse-pagination-item-active() {}
+.hook-inverse-pagination-item-disabled() {}
+
+
+// Primary
+// ========================================================================
+
+@primary-pagination-item-box-shadow:                    none;
+@primary-pagination-item-hover-box-shadow:              none;
+
+.hook-primary-pagination-item() when not (@primary-pagination-item-box-shadow = @pagination-item-box-shadow) {
+    box-shadow: @primary-pagination-item-box-shadow;
+}
+
+.hook-primary-pagination-item-hover() when not (@primary-pagination-item-hover-box-shadow = @pagination-item-hover-box-shadow) {
+    box-shadow: @primary-pagination-item-hover-box-shadow;
+}
+
+.hook-primary-pagination-item-active() {}
+.hook-primary-pagination-item-disabled() {}

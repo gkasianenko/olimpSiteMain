@@ -1,0 +1,88 @@
+//
+// Component: Description list
+//
+// ========================================================================
+
+
+// Variables
+// ========================================================================
+
+
+// Component
+// ========================================================================
+
+.hook-description-list-term() {}
+
+.hook-description-list-description() {}
+
+
+// Style modifier
+// ========================================================================
+
+.hook-description-list-divider-term() {}
+
+
+// Miscellaneous
+// ========================================================================
+
+.hook-description-list-misc() {}
+
+
+// Inverse
+// ========================================================================
+
+@inverse-description-list-term-color:               @inverse-global-color;
+@inverse-description-list-divider-term-border:      @inverse-global-border;
+
+.hook-inverse() {
+
+    .uk-description-list > dt {
+        color: @inverse-description-list-term-color;
+        .hook-inverse-description-list-term();
+    }
+
+    .uk-description-list > dd {
+        .hook-inverse-description-list-description();
+    }
+
+    .uk-description-list-divider > dt:nth-child(n+2) {
+
+        border-top-color: @inverse-description-list-divider-term-border;
+        .hook-inverse-description-list-divider-term();
+    }
+
+}
+
+.hook-inverse-description-list-term() {}
+.hook-inverse-description-list-description() {}
+.hook-inverse-description-list-divider-term() {}
+
+
+// Primary
+// ========================================================================
+
+@primary-description-list-term-color:               @primary-global-color;
+@primary-description-list-divider-term-border:      @primary-global-border;
+
+.hook-primary() {
+
+    .uk-description-list > dt {
+        color: @primary-description-list-term-color;
+        .hook-primary-description-list-term();
+    }
+
+    .uk-description-list > dd {
+        .hook-primary-description-list-description();
+    }
+
+    .uk-description-list-divider > dt:nth-child(n+2) {
+
+        border-top-color: @primary-description-list-divider-term-border;
+        .hook-primary-description-list-divider-term();
+    }
+
+}
+
+.hook-primary-description-list-term() {}
+.hook-primary-description-list-description() {}
+.hook-primary-description-list-divider-term() {}

@@ -1,0 +1,18 @@
+{* post stream (list): default view mode *}
+
+{foreach $posts as $post}
+    <section class="post post__default container-lg" id="post-{$post.id}" {if $wa->param('blog_url')}itemprop="blogPosts" {/if}itemscope itemtype="http://schema.org/BlogPosting">
+        {include file="stream_posts_item.html" inline}
+    </section>
+{foreachelse}
+    {if $page lt 2}
+        {_w('%d post','%d posts',0)}
+    {/if}
+{/foreach}
+
+{if !empty($photos_loaded) && blogPhotosBridge::is2xEnabled()}
+    <script src="{$wa_static_url}wa-content/js/jquery-plugins/jquery.retina.min.js"></script>
+    <script>$(function() { "use strict";
+        $.Retina && $('img.retinify').retina();
+    });</script>
+{/if}

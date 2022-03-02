@@ -1,0 +1,212 @@
+//
+// Component: Table
+//
+// ========================================================================
+
+
+// Variables
+// ========================================================================
+
+@table-header-cell-font-size:                   @global-small-font-size;
+@table-header-cell-font-weight:                 normal;
+@table-header-cell-color:                       @global-muted-color;
+
+@table-xsmall-cell-line-height:					1.2;
+@table-xsmall-cell-padding-vertical:            5px;
+@table-xsmall-cell-padding-horizontal:          5px;
+
+@table-groups-icon-width:                       (@global-line-height * 1em);
+@table-groups-icon-height:                      @table-groups-icon-width;
+@table-groups-icon-color:                       @global-color;
+
+@internal-table-groups-open-image:              "../../../../core/src/images/backgrounds/accordion-open.svg";
+@internal-table-groups-close-image:             "../../../../core/src/images/backgrounds/accordion-close.svg";
+
+
+// Component
+// ========================================================================
+
+.hook-table-header-cell() {}
+
+.hook-table-cell() {}
+
+.hook-table-footer() {}
+
+.hook-table-caption() {}
+
+.hook-table-row-active() {}
+
+
+// Style modifiers
+// ========================================================================
+
+.hook-table-divider() {}
+
+.hook-table-striped() {}
+
+.hook-table-hover() {}
+
+
+// Size modifier
+// ========================================================================
+
+.hook-table-small() {}
+
+.hook-table-large() {}
+
+
+// Miscellaneous
+// ========================================================================
+
+.hook-table-misc() {
+
+    .uk-table tbody tr { transition: background-color 0.1s linear; }
+
+    //
+    // XSmall
+    //
+
+    .uk-table-xsmall th,
+	.uk-table-xsmall td {
+		line-height: @table-xsmall-cell-line-height;
+		padding: @table-xsmall-cell-padding-vertical @table-xsmall-cell-padding-horizontal;
+        .hook-table-xsmall();
+	}
+
+	.uk-table-xsmall .icon16.color {
+		margin-top: 2px;
+		margin-bottom: 2px;
+		margin-right: 3px !important;
+	}
+
+
+    //
+    // Groups
+    //
+
+	.uk-table-groups tr.divider {
+		cursor: pointer;
+		.hook-table-groups();
+	}
+	.uk-table-groups tr.divider:not(:first-child) th {
+		padding-top: @table-cell-padding-vertical * 3;
+	}
+    .uk-table-groups.uk-table-xsmall tr.divider:not(:first-child) th {
+		padding-top: @table-xsmall-cell-padding-vertical * 3;
+	}
+	.uk-table-groups.uk-table-small tr.divider:not(:first-child) th {
+		padding-top: @table-small-cell-padding-vertical * 3;
+	}
+    .uk-table-groups.uk-table-large tr.divider:not(:first-child) th {
+		padding-top: @table-large-cell-padding-vertical * 3;
+	}
+	.uk-table-groups tr.divider th::before {
+		content: "";
+		width: @table-groups-icon-width;
+		height: @table-groups-icon-height;
+		float: right;
+		.svg-fill(@internal-table-groups-close-image, "#000", @table-groups-icon-color);
+		background-repeat: no-repeat;
+		background-position: 50% 50%;
+	}
+	.uk-table-groups tr.divider.uk-open th::before { .svg-fill(@internal-table-groups-open-image, "#000", @table-groups-icon-color); }
+
+}
+
+.hook-table-groups() {}
+.hook-table-xsmall() {}
+
+
+// Inverse
+// ========================================================================
+
+@inverse-table-groups-icon-color:               @inverse-global-emphasis-color;
+
+.hook-inverse() {
+
+    .uk-table-groups tr.divider {
+		.hook-inverse-table-groups();
+	}
+
+    .uk-table-groups tr.divider th::before {
+		.svg-fill(@internal-table-groups-close-image, "#000", @inverse-table-groups-icon-color);
+	}
+	.uk-table-groups tr.divider.uk-open th::before { .svg-fill(@internal-table-groups-open-image, "#000", @inverse-table-groups-icon-color); }
+
+}
+
+.hook-inverse-table-header-cell() {}
+.hook-inverse-table-caption() {}
+.hook-inverse-table-row-active() {}
+.hook-inverse-table-divider() {}
+.hook-inverse-table-striped() {}
+.hook-inverse-table-hover() {}
+.hook-inverse-table-groups() {}
+
+
+// Primary
+// ========================================================================
+
+@primary-table-header-cell-color:                       @primary-global-color;
+@primary-table-caption-color:                           @primary-global-muted-color;
+@primary-table-row-active-background:                   fadeout(@primary-global-muted-background, 2%);
+@primary-table-divider-border:                          @primary-global-border;
+@primary-table-striped-row-background:                  @primary-global-muted-background;
+@primary-table-hover-row-background:                    @primary-table-row-active-background;
+@primary-table-groups-icon-color:                       @primary-global-emphasis-color;
+
+.hook-primary() {
+
+    .uk-table th {
+        color: @primary-table-header-cell-color;
+        .hook-primary-table-header-cell;
+    }
+
+    .uk-table caption {
+        color: @primary-table-caption-color;
+        .hook-primary-table-caption;
+    }
+
+    .uk-table > tr.uk-active,
+    .uk-table tbody tr.uk-active {
+        background: @primary-table-row-active-background;
+        .hook-primary-table-row-active;
+    }
+
+    .uk-table-divider > tr:not(:first-child),
+    .uk-table-divider > :not(:first-child) > tr,
+    .uk-table-divider > :first-child > tr:not(:first-child) {
+        border-top-color: @primary-table-divider-border;
+        .hook-primary-table-divider;
+    }
+
+    .uk-table-striped > tr:nth-of-type(odd),
+    .uk-table-striped tbody tr:nth-of-type(odd) {
+        background: @primary-table-striped-row-background;
+        .hook-primary-table-striped;
+    }
+
+    .uk-table-hover > tr:hover,
+    .uk-table-hover tbody tr:hover {
+        background: @primary-table-hover-row-background;
+        .hook-primary-table-hover;
+    }
+
+    .uk-table-groups tr.divider {
+		.hook-primary-table-groups();
+	}
+
+    .uk-table-groups tr.divider th::before {
+		.svg-fill(@internal-table-groups-close-image, "#000", @primary-table-groups-icon-color);
+	}
+	.uk-table-groups tr.divider.uk-open th::before { .svg-fill(@internal-table-groups-open-image, "#000", @primary-table-groups-icon-color); }
+
+}
+
+.hook-primary-table-header-cell() {}
+.hook-primary-table-caption() {}
+.hook-primary-table-row-active() {}
+.hook-primary-table-divider() {}
+.hook-primary-table-striped() {}
+.hook-primary-table-hover() {}
+.hook-primary-table-groups() {}

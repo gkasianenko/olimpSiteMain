@@ -1,0 +1,263 @@
+
+
+{literal}
+<style>
+    .logo__wrapper {
+        width: 125px;
+        height: 50px;
+        margin-top: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .logo__wrapper img {
+        max-width: 100%;
+        max-height: 100%;
+    }
+</style>
+{/literal}
+
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      crossorigin="anonymous">
+
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+<h1>Расчет стоимости отзывов</h1>
+<div>
+    <form action="?plugin=reviewscalc&action=save" method="post" id="plugins-settings-form" enctype="multipart/form-data">
+        {$wa->csrf()}
+
+        {if $updated}
+        <div class="alert alert-success" role="alert">Обновлено</div>
+        {/if}
+
+        <div class="fields form">
+            <div class="field">
+                <div class="name">
+                    <label for="site_reviewscalc_from">E-mail, с которого будет отправлено сообщение</label>
+                </div>
+                <div class="value">
+                    <input id="site_reviewscalc_from" type="text" name="site_reviewscalc[from]" class="input" title="E-mail, с которого будет отправлено сообщение" value="{$settings.from}"> <br>
+                    <span class="hint">Если вы оставите поле пустым, то оно придет с ящика покупателя. При этом высока вероятность попадания в спам.</span>
+                </div>
+            </div>
+            <div class="field">
+                <div class="name">
+                    <label for="site_reviewscalc_to">E-mail на который будет отправлено сообщение</label>
+                </div>
+                <div class="value">
+                    <input id="site_reviewscalc_to" type="text" name="site_reviewscalc[to]" class="input" title="E-mail на который будет отправлено сообщение" value="{$settings.to}"> <br>
+                    <span class="hint">Обязательное поле. Если оно не заполнено или не верно, плагин работать не будет.</span>
+                </div>
+            </div>
+            <div class="field">
+                <div class="name">
+                    <label for="site_reviewscalc_subj_prefix">Префикс темы сообщения</label>
+                </div>
+                <div class="value">
+                    <textarea id="site_reviewscalc_subj_prefix" name="site_reviewscalc[subj_prefix]" class="textarea" title="Префикс темы сообщения">{$settings.subj_prefix}</textarea> <br>
+                    <span class="hint">Если ваша форма имеет поле с name="subject", тогда значение этого поля будет добавлено после префикса как тема сообщения.</span>
+                </div>
+            </div>
+            {*<div class="field">
+                <div class="name">
+                    <label for="site_reviewscalc_body">Тело сообщения</label>
+                </div>
+                <div class="value">
+                    <textarea id="site_reviewscalc_body" name="site_reviewscalc[body]" class="textarea" title="Тело сообщения">{$settings.body}</textarea>
+                    <br>
+                    {literal}
+                    <span class="hint">Set the mail body. Use Smarty.<br>{$email} - Customer email.<br>{$subject} - Email subject.<br>{$text} - message text.<br>{$name} - Имя покупателя.</span>
+                    {/literal}
+                </div>
+            </div>
+            <div class="field">
+                <div class="name">
+                    <label for="site_reviewscalc_mail_log">Записывать отправленные сообщения в лог</label>
+                </div>
+                <div class="value">
+                    <input type="checkbox" name="site_reviewscalc[mail_log]" value="1" class="checkbox" {if $settings.mail_log} checked="checked"{/if} id="site_reviewscalc_mail_log" title="Записывать отправленные сообщения в лог"> <br>
+                    <span class="hint">Если отмечено, то отправленные сообщения будут записаны в лог.</span>
+                </div>
+            </div>*}
+        </div>
+
+        <table class="table">
+            <thead>
+            <tr>
+                <th></th>
+                <th>Филиалы</th>
+                <th>Цена 1 (РОЗНИЦА)</th>
+                <th>Цена 2 (ОПТ)</th>
+                <th colspan="2">Кол-во филиалов для оптовой цены</th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td width="50">
+
+                </td>
+                <td>Цена за ед.</td>
+                <td>
+                    <div class="input-group">
+                        <input name="site_reviewscalc[price1]" type="text" class="form-control" value="{$settings.price1}"/>
+                    </div>
+                </td>
+                <td>
+                    <div class="input-group">
+                        <input name="site_reviewscalc[price2]" type="text" class="form-control" value="{$settings.price2}"/>
+                    </div>
+                </td>
+                <td>
+                    <div class="input-group">
+                        <select name="site_reviewscalc[criteria_sign]" class="form-control">
+                            <option value=">"{if $settings.criteria_sign eq ">"} selected{/if}>></option>
+                            <option value=">="{if $settings.criteria_sign eq ">="} selected{/if}>>=</option>
+                            <option value="="{if $settings.criteria_sign eq "="} selected{/if}><=</option>
+                            <option value="<="{if $settings.criteria_sign eq "<="} selected{/if}><=</option>
+                            <option value="<"{if $settings.criteria_sign eq "<"} selected{/if}><=</option>
+                        </select>
+                    </div>
+                </td>
+                <td>
+                    <div class="input-group">
+                        <input name="site_reviewscalc[criteria_value]" type="text" class="form-control" value="{$settings.criteria_value}"/>
+                    </div>
+                </td>
+                <td width="50">
+
+                </td>
+            </tr>
+            <tr>
+                <th colspan="7" style="padding-bottom: 50px;"></th>
+            </tr>
+
+            </tbody>
+            
+
+            <thead>
+            <tr>
+                <th></th>
+                <th>Площадка</th>
+                <th>Цена 1 (РОЗНИЦА)</th>
+                <th>Цена 2 (ОПТ)</th>
+                <th colspan="2">Кол-во отзывов для розничной цены</th>
+                <th>Логотип</th>
+                <th>Удалить</th>
+            </tr>
+            </thead>
+            <tbody>
+            {foreach from=$items item=e}
+            <tr>
+                <td width="50">
+                    <div class="input-group" style="margin: 0 auto; padding-top: 7px;">
+                        <input name="is_enabled[{$e.id}]" type="checkbox" value="1" {if $e.is_enabled}checked{/if}/>
+                    </div>
+                </td>
+                <td>
+                    <div class="input-group">
+                        <input name="name[{$e.id}]" type="text" class="form-control" value="{$e.name}"/>
+                    </div>
+                </td>
+                <td>
+                    <div class="input-group">
+                        <input name="price1[{$e.id}]" type="text" class="form-control" value="{$e.price1}"/>
+                    </div>
+                </td>
+                <td>
+                    <div class="input-group">
+                        <input name="price2[{$e.id}]" type="text" class="form-control" value="{$e.price2}"/>
+                    </div>
+                </td>
+                <td>
+                    <div class="input-group">
+                        <select name="criteria_sign[{$e.id}]" class="form-control">
+                            <option value=">"{if $e.criteria_sign eq ">"} selected{/if}>></option>
+                            <option value=">="{if $e.criteria_sign eq ">="} selected{/if}>>=</option>
+                            <option value="="{if $e.criteria_sign eq "="} selected{/if}>=</option>
+                            <option value="<="{if $e.criteria_sign eq "<="} selected{/if}><=</option>
+                            <option value="<"{if $e.criteria_sign eq "<"} selected{/if}><</option>
+                        </select>
+                    </div>
+                </td>
+                <td>
+                    <div class="input-group">
+                        <input name="criteria_value[{$e.id}]" type="text" class="form-control" value="{$e.criteria_value}"/>
+                    </div>
+                </td>
+                <td>
+                    <div class="input-group">
+                        <input name="logo_{$e.id}" type="file" style="max-width: 150px"/>
+                    </div>
+
+                    {if $e.logo}
+                    <div class="logo__wrapper">
+                        <img src="/wa-data/public/site/reviewscalc/{$e.logo}" alt="">
+                    </div>
+                    {/if}
+                </td>
+                <td width="50">
+                    <div class="input-group" style="margin: 0 auto; padding-top: 7px; justify-content: center">
+                        <input name="to_delete[{$e.id}]" type="checkbox" value="1"/>
+                    </div>
+                </td>
+            </tr>
+            {/foreach}
+            <tr style="background: #e7e7e7">
+                <td width="50">
+                    <input name="is_enabled[new]" type="hidden" value="0"/>
+                </td>
+                <td>
+                    <div class="input-group">
+                        <input name="name[new]" type="text" class="form-control" value="" placeholder="Название площадки"/>
+                    </div>
+                </td>
+                <td>
+                    <div class="input-group">
+                        <input name="price1[new]" type="text" class="form-control" value="" placeholder="600.00"/>
+                    </div>
+                </td>
+                <td>
+                    <div class="input-group">
+                        <input name="price2[new]" type="text" class="form-control" value="" placeholder="400.00"/>
+                    </div>
+                </td>
+                <td>
+                    <div class="input-group">
+                        <select name="criteria_sign[new]" class="form-control">
+                            <option value=">">></option>
+                            <option value=">=">>=</option>
+                            <option value="=">=</option>
+                            <option value="<="><=</option>
+                            <option value="<" selected><</option>
+                        </select>
+                    </div>
+                </td>
+                <td>
+                    <div class="input-group">
+                        <input name="criteria_value[new]" type="text" class="form-control" value="" placeholder="11"/>
+                    </div>
+                </td>
+                <td></td>
+            </tr>
+            <tr>
+                <td colspan="5" align="center">
+                    <input class="btn btn-success" type="submit" value="Сохранить" name="button"/>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </form>
+</div>
+
+<script>
+    $(function () {
+        $('form').submit(function (e) {
+            location.reload();
+        });
+    });
+</script>

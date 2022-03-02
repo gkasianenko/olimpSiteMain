@@ -1,0 +1,29 @@
+{$page = $wa->site->page(164)}
+{if $page}
+{$services = $wa->site->pages($page.id)}
+{capture}{$services|@shuffle}{/capture}
+<div class="section section__service">
+    <div class="container-fluid container-lg">
+        <div class="row row-eq-height">
+            {foreach $services as $s1}
+            {if $s1@iteration > 3}{break}{/if}
+            {$s2 = $wa->site->page($s1.id)}
+            <div class="col-sm-12 col-lg-4 pb-3 pb-md-0" data-aos="flip-right">
+                <div class="section-item">
+                    <div class="section-item__content">
+                        <div class="section-item__heading">
+                            <div class="section-item__title">{$s2.name}</div>
+                            <div class="section-item__icon">
+                                <img src="{$wa_theme_url}img/{$s2.icon}" alt="">
+                            </div>
+                        </div>
+                        <div class="section-item__brief">{$s2.content|strip_tags}</div>
+                    </div>
+                    <div class="section-item__detail"><a class="stretched-link btn btn-block d-flex justify-content-between align-items-baseline" href="{if $s2.href}{$s2.href}{else}{$s2.full_url}{/if}"><span>Подробнее</span><i></i></a></div>
+                </div>
+            </div>
+            {/foreach}
+        </div>
+    </div>
+</div>
+{/if}

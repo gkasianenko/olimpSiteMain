@@ -1,0 +1,133 @@
+//
+// Component: Alert
+//
+// ========================================================================
+
+
+// Variables
+// ========================================================================
+
+//
+// New
+//
+
+// Gradient
+@internal-alert-gradient:                      ~'';
+@internal-alert-primary-gradient:              ~'';
+@internal-alert-success-gradient:              ~'';
+@internal-alert-warning-gradient:              ~'';
+@internal-alert-danger-gradient:               ~'';
+
+// Image
+@internal-alert-image:                         ~'';
+@internal-alert-primary-image:                 ~'';
+@internal-alert-success-image:                 ~'';
+@internal-alert-warning-image:                 ~'';
+@internal-alert-danger-image:                  ~'';
+
+
+// Component
+// ========================================================================
+
+.hook-alert() {}
+
+// Gradient only
+.hook-alert() when not (@internal-alert-gradient = ~'') and (@internal-alert-image = ~'') {
+    background-image: @internal-alert-gradient;
+}
+
+// Image only
+.hook-alert() when not (@internal-alert-image = ~'') and (@internal-alert-gradient = ~'') {
+    background-image: url("@{internal-alert-image}");
+}
+
+// Both
+.hook-alert() when not (@internal-alert-gradient = ~'') and not (@internal-alert-image = ~'') {
+    background-image: url("@{internal-alert-image}"), @internal-alert-gradient;
+}
+
+
+// Close
+// ========================================================================
+
+.hook-alert-close() {}
+
+.hook-alert-close-hover() {}
+
+
+// Style modifiers
+// ========================================================================
+
+.hook-alert-primary() {}
+
+// Gradient only
+.hook-alert-primary() when not (@internal-alert-primary-gradient = ~'') and (@internal-alert-primary-image = ~'') {
+    background-image: @internal-alert-primary-gradient;
+}
+
+// Image only
+.hook-alert-primary() when not (@internal-alert-primary-image = ~'') and (@internal-alert-primary-gradient = ~'') {
+    background-image: url("@{internal-alert-primary-image}");
+}
+
+// Both
+.hook-alert-primary() when not (@internal-alert-primary-gradient = ~'') and not (@internal-alert-primary-image = ~'') {
+    background-image: url("@{internal-alert-primary-image}"), @internal-alert-primary-gradient;
+}
+
+.hook-alert-success() {}
+
+// Gradient only
+.hook-alert-success() when not (@internal-alert-success-gradient = ~'') and (@internal-alert-success-image = ~'') {
+    background-image: @internal-alert-success-gradient;
+}
+
+// Image only
+.hook-alert-success() when not (@internal-alert-success-image = ~'') and (@internal-alert-success-gradient = ~'') {
+    background-image: url("@{internal-alert-success-image}");
+}
+
+// Both
+.hook-alert-success() when not (@internal-alert-success-gradient = ~'') and not (@internal-alert-success-image = ~'') {
+    background-image: url("@{internal-alert-success-image}"), @internal-alert-success-gradient;
+}
+
+.hook-alert-warning() {}
+
+// Gradient only
+.hook-alert-warning() when not (@internal-alert-warning-gradient = ~'') and (@internal-alert-warning-image = ~'') {
+    background-image: @internal-alert-warning-gradient;
+}
+
+// Image only
+.hook-alert-warning() when not (@internal-alert-warning-image = ~'') and (@internal-alert-warning-gradient = ~'') {
+    background-image: url("@{internal-alert-warning-image}");
+}
+
+// Both
+.hook-alert-warning() when not (@internal-alert-warning-gradient = ~'') and not (@internal-alert-warning-image = ~'') {
+    background-image: url("@{internal-alert-warning-image}"), @internal-alert-warning-gradient;
+}
+
+.hook-alert-danger() {}
+
+// Gradient only
+.hook-alert-danger() when not (@internal-alert-danger-gradient = ~'') and (@internal-alert-danger-image = ~'') {
+    background-image: @internal-alert-danger-gradient;
+}
+
+// Image only
+.hook-alert-danger() when not (@internal-alert-danger-image = ~'') and (@internal-alert-danger-gradient = ~'') {
+    background-image: url("@{internal-alert-danger-image}");
+}
+
+// Both
+.hook-alert-danger() when not (@internal-alert-danger-gradient = ~'') and not (@internal-alert-danger-image = ~'') {
+    background-image: url("@{internal-alert-danger-image}"), @internal-alert-danger-gradient;
+}
+
+
+// Miscellaneous
+// ========================================================================
+
+.hook-alert-misc() {}

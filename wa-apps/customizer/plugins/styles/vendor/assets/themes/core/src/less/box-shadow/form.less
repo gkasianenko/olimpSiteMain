@@ -1,0 +1,181 @@
+//
+// Component: Form
+//
+// ========================================================================
+
+
+// Variables
+// ========================================================================
+
+//
+// New
+//
+
+@form-box-shadow:                               none;
+@form-focus-box-shadow:                         none;
+
+@form-blank-focus-box-shadow:                   none;
+
+@form-radio-box-shadow:                         none;
+@form-radio-focus-box-shadow:                   none;
+@form-radio-checked-box-shadow:                 none;
+
+
+// Component
+// ========================================================================
+
+.hook-form() when not (@form-box-shadow = none) {
+    box-shadow: @form-box-shadow;
+}
+
+.hook-form-single-line() {}
+
+.hook-form-multi-line() {}
+
+.hook-form-focus() when not (@form-focus-box-shadow = none) {
+    box-shadow: @form-focus-box-shadow;
+}
+
+.hook-form-disabled() { box-shadow: none; }
+
+
+// Style modifiers
+// ========================================================================
+
+.hook-form-danger() {}
+
+.hook-form-success() {}
+
+.hook-form-blank() when not (@form-box-shadow = none) {
+    box-shadow: none;
+}
+
+.hook-form-blank-focus() when not (@form-blank-focus-box-shadow = none) {
+    box-shadow: @form-blank-focus-box-shadow;
+}
+
+
+// Radio and checkbox
+// ========================================================================
+
+.hook-form-radio() when not (@form-radio-box-shadow = none) {
+    box-shadow: @form-radio-box-shadow;
+}
+
+.hook-form-radio-focus() when not (@form-radio-focus-box-shadow = none) {
+    box-shadow: @form-radio-focus-box-shadow;
+}
+
+.hook-form-radio-checked() when not (@form-radio-checked-box-shadow = none) {
+    box-shadow: @form-radio-checked-box-shadow;
+}
+
+.hook-form-radio-checked-focus() { }
+
+.hook-form-radio-disabled() when not (@form-radio-box-shadow = none) {
+    box-shadow: none;
+}
+
+
+// Legend
+// ========================================================================
+
+.hook-form-legend() {}
+
+
+// Label
+// ========================================================================
+
+.hook-form-label() {}
+
+
+// Layout
+// ========================================================================
+
+.hook-form-stacked-label() {}
+
+.hook-form-horizontal-label() {}
+
+
+// Miscellaneous
+// ========================================================================
+
+.hook-form-misc() {}
+
+
+// Inverse
+// ========================================================================
+
+@inverse-form-box-shadow:                       @form-box-shadow;
+@inverse-form-focus-box-shadow:                 @form-focus-box-shadow;
+
+@inverse-form-blank-focus-box-shadow:           @form-blank-focus-box-shadow;
+
+@inverse-form-radio-box-shadow:                 @form-radio-box-shadow;
+@inverse-form-radio-focus-box-shadow:           @form-radio-focus-box-shadow;
+@inverse-form-radio-checked-box-shadow:         @form-radio-checked-box-shadow;
+
+.hook-inverse-form() when not (@inverse-form-box-shadow = none) {
+    box-shadow: @inverse-form-box-shadow;
+}
+.hook-inverse-form-focus() when not (@inverse-form-focus-box-shadow = none) {
+    box-shadow: @inverse-form-focus-box-shadow;
+}
+.hook-inverse-form-disabled() {}
+
+.hook-inverse-form-radio() when not (@inverse-form-radio-box-shadow = none) {
+    box-shadow: @inverse-form-radio-box-shadow;
+}
+.hook-inverse-form-radio-focus() when not (@inverse-form-radio-focus-box-shadow = none) {
+    box-shadow: @inverse-form-radio-focus-box-shadow;
+}
+
+.hook-inverse-form-radio-checked() when not (@inverse-form-radio-checked-box-shadow = none) {
+    box-shadow: @inverse-form-radio-checked-box-shadow;
+}
+.hook-inverse-form-radio-checked-focus() {}
+.hook-inverse-form-radio-disabled() {}
+.hook-inverse-form-blank() {}
+.hook-inverse-form-blank-focus() when not (@inverse-form-blank-focus-box-shadow = none) {
+    box-shadow: @inverse-form-blank-focus-box-shadow;
+}
+.hook-inverse-form-label() {}
+
+
+// Primary
+// ========================================================================
+
+@primary-form-box-shadow:                       @form-box-shadow;
+@primary-form-focus-box-shadow:                 @form-focus-box-shadow;
+
+@primary-form-blank-focus-box-shadow:           @form-blank-focus-box-shadow;
+
+@primary-form-radio-box-shadow:                 @form-radio-box-shadow;
+@primary-form-radio-focus-box-shadow:           @form-radio-focus-box-shadow;
+@primary-form-radio-checked-box-shadow:         @form-radio-checked-box-shadow;
+
+.hook-primary-form() when not (@primary-form-box-shadow = none) {
+    box-shadow: @primary-form-box-shadow;
+}
+.hook-primary-form-focus() when not (@primary-form-focus-box-shadow = none) {
+    box-shadow: @primary-form-focus-box-shadow;
+}
+.hook-primary-form-disabled() {}
+
+.hook-primary-form-radio() when not (@primary-form-radio-box-shadow = none) {
+    box-shadow: @primary-form-radio-box-shadow;
+}
+.hook-primary-form-radio-focus() when not (@primary-form-radio-focus-box-shadow = none) {
+    box-shadow: @primary-form-radio-focus-box-shadow;
+}
+
+.hook-primary-form-radio-checked() when not (@primary-form-radio-checked-box-shadow = none) {
+    box-shadow: @primary-form-radio-checked-box-shadow;
+}
+.hook-primary-form-radio-checked-focus() {}
+.hook-primary-form-radio-disabled() {}
+.hook-primary-form-blank() {}
+.hook-primary-form-blank-focus() when not (@primary-form-blank-focus-box-shadow = none) {
+    box-shadow: @primary-form-blank-focus-box-shadow;
+}
+.hook-primary-form-label() {}

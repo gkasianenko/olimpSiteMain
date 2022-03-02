@@ -1,0 +1,55 @@
+{strip}
+
+
+<!DOCTYPE html>
+<html lang="{substr($wa->locale(), 0, 2)}" dir="ltr">
+
+	<head>
+		<meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>{$wa->appName()}</title>
+
+		<!-- CSS -->
+		<link href="{$wa_app_static_url}css/uikit/uikit.min.css?v=3.2.3" rel="stylesheet" />
+		<link href="{$wa_app_static_url}css/frontend/app.css?v={$wa_app_version}" rel="stylesheet" />
+
+		{$wa->css()}
+
+		<!-- JS -->
+		<script>var $config = {waUtils::jsonEncode($config)};</script>
+		<script>var $customizer = {waUtils::jsonEncode($customizer)};</script>
+		{*<script src="{$wa_app_static_url}js/jquery/jquery.min.js?v3.3.1"></script>*}
+		<script src="{$wa_app_static_url}js/uikit/uikit.min.js?v=3.2.3"></script>
+		<script src="{$wa_app_static_url}js/uikit/uikit-icons.min.js?v=3.2.3"></script>
+		<script src="{$wa_app_static_url}js/inputmask/inputmask.min.js?v=5.0.0"></script>
+		<script src="{$wa_app_static_url}js/vue/vue.min.js?v=2.5.17"></script>
+		<script src="{$wa_app_static_url}js/vuex/vuex.js?v=3.1.3"></script>
+		<script src="{$wa_app_static_url}js/vue-i18n/vue-i18n.min.js?v=8.15.0"></script>
+		{*<script src="{$wa_app_static_url}js/vue-event-manager/vue-event-manager.min.js?v=2.1.2"></script>*}
+		<script src="{$wa_app_static_url}js/vue-fields/vue-fields.min.js?v=1.0.10"></script>
+		<script src="{$wa_app_static_url}js/frontend/app.min.js?v={$wa_app_version}"></script>
+
+		{$wa->js()}
+
+		{* @event frontend_head.%plugin_id% *}
+		<!-- plugin hook: 'frontend_head' -->
+		{foreach $frontend_head as $_}{$_}{/foreach}
+		<!-- end plugin hook: 'frontend_head' -->
+
+	</head>
+
+	<body>
+
+		<div id="customizer"></div>
+
+		{* @event frontend_footer.%plugin_id% *}
+		<!-- plugin hook: 'frontend_footer' -->
+		{foreach $frontend_footer as $_}{$_}{/foreach}
+		<!-- end plugin hook: 'frontend_footer' -->
+
+	</body>
+
+</html>
+
+
+{/strip}

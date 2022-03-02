@@ -1,0 +1,292 @@
+{if $wa->currentUrl() == $wa_app_url && ((empty($page.id) && empty($page.content)) || $page.url === '')}
+
+<main class="main">
+    {include file="`$wa_active_theme_path`/home.html" inline}
+    {include file="`$wa_active_theme_path`/form.html" inline}
+</main>
+
+{else}
+
+{$breadcrumbsCustom = siteCustomerHelper::getBreadcrumbs($page)}
+
+{$jumbotron = $wa->block("page_`$page.id`")}
+{$jumbotron_new=false}
+
+{if in_array($page.id, $new_jumbotron_pages)}
+    {$jumbotron = false}
+{/if}
+
+{$section_page_class = array("section__page")}
+
+{if isset($page) && in_array($page.id, array(19,4)) || in_array($page.parent_id, array(19,4))}
+    {$section_page_class[] = "section__page-with-nav"}
+{/if}
+
+{if isset($page) && in_array($page.id, array(21)) || in_array($page.parent_id, array(21))}
+    {$section_page_class[] = "section__page--full-width"}
+    {$section_page_class[] = "section__bg section__bg--gray"}
+{/if}
+
+<main class="main">
+    {if in_array('section__bg section__bg--gray', $section_page_class)}
+    <style>
+        .header {
+            margin-bottom: 0 !important;
+        }
+        .blog__faq {
+            padding-top: 50px !important;
+            padding-bottom: 0px !important;
+            border-bottom: 1px solid #cfcfcf;
+        }
+    </style>
+    {/if}
+
+    {if $isInnerPage && (!in_array("section__page-with-nav", $section_page_class) && !in_array("section__page--full-width", $section_page_class))}<div>{/if}
+        <div class="section {' '|implode:$section_page_class}">
+            {if $jumbotron}
+            <div class="jumbotron">
+
+                <div class="container">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb" itemprop="breadcrumb">
+                            <li class="breadcrumb-item"><a href="{$wa->domainUrl()}">Главная</a></li>
+                            {if !empty($breadcrumbsCustom)}
+
+                            {foreach $breadcrumbsCustom as $breadcrumb}
+                            <li class="breadcrumb-item">
+                                {*$isShowSidebar = in_array($page.id, [7,101,85,5]) || in_array($page.parent_id, [7,101,85,5])*}
+
+                                {if $breadcrumb.parent_id}
+                                {$breadcrumbs_dropdown = $wa->site->pages($breadcrumb.parent_id)}
+                                {if !empty($breadcrumbs_dropdown) && count($breadcrumbs_dropdown) > 1}
+                                <span {*class="dropdown-toggle"*} style="cursor: pointer" data-toggle="dropdown">{$breadcrumb.name|escape}</span>
+                                <div class="dropdown-menu">
+                                    {foreach $breadcrumbs_dropdown as $breadcrumbs_dropdown_item}
+                                    <a class="dropdown-item" href="{$breadcrumbs_dropdown_item.url}">{$breadcrumbs_dropdown_item.name|escape}</a>
+                                    {/foreach}
+                                </div>
+                                {/if}
+                                {else if $breadcrumb.page_id && in_array($breadcrumb.page_id, [7,101,85,5,16,17,18])}
+                                {$br_items = array(7,101,85,5,16,17,18)}
+                                <span {*class="dropdown-toggle"*} style="cursor: pointer" data-toggle="dropdown">{$breadcrumb.name|escape}</span>
+                                <div class="dropdown-menu">
+                                    {foreach $br_items as $item2}
+                                    {$itemPage2 = $wa->site->page($item2)}
+                                    {if $itemPage2}
+                                    <a class="dropdown-item" href="/{$itemPage2.full_url}">{$itemPage2.name|escape}</a>
+                                    {/if}
+                                    {/foreach}
+                                </div>
+                                {else}
+                                <a href="{$breadcrumb.url}">{$breadcrumb.name|escape}</a>
+                                {/if}
+                            </li>
+                            {/foreach}
+                            {/if}
+                            {if $page}
+                            <li class="breadcrumb-item active" aria-current="page">
+                                {if $page.parent_id}
+                                {$breadcrumbs_dropdown = $wa->site->pages($page.parent_id)}
+                                {if !empty($breadcrumbs_dropdown) && count($breadcrumbs_dropdown) > 1}
+                                <span {*class="dropdown-toggle"*} style="cursor: pointer" data-toggle="dropdown">{$page.name}</span>
+                                <div class="dropdown-menu">
+                                    {foreach $breadcrumbs_dropdown as $breadcrumbs_dropdown_item}
+                                    <a class="dropdown-item" href="/{$breadcrumbs_dropdown_item.full_url}">{$breadcrumbs_dropdown_item.name|escape}</a>
+                                    {/foreach}
+                                </div>
+                                {/if}
+                                {else if in_array($page.id, [7,101,85,5,16,17,18])}
+                                {$br_items = array(7,101,85,5,16,17,18)}
+                                <span {*class="dropdown-toggle"*} style="cursor: pointer" data-toggle="dropdown">{$page.name|escape}</span>
+                                <div class="dropdown-menu">
+                                    {foreach $br_items as $item2}
+                                    {$itemPage2 = $wa->site->page($item2)}
+                                    {if $itemPage2}
+                                    <a class="dropdown-item" href="/{$itemPage2.full_url}">{$itemPage2.name|escape}</a>
+                                    {/if}
+                                    {/foreach}
+                                </div>
+                                {else}
+                                {$page.name|escape}
+                                {/if}
+                            </li>
+                            {/if}
+                        </ol>
+                    </nav>
+
+                    <div class="jumbotron__content">
+
+                        <h1 itemprop="name" class="page__header mb-5 text-center">
+                            {$page.name}
+                        </h1>
+
+                        {$jumbotron}
+                    </div>
+                </div>
+            </div>
+
+            {else}
+
+            {*if !empty($breadcrumbsCustom) || $page*}
+            {if !in_array($page.id, $new_jumbotron_pages) && (!empty($breadcrumbsCustom) || $page)}
+            <div class="container-fluid container-lg">
+                <div class="row">
+                    <div class="col-12">
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb" itemprop="breadcrumb">
+                                <li class="breadcrumb-item"><a href="{$wa->domainUrl()}">Главная</a></li>
+                                {if !empty($breadcrumbsCustom)}
+                                {foreach $breadcrumbsCustom as $breadcrumb}
+                                <li class="breadcrumb-item">
+                                    {*$isShowSidebar = in_array($page.id, [7,101,85,5]) || in_array($page.parent_id, [7,101,85,5])*}
+
+                                    {if $breadcrumb.parent_id}
+                                    {$breadcrumbs_dropdown = $wa->site->pages($breadcrumb.parent_id)}
+                                    {if !empty($breadcrumbs_dropdown) && count($breadcrumbs_dropdown) > 1}
+                                    <span {*class="dropdown-toggle"*} style="cursor: pointer" data-toggle="dropdown">{$breadcrumb.name|escape}</span>
+                                    <div class="dropdown-menu">
+                                        {foreach $breadcrumbs_dropdown as $breadcrumbs_dropdown_item}
+                                        <a class="dropdown-item" href="{$breadcrumbs_dropdown_item.url}">{$breadcrumbs_dropdown_item.name|escape}</a>
+                                        {/foreach}
+                                    </div>
+                                    {/if}
+                                    {else if $breadcrumb.page_id && in_array($breadcrumb.page_id, [7,101,85,5,16,17,18])}
+                                    {$br_items = array(7,101,85,5,16,17,18)}
+                                    <span {*class="dropdown-toggle"*} style="cursor: pointer" data-toggle="dropdown">{$breadcrumb.name|escape}</span>
+                                    <div class="dropdown-menu">
+                                        {foreach $br_items as $item2}
+                                        {$itemPage2 = $wa->site->page($item2)}
+                                        {if $itemPage2}
+                                        <a class="dropdown-item" href="/{$itemPage2.full_url}">{$itemPage2.name|escape}</a>
+                                        {/if}
+                                        {/foreach}
+                                    </div>
+                                    {else}
+                                    <a href="{$breadcrumb.url}">{$breadcrumb.name|escape}</a>
+                                    {/if}
+                                </li>
+                                {/foreach}
+                                {/if}
+                                {if $page}
+                                <li class="breadcrumb-item active" aria-current="page">
+                                    {if $page.parent_id}
+                                    {$breadcrumbs_dropdown = $wa->site->pages($page.parent_id)}
+                                    {if !empty($breadcrumbs_dropdown) && count($breadcrumbs_dropdown) > 1}
+                                    <span {*class="dropdown-toggle"*} style="cursor: pointer" data-toggle="dropdown">{$page.name}</span>
+                                    <div class="dropdown-menu">
+                                        {foreach $breadcrumbs_dropdown as $breadcrumbs_dropdown_item}
+                                        <a class="dropdown-item" href="/{$breadcrumbs_dropdown_item.full_url}">{$breadcrumbs_dropdown_item.name|escape}</a>
+                                        {/foreach}
+                                    </div>
+                                    {/if}
+                                    {else if in_array($page.id, [7,101,85,5,16,17,18])}
+                                    {$br_items = array(7,101,85,5,16,17,18)}
+                                    <span {*class="dropdown-toggle"*} style="cursor: pointer" data-toggle="dropdown">{$page.name|escape}</span>
+                                    <div class="dropdown-menu">
+                                        {foreach $br_items as $item2}
+                                        {$itemPage2 = $wa->site->page($item2)}
+                                        {if $itemPage2}
+                                        <a class="dropdown-item" href="/{$itemPage2.full_url}">{$itemPage2.name|escape}</a>
+                                        {/if}
+                                        {/foreach}
+                                    </div>
+                                    {else}
+                                    {$page.name|escape}
+                                    {/if}
+                                </li>
+                                {/if}
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            {/if}
+
+            {/if}
+
+            {if !in_array($page.id, $new_jumbotron_pages)}
+            <div class="container{if (isset($page.full_width) && $page.full_width) || empty($page.content)}-fluid{/if}">
+                <div class="row">
+                    <div class="col-12 col-lg-12">
+
+            {/if}
+                        <article class="content" itemscope itemtype="http://schema.org/WebPage">
+                            {$content} {* see page.html *}
+
+                            {if $page && $page.id === '71'} {* карта сайта *}
+                            {$subpages = $wa->site->pages()}
+                            {if $subpages}
+                            <ul class="sub-links">
+                                {foreach $subpages as $p}
+                                {if !in_array($p.id, array(121,128,164))}
+                                <li>
+                                    <a href="{$p.url}">{$p.name}</a>
+                                    {$subpages2 = $wa->site->pages($p.id)}
+                                    {if $subpages2}
+                                    <ul>
+                                        {foreach $subpages2 as $p2}
+                                        <li>
+                                            <a href="{$p2.url}">{$p2.name}</a>
+                                            {$subpages3 = $wa->site->pages($p2.id)}
+                                            {if $subpages3}
+                                            <ul>
+                                                {foreach $subpages3 as $p3}
+                                                <li>
+                                                    <a href="{$p3.url}">{$p3.name}</a>
+                                                </li>
+                                                {/foreach}
+                                            </ul>
+                                            {/if}
+                                        </li>
+                                        {/foreach}
+                                    </ul>
+                                    {/if}
+                                </li>
+                                {/if}
+                                {/foreach}
+
+                                {$subpages4 = $wa->blog->blogs()}
+                                {if $subpages4}
+                                {foreach $subpages4 as $b1}
+                                <li>
+                                    <a href="{$b1.link}">{$b1.name}</a>
+                                    {if !in_array($b1.id, array(6,7,2))}
+                                    {$subpages5 = $wa->blog->posts($b1.id,10000)}
+
+                                    {if $subpages5}
+                                    <ul>
+                                        {foreach $subpages5 as $b2}
+                                        <li>
+                                            <a href="/{$b1.url}/{$b2.url}">{$b2.title}</a>
+                                        </li>
+                                        {/foreach}
+                                    </ul>
+                                    {/if}
+                                    {/if}
+                                </li>
+                                {/foreach}
+                                {/if}
+                            </ul>
+                            {/if}
+                            {/if}
+                        </article>
+
+            {if !in_array($page.id, $new_jumbotron_pages)}
+                    </div>
+                </div>
+            </div>
+            {/if}
+        </div>
+
+    {if $isInnerPage && (!in_array("section__page-with-nav", $section_page_class) && !in_array("section__page--full-width", $section_page_class))}</div>{/if}
+
+    {if !isset($error_code) || $error_code !== '404'}
+        {include file="`$wa_active_theme_path`/components.html" inline}
+        {include file="`$wa_active_theme_path`/form.html" inline}
+    {/if}
+</main>
+
+{/if}
+
+{include file="`$wa_active_theme_path`/__menu.html" inline}
+{include file="`$wa_active_theme_path`/__form-review.html" inline}

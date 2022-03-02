@@ -1,0 +1,76 @@
+//
+// Component: Margin
+//
+// ========================================================================
+
+
+// Variables
+// ========================================================================
+
+//
+// New
+//
+
+@margin-xsmall-margin:                                 @global-xsmall-margin;
+
+@margin-margin:                                        @global-margin * 0.8;
+@margin-margin-l:                                      @global-margin;
+
+@margin-medium-margin:                                 @global-medium-margin * 0.7;
+@margin-medium-margin-l:                               @global-medium-margin;
+
+@margin-large-margin:                                  @global-large-margin * 0.6;
+@margin-large-margin-l:                                @global-large-margin;
+
+@margin-xlarge-margin:                                 @global-xlarge-margin * 0.5;
+@margin-xlarge-margin-l:                               @global-xlarge-margin;
+
+
+// Miscellaneous
+// ========================================================================
+
+.hook-margin-misc() {
+
+    /* XSmall
+	 ========================================================================== */
+
+	.uk-margin-xsmall { margin-bottom: @margin-xsmall-margin; }
+	* + .uk-margin-xsmall { margin-top: @margin-xsmall-margin !important; }
+
+	.uk-margin-xsmall-top { margin-top: @margin-xsmall-margin !important; }
+	.uk-margin-xsmall-bottom { margin-bottom: @margin-xsmall-margin !important; }
+	.uk-margin-xsmall-left { margin-left: @margin-xsmall-margin !important; }
+	.uk-margin-xsmall-right { margin-right: @margin-xsmall-margin !important; }
+
+	/* Default
+	 ========================================================================== */
+
+	@media (min-width: @breakpoint-large) {
+
+		.uk-margin { margin-bottom: @margin-margin-l; }
+		* + .uk-margin { margin-top: @margin-margin-l !important; }
+
+		.uk-margin-top { margin-top: @margin-margin-l !important; }
+		.uk-margin-bottom { margin-bottom: @margin-margin-l !important; }
+		.uk-margin-left { margin-left: @margin-margin-l !important; }
+		.uk-margin-right { margin-right: @margin-margin-l !important; }
+
+	}
+
+
+	/* Medium
+	 ========================================================================== */
+
+	@media (min-width: @breakpoint-large) {
+
+		.uk-margin-medium { margin-bottom: @margin-medium-margin-l; }
+		* + .uk-margin-medium { margin-top: @margin-medium-margin-l !important; }
+
+		.uk-margin-medium-top { margin-top: @margin-medium-margin-l !important; }
+		.uk-margin-medium-bottom { margin-bottom: @margin-medium-margin-l !important; }
+		.uk-margin-medium-left { margin-left: @margin-medium-margin-l !important; }
+		.uk-margin-medium-right { margin-right: @margin-medium-margin-l !important; }
+
+	}
+
+}

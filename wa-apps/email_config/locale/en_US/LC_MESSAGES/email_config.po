@@ -1,0 +1,292 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: email_config\n"
+"POT-Creation-Date: 2012-10-12 17:45+0400\n"
+"PO-Revision-Date: \n"
+"Last-Translator:  email_config\n"
+"Language-Team:  email_config\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: en_US\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPath-1: .\n"
+
+#: /wa-apps/email/lib/config/app.php
+msgid "Settings email"
+msgstr ""
+
+#: /wa-apps/email/templates/actions/beckend/BeckendRecords.html:12
+msgid "Email"
+msgstr ""
+
+#: /wa-apps/email/templates/actions/beckend.html:23
+msgid "New rule"
+msgstr ""
+
+#: /wa-apps/email/templates/actions/beckend.html:31
+#: /wa-apps/email/lib/action/backend/emailBackendRecords.action.php:27
+msgid "All records"
+msgstr ""
+
+#: /wa-apps/email/templates/actions/beckend/Beckend.html:34
+msgid "Domains"
+msgstr ""
+
+#: /wa-apps/email/templates/actions/beckend/Beckend.html:45
+#: /wa-apps/email/templates/actions/beckend/BeckendHistory.html:2
+msgid "History of changes"
+msgstr ""
+
+#: /wa-apps/email/templates/actions/beckend/Beckend.html:47
+#: /wa-apps/email/templates/actions/backend/BackendNotifications.html:2
+#: /wa-apps/email/templates/actions/backend/BackendNotifications.html:51
+msgid "Send an Email"
+msgstr ""
+
+#: /wa-apps/email/templates/actions/beckend/Beckend.html:55
+msgid ""
+"Checking Email is enabled. Latest Cron execution time: <strong>%s</strong>"
+msgstr ""
+
+#: /wa-apps/email/templates/actions/beckend/Beckend.html:60
+msgid ""
+"Checking Email is not currently running, because cron is not properly "
+"configured."
+msgstr ""
+
+#: /wa-apps/email/templates/actions/beckend/Beckend.html:62
+msgid "How to set up?"
+msgstr ""
+
+#: /wa-apps/email/templates/actions/beckend/Beckend.html:72
+#: /wa-apps/email/templates/actions/backend/BeckendMail.html:5
+msgid "Loading..."
+msgstr ""
+
+#: /wa-apps/email/templates/actions/beckend/Beckend.html:80
+msgid ""
+"Follow-ups require CRON to be properly setup for the Shop-Script app, which "
+"is currently not the case."
+msgstr ""
+
+#: /wa-apps/email/templates/actions/beckend/Beckend.html:82
+msgid ""
+"Setup cron with the following command (<a href=\"%s\" target=\"_blank\">cron "
+"setup instructions</a>):"
+msgstr ""
+
+#: /wa-apps/email/templates/actions/beckend/Beckend.html:95
+msgid "Add new rule"
+msgstr ""
+
+#: /wa-apps/email/templates/actions/beckend/Beckend.html:74
+msgid "Domain name"
+msgstr ""
+
+#: /wa-apps/email/templates/actions/beckend/Beckend.html:77
+#: /wa-apps/email/lib/action/backend/emailBackendMail.action.php:19
+msgid "The default setting for all email addresses"
+msgstr ""
+
+#: /wa-apps/email/templates/actions/beckend/Beckend.html:89
+#: /wa-apps/email/templates/actions/backend/BeckendMail.html:13
+msgid "Login"
+msgstr ""
+
+#: /wa-apps/email/templates/actions/beckend/Beckend.html:99
+msgid "Add"
+msgstr ""
+
+#: /wa-apps/email/templates/actions/beckend/Beckend.html:99
+msgid "or"
+msgstr ""
+
+#: /wa-apps/email/templates/actions/beckend/Beckend.html:100
+msgid "cancel"
+msgstr ""
+
+#: /wa-apps/email/templates/actions/beckend/Beckend.html:158,159
+msgid "close"
+msgstr ""
+
+#: /wa-apps/email/lib/classes/emailCheckMail.class.php:13,14
+msgid "Files (folders) %s must be available for writing."
+msgstr ""
+
+#: /wa-apps/email/lib/action/backend/emailBackendRecords.action.php:13
+msgid "Rules for all boxes @%s"
+msgstr ""
+
+#: /wa-apps/email/templates/actions/beckend/BeckendRecords.html:13,58
+msgid "Connect to the SMTP-server"
+msgstr ""
+
+#: /wa-apps/email/templates/actions/beckend/BeckendRecords.html:62
+msgid "connect to the SMTP-server established successfully"
+msgstr ""
+
+#: /wa-apps/email/templates/actions/beckend/BeckendRecords.html:66
+msgid "connect to the SMTP-server it wasn't possible"
+msgstr ""
+
+#: /wa-apps/email/templates/actions/beckend/BeckendRecords.html:70
+msgid "connect to the SMTP-server is not checked"
+msgstr ""
+
+#: /wa-apps/email/templates/actions/beckend/BeckendRecords.html:73
+msgid "Time"
+msgstr ""
+
+#: /wa-apps/email/templates/actions/beckend/BeckendRecords.html:74
+msgid "time of the last check"
+msgstr ""
+
+#: /wa-apps/email/templates/actions/beckend/BeckendRecords.html:49
+msgid "Cheat sheet"
+msgstr ""
+
+#: /wa-apps/email/templates/actions/beckend/BeckendRecords.html:20
+msgid "Records are absent"
+msgstr ""
+
+#: /wa-apps/email/lib/action/backend/emailBackendMail.action.php:21
+msgid "The default setting of all email addresses @%s"
+msgstr ""
+
+#: /wa-apps/email/lib/action/backend/emailBackendMail.action.php:23
+msgid "Mail setup"
+msgstr ""
+
+#: /wa-apps/email/templates/actions/backend/BeckendMail.html:4
+msgid "Delete rule"
+msgstr ""
+
+#: /wa-apps/email/templates/actions/backend/BeckendMail.html:18
+msgid "Password"
+msgstr ""
+
+#: /wa-apps/email/templates/actions/backend/BeckendMail.html:20
+msgid "change password"
+msgstr ""
+
+#: /wa-apps/email/templates/actions/backend/BeckendMail.html:28
+msgid "SMTP-server"
+msgstr ""
+
+#: /wa-apps/email/templates/actions/backend/BeckendMail.html:33
+msgid "Port"
+msgstr ""
+
+#: /wa-apps/email/templates/actions/backend/BeckendMail.html:33
+msgid ""
+"This will delete a rule e-mail settings without the ability to recover. Are "
+"you sure?"
+msgstr ""
+
+#: /wa-apps/email/templates/actions/backend/BeckendMail.html:41
+msgid "Safe connection under the protocol SSL (recommended)"
+msgstr ""
+
+#: /wa-apps/email/templates/actions/backend/BeckendMail.html:44
+msgid "Safe connection under the protocol TLS"
+msgstr ""
+
+#: /wa-apps/email/templates/actions/backend/BeckendMail.html:52
+msgid "Check the connection to the SMTP server"
+msgstr ""
+
+#: /wa-apps/email/templates/actions/backend/BeckendMail.html:58
+msgid "Save"
+msgstr ""
+
+#: /wa-apps/email/templates/actions/backend/BeckendMail.html:59
+msgid "Saved"
+msgstr ""
+
+#: /wa-apps/email/lib/action/backend/emailBackendMailSave.Controller.php:21
+msgid "The mistake, data aren't kept!"
+msgstr ""
+
+#: /wa-apps/email/lib/action/backend/emailBackendMailSave.Controller.php:62
+msgid "Connection to the SMTP-server established successfully"
+msgstr ""
+
+#: /wa-apps/email/templates/actions/beckend/BeckendHistory.html:11
+msgid "User %s made changes to the settings of mail"
+msgstr ""
+
+#: /wa-apps/email/templates/actions/beckend/BeckendHistory.html:13
+msgid "User %s delete a rule the settings of mail"
+msgstr ""
+
+#: /wa-apps/email/templates/actions/backend/BackendNotifications.html:12
+msgid "From"
+msgstr ""
+
+#: /wa-apps/email/templates/actions/backend/BackendNotifications.html:12
+msgid "Other email..."
+msgstr ""
+
+#: /wa-apps/email/templates/actions/backend/BackendNotifications.html:30
+msgid "To"
+msgstr ""
+
+#: /wa-apps/email/templates/actions/backend/BackendNotifications.html:36
+msgid "Email subject"
+msgstr ""
+
+#: /wa-apps/email/templates/actions/backend/BackendNotifications.html:42
+msgid "Email body"
+msgstr ""
+
+#: /wa-apps/email/templates/actions/backend/BackendNotifications.html:53
+msgid "Your message has been sent."
+msgstr ""
+
+#: /wa-apps/email/templates/actions/backend/BackendNotifications.html:
+msgid "Error. The message isn't sent."
+msgstr ""
+
+#: /wa-apps/email/lib/action/backend/BackendMailSend.controller.php:25,27,40
+msgid "Email is not valid"
+msgstr ""
+
+#: /wa-apps/email/lib/action/backend/BackendMailSend.controller.php:32,34,43
+msgid "Fill in all required fields"
+msgstr ""
+
+#: /wa-apps/email/lib/action/backend/BackendMailSend.controller.php:68
+msgid "For Email %s, no rules setting! Create a new rule!"
+msgstr ""
+
+#: /wa-apps/email/lib/action/backend/BackendMailSend.controller.php:75
+#: /wa-apps/email/lib/action/backend/emailBackendMailSave.Controller.php:60
+msgid "In attempt of connection to the server SMTP occurred a mistake"
+msgstr ""
+
+#: /wa-apps/email/lib/action/backend/BackendDomenAdd.controller.php:25
+msgid "This rule already exists."
+msgstr ""
+
+#: /wa-apps/email/lib/action/classes/emailCheckSend.class.php:23.29
+msgid "Connection could not be established with host"
+msgstr ""
+
+#: /wa-apps/email/lib/action/classes/emailCheckSend.class.php:34
+msgid "Server Welcome is not set"
+msgstr ""
+
+#: /wa-apps/email/lib/action/classes/emailCheckSend.class.php:39
+msgid "SMTP Authentication is not set"
+msgstr ""
+
+#: /wa-apps/email/lib/action/classes/emailCheckSend.class.php:44
+msgid "Failed to authenticate on SMTP server with username %s"
+msgstr ""
+
+#: /wa-apps/email/lib/action/classes/emailCheckSend.class.php:48
+msgid "Invalid login or password"
+msgstr ""

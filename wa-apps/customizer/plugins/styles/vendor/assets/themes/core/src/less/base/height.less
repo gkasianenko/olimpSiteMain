@@ -1,0 +1,44 @@
+//
+// Component: Height
+//
+// ========================================================================
+
+
+// Variables
+// ========================================================================
+
+
+// Miscellaneous
+// ========================================================================
+
+.hook-height-misc() {
+
+    /* Phone landscape and bigger */
+	@media (min-width: @breakpoint-small) {	
+		.uk-height-small\@s { height: @height-small-height; }
+		.uk-height-medium\@s { height: @height-medium-height; }
+		.uk-height-large\@s { height: @height-large-height; }
+	}
+
+	/* Tablet landscape and bigger */
+	@media (min-width: @breakpoint-medium) {
+		.uk-height-small\@m { height: @height-small-height; }
+		.uk-height-medium\@m { height: @height-medium-height; }
+		.uk-height-large\@m { height: @height-large-height; }
+	}
+
+	/* Desktop and bigger */
+	@media (min-width: @breakpoint-large) {
+		.uk-height-small\@l { height: @height-small-height; }
+		.uk-height-medium\@l { height: @height-medium-height; }
+		.uk-height-large\@l { height: @height-large-height; }
+	}
+
+	/* Large screen and bigger */
+	@media (min-width: @breakpoint-xlarge) {
+		.uk-height-small\@xl { height: @height-small-height; }
+		.uk-height-medium\@xl { height: @height-medium-height; }
+		.uk-height-large\@xl { height: @height-large-height; }
+	}
+
+}

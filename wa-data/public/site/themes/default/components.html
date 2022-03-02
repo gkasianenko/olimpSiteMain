@@ -1,0 +1,55 @@
+{if $page && !in_array($page.id, array(22))}
+    <!--{if in_array($page.id, array(7,108,109,110,111))}
+        {include file="`$wa_active_theme_path`/components/development.html" inline}
+    {/if}-->
+    {*include file="components/development.html" inline*}
+    {*include file="components/portfolio.html" inline*}
+    {*include file="components/services.html" inline*}
+    {*include file="components/faq.html" inline*}
+    {*include file="components/reviews.html" inline*}
+    {*include file="components/why.html" inline*}
+    {*include file="components/partners.html" inline*}
+    {*include file="components/certificates.html" inline*}
+    {*include file="components/sales.html" inline*}
+    {*include file="components/price.html" inline*}
+    {*include file="components/text-block.html" inline*}
+
+    {if $page.id == 148}
+        {include file="components/letters.html" inline}
+    {elseif $page.id == 104}
+        {if $wa->site && class_exists('siteReviewscalcPlugin')}
+        {siteReviewscalcPluginHelper::handler('#reviews-calc-form-section', false, '#success-selector-reviews-calc-section', '#error-selector-reviews-calc-section')}
+        {/if}
+    {/if}
+
+    {if in_array($page.id, array(7,101,85,5,16,17,18)) || in_array($page.parent_id, array(7,101,85,5,16,17,18))}
+        {literal}
+        <style>
+            body.inner-page .section.section__reviews {
+                background: #ecf0f1 !important;
+                padding-top: 100px !important;
+                padding-bottom: 100px !important;
+                margin-bottom: 0 !important;
+            }
+
+            .container__components {
+                margin-top: 50px;
+            }
+
+            @media (min-width: 768px) {
+                .container__components {
+                    margin-top: 80px;
+                }
+            }
+        </style>
+        {/literal}
+
+        <div class="container__components">
+        {include file="`$wa_active_theme_path`/components/reviews.html" inline}
+        {include file="`$wa_active_theme_path`/components/partners.html" inline}
+        {include file="`$wa_active_theme_path`/components/certificates.html" inline}
+        {include file="`$wa_active_theme_path`/components/news.html" inline}
+        {include file="`$wa_active_theme_path`/components/faq.html" inline}
+        </div>
+    {/if}
+{/if}

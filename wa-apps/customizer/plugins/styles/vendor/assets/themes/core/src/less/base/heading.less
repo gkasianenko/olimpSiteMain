@@ -1,0 +1,156 @@
+//
+// Component: Heading
+//
+// ========================================================================
+
+
+// Variables
+// ========================================================================
+
+//
+// New
+//
+
+@internal-heading-medium-mode:                       none; // none, glitch
+@internal-heading-large-mode:                        none; // none, glitch
+@internal-heading-xlarge-mode:                       none; // none, glitch
+@internal-heading-2xlarge-mode:                      none; // none, glitch
+
+@internal-heading-glitch-color-1:                    @global-primary-background;
+@internal-heading-glitch-color-2:                    @global-secondary-background;
+@internal-heading-glitch-duration:                   0.65s;
+
+
+// Component
+// ========================================================================
+
+.hook-heading-small() {}
+
+.hook-heading-medium() when (@internal-heading-medium-mode = glitch) {
+    animation: uk-text-shadow-glitch @internal-heading-glitch-duration cubic-bezier(0.25, 0.46, 0.45, 0.94) both infinite !important;
+}
+
+.hook-heading-large() when (@internal-heading-large-mode = glitch) {
+    animation: uk-text-shadow-glitch @internal-heading-glitch-duration cubic-bezier(0.25, 0.46, 0.45, 0.94) both infinite !important;
+}
+
+.hook-heading-xlarge() when (@internal-heading-xlarge-mode = glitch) {
+    animation: uk-text-shadow-glitch @internal-heading-glitch-duration cubic-bezier(0.25, 0.46, 0.45, 0.94) both infinite !important;
+}
+
+.hook-heading-2xlarge() when (@internal-heading-2xlarge-mode = glitch) {
+    animation: uk-text-shadow-glitch @internal-heading-glitch-duration cubic-bezier(0.25, 0.46, 0.45, 0.94) both infinite !important;
+}
+
+
+// Divider
+// ========================================================================
+
+.hook-heading-divider() {}
+
+
+// Bullet
+// ========================================================================
+
+.hook-heading-bullet() {}
+
+
+// Line
+// ========================================================================
+
+.hook-heading-line() {}
+
+
+// Miscellaneous
+// ========================================================================
+
+.hook-heading-misc() {}
+
+
+// Inverse
+// ========================================================================
+
+.hook-inverse() { .uk-heading-2xlarge { .hook-inverse-heading-2xlarge(); } } // fix, delete after fixed in component
+
+.hook-inverse-heading-small() {}
+
+.hook-inverse-heading-medium() {}
+
+.hook-inverse-heading-large() {}
+
+.hook-inverse-heading-xlarge() {}
+
+.hook-inverse-heading-2xlarge() {}
+
+.hook-inverse-heading-divider() {}
+
+.hook-inverse-heading-bullet() {}
+
+.hook-inverse-heading-line() {}
+
+
+// Primary
+// ========================================================================
+
+@primary-heading-divider-border:                  @primary-global-border;
+@primary-heading-bullet-border:                   @primary-global-border;
+@primary-heading-line-border:                     @primary-global-border;
+
+.hook-primary() {
+
+    .uk-heading-small {
+        .hook-primary-heading-small();
+    }
+
+    .uk-heading-medium {
+        .hook-primary-heading-medium();
+    }
+
+    .uk-heading-large {
+        .hook-primary-heading-large();
+    }
+
+    .uk-heading-xlarge {
+        .hook-primary-heading-xlarge();
+    }
+
+    .uk-heading-2xlarge {
+        .hook-primary-heading-2xlarge();
+    }
+
+    .uk-heading-primary when (@deprecated = true) {
+        .hook-primary-heading-primary();
+    }
+
+    .uk-heading-hero when (@deprecated = true) {
+        .hook-primary-heading-hero();
+    }
+
+    .uk-heading-divider {
+        border-bottom-color: @primary-heading-divider-border;
+        .hook-primary-heading-divider();
+    }
+
+    .uk-heading-bullet::before {
+        border-left-color: @primary-heading-bullet-border;
+        .hook-primary-heading-bullet();
+    }
+
+    .uk-heading-line > ::before,
+    .uk-heading-line > ::after {
+        border-bottom-color: @primary-heading-line-border;
+        .hook-primary-heading-line();
+    }
+
+}
+
+.hook-primary-heading-small() {}
+.hook-primary-heading-medium() {}
+.hook-primary-heading-large() {}
+.hook-primary-heading-xlarge() {}
+.hook-primary-heading-2xlarge() {}
+.hook-primary-heading-primary() {}
+.hook-primary-heading-hero() {}
+.hook-primary-heading-divider() {}
+.hook-primary-heading-bullet() {}
+.hook-primary-heading-line() {}

@@ -1,0 +1,211 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: customizer\n"
+"POT-Creation-Date: 2020-04-22 19:01+0300\n"
+"PO-Revision-Date: \n"
+"Last-Translator: customizer\n"
+"Language-Team: customizer\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-Language: en_US\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-Basepath: utf-8\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPath-1: .\n"
+
+msgid "This section is under construction ..."
+msgstr ""
+
+msgid "For the application to work, just two steps are enough"
+msgstr ""
+
+msgid "Add to file"
+msgstr ""
+
+msgid "before tag"
+msgstr ""
+
+msgid "line"
+msgstr ""
+
+msgid "Install plugins"
+msgstr ""
+
+msgid "Enjoy!"
+msgstr ""
+
+msgid "Home"
+msgstr ""
+
+msgid "Helpers"
+msgstr ""
+
+msgid "Settings"
+msgstr ""
+
+msgid "Plugins"
+msgstr ""
+
+msgid "Settings updated"
+msgstr ""
+
+msgid "Unused drafts"
+msgstr ""
+
+msgid "delete"
+msgstr ""
+
+msgid "Draft prefix"
+msgstr ""
+
+msgid "Frontend settings"
+msgstr ""
+
+msgid "Only admin"
+msgstr ""
+
+msgid "Publish draft"
+msgstr ""
+
+msgid "Save draft"
+msgstr ""
+
+msgid "Top"
+msgstr ""
+
+msgid "Set the vertical position of the button in percentage."
+msgstr ""
+
+msgid "Save"
+msgstr ""
+
+msgid "Expand sidebar"
+msgstr ""
+
+msgid "Collapse sidebar"
+msgstr ""
+
+msgid "Empty panel"
+msgstr ""
+
+msgid "You are customizing"
+msgstr ""
+
+msgid "go to instructions"
+msgstr ""
+
+msgid "Install at least one plugin to work with design theme"
+msgstr ""
+
+msgid "search plugins"
+msgstr ""
+
+msgid "Mismatch"
+msgstr ""
+
+msgid "Preview theme does not match customizable design theme."
+msgstr ""
+
+msgid "Reload Preview"
+msgstr ""
+
+msgid "Close customizer"
+msgstr ""
+
+msgid "Published"
+msgstr ""
+
+msgid "Сhanges applied"
+msgstr ""
+
+msgid "Return to customize"
+msgstr ""
+
+msgid "Return to site"
+msgstr ""
+
+msgid "Publish"
+msgstr ""
+
+msgid "Save as"
+msgstr ""
+
+msgid "Configure"
+msgstr ""
+
+msgid "The design theme you are customizing does not contain Customizer application integration code."
+msgstr ""
+
+msgid "Follow instructions on"
+msgstr ""
+
+msgid "main page of app"
+msgstr ""
+
+msgid "App ID not defined or App not found"
+msgstr ""
+
+msgid "Back to site"
+msgstr ""
+
+msgid "Not found"
+msgstr ""
+
+msgid "App does not use design themes"
+msgstr ""
+
+msgid "Theme ID not defined or Theme not found"
+msgstr ""
+
+msgid "User not logged or not an administrator"
+msgstr ""
+
+msgid "Log in"
+msgstr ""
+
+msgid "Forbidden"
+msgstr ""
+
+msgid "Invalid theme id %s"
+msgstr ""
+
+msgid "Customizer helpers page"
+msgstr ""
+
+msgid "Access denied"
+msgstr ""
+
+msgid "Plugin settings page"
+msgstr ""
+
+msgid "Customizer settings page"
+msgstr ""
+
+msgid "Theme management"
+msgstr ""
+
+msgid "Reload App"
+msgstr ""
+
+msgid "Number of products per page"
+msgstr ""
+
+msgid "For mobile devices in frontend"
+msgstr ""
+
+msgid "For desktop devices in frontend"
+msgstr ""
+
+msgid "For all devices in backend"
+msgstr ""
+
+msgid "Shop app config manage"
+msgstr ""
+
+msgid "Shop app config updated"
+msgstr ""
+
+msgid "Shop app config manage page"
+msgstr ""

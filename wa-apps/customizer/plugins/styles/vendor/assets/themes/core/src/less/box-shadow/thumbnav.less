@@ -1,0 +1,76 @@
+//
+// Component: Thumbnav
+//
+// ========================================================================
+
+
+// Variables
+// ========================================================================
+
+//
+// New
+//
+
+@thumbnav-item-box-shadow:                           none;
+@thumbnav-item-hover-box-shadow:                     none;
+@thumbnav-item-active-box-shadow:                    none;
+
+
+// Component
+// ========================================================================
+
+.hook-thumbnav() {}
+
+.hook-thumbnav-item() when not (@thumbnav-item-box-shadow = none) {
+    &::after { box-shadow: @thumbnav-item-box-shadow; }
+}
+
+.hook-thumbnav-item-hover() when not (@thumbnav-item-hover-box-shadow = none) {
+    &::after { box-shadow: @thumbnav-item-hover-box-shadow; }
+}
+
+.hook-thumbnav-item-active() when not (@thumbnav-item-active-box-shadow = none) {
+    &::after { box-shadow: @thumbnav-item-active-box-shadow; }
+}
+
+
+// Miscellaneous
+// ========================================================================
+
+.hook-thumbnav-misc() {}
+
+
+// Inverse
+// ========================================================================
+
+@inverse-thumbnav-item-box-shadow:                      @thumbnav-item-box-shadow;
+@inverse-thumbnav-item-hover-box-shadow:                @thumbnav-item-hover-box-shadow;
+@inverse-thumbnav-item-active-box-shadow:               @thumbnav-item-active-box-shadow;
+
+.hook-inverse-thumbnav-item() when not (@inverse-thumbnav-item-box-shadow = @thumbnav-item-box-shadow) {
+    &::after { box-shadow: @inverse-thumbnav-item-box-shadow; }
+}
+.hook-inverse-thumbnav-item-hover() when not (@inverse-thumbnav-item-hover-box-shadow = @thumbnav-item-hover-box-shadow) {
+    &::after { box-shadow: @inverse-thumbnav-item-hover-box-shadow; }
+}
+.hook-inverse-thumbnav-item-active() when not (@inverse-thumbnav-item-active-box-shadow = @thumbnav-item-active-box-shadow) {
+    &::after { box-shadow: @inverse-thumbnav-item-active-box-shadow; }
+}
+
+
+// Primary
+// ========================================================================
+
+@primary-thumbnav-item-box-shadow:                      @thumbnav-item-box-shadow;
+@primary-thumbnav-item-hover-box-shadow:                @thumbnav-item-hover-box-shadow;
+@primary-thumbnav-item-active-box-shadow:               @thumbnav-item-active-box-shadow;
+
+.hook-primary-thumbnav-item() when not (@primary-thumbnav-item-box-shadow = @thumbnav-item-box-shadow) {
+    &::after { box-shadow: @primary-thumbnav-item-box-shadow; }
+}
+.hook-primary-thumbnav-item-hover() when not (@primary-thumbnav-item-hover-box-shadow = @thumbnav-item-hover-box-shadow) {
+    &::after { box-shadow: @primary-thumbnav-item-hover-box-shadow; }
+}
+.hook-primary-thumbnav-item-active() when not (@primary-thumbnav-item-active-box-shadow = @thumbnav-item-active-box-shadow) {
+    &::after { box-shadow: @primary-thumbnav-item-active-box-shadow; }
+}

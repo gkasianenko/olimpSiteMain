@@ -1,0 +1,45 @@
+/* control color */
+
+.settings-colorpicker {
+    width: 40px;
+    overflow: hidden;
+    position: relative;
+    display: block;
+    background: url(data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2232%22%20height%3D%2232%22%20viewBox%3D%220%200%2032%2032%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%20%20%20%20%3Crect%20fill%3D%22%23CCCCCC%22%20x%3D%220%22%20y%3D%220%22%20width%3D%228%22%20height%3D%228%22%20%2F%3E%0A%20%20%20%20%3Crect%20fill%3D%22%23CCCCCC%22%20x%3D%2216%22%20y%3D%220%22%20width%3D%228%22%20height%3D%228%22%20%2F%3E%0A%20%20%20%20%3Crect%20fill%3D%22%23CCCCCC%22%20x%3D%220%22%20y%3D%2216%22%20width%3D%228%22%20height%3D%228%22%20%2F%3E%0A%20%20%20%20%3Crect%20fill%3D%22%23CCCCCC%22%20x%3D%2216%22%20y%3D%2216%22%20width%3D%228%22%20height%3D%228%22%20%2F%3E%0A%20%20%20%20%3Crect%20fill%3D%22%23CCCCCC%22%20x%3D%228%22%20y%3D%228%22%20width%3D%228%22%20height%3D%228%22%20%2F%3E%0A%20%20%20%20%3Crect%20fill%3D%22%23CCCCCC%22%20x%3D%2224%22%20y%3D%228%22%20width%3D%228%22%20height%3D%228%22%20%2F%3E%0A%20%20%20%20%3Crect%20fill%3D%22%23CCCCCC%22%20x%3D%228%22%20y%3D%2224%22%20width%3D%228%22%20height%3D%228%22%20%2F%3E%0A%20%20%20%20%3Crect%20fill%3D%22%23CCCCCC%22%20x%3D%2224%22%20y%3D%2224%22%20width%3D%228%22%20height%3D%228%22%20%2F%3E%0A%20%20%20%20%3Crect%20fill%3D%22%23FFFFFF%22%20x%3D%228%22%20y%3D%220%22%20width%3D%228%22%20height%3D%228%22%20%2F%3E%0A%20%20%20%20%3Crect%20fill%3D%22%23FFFFFF%22%20x%3D%220%22%20y%3D%228%22%20width%3D%228%22%20height%3D%228%22%20%2F%3E%0A%20%20%20%20%3Crect%20fill%3D%22%23FFFFFF%22%20x%3D%2216%22%20y%3D%228%22%20width%3D%228%22%20height%3D%228%22%20%2F%3E%0A%20%20%20%20%3Crect%20fill%3D%22%23FFFFFF%22%20x%3D%228%22%20y%3D%2216%22%20width%3D%228%22%20height%3D%228%22%20%2F%3E%0A%20%20%20%20%3Crect%20fill%3D%22%23FFFFFF%22%20x%3D%2224%22%20y%3D%220%22%20width%3D%228%22%20height%3D%228%22%20%2F%3E%0A%20%20%20%20%3Crect%20fill%3D%22%23FFFFFF%22%20x%3D%2224%22%20y%3D%2216%22%20width%3D%228%22%20height%3D%228%22%20%2F%3E%0A%20%20%20%20%3Crect%20fill%3D%22%23FFFFFF%22%20x%3D%220%22%20y%3D%2224%22%20width%3D%228%22%20height%3D%228%22%20%2F%3E%0A%20%20%20%20%3Crect%20fill%3D%22%23FFFFFF%22%20x%3D%2216%22%20y%3D%2224%22%20width%3D%228%22%20height%3D%228%22%20%2F%3E%0A%3C%2Fsvg%3E%0A) 0 0 repeat;
+    background-position: -2px -2px;
+    cursor: pointer;
+}
+
+.settings-colorpicker-color {
+    height: 40px;
+}
+
+.settings-colorpicker-color:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    border: 1px solid #ccc;
+    border-left: 0;
+    /*box-shadow: inset 0 0 1px rgba(0,0,0,.3);*/
+}
+
+.settings-colorpicker-color-none {
+    background: url(data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2230%22%20height%3D%2230%22%20viewBox%3D%220%200%2030%2030%22%20preserveAspectRatio%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%20%20%20%20%3Cline%20fill%3D%22none%22%20stroke%3D%22%23D51C1C%22%20stroke-width%3D%222%22%20x1%3D%22-1%22%20y1%3D%2231%22%20x2%3D%2231%22%20y2%3D%22-1%22%20vector-effect%3D%22non-scaling-stroke%22%20%2F%3E%0A%3C%2Fsvg%3E) 0 0 no-repeat;
+    background-size: 100% 100%;
+}
+
+.settings-colorpicker-dropdown {
+    padding: 15px;
+}
+
+.settings-colorpicker-dropdown .vc-chrome {
+    width: 100%;
+    box-shadow: none;
+}
+
+.settings-colorpicker-dropdown .vc-chrome-body {
+    padding: 15px 0 0;
+}

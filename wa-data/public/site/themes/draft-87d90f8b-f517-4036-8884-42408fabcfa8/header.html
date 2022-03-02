@@ -1,0 +1,170 @@
+{if isset($is_concrete_blog) && $is_concrete_blog}
+    {$headerJumbotron = false}
+    {$headerCompact = 0}
+
+    {foreach $wa->blog->blogs() as $blog}
+        {if in_array($blog.id, array(2,3,4,5,7,6))}
+            {$headerJumbotron = $wa->block("blog_`$blog.id`")}
+            {$headerCompact = 1}
+        {break}
+        {/if}
+    {/foreach}
+{elseif isset($settlement_one_blog) && $settlement_one_blog}
+    {$headerJumbotron = false}
+    {$headerCompact = 0}
+
+    {if isset($post) && $post.id && in_array($post.blog_id, array(2,3,4,5,7,6))}
+        {$headerJumbotron = $wa->block("blog_`$post.blog_id`")}
+        {$headerCompact = 1}
+    {/if}
+{elseif isset($page) && $page.id && in_array($page.id, $new_jumbotron_pages)}
+    {$headerJumbotron = $wa->block("page_`$page.id`")}
+    {$headerCompact = $page.header_compact|default:true}
+{else}
+    {$headerJumbotron = false}
+    {$headerCompact = false}
+{/if}
+
+<header class="header{if $isHomePage} header--expand header--expand-home{else if $headerJumbotron} header--expand header--expand-inner{/if}" id="header">
+    <div class="container-fluid">
+        {$siteMessage = $wa->block("site.header_message")}
+        {if !empty($siteMessage)}
+        <div class="row header__site-message">
+            <div class="col">
+                {$siteMessage}
+            </div>
+        </div>
+        {/if}
+
+        <div class="row row-contacts no-gutters">
+            <div class="col-12">
+                <nav class="navbar navbar-expand-xl navbar-light">
+                    <button class="navbar-toggler" type="button" data-toggle="modal" data-target="#exampleModal"><span class="burger"></span></button><a class="navbar-brand" href="/">
+                    <div class="logo"><img class="img__logo img__logo-white" src="{$wa_theme_url}img/logo.svg"><img class="img__logo img__logo-black" src="{$wa_theme_url}img/logo_bl.svg"></div></a>
+                    <div class="navbar-text">
+                        <div class="header__contacts">
+                            <div class="row">
+                                <div class="col-12 d-block d-md-none">
+                                    <div class="contacts__mobile"><a class="d-flex align-items-center justify-content-center" href="tel:84956496680"><i class="icon-phone d-sm-none d-inline-block mr-2"></i></a></div>
+                                </div>
+                                <div class="col-12 col-lg d-none d-sm-block px-0">
+                                    <div class="contacts__tel">
+                                        <div class="contacts__icon"><i class="icon-phone"></i></div>
+                                        <div class="contacts__items">
+                                            <div class="contacts__item"><a href="tel:84956496680">8 (495) 649-66-80</a></div>
+                                            <div class="contacts__item"><a href="tel:88003331107">8 (800) 333-11-07</a></div>
+                                        </div><a class="show-contact-modal" href="#"><i class="fas fa-ellipsis-v"></i></a>
+                                        <div class="contact-modal" id="contact-modal" style="display: none">
+                                            <button class="close" type="button" data-dismiss="modal" aria-label="Close"><i class="fas fa-times"></i></button>
+                                            <div class="contact-modal__content">
+                                                <div class="contact-model__item">
+                                                    <div class="contact-modal__address">Телефоны</div>
+                                                    <div class="contact-modal__tel mb-2"><a href="tel:84956496680">8 (495) 649-66-80</a></div>
+                                                </div>
+                                                <div class="contact-model__item">
+                                                    <div class="contact-modal__tel"><a href="tel:88003331107">8 (800) 333-11-07</a></div>
+                                                </div>
+                                                <div class="contact-model__item">
+                                                    <div class="contact-modal__address">E-mail</div>
+                                                    <div class="contact-modal__tel"><a href="mailto:mail@olimp.ltd" target="_blank">mail@olimp.ltd</a></div>
+                                                </div>
+                                                <div class="contact-modal__social">
+                                                    <ul class="list-unstyled">
+                                                        <li><a href="http://vkontakte.ru/olimpltd" title="ВКонтакте" target="_blank"><i class="fab fa-vk"></i></a></li>
+                                                        <li><a href="http://instagram.com/olimp.ltd" title="Инстаграм" target="_blank"><i class="fab fa-instagram"></i></a></li>
+                                                        <li><a href="https://www.youtube.com/channel/UCQkSVCp9vSIOPAL7nVn7vmg/" title="Youtube" target="_blank"><i class="fab fa-youtube"></i></a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-lg-auto d-none d-lg-block flex-row px-0">
+                                    <div class="contacts__mail">
+                                        <div class="contacts__icon"><i class="far fa-envelope"></i></div>
+                                        <div class="contacts__items">
+                                            <div class="contacts__item"><span class="mail"><a href="mailto:mail@olimp.ltd" target="_blank">mail@olimp.ltd</a></span></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="header__links d-none d-md-flex"><a class="call-to-action" href="https://wa.me/74956496680" target="_blank"><i class="icon-whatsapp"></i></a><a href="https://crm.olimp.ltd" target="_blank"><i class="icon-sign-in"></i></a></div>
+                        <div class="header__buttons d-none d-md-block"><a class="btn btn-red text-nowrap" href="#" data-toggle="modal" data-target="#formModal" style="line-height: 36px">Оставить заявку</a></div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+        <div class="row row-nav no-gutters">
+            <div class="col-12 border-top">
+                <nav class="navbar">
+                    {$items = array(
+                    ['url'=>'/portfolio/', 'name'=>'Портфолио'],
+                    ['url'=>'/tseny/', 'name'=>'Цены'],
+                    ['url'=>'/o-kompanii/', 'name'=>'О компании'],
+                    ['url'=>'/klientam/', 'name'=>'Клиентам'],
+                    ['url'=>'/news/', 'name'=>'Новости и статьи'],
+                    ['url'=>'/oplata-uslug/', 'name'=>'Способы оплаты'],
+                    ['url'=>'/faq/', 'name'=>'Частые вопросы'],
+                    ['url'=>'/otzyvy/', 'name'=>'Отзывы'],
+                    ['url'=>'/kontakty/', 'name'=>'Контакты']
+                    )}
+
+                    <ul class="navbar-nav justify-content-between">
+                        {*<li class="nav-item{if '/uslugi/' == $wa->currentUrl(false)} active{/if}">
+                            <a class="nav-link" href="/uslugi/" data-toggle="modal" data-target="#exampleModal">
+                                <i class="burger"></i><strong>Продукты и услуги</strong>
+                            </a>
+                        </li>*}
+                        {*<li class="nav-item">
+                            <span class="nav-link border-left">&nbsp;</span>
+                        </li>*}
+                        {foreach $items as $itemKey => $itemValue}
+                        {$showDropdown = isset($itemValue.dropdown) && $itemValue.dropdown == '1'}
+                        <li class="nav-item{if $itemValue.url == $wa->currentUrl(false)} active{/if}{if $showDropdown} dropdown{/if}">
+                            <a class="nav-link{if $showDropdown} dropdown-toggle{/if}" href="{$itemValue.url}">
+                                {$itemValue.name}</a>
+
+                            {*if $showDropdown}
+                            <div class="dropdown-menu border-top d-lg-flex flex-lg-row">
+                                {$dropdownItems = array(7,101,85,5)}
+
+                                {foreach $dropdownItems as $dropdownItem}
+                                {$subPage = $wa->site->page($dropdownItem)}
+                                <a class="dropdown-item" href="{$subPage.url}">{$subPage.name}</a>
+                                {/foreach}
+                            </div>
+                            {/if*}
+                        </li>
+                        {/foreach}
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+    {if $isHomePage}
+    <div class="container-fluid header__banner header__banner--home">
+        <div class="header-banner__container">
+            <div class="header-banner__content order-2 order-xl-1">
+                {$wa->block("home.banner_text")}
+            </div>
+            <div class="header-banner__image order-1 order-xl-2">
+                <div id="header__animation" style="display: block"></div>
+                <div id="header__animation--static" style="display: none">
+                    <img src="{$wa_theme_url}img/img_header.svg" alt="">
+                </div>
+            </div>
+            <a class="btn__scroll btn__scroll--down"><span><i></i></span></a>
+        </div>
+    </div>
+
+    {else $headerJumbotron}
+    <div class="container-fluid header__banner header__banner--inner{if $headerCompact} header__banner--inner-compact{/if}">
+        <div class="header-banner__container">
+            <div class="header-banner__content">
+                {$headerJumbotron}
+            </div>
+        </div>
+    </div>
+    {/if}
+</header>

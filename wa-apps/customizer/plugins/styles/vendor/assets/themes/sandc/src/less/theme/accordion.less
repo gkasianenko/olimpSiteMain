@@ -1,0 +1,106 @@
+//
+// Component: Accordion
+//
+// ========================================================================
+
+
+// Variables
+// ========================================================================
+
+// @accordion-title-padding-vertical:             @global-gutter;
+// @accordion-title-padding-horizontal:           @global-gutter;
+// @accordion-border-width:                       1px;
+// @accordion-border:                             @global-border;
+// @accordion-item-margin-top:                    0;
+// @accordion-content-margin-top:                 0;
+// @accordion-content-border-width:               0;
+@accordion-title-font-size:                     @global-font-size;
+
+// Component
+// ========================================================================
+
+.hook-accordion() {}
+
+
+// Item
+// ========================================================================
+
+.hook-accordion-item() {}
+
+
+// Title
+// ========================================================================
+
+.hook-accordion-title() {}
+
+.hook-accordion-title-hover() {}
+
+
+// Content
+// ========================================================================
+
+.hook-accordion-content() {}
+
+
+// Miscellaneous
+// ========================================================================
+@accordion-filter-item-padding-vertical:                     15px;
+@accordion-filter-title-active-background:                   @global-muted-background;
+@accordion-filter-title-border-width:                        @global-border-width;
+@accordion-filter-title-border:                              @global-border;
+@accordion-filter-title-text-transform:                      uppercase;
+@accordion-filter-title-font-weight:                         normal;
+@accordion-filter-title-color:                               @global-muted-color;
+@accordion-icon-color:                                       @accordion-filter-title-color;
+.hook-accordion-misc() {
+    .uk-accordion-filter .uk-accordion-title,
+    .uk-accordion-filter .uk-accordion-content{
+        padding-top: @accordion-filter-item-padding-vertical;
+        padding-bottom: @accordion-filter-item-padding-vertical;
+    }
+    .uk-accordion-filter .uk-accordion-title{
+        border-top: @accordion-filter-title-border-width solid @accordion-filter-title-border;
+        text-transform: @accordion-filter-title-text-transform;
+        font-weight: @accordion-filter-title-font-weight;
+        color: @accordion-filter-title-color;
+    }
+    .uk-accordion-filter .uk-open .uk-accordion-title{
+        background: @accordion-filter-title-active-background;
+    }
+    .uk-accordion-filter>:nth-child(n+2){
+        margin-top: 0;
+    }
+    .uk-accordion-filter .uk-accordion-content{
+        margin-top: 0;
+    }
+}
+
+
+// Inverse
+// ========================================================================
+
+@inverse-accordion-border:                     @inverse-global-border;
+
+.hook-inverse-accordion() {}
+
+.hook-inverse-accordion-item() {}
+
+.hook-inverse-accordion-title() {}
+.hook-inverse-accordion-title-hover() {}
+
+.hook-inverse-accordion-content() {}
+
+
+// Primary
+// ========================================================================
+
+@primary-accordion-border:                     @primary-global-border;
+
+.hook-primary-accordion() {}
+
+.hook-primary-accordion-item() {}
+
+.hook-primary-accordion-title() {}
+.hook-primary-accordion-title-hover() {}
+
+.hook-primary-accordion-content() {}

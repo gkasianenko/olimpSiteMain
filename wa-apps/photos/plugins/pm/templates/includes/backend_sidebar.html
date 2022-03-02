@@ -1,0 +1,56 @@
+{strip}
+
+<a href="javascript:void(0);" id="pm-plugin-dialog-link"><i class="fas fa-list"></i>
+    <span>[`META tags`]</span></a>
+
+<div id="pm-plugin-dialog-template-normal" class="hidden">
+    <div class="dialog">
+        <div class="dialog-background"></div>
+        <div class="dialog-body" style="width: 1000px;">
+            <header class="dialog-header"></header>
+            <div class="dialog-content">
+                <i class="fas fa-spinner fa-spin"></i>
+            </div>
+            <footer class="dialog-footer">
+                <button class="button blue js-submit">[`Save`]</button>
+                <button class="button light-gray js-close-dialog">[`Close`]</button>
+            </footer>
+        </div>
+    </div>
+</div>
+
+<div id="pm-plugin-dialog-template-deleted-item" class="hidden"
+    data-error-album="[`This album does not exist any more.`]"
+    data-error-photo="[`This photo does not exist any more.`]"
+    data-error-tag="[`This tag does not exist any more.`]"
+>
+    <div class="dialog">
+        <div class="dialog-background"></div>
+        <div class="dialog-body" style="width: 1000px;">
+            <header class="dialog-header">
+                <h1>[`Error`]</h1>
+            </header>
+            <div class="dialog-content"></div>
+        </div>
+    </div>
+</div>
+
+<div id="pm-plugin-dialog-template-fallback" class="hidden">
+    <div class="dialog">
+        <div class="dialog-background"></div>
+        <div class="dialog-body" style="width: 1000px;">
+            <header class="dialog-header">
+                <h1>[`Meta tags editing not available`]</h1>
+            </header>
+            <div class="dialog-content">
+                <p><i class="fas fa-hand-point-right text-blue custom-mr-8"></i>
+                    [`Select a <em>photo</em>, an <em>album</em>, or a <em>tag</em> to edit META tags.`]</p>
+            </div>
+            <footer class="dialog-footer">
+                <button class="button light-gray js-close-dialog">[`Close`]</button>
+            </footer>
+        </div>
+    </div>
+</div>
+
+{/strip}

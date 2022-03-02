@@ -1,0 +1,76 @@
+{$breadcrumbs = array(1,2,3)}
+<div class="container">
+    <div itemscope itemtype="http://schema.org/BlogPosting">
+        <article class="post post__review" role="main" id="post-{$post.id}">
+
+            <h1 class="display-4">
+                <!--<a href="#" class="btn btn-outline-black btn-sm px-2">&larr;</a>-->
+                <span itemprop="name">{$post.title}</span>
+                {* @event prepare_posts_frontend.%plugin_id%.post_title *}
+                {if !empty($post.plugins.post_title)}
+                {foreach $post.plugins.post_title as $plugin => $output}{$output}{/foreach}
+                {/if}
+            </h1>
+
+            <div class="row">
+                <div class="col-12">
+                    <div class="post__content">
+                        {* @event prepare_posts_frontend.%plugin_id%.before *}
+                        {if !empty($post.plugins.before)}
+                        <div class="post__text_before">
+                            {foreach $post.plugins.before as $plugin => $output}{$output}{/foreach}
+                        </div>
+                        {/if}
+
+                        <div class="post__text">
+                            <div class="text" itemprop="articleBody">
+                                {$post.text}
+                            </div>
+                        </div>
+
+                        {if $post.album_id && $post.album.id && $post.album.photos}
+                        {include 'post.album.html' album=$post.album inline}
+                        {/if}
+
+                        {* @event prepare_posts_frontend.%plugin_id%.after *}
+                        {if !empty($post.plugins.after)}
+                        <div class="post__text_after">
+                            {foreach $post.plugins.after as $plugin => $output}{$output}{/foreach}
+                        </div>
+                        {/if}
+                    </div>
+                </div>
+
+                {if $post.image}
+                <div class="col-12">
+                    <div class="post__cover d-block mx-auto">
+                        <a href="{$post.image}" data-lightbox="image">
+                            <img src="{$post.image}" alt="" class="img-fluid">
+                        </a>
+                    </div>
+                </div>
+                {/if}
+            </div>
+
+            {*
+            <div class="share">
+                COULD BE A GOOD PLACE FOR SHARE BUTTONS
+            </div>
+            *}
+
+        </article>
+
+        {* @event frontend_post.%plugin_id%.footer *}
+        {foreach $frontend_post as $plugin => $output}
+        {if !empty($output.footer)}{$output.footer}{/if}
+        {/foreach}
+
+        {if $show_comments && $post.comments_allowed}
+        {if $post.status eq blogPostModel::STATUS_PUBLISHED}
+        {include 'comments.html' inline}
+        {else}
+        <h4>[`Comments for non published posts are disabled`]</h4>
+        {/if}
+        {/if}
+    </div>
+</div>

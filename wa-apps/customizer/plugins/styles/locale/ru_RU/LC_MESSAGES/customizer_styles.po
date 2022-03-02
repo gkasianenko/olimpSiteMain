@@ -1,0 +1,158 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: customizer/plugins/styles\n"
+"POT-Creation-Date: 2020-07-28 17:50+0300\n"
+"PO-Revision-Date: \n"
+"Last-Translator: customizer/plugins/styles\n"
+"Language-Team: customizer/plugins/styles\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=((((n%10)==1)&&((n%100)!=11))?(0):(((((n%10)>=2)&&((n%10)<=4))&&(((n%100)<10)||((n%100)>=20)))?(1):2));\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-Basepath: utf-8\n"
+"Language: ru_RU\n"
+"X-Generator: Poedit 2.2.4\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPath-1: .\n"
+
+msgid "toStringTag"
+msgstr ""
+
+msgid "Select Styles"
+msgstr "Выберите стили"
+
+msgid "Сustomizable theme is not compatible by the plugin"
+msgstr "Настраиваемая тема не совместима с плагином"
+
+msgid "Cancel"
+msgstr "Отмена"
+
+msgid "Apply"
+msgstr "Применить"
+
+msgid "Auto-calculated"
+msgstr "Авто-рассчитанный"
+
+msgid "go to instructions"
+msgstr "перейти к инструкциям"
+
+msgid "Preview all UI components"
+msgstr "Предпросмотр компонентов"
+
+msgid "Styles changed"
+msgstr "Стили изменены"
+
+msgid "Styles have been changed but no changes have been accepted"
+msgstr "Стили были изменены, но изменения не были приняты"
+
+msgid "Close"
+msgstr "Закрыть"
+
+msgid "No draft ID"
+msgstr "Нет ID черновика"
+
+msgid "Theme is not a draft"
+msgstr "Тема не черновик"
+
+msgid "Template has been added!"
+msgstr "Шаблон был добавлен!"
+
+msgid "Content not found!"
+msgstr "Контент не найден!"
+
+msgid "Styles"
+msgstr "Стили"
+
+msgid "Manage theme styles"
+msgstr "Управление стилями темы"
+
+msgid "Auto apply"
+msgstr "Авто применение"
+
+msgid "Apply changes to draft immediately"
+msgstr "Применить изменения к черновику немедленно"
+
+msgid "CSS"
+msgstr ""
+
+msgid "Theme Style File"
+msgstr "Файл стилей темы"
+
+msgid "MIN"
+msgstr ""
+
+msgid "Compressed Theme Style File"
+msgstr "Сжатый файл стилей темы"
+
+msgid "Сonfiguration file"
+msgstr ""
+
+msgid "Contains Less variables"
+msgstr ""
+
+msgid "Compatible only"
+msgstr "Только совместимые"
+
+msgid "Compatible themes only"
+msgstr "Только совместимые темы"
+
+msgid "Select Font"
+msgstr "Выберите шрифт"
+
+msgid "Choose Font"
+msgstr "Выбрать шрифт"
+
+msgid "Select"
+msgstr "Выберите"
+
+msgid "All styles"
+msgstr "Все стили"
+
+msgid "All colors"
+msgstr "Все цвета"
+
+msgid "All backgrounds"
+msgstr "Все фоны"
+
+msgid "Search..."
+msgstr "Поиск..."
+
+msgid "Categories"
+msgstr "Категории"
+
+msgid "Language"
+msgstr "Язык"
+
+msgid "All languages"
+msgstr "Все языки"
+
+msgid "path.to.rule"
+msgstr ""
+
+msgid "styles found"
+msgstr "{n} стиль | {n} стиля | {n} стилей"
+
+msgid "Select Style"
+msgstr "Выберите стиль"
+
+msgid "Replace Icons"
+msgstr "Заменить иконки"
+
+msgid "Replace Icons when changing Style"
+msgstr "Заменить иконки при изменении стиля"
+
+msgid "Icons"
+msgstr ""
+
+msgid "Theme Icons File"
+msgstr "Файл иконок темы"
+
+msgid "Icons MIN"
+msgstr ""
+
+msgid "Compressed Theme Icons File"
+msgstr "Сжатый файл иконок темы"
+
+msgid "Add custom CSS or LESS to your site. All LESS theme variables and mixins are available. The <style> tag is not needed."
+msgstr "Добавьте собственный CSS или LESS на свой сайт. Доступны все переменные темы и миксины LESS. Тег <style> не нужен."

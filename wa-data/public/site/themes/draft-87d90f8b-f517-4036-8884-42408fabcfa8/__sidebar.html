@@ -1,0 +1,54 @@
+{$items = siteCustomerHelper::multiPages(array(7,101,85,5,16,17,18))}
+<div id="sidebarMenu">
+    {foreach $items as $itemPage}
+
+    {if $itemPage}
+    {$subpages = $wa->site->pages($itemPage.id)}
+    {$showSubPages = $subpages && count($subpages) > 0}
+
+    <div class="menu__item menu-item{if isset($page) && $page.parent_id === $itemPage.id} active{/if}">
+        <div class="menu-item__heading">
+            <div class="menu-item__icon">
+                {if isset($itemPage.icon) && $itemPage.icon}
+                <div class="icon mx-0 mx-md-auto">
+                    <img src="{$wa_theme_url}img/{$itemPage.icon}" alt="">
+                </div>
+                {/if}
+            </div>
+
+            <div class="menu-item__title">
+                <a href="/{$itemPage.url}" class="stretched-link"{if $showSubPages} data-toggle="collapse" data-target="#multiCollapsePage{$itemPage.id}"{/if}>
+                {if isset($itemPage.sidebar_label) && $itemPage.sidebar_label}
+                    {$itemPage.sidebar_label}
+                {else}
+                    {$itemPage.name}
+                {/if}
+                </a>
+            </div>
+        </div>
+
+        {if $showSubPages}
+        <div class="collapse multi-collapse menu-item__nav menu-item-nav" id="multiCollapsePage{$itemPage.id}">
+            <div class="menu-item-nav__container">
+                <div class="menu-item-nav__heading">{$itemPage.name}</div>
+                <ul class="nav flex-column">
+                    {foreach $subpages as $s}
+                    <li class="nav-item">
+                        <a href="{$s.url}" class="nav-link {if $s.url == $wa->currentUrl(false)} active{/if}">{$s.name}</a>
+                    </li>
+                    {/foreach}
+                </ul>
+            </div>
+        </div>
+        {/if}
+    </div>
+    {/if}
+
+    {/foreach}
+</div>
+
+{*<script>
+    $(function () {
+        $('#sidebarMenu .nav .nav-link.active').closest('.collapse').collapse('toggle');
+    })
+</script>*}

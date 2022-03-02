@@ -1,0 +1,128 @@
+<style>
+    .section__image-comparing {
+        margin-top: 40px;
+    }
+
+    @media (min-width: 768px) {
+        .section__image-comparing {
+            margin-top: 100px;
+        }
+    }
+
+    .section__image-comparing .section__heading .section__title {
+        font-size: 55px;
+
+    }
+
+    .section__image-comparing .section__heading .section__title::after {
+        content: "";
+        display: block;
+        width: 73px;
+        height: 4px;
+        background: #e30014;
+        margin-top: 20px;
+    }
+
+    .image-comparing__heading {
+        text-align: center;
+    }
+
+    .image-comparing__heading h6 {
+        font-size: 20px;
+        font-weight: 600;
+    }
+
+    .twentytwenty-container {
+        margin-bottom: 10px;
+    }
+
+    .image-comparing__body {
+        font-size: 14px;
+    }
+</style>
+
+<script type="text/javascript" src="{$wa_theme_url}js/twentytwenty/js/jquery.event.move.js"></script>
+<script type="text/javascript" src="{$wa_theme_url}js/twentytwenty/js/jquery.twentytwenty.js"></script>
+<link rel="stylesheet" href="{$wa_theme_url}js/twentytwenty/css/twentytwenty.css">
+
+<div class="section section__image-comparing">
+    <div class="container-fluid container-lg">
+        <div class="section__heading">
+            <h1 class="section__title section__title--center">Варианты подсветки объемных букв</h1>
+        </div>
+
+        <div class="row">
+            <div class="col-12 col-md-3">
+                <div class="image-comparing__wrapper">
+                    <div class="image-comparing__heading">
+                        <h6>Торцевая</h6>
+                    </div>
+                    <div class="twentytwenty-container">
+                        <img src="/img/letters/торцевая-день.jpg" alt="">
+                        <img src="/img/letters/торцевая-ночь.jpg" alt="">
+                    </div>
+
+                    <div class="image-comparing__body">
+                        <p>Объемные буквы с подсветкой торцевой стороны. Возможна комбинация цветов.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-3">
+                <div class="image-comparing__wrapper">
+                    <div class="image-comparing__heading">
+                        <h6>Фронтальная</h6>
+                    </div>
+                    <div class="twentytwenty-container">
+                        <img src="/img/letters/лицо-день.jpg" alt="">
+                        <img src="/img/letters/лицо-ночь.jpg" alt="">
+                    </div>
+
+                    <div class="image-comparing__body">
+                        <p>Объемные буквы из ПВХ с лицевой поверхностью из акрила. Могут быть белые, цветные, или с печатью.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-3">
+                <div class="image-comparing__wrapper">
+                    <div class="image-comparing__heading">
+                        <h6>Контражурная</h6>
+                    </div>
+                    <div class="twentytwenty-container">
+                        <img src="/img/letters/контуражур-день.jpg" alt="">
+                        <img src="/img/letters/контуражур-ночь.jpg" alt="">
+                    </div>
+
+                    <div class="image-comparing__body">
+                        <p>Объемные буквы из ПВХ. Подсветка с задней стороны. Буквы крепятся на дистанционные держатели.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-3">
+                <div class="image-comparing__wrapper">
+                    <div class="image-comparing__heading">
+                        <h6>Пиксельная</h6>
+                    </div>
+                    <div class="twentytwenty-container">
+                        <img src="/img/letters/пиксели-день.jpg" alt="">
+                        <img src="/img/letters/пиксели-ночь.jpg" alt="">
+                    </div>
+
+                    <div class="image-comparing__body">
+                        <p>Объемные буквы с открытыми светодиодами фронтальной стороны. Возможна комбинация цветов.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    {literal}
+    $(window).load(function() {
+        $('.twentytwenty-container').twentytwenty({
+            before_label:'',
+            after_label:'',
+        });
+    });
+    {/literal}
+</script>

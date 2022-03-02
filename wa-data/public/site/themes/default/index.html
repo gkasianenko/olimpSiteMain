@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <meta name="Keywords" content="{$wa->meta('keywords')|escape}"/>
+    <meta name="Description" content="{$wa->meta('description')|escape}"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>{$wa->title()|escape}</title>
+    <link rel="icon" type="image/png" href="{$wa_theme_url}img/favicon.png"/>
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+    <link rel="stylesheet" href="{$wa_theme_url}style.css{if $wa->debug()}?t={$smarty.now}{else}?v=1.4.0{/if}">
+    <link rel="stylesheet" href="{$wa_theme_url}style_landing.css{if $wa->debug()}?t={$smarty.now}{else}?v=1.4.0{/if}">
+    <link rel="stylesheet" href="{$wa_theme_url}content.css{if $wa->debug()}?t={$smarty.now}{else}?v=1.4.0{/if}">
+    <link rel="stylesheet" href="{$wa_theme_url}js/lightbox2/dist/css/lightbox.min.css">
+    <link rel="stylesheet" href="{$wa_theme_url}js/aos/dist/aos.css">
+    <link rel="stylesheet" href="{$wa_theme_url}js/owl.carousel/dist/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="{$wa_theme_url}js/owl.carousel/dist/assets/owl.theme.default.min.css">
+    <script type="text/javascript" src="{$wa_static_url}wa-content/js/jquery/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="{$wa_static_url}wa-content/js/jquery/jquery-migrate-1.2.1.min.js"></script>
+    <script src='https://www.google.com/recaptcha/api.js?render=6Ld8jx8eAAAAACdPDR6N77Lr3pRshdP78FQ9tXVU'></script>
+    {literal}
+    <script>
+        window.onload = function() {
+            grecaptcha.ready(function() {
+                grecaptcha.execute('6Ld8jx8eAAAAACdPDR6N77Lr3pRshdP78FQ9tXVU', {action: 'feedback'}).then(function(token) {
+                    document.querySelectorAll('input.g-recaptcha-response').forEach(function(el) {
+                        el.value = token;
+                    })
+                });
+            });
+        };
+    </script>
+    {/literal}
+
+    <style>
+        .grecaptcha-badge {
+            display: none !important;
+        }
+    </style>
+</head>
+
+{$isShowSidebar = in_array($page.id, [7,101,85,5,16,17,18]) || in_array($page.parent_id, [7,101,85,5,16,17,18])}
+{$isInnerPage = isset($page) && $page.id && $page.full_url !== ''}
+{$isHomePage = $wa->app() == 'site' && ((empty($page.id) && empty($page.content)) || $page.url === '')}
+
+{$new_jumbotron_pages = array(102,103,104,105,139,180,107,108,109,110,111,163,90,91,89,98,86,16,141,99,101,7,173,174,85,12,13,17,150,149,151,18,153,148,154,46,72,145, 19,30,31,34,35,36,28, 4,5,50,52,53,56,54,55,51,57,58,59, 20,2,21,185)}
+
+<body class="{if $isInnerPage}inner-page{/if}{if $isShowSidebar} with-sidebar{/if}">
+
+{*<div id="before-load">
+    <div class="before-load__content">
+        <div class="before-load__logo">
+            <img src="/wa-data/public/site/themes/default/img/logo_bl.svg" alt="">
+        </div>
+        <div class="before-load__spinner">
+            <i class="fa fa-spinner fa-spin"></i>
+        </div>
+    </div>
+</div>*}
+
+{if !empty($page.tpl)}
+
+{include file=$page.tpl}
+
+{else}
+
+
+{include file="`$wa_active_theme_path`/header.html" inline}
+
+{include file="`$wa_active_theme_path`/main.html" inline}
+
+{if $isShowSidebar}
+<aside class="sidebar d-none d-xl-block" id="sidebar">
+    {include file="`$wa_active_theme_path`/__sidebar.html" inline}
+</aside>
+{/if}
+
+{include file="`$wa_active_theme_path`/footer.html" inline}
+
+
+
+<a href="#" id="return-to-top" style="display: none;">
+    <i></i>
+</a>
+{/if}
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript" >
+    (function (d, w, c) {
+        (w[c] = w[c] || []).push(function() {
+            try {
+                w.yaCounter46161360 = new Ya.Metrika({
+                    id:46161360,
+                    clickmap:true,
+                    trackLinks:true,
+                    accurateTrackBounce:true,
+                    webvisor:true
+                });
+            } catch(e) { }
+        });
+
+        var n = d.getElementsByTagName("script")[0],
+            s = d.createElement("script"),
+            f = function () { n.parentNode.insertBefore(s, n); };
+        s.type = "text/javascript";
+        s.async = true;
+        s.src = "https://mc.yandex.ru/metrika/watch.js";
+
+        if (w.opera == "[object Opera]") {
+            d.addEventListener("DOMContentLoaded", f, false);
+        } else { f(); }
+    })(document, window, "yandex_metrika_callbacks");
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/46161360" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+{literal}
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '4751741754869708');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=4751741754869708&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JTMSF6RYWF"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-JTMSF6RYWF');
+</script>
+{/literal}
+<!--<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>-->
+<script src="{$wa_theme_url}js/yall.min.js"></script>
+<script src="{$wa_theme_url}js/popper.min.js"></script>
+<script src="{$wa_theme_url}js/bootstrap.min.js"></script>
+<script src="{$wa_theme_url}js/typewritter.js"></script>
+<script src="{$wa_theme_url}js/accordion-mobile.js"></script>
+<script src="{$wa_theme_url}js/owl.carousel/dist/owl.carousel.min.js"></script>
+<script src="{$wa_theme_url}js/lightbox2/dist/js/lightbox.min.js"></script>
+<script src="{$wa_theme_url}js/aos/dist/aos.js"></script>
+<script src="{$wa_theme_url}js/lottie.min.js"></script>
+<script src="{$wa_theme_url}js/app.js{if $wa->debug()}?t={$smarty.now}?v=1.4.0{/if}"></script>
+<script src="{$wa_theme_url}js/svgxuse.min.js" defer></script>
+{if $wa->customizer}{$wa->customizer->customizer()}{/if}
+</body>
+</html>

@@ -1,0 +1,25 @@
+<div class="block align-center">
+    <h6 class="heading">[`Last login attempts`]</h6>
+    <br>
+    <table class="zebra">
+        {foreach $message as $log}
+            <tr>
+            <td title="{$log.datetime|wa_datetime:'fulldatetime'}">
+            {if $log.datetime|strtotime < $twodays}
+                {$log.datetime|wa_datetime:'date'}
+            {else}
+                {$log.datetime|wa_datetime:'humandatetime'}
+            {/if}
+            </td>
+            <td class="align-left min-width" title="{$log.params.login}">{$log.params.login|truncate:12:'...'}</td>
+            <td class="align-left min-width">{$log.params.ip}</td>
+            <td class="min-width">{if $log.app_id == 'webasyst'}
+                <i class="icon16 lock" title="{$log.params.source}"></i>
+                {else}
+                <i class="icon16" title="{$log.app_id}-{$log.params.source}" style="background-image: url(../../../wa-apps/{$log.app_id}/img/{$log.app_id}16.png);"></i>
+                {/if}
+            </td>
+            </tr>
+        {/foreach}
+    </table>
+</div>

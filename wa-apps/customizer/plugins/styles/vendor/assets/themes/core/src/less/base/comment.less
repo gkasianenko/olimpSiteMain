@@ -1,0 +1,252 @@
+//
+// Component: Comment
+//
+// ========================================================================
+
+
+// Variables
+// ========================================================================
+
+@comment-primary-padding:                       @global-gutter;
+@comment-primary-background:                    @global-muted-background;
+@comment-list-margin-top:                       @global-large-margin;
+@comment-list-padding-left-m:                   @comment-list-margin-top;
+@comment-reply-padding:                         @global-gutter;
+@comment-reply-background:                      @global-muted-background;
+
+
+// Component
+// ========================================================================
+
+.hook-comment() {}
+
+
+// Sections
+// ========================================================================
+
+.hook-comment-body() {}
+
+.hook-comment-header() {}
+
+
+// Title
+// ========================================================================
+
+.hook-comment-title() {}
+
+
+// Meta
+// ========================================================================
+
+.hook-comment-meta() {}
+
+
+// Avatar
+// ========================================================================
+
+.hook-comment-avatar() {}
+
+
+// List
+// ========================================================================
+
+.hook-comment-list-adjacent() {}
+
+.hook-comment-list-sub() {}
+
+.hook-comment-list-sub-adjacent() {}
+
+
+// Style modifier
+// ========================================================================
+
+.hook-comment-primary() {
+    padding: @comment-primary-padding;
+    background-color: @comment-primary-background;
+}
+
+
+// Miscellaneous
+// ========================================================================
+
+.hook-comment-misc() {
+
+    //
+    // WM
+    //
+
+	.uk-comment-header > *,
+	.comments .credentials > *,
+	.review .summary > * {
+		margin-right: 5px;
+	}
+
+	// blog, photos
+	.comment:extend(.uk-comment) {}
+
+	.comment.new {
+		background: #ffc;
+		margin-left: -@padding-small-padding;
+		margin-right: -@padding-small-padding;
+        .uk-padding-small();
+	}
+
+	.comment.in-reply-to {
+		background-color: @comment-reply-background;
+		margin-left: -@padding-small-padding;
+		margin-right: -@padding-small-padding;
+        padding: @comment-reply-padding;
+	}
+
+	.comments { margin-top: @global-medium-margin; }
+
+	.comments .text:extend(.uk-comment-body) {}
+
+	.comments .credentials:extend(.uk-comment-header) {}
+
+	.comments .text::before:extend(.uk-comment-body::before) {}
+	.comments .text::after:extend(.uk-comment-body::after) {}
+	.comments .credentials::before:extend(.uk-comment-header::before) {}
+	.comments .credentials::after:extend(.uk-comment-header::after) {}
+
+	.comments .text > :last-child:extend(.uk-comment-body > :last-child) {}
+	.comments .credentials > :last-child:extend(.uk-comment-header > :last-child) {}
+
+	.comments .credentials .username:extend(.uk-comment-title) {}
+
+	.comments .credentials .staff:extend(.uk-badge) {}
+
+	.comments .credentials .date:extend(.uk-comment-meta) {}
+
+	.comments .actions { margin-top: @comment-header-margin-bottom; }
+
+	.comments > ul:extend(.uk-comment-list) {}
+
+	.comments > ul > :nth-child(n+2):extend(.uk-comment-list > :nth-child(n+2)) {}
+
+	.comments .comment ~ ul:extend(.uk-comment-list .uk-comment ~ ul) {}
+
+	.comments .comment ~ ul > :nth-child(n+2):extend(.uk-comment-list .uk-comment ~ ul > :nth-child(n+2)) {}
+
+	.comment-form p > label { display: block; }
+	.comment-form p > label::after { content: ":"; }
+
+	.comment-form input.error:extend(.uk-form-danger) {}
+    .comment-form textarea.error:extend(.uk-form-danger) {}
+
+	.comment-form .errormsg {
+		font-size: 0.875rem;
+		display: block;
+	}
+	.comment-form .errormsg:extend(.uk-alert) {}
+	.comment-form .errormsg:extend(.uk-alert-danger) {}
+
+	// shop
+	table.rating-distribution td {
+		padding: 2px 15px 2px 0;
+		border: none;
+	}
+	table.rating-distribution td .bar {
+		background: #eee;
+		width: 200px;
+		height: 13px;
+	}
+	table.rating-distribution td .bar .filling {
+		background: #f7c854;
+		height: 13px;
+	}
+
+	.review:extend(.uk-comment) {}
+
+	.review.new {
+		background: #ffc;
+		margin-left: -@padding-small-padding;
+		margin-right: -@padding-small-padding;
+        .uk-padding-small();
+	}
+
+	.review.in-reply-to {
+		background-color: @comment-reply-background;
+		margin-left: -@padding-small-padding;
+		margin-right: -@padding-small-padding;
+        padding: @comment-reply-padding;
+	}
+
+	.review > p:extend(.uk-comment-body) {}
+
+	.review .summary:extend(.uk-comment-header) {}
+
+	.review > p::before:extend(.uk-comment-body::before) {}
+	.review > p::after:extend(.uk-comment-body::after) {}
+	.review .summary::before:extend(.uk-comment-header::before) {}
+	.review .summary::after:extend(.uk-comment-header::after) {}
+
+	.review > p > :last-child:extend(.uk-comment-body > :last-child) {}
+	.review .summary > :last-child:extend(.uk-comment-header > :last-child) {}
+
+	.review .summary .username:extend(.uk-comment-title) {}
+
+	.review .summary .staff:extend(.uk-badge) {}
+
+	.review .summary .date:extend(.uk-comment-meta) {}
+
+	.review .actions { margin-top: @comment-header-margin-bottom; }
+
+	.reviews > ul:extend(.uk-comment-list) {}
+
+	.reviews > ul > :nth-child(n+2):extend(.uk-comment-list > :nth-child(n+2)) {}
+
+	.reviews .review ~ ul:extend(.uk-comment-list .uk-comment ~ ul) {}
+
+	.reviews .review ~ ul > :nth-child(n+2):extend(.uk-comment-list .uk-comment ~ ul > :nth-child(n+2)) {}
+
+	.review-form p > label { display: block; }
+	.review-form p > label::after { content: ":"; }
+
+	.review-form input.error:extend(.uk-form-danger) {}
+    .review-form textarea.error:extend(.uk-form-danger) {}
+
+	.review-form .errormsg {
+		font-size: 0.875rem;
+		display: block;
+	}
+	.review-form .errormsg:extend(.uk-alert) {}
+	.review-form .errormsg:extend(.uk-alert-danger) {}
+
+}
+
+
+// Inverse
+// ========================================================================
+
+@inverse-comment-reply-background:                      fade(@global-color, 5%);
+
+.hook-inverse() {
+
+    .comment.in-reply-to {
+		background-color: @inverse-comment-reply-background;
+	}
+
+    .review.in-reply-to {
+		background-color: @inverse-comment-reply-background;
+	}
+
+}
+
+
+// Primary
+// ========================================================================
+
+@primary-comment-reply-background:                      fade(@global-background, 5%);
+
+.hook-primary() {
+
+    .comment.in-reply-to {
+		background-color: @primary-comment-reply-background;
+	}
+
+    .review.in-reply-to {
+		background-color: @primary-comment-reply-background;
+	}
+
+}

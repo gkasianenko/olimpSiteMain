@@ -1,0 +1,245 @@
+<link rel="stylesheet" href="/wa-apps/site/plugins/reviewscalc/css/main.css?v2">
+<!--<script src="wa-apps/site/plugins/reviewscalc/js/jquery-3.3.1.min.js"></script>-->
+<script src="/wa-apps/site/plugins/reviewscalc/js/scripts.js?v2"></script>
+<script src="/wa-apps/site/plugins/reviewscalc/js/jquery.maskedinput.min.js"></script>
+
+<div class="section__calc">
+    <div class="container-fluid">
+        <div class="calc">
+
+            <div class="calc__black"></div>
+
+            <div class="calc__head">Расчёт стоимости</div>
+
+            <div class="calc__wrap">
+
+                <div class="calc__left">
+
+                    <div class="calc__flex calc__flex--aic">
+                        <div class="calc__text">Количество филиалов</div>
+                        <input data-price1="{$settings.price1}" data-price2="{$settings.price2}" data-wholesale-compare-sign="{$settings.criteria_sign}" data-wholesale-compare-val="{$settings.criteria_value}" type="text" class="calc__filials" id="calc_filials" value="1">
+                    </div>
+
+                    <div class="calc__body">
+
+                        <div class="calc__line calc__line--first">
+                            <div class="calc__part calc__part--first">
+                                <div class="calc__text">Площадка</div>
+                            </div>
+                            <div class="calc__between calc__between--first">
+                                <div class="calc__text">Кол-во отзывов</div>
+                                <div class="calc__text">Стоимость</div>
+                            </div>
+                        </div>
+
+                        <div class="calc__table">
+                            {foreach $items as $item}
+                            <div data-place="{$item.name|escape}" class="calc__line calc__line--calc calc__line--{$item.id}" data-wholesale-compare-sign="{$item.criteria_sign}" data-wholesale-compare-val="{$item.criteria_value}">
+                                <div class="calc__part">
+                                    {*<div class="calc__delete"></div>*}
+                                    <img src="/wa-data/public/site/reviewscalc/{$item.logo}" alt="" class="calc__img" style="margin-left: 0;">
+                                    <div class="calc__tip">
+                                        <div class="calc__sign">?</div>
+                                        <div class="calc__fly">{$item.comment}</div>
+                                    </div>
+                                </div>
+                                <div class="calc__head730">
+                                    <div class="calc__text">Кол-во отзывов</div>
+                                    <div class="calc__text">Стоимость</div>
+                                </div>
+                                <div class="calc__between">
+                                    <div class="calc__plusminus">
+                                        <div class="calc__minus">–</div>
+                                        <input class="calc__input" type="text" value="0">
+                                        <div class="calc__plus">+</div>
+                                    </div>
+                                    <div id="calc_price_1" style="display: none;">{$item.price1}</div>
+                                    <div id="calc_price_2" style="display: none;">{$item.price2}</div>
+                                    <div class="calc__text calc__text--price">0 руб.</div>
+                                </div>
+                            </div>
+                            {/foreach}
+
+                        </div>
+
+                        {*<div class="calc__line calc__line--add">
+                            <div class="calc__add">+</div>
+                            <div class="calc__text">Добавить площадку</div>
+                            <div class="drop">
+                                {foreach $items as $item}
+                                <div data-tip="{$item.name|escape}" data-price1="{$item.price1}" data-price2="{$item.price2}" data-name="{$item.name|escape}" data-wholesale-compare-sign="{$item.criteria_sign}" data-wholesale-compare-val="{$item.criteria_value}" class="drop__item"><img src="/wa-apps/site/plugins/reviewscalc/img/{$item.logo}" alt="" class="drop__img"></div>
+                                {/foreach}
+                            </div>
+                        </div>*}
+
+                    </div>
+
+                </div>
+
+                <div class="calc__right">
+
+                    <div class="calc__text calc__text--result">Общая стоимость проекта</div>
+
+                    <div class="calc__result">0.000 руб</div>
+
+                    <form class="calc__form form" id="reviews-calc-form-section" method="post" action="" style="overflow: hidden">
+                    {*<form action="!mail.php" method="POST" class="calc__form form" enctype="multipart/form-data">*}
+
+                        <div class="form-group">
+                            <div class="input-group">
+                                <div class="input-group-prepend"><span class="input-group-text"><i class="fas fa-user"></i></span></div>
+                                <input class="form__input form-control" name="name" type="text" placeholder="Ваше имя *" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="input-group">
+                                <div class="input-group-prepend"><span class="input-group-text"><i class="fas fa-envelope"></i></span></div>
+                                <input class="form__input form-control" name="email" type="email" placeholder="E-mail" required>
+                            </div>
+                        </div>
+
+                        {*<div class="form__icon form__icon--mail">
+                            <input name="email" type="email" class="form__input" required>
+                        </div>*}
+
+                        <div class="form-group">
+                            <div class="input-group">
+                                <div class="input-group-prepend"><span class="input-group-text"><i class="fas fa-phone"></i></span></div>
+                                <input class="form-control form__input" id="form_phone" name="tel" type="text" placeholder="Телефон *" required="">
+                            </div>
+                        </div>
+
+                        {*<div class="form__icon form__icon--phone">
+                            <input name="tel" id="form_phone" type="text" class="form__input" required>
+                        </div>*}
+
+                        <div class="form__icon">
+                            <textarea name="form_comment" id="form_comment" class="form__comment"></textarea>
+                            <img class="form__file" src="/wa-apps/site/plugins/reviewscalc/img//file.png" alt="">
+                        </div>
+
+                        <textarea name="text" id="form_data" class="form__data" style="display: none;"></textarea>
+
+                        <input type="file" name="userfile[]" multiple="multiple" id="form_file" style="display: none;">
+
+                        <div class="form__note">Оставить комментарий или прикрепить техническое задание</div>
+
+                        <input type="submit" value="Оставить заявку" class="form__submit">
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div id="success-selector-reviews-calc-section" style="display: none; width: 100%; text-align: center">
+            <h1 class="section__title no-border">Ваша заявка отправлена!</h1>
+            <p>Мы свяжемся с вами в ближайшее время.</p>
+            <p class="string__timer">&nbsp;</p>
+        </div>
+
+        <div id="error-selector-reviews-calc-section" style="display: none; width: 100%; text-align: center">
+            <h1 class="section__title no-border">Внимание!</h1>
+            <p>При отправке информации произошла ошибка.</p>
+            <p class="string__timer">&nbsp;</p>
+        </div>
+
+        {if !empty($captcha_selector)}
+        <div id="site-reviews-calc-captcha-selector" style="display: none;">{$wa->captcha()}</div>
+        {/if}
+    </div>
+</div>
+
+
+
+<script>
+    $(function ($) {
+
+
+
+
+        var form_selector = '{$form_selector}';
+        var captcha_selector = '{$captcha_selector}';
+        var success_selector = '{$success_selector}';
+        var error_selector = '{$error_selector}';
+        var site_url = '{$site_url}';
+
+        if (success_selector) {
+            $(success_selector).hide();
+        }
+
+        if (error_selector) {
+            $(error_selector).hide();
+        }
+
+        var $form = $(form_selector);
+
+        if (captcha_selector.length) {
+            $(captcha_selector).html($('#site-reviews-calc-captcha-selector').html());
+        }
+
+        $form.on('submit', function (event) {
+            event.preventDefault();
+
+            var formData = new FormData();
+
+            $(this).serializeArray().forEach(function (item) {
+                formData.append(item.name, item.value);
+            });
+
+            if (document.getElementById('form_file').files.length > 0) {
+                for (let x = 0; x < document.getElementById('form_file').files.length; x++) {
+                    formData.append('attachment[]', document.getElementById('form_file').files[x]);
+                }
+            }
+
+            var url = site_url + 'reviewscalc/send/';
+            var xhr = new XMLHttpRequest();
+
+            xhr.open("POST", url);
+            xhr.send(formData);
+
+            var left = 10;
+            var timer_selector;
+
+            xhr.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    var response = JSON.parse(this.responseText);
+
+                    if (response.status === 'ok') {
+                        if (success_selector) {
+                            $(success_selector).show();
+                            $(form_selector).closest('.calc__wrap').hide();
+
+                            timer_selector = $(success_selector).find('.string__timer');
+                        }
+                    } else {
+                        if (error_selector) {
+                            $(error_selector).show();
+                            $(form_selector).closest('.calc__wrap').hide();
+
+                            timer_selector = $(error_selector).find('.string__timer');
+                        }
+                    }
+
+                    if (timer_selector) {
+                        var feedbackTimerId = setInterval(function () {
+                            timer_selector.text('Вы будете перенаправлены через ' + left-- + ' сек.');
+
+                            if (left <= 0) {
+                                clearTimeout(feedbackTimerId);
+                                location.reload();
+                            }
+
+                        }, 1000);
+                    }
+                }
+            };
+
+            return false;
+        });
+    });
+</script>

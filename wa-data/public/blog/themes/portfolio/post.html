@@ -1,0 +1,196 @@
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
+{if $post.album_id && $post.album.id && $post.album.photos}
+    {$album = $post.album}
+    {$album_hash = "/album/`$album.id`:`$album.hash`"}
+{/if}
+
+
+<div itemscope itemtype="http://schema.org/BlogPosting">
+    <article class="post post__portfolio" role="main" id="post-{$post.id}">
+        <div class="section section__page section__page-with-nav">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-12 col-lg-auto section__bg section__bg--gray">
+                        <div class="section__page-nav">
+                            <div class="page-nav__container">
+                                <h1 class="text-center text-lg-left">
+                                    <span itemprop="name">{$post.title}</span>
+                                </h1>
+
+                                {* @event prepare_posts_frontend.%plugin_id%.before *}
+                                {if !empty($post.plugins.before)}
+                                <div class="text_before">
+                                    {foreach $post.plugins.before as $plugin => $output}{$output}{/foreach}
+                                </div>
+                                {/if}
+
+                                <div class="text" itemprop="articleBody">
+                                    {$post.text}
+                                </div>
+
+                                <div class="text-center text-lg-left mb-4 mb-lg-0">
+                                    <a href="/portfolio/" class="btn btn-red portfolio__btn-more">Все портфолио</a>
+                                </div>
+
+                                {*if $post.album_id && $post.album.id && $post.album.photos}
+                                {include 'post.album.html' album=$post.album inline}
+                                {/if*}
+
+                                {* @event prepare_posts_frontend.%plugin_id%.after *}
+                                {if !empty($post.plugins.after)}
+                                <div class="text_after">
+                                    {foreach $post.plugins.after as $plugin => $output}{$output}{/foreach}
+                                </div>
+                                {/if}
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-lg pl-lg-0">
+                        <div class="section__page-content">
+                            {if $wa->photos && $album_hash}
+                                {$photos = $wa->photos->photos($album_hash, "200x0,2000x0,970x0,")}
+                            {/if}
+
+                            <div class="portfolio__container">
+
+                                {$nextPost = blogCustomerHelper::getPrevPost($post)}
+                                {$prevPost = blogCustomerHelper::getNextPost($post)}
+
+                                {if $prevPost || $nextPost}
+                                <div class="portfolio__post-nav d-none d-lg-block">
+                                    {if $prevPost}
+                                    <a href="{$prevPost.url}" class="portfolio__post-prev">Предыдущая</a>
+                                    {/if}
+
+                                    {if $nextPost}
+                                    <a href="{$nextPost.url}" class="portfolio__post-next">Следующая</a>
+                                    {/if}
+                                </div>
+                                {/if}
+
+                                {if $photos}
+                                <div class="portfolio__images">
+                                    <div class="portfolio-thumbs__container">
+                                        <div class="" id="portfolio-thumbs">
+                                            {foreach from=$photos key=index item=p}
+                                            <div class="item">
+                                                <div class="slide-item" data-index="{$post.id}">
+                                                    <img src="{$p.thumb_200x0.url}" alt="{$p.name|escape}">
+                                                </div>
+                                            </div>
+                                            {/foreach}
+                                        </div>
+                                    </div>
+
+                                    <div class="portfolio-image__container">
+                                        <div class="" id="portfolio-image">
+                                            {foreach from=$photos key=index item=p}
+                                            <div class="item">
+                                                <div class="slide-item" data-index="{$post.id}">
+                                                    <a href="{$p.thumb_2000x0.url}" data-lightbox="{$post.id}">
+                                                        <img src="{$p.thumb_970x0.url}" alt="{$p.name|escape}">
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            {/foreach}
+                                        </div>
+                                    </div>
+                                </div>
+                                {/if}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </article>
+</div>
+
+
+{literal}
+<script>
+    $(document).ready(() => {
+        var portfolioImage = $('#portfolio-image');
+        var portfolioNav = $('#portfolio-thumbs');
+
+        portfolioImage.slick({
+            arrows: false,
+            dots: false,
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            draggable: false,
+            infinite: true,
+            fade: true,
+            asNavFor: '#portfolio-thumbs',
+
+        });
+
+        portfolioNav.slick({
+            arrows: true,
+            dots: false,
+            slidesToShow: 3,
+            slidesToScroll: 1,
+            infinite: true,
+            pauseOnHover: false,
+            vertical: false,
+            adaptiveHeight: true,
+            asNavFor: '#portfolio-image',
+            prevArrow: '<button type="button" class="slick-prev"><i></i></button>',
+            nextArrow: '<button type="button" class="slick-next"><i></i></button>',
+            mobileFirst:true,
+            focusOnSelect:true,
+            responsive: [
+                {
+                    breakpoint: 1600,
+                    settings: {
+
+                        vertical:true,
+                        // slidesToShow: 3,
+                        // slidesToScroll: 3,
+                        // infinite: true,
+                        // dots: true
+                    }
+                },
+                {
+                    breakpoint: 1200,
+                    settings: {
+
+                        vertical:false,
+                        // slidesToShow: 4,
+                        // slidesToScroll: 3,
+                        // infinite: true,
+                        // dots: true
+                    }
+                },
+                {
+                    breakpoint: 992,
+                    settings: {
+                        vertical:false,
+                        // slidesToShow: 3,
+                        // slidesToScroll: 3,
+                        // infinite: true,
+                        // dots: true
+                    }
+                },
+                {
+                    breakpoint: 600,
+                    settings: {
+                        vertical:false,
+                        // slidesToShow: 2,
+                        // slidesToScroll: 2
+                    }
+                },
+                {
+                    breakpoint: 480,
+                    settings: {
+
+                    }
+                }
+            ]
+        });
+    })
+</script>
+{/literal}

@@ -1,0 +1,137 @@
+//
+// Component: Article
+//
+// ========================================================================
+
+
+// Variables
+// ========================================================================
+
+//
+// New
+//
+
+@article-meta-link-color:                       @article-meta-color;
+@article-meta-link-text-decoration:             none;
+@article-meta-link-hover-color:                 @global-color;
+@article-meta-link-hover-text-decoration:       none;
+
+@article-margin-top-m:                          @article-margin-top;
+
+
+// Component
+// ========================================================================
+
+.hook-article() {}
+
+
+// Adjacent sibling
+// ========================================================================
+
+.hook-article-adjacent() {}
+
+
+// Title
+// ========================================================================
+
+.hook-article-title() {}
+
+
+// Meta
+// ========================================================================
+
+.hook-article-meta() {
+
+    a {
+        color: @article-meta-link-color;
+        text-decoration: @article-meta-link-text-decoration;
+    }
+
+    a:hover {
+        color: @article-meta-link-hover-color;
+        text-decoration: @article-meta-link-hover-text-decoration;
+    }
+
+}
+
+
+// Miscellaneous
+// ========================================================================
+
+.hook-article-misc() when not (@article-margin-top-m = @article-margin-top) {
+
+    /* Tablet landscape and bigger */
+    @media (min-width: @breakpoint-medium) {
+
+        .uk-article + .uk-article {
+            margin-top: @article-margin-top-m;
+        }
+
+    }
+
+}
+
+
+// Inverse
+// ========================================================================
+
+@inverse-article-meta-link-color:                       @inverse-article-meta-color;
+@inverse-article-meta-link-text-decoration:             none;
+@inverse-article-meta-link-hover-color:                 @global-inverse-color;
+@inverse-article-meta-link-hover-text-decoration:       none;
+
+.hook-inverse-article-title() {}
+
+.hook-inverse-article-meta() {
+
+    a {
+        color: @inverse-article-meta-link-color;
+        & when not (@inverse-article-meta-link-text-decoration = @article-meta-link-text-decoration) { text-decoration: @inverse-article-meta-link-text-decoration; }
+    }
+
+    a:hover {
+        color: @inverse-article-meta-link-hover-color;
+        & when not (@inverse-article-meta-link-hover-text-decoration = @inverse-article-meta-link-text-decoration) { text-decoration: @inverse-article-meta-link-hover-text-decoration; }
+    }
+
+}
+
+// Primary
+// ========================================================================
+
+@primary-article-title-color:                           @global-primary-background;
+@primary-article-meta-color:                            fade(@global-primary-background, 60%);
+@primary-article-meta-link-color:                       @primary-article-meta-color;
+@primary-article-meta-link-text-decoration:             none;
+@primary-article-meta-link-hover-color:                 @global-primary-background;
+@primary-article-meta-link-hover-text-decoration:       none;
+
+.hook-primary() {
+
+    .uk-article-title {
+        color: @primary-article-title-color;
+        .hook-primary-article-title();
+    }
+
+    .uk-article-meta {
+
+        color: @primary-article-meta-color;
+
+        .hook-primary-article-meta();
+
+        a {
+            color: @primary-article-meta-link-color;
+            & when not (@primary-article-meta-link-text-decoration = @article-meta-link-text-decoration) { text-decoration: @primary-article-meta-link-text-decoration; }
+        }
+
+        a:hover {
+            color: @primary-article-meta-link-hover-color;
+            & when not (@primary-article-meta-link-hover-text-decoration = @primary-article-meta-link-text-decoration) { text-decoration: @primary-article-meta-link-hover-text-decoration; }
+        }
+
+    }
+
+}
+
+.hook-primary-article-title() {}
+.hook-primary-article-meta() {}

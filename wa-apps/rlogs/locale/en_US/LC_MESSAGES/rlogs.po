@@ -1,0 +1,66 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: rlogs\n"
+"POT-Creation-Date: 2019-12-04 10:48+0300\n"
+"PO-Revision-Date: \n"
+"Last-Translator: rlogs\n"
+"Language-Team: rlogs\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: en_US\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPath-1: .\n"
+
+msgid "Hello world"
+msgstr ""
+
+msgid "Navigation"
+msgstr ""
+
+msgid "Menu item 1"
+msgstr ""
+
+msgid "Menu item 2"
+msgstr ""
+
+msgid "Menu item 3"
+msgstr ""
+
+msgid "Woohoo, Webasyst app is ready!"
+msgstr ""
+
+msgid "Settings"
+msgstr ""
+
+msgid "Plugins"
+msgstr ""
+
+msgid "This is Application for import product offers from distributor."
+msgstr ""
+
+msgid "Application in developing progress now. There may be errors in operation. Please inform the developer about them and they will be promptly eliminated."
+msgstr ""
+
+msgid "Import products"
+msgstr ""
+
+msgid "Save"
+msgstr ""
+
+msgid "General"
+msgstr ""
+
+msgid "Access denied"
+msgstr ""
+
+msgid "Plugin settings page"
+msgstr ""
+
+msgid "This is Application for logs automatic rotation."
+msgstr ""
+
+msgid "Logs rotation"
+msgstr ""

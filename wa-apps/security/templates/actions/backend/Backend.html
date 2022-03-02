@@ -1,0 +1,84 @@
+<h1>[`Антивирус`]</h1>
+
+{if empty($error_config)}
+<div class="">
+    <div class="b-security__start_block" style="{if !empty($find)}display:none{/if}">
+        <div class=" pull-right">
+            <button class="b-security__button b-security__start s-security__start">Запустить сканирование</button><br><br>
+            <label><input type="checkbox" value="1" class="b-security__full" {if !empty($find) && $find.full_scan}checked{/if} > полное сканирование</label>
+        </div>
+
+        {if !empty($last)}
+        <p>Предыдущее
+            {if $last.full_scan == 1}полное{/if}
+            {if $last.status == securityHelper::SCAN_CANCEL}<span class="red">прерванное</span>{/if}
+
+            сканирование ({wa_date('humandatetime', $last.end)|lower})
+            {if $last.count_mailware>0}
+                <strong class="red">обнаружило {$last.count_mailware} угроз</strong>
+            {else}
+                не обнаружило угроз
+            {/if}
+            <br>
+            <a href="{$wa_app_url}/?action=scan&id={$last.id|escape}">Смотреть отчет</a>
+        </p>
+        {else}
+            Сканирование еще не производилось, рекомендуется запустить сканирование -&gt;
+        {/if}
+
+        <div>* при полном сканирование сканируются все файлы, иначе из сканирования исключаются неизмененные файлы известных приложений WebAsyst</div>
+    </div>
+
+    <div class="b-security__process" style="{if !empty($find)}display:block{/if}">
+        <div class="b-security__header">Идет сканирование <span class="b-security__psets">...</span></div>
+        <div class="b-security__body">
+            <button class="b-security__button b-security__cancel">Прервать</button>
+            <div class="b-security__status">Текущий процесс: <span class="b-security__status_text"></span></div>
+        </div>
+
+        <div class="b-security__filelist">
+            Найдено: <span class="b-security__filelist_count">{if !empty($find)}{$find.count_files}{else}0{/if}</span> файлов<span class="b-security__known"> (известных <span class="b-security__count_known">0</span>)</span> <i class="icon16 loading" style="vertical-align: middle;"></i>
+        </div>
+
+        <div class="b-security__scanner">
+            <div class="b-security__progressbar">
+                <div class="b-security__progressbar_inner"></div>
+            </div>
+
+            <div class="b-security__progressbar_text">
+                <div id="current_estimate">Сканируем <span id="files_found">{$find.count_scan|default:'0'}</span> из <span class="b-security__count_files">{if !empty($find)}{$find.count_files}{else}0{/if}</span><span class="b-security__known" {if empty($find) || empty($find.count_known)}style="display:none"{/if}> (известных <span class="b-security__count_known">{$find.count_known|default:0}</span>)</span></div>
+                <div class="b-security__lastfile">&nbsp;</div>
+            </div>
+
+        </div>
+
+        <div class="b-security__warning">
+            <img src="{$wa_app_static_url}img/warning-16.png" alt="Внимание">
+            <div class="b-security__warning_text"></div>
+        </div>
+        <div class="clear"></div>
+        <div class="b-security__error">
+            <img src="{$wa_app_static_url}img/error-16.png" alt="Ошибка">
+            <span class="b-security__error_text">EROR</span>
+        </div>
+    </div>
+
+    <div class="b-security__founds_block">
+        {if !empty($founds)}
+        {include file="./BackendFound.html" founds=$founds}
+        {/if}
+    </div>
+
+
+</div>
+
+
+
+<input type="hidden" class="b-security_do-start" value="{if !empty($find)}1{else}0{/if}">
+{else}
+    <div class="alert alert-danger red">
+        <p>Ошибочная настройка приложения:</p>
+        {$error_config|implode:'<br>'}
+        <p><a href="{$wa_app_url}/?action=settings">Исправьте настройки</a></p>
+    </div>
+{/if}

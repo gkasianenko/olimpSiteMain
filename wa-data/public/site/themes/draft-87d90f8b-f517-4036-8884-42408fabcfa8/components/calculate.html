@@ -1,0 +1,61 @@
+
+<link rel="stylesheet" href="/wa-data/public/site/themes/default/calculate.css">
+<div class="calc_block_title">
+    Расчёт стоимости
+</div>
+
+
+<div class="calc-filials">
+    <span>Количество филиалов</span>
+    <input id="filials" oninput="onInputFilialsCount()" type="number" value="1" min="1">
+    <p class="help-module">
+        <span class="review-icon review-question hider"></span>
+        <span class="help-describe hidden">Размещение отзыва не сервисе Янднекс.Карты с гарантией публикации 1 мес*</span>
+    </p>
+</div>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-8">
+            <div id="platform-wrapper" class="container-fluid"></div>
+        </div>
+        <div class="col-md-4">
+            <p>Общая стоимость проекта</p>
+            <div id="total"></div>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid">
+    <div class="row">
+        <!---------Last Row------------>
+        <div class="col">
+            <div class="add-platform">
+                <div class="icons-wrapper" onclick="selectReviewPlatform()">
+                    <span class="review-icon review-plus"></span>
+                    <span>Добавить площадку</span>
+                </div>
+                <div id="select-review" class="">
+                    <ul></ul>
+                </div>
+            </div>
+
+        </div>
+        <div class="col">
+
+        </div>
+        <div class="col">
+
+        </div>
+        <!---------Last Row------------>
+    </div>
+</div>
+
+<script type="text/javascript" src="/wa-data/public/site/themes/default/js/calculate.js"></script>
+<script>
+    let reviewQuestion = document.querySelector('.hider');
+    console.log(reviewQuestion);
+    reviewQuestion.onclick = function() {
+        let helpDescribe = document.querySelector('.help-describe');
+        helpDescribe.classList.toggle('hidden');
+    }
+</script>

@@ -1,0 +1,56 @@
+{strip}
+
+
+<div class="shadowed">
+
+	{if isset($saved) && $saved}
+		<div class="block double-padded bordered-bottom c-message-success">
+			<i class="icon16 yes"></i>[`Shop app config updated`]
+		</div>
+	{/if}
+
+	<form action="?module=shopconfig" method="post">
+
+		{$wa->csrf()}
+
+		<div class="block double-padded">
+			<div class="fields form">
+				<h6 class="heading">[`Number of products per page`]</h6>
+				<div class="field-group">
+					<div class="field">
+						<div class="name">[`For mobile devices in frontend`]</div>
+						<div class="value no-shift">
+							<input type="hidden" name="products_per_page" value="EXPRESSION:PRODUCTS_PER_PAGE" />
+							<input type="text" name="customizer_frontend_ppp_mobile" class="short" value="{$customizer_frontend_ppp_mobile}" />
+						</div>
+					</div>
+					<div class="field">
+						<div class="name">[`For desktop devices in frontend`]</div>
+						<div class="value no-shift">
+							<input type="text" name="customizer_frontend_ppp_desktop" class="short" value="{$customizer_frontend_ppp_desktop}" />
+						</div>
+					</div>
+					<div class="field">
+						<div class="name">[`For all devices in backend`]</div>
+						<div class="value no-shift">
+							<input type="text" name="customizer_backend_ppp" class="short" value="{$customizer_backend_ppp}" />
+						</div>
+					</div>
+				</div>
+
+				<div class="field">
+					<div class="value submit">
+						<input type="submit" name="save" class="button green" value="[`Save`]" />
+					</div>
+				</div>
+
+			</div>
+			<div class="clear-both"></div>
+		</div>
+
+	</form>
+
+</div>
+
+
+{/strip}

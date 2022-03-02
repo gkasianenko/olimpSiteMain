@@ -1,0 +1,49 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: site/plugins/editor\n"
+"POT-Creation-Date: 2021-01-27 11:53+0300\n"
+"PO-Revision-Date: \n"
+"Last-Translator: site/plugins/editor\n"
+"Language-Team: site/plugins/editor\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-Language: en_US\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-Basepath: utf-8\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPath-1: .\n"
+
+msgid "Instruction"
+msgstr ""
+
+msgid "In order for the plugin to work correctly, the Site application must be present in the site structure."
+msgstr ""
+
+msgid "Site"
+msgstr ""
+
+msgid "Edit the file page.html in your design theme."
+msgstr ""
+
+msgid "Replace"
+msgstr ""
+
+msgid "with"
+msgstr ""
+
+msgid "Blog"
+msgstr ""
+
+msgid "Edit the file post.html in your design theme."
+msgstr ""
+
+msgid "Shop"
+msgstr ""
+
+msgid "Edit the file product.html in your design theme."
+msgstr ""
+
+msgid "Edit the file product.page.html in your design theme."
+msgstr ""

@@ -1,0 +1,27 @@
+//
+// Component: Grid
+//
+// ========================================================================
+
+
+// Variables
+// ========================================================================
+
+
+// Miscellaneous
+// ========================================================================
+
+.hook-grid-misc() {}
+
+
+// Primary
+// ========================================================================
+
+@primary-grid-divider-border:                  @primary-global-border;
+
+.hook-primary() {
+
+    .uk-grid-divider > :not(.uk-first-column)::before { border-left-color: @primary-grid-divider-border; }
+    .uk-grid-divider.uk-grid-stack > .uk-grid-margin::before { border-top-color: @primary-grid-divider-border; }
+
+}

@@ -1,0 +1,75 @@
+//
+// Component: Placeholder
+//
+// ========================================================================
+
+
+// Variables
+// ========================================================================
+
+@placeholder-background:                        transparent;
+
+//
+// New
+//
+
+@placeholder-border-mode:                       ~'';
+@placeholder-border-width:                      @global-border-width;
+@placeholder-border:                            @global-border;
+@placeholder-border-style:                      dashed;
+
+
+// Component
+// ========================================================================
+
+.hook-placeholder() when not (@placeholder-border-width = 0) {
+    border@{placeholder-border-mode}: @placeholder-border-width @placeholder-border-style @placeholder-border;
+}
+
+
+// Miscellaneous
+// ========================================================================
+
+.hook-placeholder-misc() {}
+
+
+// Inverse
+// ========================================================================
+
+@inverse-placeholder-border:                            @inverse-global-border;
+@inverse-placeholder-background:                        transparent;
+@inverse-placeholder-box-shadow:                        none;
+
+.hook-inverse() {
+
+    .uk-placeholder {
+        & when not (@placeholder-border-width = 0) { border-color: @inverse-placeholder-border; }
+        & when not (@inverse-placeholder-background = @placeholder-background) { background-color: @inverse-placeholder-background; }
+        & when not (@inverse-placeholder-box-shadow = @placeholder-box-shadow) { box-shadow: @inverse-placeholder-box-shadow; }
+        .hook-inverse-placeholder();
+    }
+
+}
+
+.hook-inverse-placeholder() {}
+
+
+// Primary
+// ========================================================================
+
+@primary-placeholder-border:                            @primary-global-border;
+@primary-placeholder-background:                        transparent;
+@primary-placeholder-box-shadow:                        none;
+
+.hook-primary() {
+
+    .uk-placeholder {
+        & when not (@placeholder-border-width = 0) { border-color: @primary-placeholder-border; }
+        & when not (@primary-placeholder-background = @placeholder-background) { background-color: @primary-placeholder-background; }
+        & when not (@primary-placeholder-box-shadow = @placeholder-box-shadow) { box-shadow: @primary-placeholder-box-shadow; }
+        .hook-primary-placeholder();
+    }
+
+}
+
+.hook-primary-placeholder() {}

@@ -1,0 +1,32 @@
+{if $wa->blog}
+{$posts = $wa->blog->posts(2,3)}
+{capture}{$posts|@shuffle}{/capture}
+{if !empty($posts)}
+<div class="section section__faq">
+    <div class="container-fluid container-md">
+        <h1 class="section__title">
+            Вопросы и ответы
+        </h1>
+        <div class="accordion" id="accordionFaq" data-aos="fade-up">
+            {foreach $posts as $k => $p}
+            <div class="section-item" data-toggle="collapse" data-target="#collapse{$k}" aria-expanded="false"
+                 aria-controls="collapse{$k}">
+                <div class="section-item__title" id="heading{$k}">{$p.title}</div>
+                <div class="section-item__text collapse" id="collapse{$k}" aria-labelledby="heading{$k}"
+                     data-parent="#accordionFaq">
+                    <div>
+                        {$p.text}
+                    </div>
+                </div>
+                <div class="section-item__icon"><a href="#" data-toggle="collapse" data-target="#collapse{$k}"><i
+                        class="icon fas"></i></a></div>
+            </div>
+            {/foreach}
+        </div>
+        <div class="section__detail">
+            <a href="{$wa->domainUrl()}/faq/"><span>Все вопросы и ответы</span><i></i></a>
+        </div>
+    </div>
+</div>
+{/if}
+{/if}

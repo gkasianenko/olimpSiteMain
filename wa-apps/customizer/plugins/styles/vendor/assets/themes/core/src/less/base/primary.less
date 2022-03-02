@@ -1,0 +1,39 @@
+// Name:            Primary
+// Description:     Primary component style
+//
+// Component:       `uk-primary`
+//
+// ========================================================================
+
+
+// Variables
+// ========================================================================
+
+@primary-global-color-mode:                     none;
+
+@primary-global-color:                          fade(@global-primary-color, 70%);
+@primary-global-emphasis-color:                 @global-primary-color;
+@primary-global-muted-color:                    fade(@global-primary-color, 50%);
+@primary-global-inverse-color:                  @global-inverse-color;
+
+@primary-global-primary-background:             @global-primary-color;
+@primary-global-muted-background:               fade(@global-primary-color, 10%);
+
+@primary-global-border:                         fade(@global-primary-color, 20%);
+
+
+/* ========================================================================
+   Component: Primary
+ ========================================================================== */
+
+.uk-primary when (@primary-global-color-mode = primary) {
+
+    .hook-primary();
+
+}
+
+
+// Hooks
+// ========================================================================
+
+.hook-primary() {}

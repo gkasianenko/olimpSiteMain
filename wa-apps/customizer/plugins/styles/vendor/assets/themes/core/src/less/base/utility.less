@@ -1,0 +1,298 @@
+//
+// Component: Utility
+//
+// ========================================================================
+
+
+// Variables
+// ========================================================================
+
+//
+// New
+//
+
+@dropcap-color:                                 inherit;
+
+@panel-box-padding:                             @global-small-gutter;
+@panel-box-background:                          @global-background;
+@panel-box-border:                              @global-border;
+@panel-box-border-width:                        @global-border-width;
+@panel-box-box-shadow:                          @global-small-box-shadow;
+
+@contact-note-font-size:						@global-small-font-size;
+@contact-note-line-height:						1;
+
+@contact-icon-margin:							5px;
+
+@phones-contact-font-size:						@global-medium-font-size;
+@phones-contact-line-height:					1.3;
+
+@elevatezoom-z-index:                           @global-z-index + 10;
+
+
+// Panel
+// ========================================================================
+
+.hook-panel-scrollable() {}
+
+
+// Box-shadow bottom
+// ========================================================================
+
+.hook-box-shadow-bottom() {}
+
+
+// Drop cap
+// ========================================================================
+
+.hook-dropcap() {
+    color: @dropcap-color;
+    // Prevent line wrap
+    margin-bottom: -2px;
+}
+
+
+// Logo
+// ========================================================================
+
+.hook-logo() {}
+
+.hook-logo-hover() {}
+
+
+// Miscellaneous
+// ========================================================================
+
+.hook-utility-misc() {
+
+    //
+    // ElevateZoom
+    //
+
+    .zoomContainer { z-index: @elevatezoom-z-index; }
+
+    //
+    // Webasyst
+    //
+
+	/* Panel box
+     ========================================================================== */
+
+	@media (max-width: @breakpoint-small-max) {
+
+		.uk-background {
+			background: none !important;
+		}
+
+	}
+
+	@media (min-width: @breakpoint-medium) {
+
+		.uk-background .uk-panel-box {
+			padding: @panel-box-padding;
+			background-color: @panel-box-background;
+			& when not (@panel-box-border-width = 0) { border: @panel-box-border-width solid @panel-box-border; }
+			& when not (@panel-box-box-shadow = none) { box-shadow: @panel-box-box-shadow; }
+		}
+
+	}
+
+
+    /* Box-shadow
+     ========================================================================== */
+
+	.uk-box-shadow-small-vertical { box-shadow: @global-small-box-shadow-vertical; }
+
+
+    /* Logo
+	 ========================================================================== */
+
+	.uk-logo-img-max-height-small img { max-height: 60px; }
+	.uk-logo-img-max-height-medium img { max-height: 100px; }
+	.uk-logo-img-max-height-large img { max-height: 140px; }
+
+	.uk-logo-img-max-width-small img { max-width: 100px; }
+	.uk-logo-img-max-width-medium img { max-width: 240px; }
+	.uk-logo-img-max-width-large img { max-width: 400px; }
+
+
+    /* Contact
+	 ========================================================================== */
+
+	.uk-contact-note { font-size: @contact-note-font-size; line-height: @contact-note-line-height; }
+	.uk-contact-icon { margin-right: @contact-icon-margin; }
+	.uk-phone .uk-contact { font-size: @phones-contact-font-size; line-height: @phones-contact-line-height; }
+
+
+    // Photos albums
+	.uk-card.layer1 {
+		transition-property: all;
+		transform: translate(4px,-4px);
+	}
+	.uk-card.layer2 {
+		transition-property: all;
+		transform: translate(8px,-8px);
+	}
+	.uk-transition-toggle:hover .uk-card.layer1 {
+		transform-origin: bottom right;
+		transform: translate(4px,-4px) rotate(1deg);
+	}
+	.uk-transition-toggle:hover .uk-card.layer2 {
+		transform-origin: bottom right;
+		transform: translate(8px,-8px) rotate(2deg);
+	}
+
+	// scrollshow
+	[uk-scrollshow],
+    [data-uk-scrollshow] { z-index: @sticky-z-index + 2; }
+
+	// fix uk-grid="masonry: true"
+	[uk-grid] > [style*="transform"]:hover,
+	[data-uk-grid] > [style*="transform"]:hover { z-index: 1; }
+
+}
+
+
+// Inverse
+// ========================================================================
+
+@inverse-dropcap-color:                                 @inverse-global-color;
+
+@inverse-panel-scrollable-border:                       @inverse-global-border;
+
+@inverse-small-box-shadow:                              0 2px 8px fade(@global-inverse-color, 30%);
+@inverse-medium-box-shadow:                             0 5px 15px fade(@global-inverse-color, 30%);
+@inverse-large-box-shadow:                              0 14px 25px fade(@global-inverse-color, 30%);
+@inverse-xlarge-box-shadow:                             0 28px 50px fade(@global-inverse-color, 40%);
+
+@inverse-box-shadow-bottom-background:                  @global-background;
+
+@inverse-dragover-box-shadow:                           0 28px 50px fade(@global-inverse-color, 30%);
+
+@inverse-panel-box-background:                          @global-secondary-background;
+@inverse-panel-box-border:                              transparent;
+@inverse-panel-box-box-shadow:                          none;
+
+.hook-inverse() {
+
+    .uk-panel-scrollable {
+        border-color: @inverse-panel-scrollable-border;
+    }
+
+    .uk-box-shadow-small { box-shadow: @inverse-small-box-shadow; }
+    .uk-box-shadow-medium { box-shadow: @inverse-medium-box-shadow; }
+    .uk-box-shadow-large { box-shadow: @inverse-large-box-shadow; }
+    .uk-box-shadow-xlarge { box-shadow: @inverse-xlarge-box-shadow; }
+
+    .uk-box-shadow-hover-small:hover { box-shadow: @inverse-small-box-shadow; }
+    .uk-box-shadow-hover-medium:hover { box-shadow: @inverse-medium-box-shadow; }
+    .uk-box-shadow-hover-large:hover { box-shadow: @inverse-large-box-shadow; }
+    .uk-box-shadow-hover-xlarge:hover { box-shadow: @inverse-xlarge-box-shadow; }
+
+    @supports (filter: blur(0)) {
+
+        .uk-box-shadow-bottom::before { background: @inverse-box-shadow-bottom-background; }
+
+    }
+
+    .uk-dragover { box-shadow: @inverse-dragover-box-shadow; }
+
+    @media (min-width: @breakpoint-medium) {
+
+        .uk-background .uk-panel-box {
+			background-color: @inverse-panel-box-background;
+			& when not (@inverse-panel-box-border = @panel-box-border) { border-color: @inverse-panel-box-border; }
+			& when not (@inverse-panel-box-box-shadow = @panel-box-box-shadow) { box-shadow: @inverse-panel-box-box-shadow; }
+		}
+
+	}
+
+}
+
+.hook-inverse-dropcap() { color: @inverse-dropcap-color; }
+
+.hook-inverse-logo() {}
+.hook-inverse-logo-hover() {}
+
+
+// Primary
+// ========================================================================
+
+@primary-dropcap-color:                                 @primary-global-color;
+@primary-logo-color:                                    @primary-global-color;
+@primary-logo-hover-color:                              @primary-global-color;
+
+@primary-panel-scrollable-border:                       @primary-global-border;
+
+@primary-small-box-shadow:                              0 2px 8px fade(@global-primary-background, 30%);
+@primary-medium-box-shadow:                             0 5px 15px fade(@global-primary-background, 30%);
+@primary-large-box-shadow:                              0 14px 25px fade(@global-primary-background, 30%);
+@primary-xlarge-box-shadow:                             0 28px 50px fade(@global-primary-background, 40%);
+
+@primary-box-shadow-bottom-background:                  @global-primary-background;
+
+@primary-dragover-box-shadow:                           0 28px 50px fade(@global-primary-background, 30%);
+
+@primary-panel-box-background:                          @global-primary-background;
+@primary-panel-box-border:                              transparent;
+@primary-panel-box-box-shadow:                          none;
+
+.hook-primary() {
+
+    .uk-dropcap::first-letter,
+    .uk-dropcap p:first-of-type::first-letter {
+        color: @primary-dropcap-color;
+        .hook-primary-dropcap();
+    }
+
+    .uk-logo {
+        color: @primary-logo-color;
+        .hook-primary-logo();
+    }
+
+    .uk-logo:hover,
+    .uk-logo:focus {
+        color: @primary-logo-hover-color;
+        .hook-primary-logo-hover();
+    }
+
+    .uk-logo > :not(.uk-logo-primary):not(:only-of-type) { display: none; }
+    .uk-logo-primary { display: inline; }
+
+    .uk-panel-scrollable {
+        border-color: @primary-panel-scrollable-border;
+    }
+
+    .uk-box-shadow-small { box-shadow: @primary-small-box-shadow; }
+    .uk-box-shadow-medium { box-shadow: @primary-medium-box-shadow; }
+    .uk-box-shadow-large { box-shadow: @primary-large-box-shadow; }
+    .uk-box-shadow-xlarge { box-shadow: @primary-xlarge-box-shadow; }
+
+    .uk-box-shadow-hover-small:hover { box-shadow: @primary-small-box-shadow; }
+    .uk-box-shadow-hover-medium:hover { box-shadow: @primary-medium-box-shadow; }
+    .uk-box-shadow-hover-large:hover { box-shadow: @primary-large-box-shadow; }
+    .uk-box-shadow-hover-xlarge:hover { box-shadow: @primary-xlarge-box-shadow; }
+
+    @supports (filter: blur(0)) {
+
+        .uk-box-shadow-bottom::before { background: @primary-box-shadow-bottom-background; }
+
+    }
+
+    .uk-dragover { box-shadow: @primary-dragover-box-shadow; }
+
+    @media (min-width: @breakpoint-medium) {
+
+        .uk-background .uk-panel-box {
+			background-color: @primary-panel-box-background;
+			& when not (@primary-panel-box-border = @panel-box-border) { border-color: @primary-panel-box-border; }
+			& when not (@primary-panel-box-box-shadow = @panel-box-box-shadow) { box-shadow: @primary-panel-box-box-shadow; }
+		}
+
+	}
+
+}
+
+.hook-primary-dropcap() {}
+.hook-primary-logo() {}
+.hook-primary-logo-hover() {}

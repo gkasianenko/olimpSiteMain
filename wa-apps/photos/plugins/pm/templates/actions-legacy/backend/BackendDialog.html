@@ -1,0 +1,51 @@
+{if strlen($item.name)}
+    {strip}
+        <h1>
+            {if $item.type == 'photo'}
+                {sprintf(_wp('META tags for photo <span class="gray">%s</span>'), $item.name|escape)}
+            {elseif $item.type == 'album'}
+                {sprintf(_wp('META tags for album <span class="gray">%s</span>'), $item.name|escape)}
+            {elseif $item.type == 'tag'}
+                {sprintf(_wp('META tags for tag <span class="gray">%s</span>'), $item.name|escape)}
+            {/if}
+        </h1>
+    {/strip}
+
+    <div class="fields">
+        {$controls}
+        <hr>
+        <div class="field">
+            <div class="value hint">
+                [`You can use any Smarty code in these fields; e.g.:`]
+                <br><br>
+                {if $item.type == 'photo'}
+                    <code class="bold">{literal}{photosPmPlugin::photo()}{/literal}</code> — [`current photo data array`]
+                    <br>
+                    <code class="bold">{literal}{photosPmPlugin::photo('name')}{/literal}</code> — [`photo name without extension`]
+                    <br>
+                    <code class="bold">{literal}{photosPmPlugin::photo('name')}.{photosPmPlugin::photo('ext')}{/literal}</code> — [`photo name with extension`]
+                    <br>
+                    <code class="bold">{literal}{photosPmPlugin::photo('description')}{/literal}</code> — [`photo description`]
+                    <br><br>
+                    <code class="bold">{literal}{photosPmPlugin::photoTags()}{/literal}</code> — [`photo tags separated by comma`]
+                    <br>
+                    <code class="bold">{literal}{photosPmPlugin::photoTags(' ')}{/literal}</code> — [`photo tags separated by space`]
+                    <br><br>
+                {elseif $item.type == 'album'}
+                    <code class="bold">{literal}{photosPmPlugin::album()}{/literal}</code> — [`current album data array`]
+                    <br>
+                    <code class="bold">{literal}{photosPmPlugin::album('name')}{/literal}</code> — [`album name`]
+                    <br>
+                    <code class="bold">{literal}{photosPmPlugin::album('note')}{/literal}</code> — [`album subtitle`]
+                    <br><br>
+                {elseif $item.type == 'tag'}
+                    <code class="bold">{literal}{waRequest::param('tag')}{/literal}</code> — [`this tag’s name`]
+                    <br>
+                {/if}
+                <code class="bold">{literal}{waRequest::param('_name', 'Photos')}{/literal}</code> — [`Photos route name from Site app "Structure" section`]
+                <br>
+                <code class="bold">{literal}{$wa->setting('name', 'Webasyst', 'webasyst')}{/literal}</code> — [`account name from Installer settings`]
+            </div>
+        </div>
+    </div>
+{/if}

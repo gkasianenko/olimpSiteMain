@@ -1,0 +1,128 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: photos/plugins/pm\n"
+"POT-Creation-Date: 2016-10-25 11:55+0300\n"
+"PO-Revision-Date: \n"
+"Last-Translator: photos/plugins/pm\n"
+"Language-Team: photos/plugins/pm\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=((((n%10)==1)&&((n%100)!=11))?(0):(((((n%10)>=2)&&((n%10)<=4))&&(((n%100)<10)||((n%100)>=20)))?(1):2));\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-Basepath: .\n"
+"Language: ru_RU\n"
+"X-Generator: Poedit 2.0.6\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPath-1: .\n"
+
+msgid "This album does not exist any more."
+msgstr "Этот альбом больше не существует."
+
+msgid "This photo does not exist any more."
+msgstr "Это фото больше не существует."
+
+msgid "You can use any Smarty code in these fields; e.g.:"
+msgstr "В этих полях можно использовать любой код Smarty, например:"
+
+msgid "account name from Installer settings"
+msgstr "название аккаунта из настроек «Инсталлера»"
+
+msgid "META tags"
+msgstr "МЕТА-теги"
+
+msgid "Save"
+msgstr "Сохранить"
+
+msgid "cancel"
+msgstr "отмена"
+
+msgid "META fields are not available for this item"
+msgstr "МЕТА-теги для этого элемента недоступны"
+
+msgid "Close"
+msgstr "Закрыть"
+
+msgid "Photos route name from Site app \"Structure\" section"
+msgstr "название поселения «Фото» из раздела «Структура» приложения «Сайт»"
+
+msgid "META tags for %s <span class=\"gray\">%s</span>"
+msgstr "МЕТА-теги для %s <span class=\"gray\">%s</span>"
+
+msgid "META tags for album <span class=\"gray\">%s</span>"
+msgstr "МЕТА-теги для альбома <span class=\"gray\">%s</span>"
+
+msgid "META tags for photo <span class=\"gray\">%s</span>"
+msgstr "МЕТА-теги для фото <span class=\"gray\">%s</span>"
+
+msgid "current photo data array"
+msgstr "массив данных фотографии"
+
+msgid "photo name without extension"
+msgstr "название фотографии без расширения"
+
+msgid "photo name with extension"
+msgstr "название фотографии с расширением"
+
+msgid "photo description"
+msgstr "описание фотографии"
+
+msgid "photo tags separated by comma"
+msgstr "теги фотографии, разделенные запятыми"
+
+msgid "current album data array"
+msgstr "массив данных альбома"
+
+msgid "album name"
+msgstr "название альбома"
+
+msgid "apply this value to all photos"
+msgstr "применить это значение ко всем фотографиям"
+
+msgid "apply this value to all albums"
+msgstr "применить это значение ко всем альбомам"
+
+msgid "use this value by default for photos with this field not completed"
+msgstr "использовать для фотографий это значение по умолчанию, если это поле не заполнено"
+
+msgid "use this value by default for albums with this field not completed"
+msgstr "использовать для альбомов это значение по умолчанию, если это поле не заполнено"
+
+msgid "photo tags separated by space"
+msgstr "теги фотографии, разделенные пробелами"
+
+msgid "album subtitle"
+msgstr "подзаголовок альбома"
+
+msgid "Photos app"
+msgstr "Приложение «Фото»"
+
+msgid "Support for <tt>album_delete</tt> event is required."
+msgstr "Необходима поддержка события <tt>album_delete</tt>."
+
+msgid "this tag’s name"
+msgstr "название этого тега"
+
+msgid "META tags for tag <span class=\"gray\">%s</span>"
+msgstr "МЕТА-теги для тега <span class=\"gray\">%s</span>"
+
+msgid "This tag does not exist any more."
+msgstr "Этот тег больше не существует."
+
+msgid "apply this value to all tags"
+msgstr "применить это значение ко всем тегам"
+
+msgid "in this photo’s albums only"
+msgstr "только в альбомах этой фотографии"
+
+msgid "with this photo’s tags only"
+msgstr "только с тегами этой фотографии"
+
+msgid "Error"
+msgstr "Ошибка"
+
+msgid "Meta tags editing not available"
+msgstr "Редактирование МЕТА-тегов недоступно"
+
+msgid "Select a <em>photo</em>, an <em>album</em>, or a <em>tag</em> to edit META tags."
+msgstr "Выберите <em>фото</em>, <em>альбом</em> или <em>тег</em>, чтобы редактировать МЕТА-теги."

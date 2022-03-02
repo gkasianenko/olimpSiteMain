@@ -1,0 +1,75 @@
+//
+// Component: Section
+//
+// ========================================================================
+
+
+// Variables
+// ========================================================================
+
+//
+// New
+//
+
+@section-default-color-mode:                      dark;
+@section-muted-color-mode:                        dark;
+
+
+// Component
+// ========================================================================
+
+.hook-section() {}
+
+
+// Style modifiers
+// ========================================================================
+
+.hook-section-default() {}
+
+.hook-section-muted() {}
+
+.hook-section-primary() {}
+
+.hook-section-secondary() {}
+
+
+// Overlap modifier
+// ========================================================================
+
+.hook-section-overlap() {}
+
+
+// Miscellaneous
+// ========================================================================
+
+.hook-section-misc() {
+
+    //
+    // Default
+    //
+
+    .uk-section-default:not(.uk-preserve-color):extend(.uk-dark all) when (@section-default-color-mode = dark) {}
+    .uk-section-default:not(.uk-preserve-color):extend(.uk-light all) when (@section-default-color-mode = light) {}
+    .uk-section-default:not(.uk-preserve-color):extend(.uk-primary all) when (@section-default-color-mode = primary) {}
+
+    //
+    // Muted
+    //
+
+    .uk-section-muted:not(.uk-preserve-color):extend(.uk-dark all) when (@section-muted-color-mode = dark) {}
+    .uk-section-muted:not(.uk-preserve-color):extend(.uk-light all) when (@section-muted-color-mode = light) {}
+    .uk-section-muted:not(.uk-preserve-color):extend(.uk-primary all) when (@section-muted-color-mode = primary) {}
+
+    //
+    // Primary
+    //
+
+    .uk-section-primary:not(.uk-preserve-color):extend(.uk-primary all) when (@section-primary-color-mode = primary) {}
+
+    //
+    // Secondary
+    //
+
+    .uk-section-secondary:not(.uk-preserve-color):extend(.uk-primary all) when (@section-secondary-color-mode = primary) {}
+
+}

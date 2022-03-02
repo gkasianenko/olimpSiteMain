@@ -1,0 +1,74 @@
+//
+// Component: Breadcrumb
+//
+// ========================================================================
+
+
+// Variables
+// ========================================================================
+
+@breadcrumb-divider-margin-horizontal:              @global-small-margin;
+@breadcrumb-item-color:                             @global-muted-color;
+@breadcrumb-item-hover-color:                       @global-emphasis-color;
+@breadcrumb-item-active-color:                      @global-muted-color;
+
+@breadcrumb-item-active-font-weight:                bolder;
+@breadcrumb-item-active-text-decoration:            none;
+
+// Component
+// ========================================================================
+
+.hook-breadcrumb() {}
+
+
+// Items
+// ========================================================================
+
+.hook-breadcrumb-item() {}
+
+.hook-breadcrumb-item-hover() {}
+
+.hook-breadcrumb-item-disabled() {}
+
+.hook-breadcrumb-item-active() {
+    font-weight: @breadcrumb-item-active-font-weight;
+}
+
+.hook-breadcrumb-divider() {}
+
+
+// Miscellaneous
+// ========================================================================
+
+.hook-breadcrumb-misc() {}
+
+
+// Inverse
+// ========================================================================
+
+@inverse-breadcrumb-item-color:                  fade(@inverse-global-color, 60%);
+@inverse-breadcrumb-item-hover-color:            @inverse-global-color;
+@inverse-breadcrumb-item-active-color:           @inverse-global-color;
+@inverse-breadcrumb-divider-color:               fade(@inverse-global-color, 60%);
+
+.hook-inverse-breadcrumb-item() {}
+.hook-inverse-breadcrumb-item-hover() {}
+.hook-inverse-breadcrumb-item-disabled() {}
+.hook-inverse-breadcrumb-item-active() {}
+
+.hook-inverse-breadcrumb-divider() {}
+
+// Primary
+// ========================================================================
+
+@primary-breadcrumb-item-color:                  fade(@global-primary-background, 80%);
+@primary-breadcrumb-item-hover-color:            @global-primary-background;
+@primary-breadcrumb-item-active-color:           @global-primary-background;
+@primary-breadcrumb-divider-color:               fade(@global-primary-background, 60%);
+
+.hook-primary-breadcrumb-item() {}
+.hook-primary-breadcrumb-item-hover() {}
+.hook-primary-breadcrumb-item-disabled() {}
+.hook-primary-breadcrumb-item-active() {}
+
+.hook-primary-breadcrumb-divider() {}

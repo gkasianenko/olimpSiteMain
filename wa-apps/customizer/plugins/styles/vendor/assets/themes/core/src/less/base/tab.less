@@ -1,0 +1,160 @@
+//
+// Component: Tab
+//
+// ========================================================================
+
+
+// Variables
+// ========================================================================
+
+//
+// New
+//
+
+@tab-vertical-item-padding-horizontal:          @tab-item-padding-horizontal;
+@tab-vertical-item-padding-vertical:            @tab-item-padding-vertical;
+
+@tab-item-background:                           transparent;
+@tab-item-hover-background:                     transparent;
+@tab-item-active-background:                    transparent;
+@tab-item-disabled-background:                  transparent;
+
+
+// Component
+// ========================================================================
+
+.hook-tab() {}
+
+
+// Items
+// ========================================================================
+
+.hook-tab-item() {
+    transition: 0.1s ease-in-out;
+    transition-property: color, background-color, border-color, box-shadow;
+}
+
+.hook-tab-item() when not (@base-link-text-decoration = none) {
+    text-decoration: none;
+}
+
+.hook-tab-item() when not (@tab-item-background = transparent) {
+    background: @tab-item-background;
+}
+
+.hook-tab-item-hover() when not (@tab-item-background = @tab-item-hover-background) {
+    background: @tab-item-hover-background;
+}
+
+.hook-tab-item-active() when not (@tab-item-background = @tab-item-active-background) {
+    background: @tab-item-active-background;
+}
+
+.hook-tab-item-disabled() when not (@tab-item-background = @tab-item-disabled-background) {
+    background: @tab-item-disabled-background;
+}
+
+
+// Position modifiers
+// ========================================================================
+
+.hook-tab-bottom() {}
+
+.hook-tab-bottom-item() {}
+
+.hook-tab-left() {}
+
+.hook-tab-left-item() { padding: @tab-vertical-item-padding-vertical @tab-vertical-item-padding-horizontal; }
+
+.hook-tab-right() {}
+
+.hook-tab-right-item() { padding: @tab-vertical-item-padding-vertical @tab-vertical-item-padding-horizontal; }
+
+
+// Miscellaneous
+// ========================================================================
+
+.hook-tab-misc() {
+
+    .uk-tab .uk-dropdown { margin-left: (@tab-margin-horizontal + @tab-item-padding-horizontal) }
+
+}
+
+
+// Inverse
+// ========================================================================
+
+@inverse-tab-item-background:                           transparent;
+@inverse-tab-item-hover-background:                     transparent;
+@inverse-tab-item-active-background:                    transparent;
+@inverse-tab-item-disabled-background:                  transparent;
+
+.hook-inverse-tab() {}
+
+.hook-inverse-tab-item() when not (@tab-item-background = @inverse-tab-item-background) {
+    background: @inverse-tab-item-background;
+}
+
+.hook-inverse-tab-item-hover() when not (@tab-item-hover-background = @inverse-tab-item-hover-background) {
+    background: @inverse-tab-item-hover-background;
+}
+
+.hook-inverse-tab-item-active() when not (@tab-item-active-background = @inverse-tab-item-active-background) {
+    background: @inverse-tab-item-active-background;
+}
+
+.hook-inverse-tab-item-disabled() when not (@tab-item-disabled-background = @inverse-tab-item-disabled-background) {
+    background: @inverse-tab-item-disabled-background;
+}
+
+
+// Primary
+// ========================================================================
+
+@primary-tab-item-background:                           transparent;
+@primary-tab-item-color:                                @primary-global-muted-color;
+@primary-tab-item-hover-background:                     transparent;
+@primary-tab-item-hover-color:                          @primary-global-color;
+@primary-tab-item-active-background:                    transparent;
+@primary-tab-item-active-color:                         @primary-global-emphasis-color;
+@primary-tab-item-disabled-background:                  transparent;
+@primary-tab-item-disabled-color:                       @primary-global-muted-color;
+
+.hook-primary() {
+
+    .uk-tab {
+        .hook-primary-tab();
+    }
+
+    .uk-tab > * > a {
+        color: @primary-tab-item-color;
+        & when not (@tab-item-background = @primary-tab-item-background) { background: @primary-tab-item-background; }
+        .hook-primary-tab-item();
+    }
+
+    .uk-tab > * > a:hover,
+    .uk-tab > * > a:focus{
+        color: @primary-tab-item-hover-color;
+        & when not (@tab-item-hover-background = @primary-tab-item-hover-background) { background: @primary-tab-item-hover-background; }
+        .hook-primary-tab-item-hover();
+    }
+
+    .uk-tab > .uk-active > a {
+        color: @primary-tab-item-active-color;
+        & when not (@tab-item-active-background = @primary-tab-item-active-background) { background: @primary-tab-item-active-background; }
+        .hook-primary-tab-item-active();
+    }
+
+    .uk-tab > .uk-disabled > a {
+        color: @primary-tab-item-disabled-color;
+        & when not (@tab-item-disabled-background = @primary-tab-item-disabled-background) { background: @primary-tab-item-disabled-background; }
+        .hook-primary-tab-item-disabled();
+    }
+
+}
+
+.hook-primary-tab() {}
+.hook-primary-tab-item() {}
+.hook-primary-tab-item-hover() {}
+.hook-primary-tab-item-active() {}
+.hook-primary-tab-item-disabled() {}

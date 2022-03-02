@@ -1,0 +1,136 @@
+{* post stream (list) wrapper *}
+
+{if $page eq 1 || ($page > 1 && !$is_lazyloading)}
+{foreach $wa->blog->blogs() as $blog}
+{if $blog.link == $wa->currentUrl(true)|regex_replace:"/\?.+/":""}
+
+<div class="row mb-sm-5">
+    <div class="col-12 col-sm">
+        <h1 class="display-4">{$blog.name}</h1>
+    </div>
+</div>
+
+<div class="page__nav">
+    <div class="row">
+        <div class="col d-none d-md-block">
+            <a class="btn btn-red" href="#" data-toggle="modal" data-target="#reviewFormModal" style="line-height: 36px">
+                Оставить отзыв
+            </a>
+        </div>
+        <div class="col-12 col-md-auto">
+            <ul class="nav justify-content-center flex-column flex-sm-row">
+                <li class="nav-item d-sm-none"><a class="nav-link" href="#" data-toggle="modal" data-target="#reviewFormModal">Оставить отзыв</a></li>
+                <li class="nav-item"><a class="nav-link" href="/otzyvy-yandeks/">Яндекс.Карты</a></li>
+                <li class="nav-item"><a class="nav-link" href="/otzyvy/">Письма</a></li>
+                <li class="nav-item"><a class="nav-link active" href="/otzyvy-video/">Видео</a></li>
+                <li class="nav-item"><a class="nav-link" href="/otzyvy-audio/">Аудио</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+
+{/if}
+{/foreach}
+{/if}
+<div class="blog-stream">
+    {if !$is_lazyloading}
+    <div id="post-stream" role="main" class="lazyloading" {if $wa->param('blog_url')}itemscope
+        itemtype="http://schema.org/Blog"{/if}>
+        {/if}
+
+        {if !$is_lazyloading and !empty($stream_title)}<h1>{$stream_title|escape}</h1>{/if}
+
+        <a name="page_{$page}"></a>
+
+        {if $is_search}
+        {include file="stream_search.html" inline}
+        {else}
+        {include file="stream_posts.html" inline}
+        {/if}
+
+        {*if $is_lazyloading or ($page eq 1)*}
+        <div class="pageless-wrapper text-center mt-3 mb-5">
+
+            {if $page lt $pages}
+            {$loaded_post_count=(count($posts)+$posts_per_page * ($page-1) )}
+            {*<p>{_w('%d post','%d posts',$loaded_post_count)}&nbsp;{_w('of %d post','of %d posts',$post_count)}</p>*}
+            <a href="?page={$page+1}" class="pageless-link btn btn-outline-dark">Показать еще</a>
+            <div class="pageless-progress" style="display:none;"><i class="icon16 loading"></i>[`Loading...`]</div>
+            {elseif isset($page) && $pages}
+            {*{_w('%d post','%d posts',$post_count)}*}
+            {/if}
+
+        </div>
+        {*/if*}
+
+        {if !$is_lazyloading}
+    </div>
+    {/if}
+    <nav>
+        <ul class="menu-h pagination justify-content-center" id="stream-paging">
+            {*for $p=1 to $pages}
+            <li class="page-item{if $p eq $page} selected{/if}"><a class="page-link"
+                                                                   href="{if $p eq $page}#page_{$page}{else}?page={$p}{/if}">{$p}</a>
+            </li>
+            {/for*}
+
+            {if blogCustomerHelper::hasPrev($page)}
+            <li class="page-item"><a class="page-link" href="?page={blogCustomerHelper::prevPage($page)}">&larr;</a>
+            </li>
+            {/if}
+
+            {foreach blogCustomerHelper::blogPagination($page, $pages, 5) as $p}
+            <li class="page-item{if $p eq $page} selected active{/if}">
+                <a class="page-link" href="{if $p eq $page}#page_{$page}{else}?page={$p}{/if}">
+                    {$p}
+                    {if $p eq $page}<span class="sr-only">(current)</span>{/if}
+                </a>
+            </li>
+            {/foreach}
+            {if blogCustomerHelper::hasNext($page,$pages)}
+            <li class="page-item"><a class="page-link" href="?page={blogCustomerHelper::nextPage($page)}">&rarr;</a>
+            </li>
+            {/if}
+        </ul>
+    </nav>
+</div>
+
+{if $page eq 1 && !$wa->globals('disable_pageless')}
+<script type="text/javascript" src="{$wa_active_theme_url}jquery.pageless2.js"></script>
+<script type="text/javascript">
+    $.pageless({
+        auto: false, // auto load next pages
+        url: '?layout=lazyloading{if $blog_query}&query={urlencode($blog_query)}{/if}',
+        times: 1,
+        target: '.lazyloading:first',
+        scroll: function (response) {
+            var progress = '';
+            if (response) {
+                progress = '<i class="icon16 loading"><' + '/i> <em>[`Loading`]...<' + '/em>';
+            }
+        },
+        beforeLoad: function () {
+            $('.blog-stream > nav').addClass('old');
+        },
+        afterLoad: function () {
+            AOS.init();
+        },
+
+        count: {$pages},
+        //paging_selector: '#stream-paging',
+
+        {if $blog_query}
+        prepareContent: function (html) {
+            // hightlight search query in content text after lazyloading
+            var tmp = $('<div></div>').append(html);
+            $.blog_utils.highlight(tmp);
+            var html = tmp.html();
+            tmp.remove();
+            return html;
+        }
+        {/if}
+    });
+</script>
+{/if}

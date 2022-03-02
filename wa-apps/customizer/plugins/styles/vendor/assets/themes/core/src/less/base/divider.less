@@ -1,0 +1,89 @@
+//
+// Component: Divider
+//
+// ========================================================================
+
+
+// Variables
+// ========================================================================
+
+
+// Icon
+// ========================================================================
+
+.hook-divider-icon() {}
+
+.hook-divider-icon-line() {}
+
+.hook-divider-icon-line-left() {}
+
+.hook-divider-icon-line-right() {}
+
+
+// Small
+// ========================================================================
+
+.hook-divider-small() {}
+
+
+// Vertical
+// ========================================================================
+
+.hook-divider-vertical() {}
+
+
+// Miscellaneous
+// ========================================================================
+
+.hook-divider-misc() {}
+
+
+// Inverse
+// ========================================================================
+
+.hook-inverse-divider-icon() {}
+.hook-inverse-divider-icon-line() {}
+
+.hook-inverse-divider-small() {}
+
+.hook-inverse-divider-vertical() {}
+
+// Primary
+// ========================================================================
+
+@primary-divider-icon-color:                      @primary-global-border;
+@primary-divider-icon-line-border:                @primary-global-border;
+@primary-divider-small-border:                    @primary-global-border;
+@primary-divider-vertical-border:                 @primary-global-border;
+
+.hook-primary() {
+
+    .uk-divider-icon {
+        .svg-fill(@internal-divider-icon-image, "#000", @primary-divider-icon-color);
+        .hook-primary-divider-icon();
+    }
+
+    .uk-divider-icon::before,
+    .uk-divider-icon::after {
+        border-bottom-color: @primary-divider-icon-line-border;
+        .hook-primary-divider-icon-line();
+    }
+
+    .uk-divider-small::after {
+        border-top-color: @primary-divider-small-border;
+        .hook-primary-divider-small();
+    }
+
+    .uk-divider-vertical {
+        border-left-color: @primary-divider-vertical-border;
+        .hook-primary-divider-vertical();
+    }
+
+}
+
+.hook-primary-divider-icon() {}
+.hook-primary-divider-icon-line() {}
+
+.hook-primary-divider-small() {}
+
+.hook-primary-divider-vertical() {}

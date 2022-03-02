@@ -1,0 +1,39 @@
+{$page = $wa->site->page(128)}
+{if $page}
+<div class="section section__why">
+    <div class="container-fluid container-md">
+        <div class="row">
+            <div class="col-12">
+                <div class="text-center mb-4">
+                    <h1 class="section__title section__title--center mb-3">{$page.name}</h1>
+                    <p class="lead">Комплексный подход и эффективный инструментарий.</p>
+                    <small>Задействуем наиболее современные и результативные методы, постоянно повышаем свою квалификацию.</small>
+                </div>
+            </div>
+        </div>
+
+        {$why_pages = $wa->site->pages($page.id)}
+
+        <div class="row row-eq-height mb-4 no-gutters" data-aos="fade-up">
+            {foreach $why_pages as $p}
+            {$p2 = $wa->site->page($p.id)}
+            <div class="col-12 col-lg-4">
+                <div class="section__item">
+                    <div class="section-item__icon">{$p@iteration}</div>
+                    <div class="section-item__content">
+                        <div class="section-item__title">{$p2.name}</div>
+                        <div class="section-item__text">{$p2.content}</div>
+                    </div>
+                </div>
+            </div>
+            {/foreach}
+        </div>
+
+        <div class="row">
+            <div class="col-10 offset-1 col-md-12 offset-md-0 text-center">
+                <p class="lead lead--blue text-speech text-center d-inline-block"><strong>Быть неповторимыми, значит стать узнаваемыми!</strong></p>
+            </div>
+        </div>
+    </div>
+</div>
+{/if}

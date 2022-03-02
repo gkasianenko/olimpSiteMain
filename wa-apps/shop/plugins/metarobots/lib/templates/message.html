@@ -1,0 +1,88 @@
+{strip}
+	{if !$wa->isMobile()}
+		<style>
+			.plugin-mtrbts__wrap {
+				font-size: 14px;
+				position: fixed;
+				bottom: 50px;
+				background: yellow;
+				color: black;
+				z-index: 999999;
+				width: 47%;
+				max-width: 1200px;
+				padding: 10px;
+				margin: 0 auto;
+				box-shadow: 0 0 20px;
+			}
+			.plugin-mtrbts__settingsText {
+				line-height: 30px;
+			}
+			.plugin-mtrbts__settingsLink {
+				color: #ffffff !important;
+				text-decoration: underline;
+				background: blue !important;
+				padding: 5px 10px !important;
+			}
+			.plugin-mtrbts__settingsLink:hover {
+				text-decoration: none;
+			}
+			.plugin-mtrbts__textNotice {
+				font-weight: 600;
+				color: red !important	
+			}
+			.plugin-mtrbts__metaText {
+				margin: 0;
+				padding: 10px;
+				cursor: text;
+				display: inline;
+				background: white;
+			}
+			.plugin-mtrbts__metaTextWrap {
+				display: inline-block;
+				margin: 5px 0 15px;
+			}
+			.plugin-mtrbts__clearBoth {
+				clear: both;
+			}
+			.plugin-mtrbts__hidden {
+				display: none !important;
+			}
+		</style>
+
+		<div class="plugin-mtrbts__wrap">
+			<h3>Тестирование плагина "SEO Meta Robots"</h3>
+			<p class="plugin-mtrbts__settingsText"><a href="/webasyst/shop/?action=plugins#/metarobots" class="plugin-mtrbts__settingsLink">настройки плагина "SEO Meta Robots"</a> <i>("Админстративная панель сайта" --> "Магазин" --> "Плагины" --> "SEO Meta Robots")</i><p>
+			<p class="plugin-mtrbts__textNotice">Это уведомление показывается только администратору сайта! Отключить его можно в настройках плагина.</p>
+			<p>Данная страница определена плагином "SEO Meta Robots" как «<u>{$page_name}</u>».</p>
+			{if $meta_text}
+				<p>В исходном коде между тегами &lt;head&gt; и &lt;/head&gt;, согласно настройкам, плагин должен вывести:</p>
+				<div class="plugin-mtrbts__metaTextWrap">
+					<xmp class="plugin-mtrbts__metaText">{$meta_text}</xmp>
+				</div>
+			{else}
+				<p>В исходном коде между тегами &lt;head&gt; и &lt;/head&gt;, согласно настройкам, плагин <b>не должен</b> выводить «Meta Robots».</p>
+			{/if}
+			<div class="plugin-mtrbts__clearBoth"></div>
+			
+		</div>
+		<script>
+			const btn = document.querySelector(".plugin-mtrbts__closeButton");
+			const content = document.querySelector(".plugin-mtrbts__wrap");
+			
+			btn.addEventListener("click", btnClick);
+			
+			function btnClick() {
+				console.log(content.classList);
+			
+				if (content.classList.contains("plugin-mtrbts__hidden")) {
+					btn.textContent = "Скрыть элемент";
+				} else {
+					btn.textContent = "Показать элемент";
+				}
+			
+				content.classList.toggle("hidden");
+			}
+		</script>
+	{/if}
+{/strip}
+	

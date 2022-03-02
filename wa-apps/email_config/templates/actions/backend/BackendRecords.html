@@ -1,0 +1,98 @@
+<div class="mail-content">
+  <h1 class="name"><span class="title"> </span>{$title}</h1>
+    <ul class="menu-h">
+        
+    </ul>
+
+    <div class="cc-content s-editor">
+        <div class="double-padded">
+            <table class="zebra">
+        {if $config}
+            <tr class="header">
+                <th><span class="sort" title="[`Email`]">[`Email`]</span></th>
+                <th class="align-left short" title="[`Connect to the SMTP-server`]">[`Connect to the SMTP-server`]</th>
+                <th class="min-width"><i class="icon16 settings"></i></th>
+            </tr>
+
+            {foreach from=$config item=r key=k}
+            <tr>
+                <td>
+                    <a href="#/mail/{$k}/"><b>{$k|escape}</b></a>
+                </td>
+                <td>
+                
+                {if isset($status_mail.$k)}
+
+                        {if $status_mail.$k.status == true}
+                            <i class="icon16 status-green-tiny"></i>
+                            {$status_mail.$k.time|wa_datetime:"humandatetime"}
+                        {else}
+                            <i class="icon16 status-red-tiny"></i>
+                            {$status_mail.$k.time|wa_datetime:"humandatetime"}
+                        {/if}
+                {else}
+                    <i class="icon16 status-yellow-tiny"></i>
+                {/if}
+                </td>
+                <td class="align-right"><a href="#/mail/{$k}/"><i class="icon16 edit s-instant-edit"></i></a></td>
+            </tr>
+            {/foreach}
+        {else}
+            [`Records are absent`]
+        {/if}
+        
+    </table>
+        </div>
+    </div>
+<div class="s-bottom-fixed-bar-content-offset">
+    <div class="s-dropdown">
+        <div class="s-drop-link">
+                    <a class="inline-link" id="s-helper-link" href="#">
+                        <i class="icon16 cheatsheet"></i><b><i>[`Cheat sheet`]</i></b>
+                        <i class="icon10 uarr no-overhanging"></i>
+                    </a>
+                    <div id="s-helper" class="s-dropdown-block">
+  {literal}                      
+<div id="s-helper-wa-content" class="tab-content s-dropdown-content">
+    <div class="fields">
+        <div class="field">
+            <div class="name"></div>
+            <div class="value">[`Connect to the SMTP-server`]</div>
+        </div>
+        <div class="field">
+            <div class="name align-right"><i class="icon16 status-green-tiny"></i> </div>
+            <div class="value"><span class="hint">[`connect to the SMTP-server established successfully`]</span></div>
+        </div>
+        <div class="field">
+            <div class="name align-right"> <i class="icon16 status-red-tiny"></i> </div>
+            <div class="value"><span class="hint">[`connect to the SMTP-server it wasn't possible`]</span></div>
+        </div>
+        <div class="field">
+            <div class="name align-right"><i class="icon16 status-yellow-tiny"></i></div>
+            <div class="value"><span class="hint">[`connect to the SMTP-server is not checked`]</span></div>
+        </div>
+        <div class="field">
+            <div class="name align-right"><i class="icon16 status-green-tiny"></i><[`Time`]></div>
+            <div class="value"><span class="hint">- [`time of the last check`]</span></div>
+        </div>
+                
+    </div>
+</div>
+
+{/literal}
+                    </div>
+        </div>
+    </div>
+</div>  
+
+</div>
+<script type="text/javascript">
+    $("#s-helper-link").click(function () {
+        if ($("#s-helper").is(":visible")) {
+            $("#s-helper").hide();
+            return false;
+        }
+        $("#s-helper").show();
+        return false;
+    });
+</script>

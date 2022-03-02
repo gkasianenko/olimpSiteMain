@@ -1,0 +1,42 @@
+<p><a href="{$wa_app_url}">Назад</a> </p>
+
+{if !empty($current)}
+<div class="b-security__process {if $current.count_mailware>0}b-security__process--danger{/if}" style="display: block">
+    <div class="b-security__header">
+        <div class="b-security__time">не завершено</div>
+        Текущее сканирование №{$current.id}
+        {if $current.full_scan == 1}[полное]{/if}
+    </div>
+    <div class="b-security__body">
+        <a href="{$wa_app_url}" class="b-security__start b-security__button pull-right">Продолжить</a>
+        <div class="b-security__total">Проверено: {$current.count_scan|default:'0'} из {$current.count_files|default:'0'}<span class="b-security__known"> (известных <span class="b-security__count_known">{$current.count_known|default:0}</span>)</span><br>
+            {if $current.count_mailware>0}<strong class="red">Угроз обнаружено: {$current.count_mailware|default:'0'}</strong>{else}<strong class="green">Пока угроз не найдено</strong>{/if}
+        </div>
+    </div>
+</div><br>
+{/if}
+{$est=false}
+{foreach $scans as $scan}
+    {$est=true}
+<div class="b-security__process {if $scan.count_mailware>0}b-security__process--danger{/if}" style="display: block">
+    <div class="b-security__header">
+        <div class="b-security__time">завершено {wa_date('humandatetime',$scan.end)|lower}</div>
+        Сканирование №{$scan.id}
+        {if $scan.full_scan == 1}[полное]{/if}
+        {if $scan.status == securityHelper::SCAN_CANCEL}[прервано пользователем]{/if}
+    </div>
+    <div class="b-security__body">
+        <a href="{$wa_app_url}/?action=scan&id={$scan.id|escape}" class="b-security__start b-security__button pull-right">Отчет</a>
+
+        <div class="b-security__total">Проверено: {$scan.count_scan|default:'0'} из {$scan.count_files|default:'0'}<span class="b-security__known"> (известных <span class="b-security__count_known">{$scan.count_known|default:0}</span>)</span>, затрачено {securityHelper::DateDiff($scan.start, $scan.end)}<br>
+            {if $scan.count_mailware>0}<strong class="red">Угроз обнаружено: {$scan.count_mailware|default:'0'}</strong>{else}<strong class="green">Угроз не найдено</strong>{/if}
+        </div>
+    </div>
+</div>
+    <br>
+{/foreach}
+
+{if ($est==false) && empty($current)}
+    <div class="bold red">Сканирования не производилось</div>
+    <p>Рекомендуем <a href="{$wa_app_url}">запустить сканирование</a></p>
+{/if}

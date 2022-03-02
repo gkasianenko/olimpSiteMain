@@ -1,0 +1,104 @@
+//
+// Component: Border
+//
+// ========================================================================
+
+
+// Variables
+// ========================================================================
+
+//
+// New
+//
+
+@border-default-style:                          @border-style;
+@border-default-hover-border:                   @border-default-border;
+
+@border-muted-style:                            @border-style;
+@border-muted-hover-border:                     @border-muted-border;
+
+@border-primary-style:                          @border-style;
+@border-primary-hover-border:                   @border-primary-border;
+
+@border-secondary-style:                        @border-style;
+@border-secondary-hover-border:                 @border-secondary-border;
+
+
+// Color
+// ========================================================================
+
+.hook-border-default() {
+    & when not (@border-default-style = @border-style) { border-style: @border-default-style; }
+    &:hover when not (@border-default-hover-border = @border-default-border) { border-color: @border-default-hover-border; }
+}
+
+.hook-border-muted() {
+    & when not (@border-muted-style = @border-style) { border-style: @border-muted-style; }
+    &:hover when not (@border-muted-hover-border = @border-muted-border) { border-color: @border-muted-hover-border; }
+}
+
+.hook-border-primary() {
+    & when not (@border-primary-style = @border-style) { border-style: @border-primary-style; }
+    &:hover when not (@border-primary-hover-border = @border-primary-border) { border-color: @border-primary-hover-border; }
+}
+
+.hook-border-secondary() {
+    & when not (@border-secondary-style = @border-style) { border-style: @border-secondary-style; }
+    &:hover when not (@border-secondary-hover-border = @border-secondary-border) { border-color: @border-secondary-hover-border; }
+}
+
+
+// Miscellaneous
+// ========================================================================
+
+.hook-border-misc() {}
+
+
+// Inverse
+// ========================================================================
+
+@inverse-border-default-hover-border:           @border-default-hover-border;
+@inverse-border-muted-hover-border:             @border-muted-hover-border;
+@inverse-border-primary-hover-border:           @border-primary-hover-border;
+@inverse-border-secondary-hover-border:         @border-secondary-hover-border;
+
+.hook-inverse-border-default() {
+    &:hover when not (@inverse-border-default-hover-border = @border-default-hover-border) { border-color: @inverse-border-default-hover-border; }
+}
+
+.hook-inverse-border-muted() {
+    &:hover when not (@inverse-border-muted-hover-border = @border-muted-hover-border) { border-color: @inverse-border-muted-hover-border; }
+}
+
+.hook-inverse-border-primary() {
+    &:hover when not (@inverse-border-primary-hover-border = @border-primary-hover-border) { border-color: @inverse-border-primary-hover-border; }
+}
+
+.hook-inverse-border-secondary() {
+    &:hover when not (@inverse-border-secondary-hover-border = @border-secondary-hover-border) { border-color: @inverse-border-secondary-hover-border; }
+}
+
+
+// Primary
+// ========================================================================
+
+@primary-border-default-hover-border:           @border-default-hover-border;
+@primary-border-muted-hover-border:             @border-muted-hover-border;
+@primary-border-primary-hover-border:           @border-primary-hover-border;
+@primary-border-secondary-hover-border:         @border-secondary-hover-border;
+
+.hook-primary-border-default() {
+    &:hover when not (@primary-border-default-hover-border = @border-default-hover-border) { border-color: @primary-border-default-hover-border; }
+}
+
+.hook-primary-border-muted() {
+    &:hover when not (@primary-border-muted-hover-border = @border-muted-hover-border) { border-color: @primary-border-muted-hover-border; }
+}
+
+.hook-primary-border-primary() {
+    &:hover when not (@primary-border-primary-hover-border = @border-primary-hover-border) { border-color: @primary-border-primary-hover-border; }
+}
+
+.hook-primary-border-secondary() {
+    &:hover when not (@primary-border-secondary-hover-border = @border-secondary-hover-border) { border-color: @primary-border-secondary-hover-border; }
+}

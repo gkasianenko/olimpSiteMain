@@ -1,0 +1,102 @@
+{if $post.album_id && $post.album.id && $post.album.photos}
+{assign var="p" value=$post.album.photos|reset}
+
+<div class="post__image">
+    <img src="{$p.thumb_big.url}" alt="" data-qazy="false" alt="" class="img-fluid" data-aos="fade">
+</div>
+
+<div class="post__content">
+    <a href="{$post.link}" target="_blank" itemprop="url" class="post__link">{$post.title}</a>
+</div>
+
+<div class="post__title d-none">
+    <h3>
+        <a href="{$post.link}" target="_blank" itemprop="url">{$post.title}</a>
+
+        {* @event prepare_posts_frontend.%plugin_id%.post_title *}
+        {if !empty($post.plugins.post_title)}
+        {foreach $post.plugins.post_title as $plugin => $output}{$output}{/foreach}
+        {/if}
+    </h3>
+</div>
+
+{*<div class="post__date">
+    <span class="hint">{$post.datetime|wa_datetime:"humandate"}</span>
+</div>*}
+
+{* @event prepare_posts_frontend.%plugin_id%.before *}
+{if !empty($post.plugins.before)}
+<div class="post__text-before">
+    {foreach $post.plugins.before as $plugin => $output}{$output}{/foreach}
+</div>
+{/if}
+
+{*<div class="post__text">
+    {$post.text|strip_tags}
+</div>*}
+
+{*if $post.cutted}
+<div class="post__detail">
+    <a href="{$post.link}">Подробнее</a>
+</div>
+{/if*}
+
+{* @event prepare_posts_frontend.%plugin_id%.after *}
+{if !empty($post.plugins.after)}
+<div class="post__text-after">
+    {foreach $post.plugins.after as $plugin => $output}{$output}{/foreach}
+</div>
+{/if}
+
+{else}
+
+{if isset($post.image) && !empty($post.image)}
+<div class="post__image">
+    <img src="{$post.image}" data-qazy="false" alt="" class="img-fluid" data-aos="fade">
+</div>
+{/if}
+<div class="post__content">
+    <a href="{$post.link}" target="_blank" itemprop="url" class="post__link">{$post.title}</a>
+</div>
+
+{*<div class="post__date">
+    <span class="hint">{$post.datetime|wa_datetime:"humandate"}</span>
+</div>*}
+
+{* @event prepare_posts_frontend.%plugin_id%.before *}
+{if !empty($post.plugins.before)}
+<div class="post__text-before">
+    {foreach $post.plugins.before as $plugin => $output}{$output}{/foreach}
+</div>
+{/if}
+
+<div class="post__text">
+    {$post.text|strip_tags}
+</div>
+
+{*if $post.cutted}
+<div class="post__detail">
+    <a href="{$post.link}">Подробнее</a>
+</div>
+{/if*}
+
+{* attached album photo thumbs *}
+{if $post.album_id && $post.album.id && $post.album.photos}
+{$photos_loaded = 1} {* required for proper photo thumbs retinification *}
+<div class="photo-album-attachment">
+    <ul class="thumbs">
+        {foreach $post.album.photos as $p}
+        <li><a href="{$post.link}#photo{$p.id}"><img src="{$p.thumb_crop.url}" class="retinify" width="96" height="96" alt="{$p.name|escape}"></a></li>
+        {/foreach}
+    </ul>
+</div>
+{/if}
+
+{* @event prepare_posts_frontend.%plugin_id%.after *}
+{if !empty($post.plugins.after)}
+<div class="post__text-after">
+    {foreach $post.plugins.after as $plugin => $output}{$output}{/foreach}
+</div>
+{/if}
+
+{/if}

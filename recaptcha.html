@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://www.google.com/recaptcha/api.js?render=6Ld8jx8eAAAAACdPDR6N77Lr3pRshdP78FQ9tXVU" async defer></script>
+
+    <script>
+        function onSubmit(event) {
+            event.preventDefault();
+        }
+    </script>
+</head>
+<body>
+<form action="?" method="post" id="demo-form">
+    <input type="text"><br>
+    <input type="text" class="g-recaptcha-response" value="">
+
+    <input type="submit" onclick="onSubmit">
+</form>
+
+<script>
+    window.onload = function() {
+        grecaptcha.ready(function() {
+            grecaptcha.execute('6Ld8jx8eAAAAACdPDR6N77Lr3pRshdP78FQ9tXVU').then(function(token) {
+                console.log(token);
+                document.querySelector('.g-recaptcha-response').value = token;
+            });
+        });
+    };
+</script>
+
+</body>
+</html>

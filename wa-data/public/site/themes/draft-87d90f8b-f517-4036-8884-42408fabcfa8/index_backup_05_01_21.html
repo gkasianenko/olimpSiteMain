@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <meta name="Keywords" content="{$wa->meta('keywords')|escape}"/>
+    <meta name="Description" content="{$wa->meta('description')|escape}"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>{$wa->title()|escape}</title>
+    <link rel="shortcut icon" href="/favicon.ico"/>
+    <link rel="icon" type="image/png" href="{$wa_theme_url}img/favicon.png"/>
+    <link rel="stylesheet" href="{$wa_theme_url}style.css{if $wa->debug()}?t={$smarty.now}{else}?v=1.2.0{/if}">
+    <link rel="stylesheet" href="{$wa_theme_url}content.css{if $wa->debug()}?t={$smarty.now}{else}?v=1.2.0{/if}">
+    <link rel="stylesheet" href="{$wa_theme_url}js/lightbox2/dist/css/lightbox.min.css">
+    <link rel="stylesheet" href="{$wa_theme_url}js/aos/dist/aos.css">
+    <link rel="stylesheet" href="{$wa_theme_url}js/owl.carousel/dist/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="{$wa_theme_url}js/owl.carousel/dist/assets/owl.theme.default.min.css">
+    <script type="text/javascript" src="{$wa_static_url}wa-content/js/jquery/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="{$wa_static_url}wa-content/js/jquery/jquery-migrate-1.2.1.min.js"></script>
+</head>
+
+{$isShowSidebar = in_array($page.id, [7,101,85,5,16,17,18]) || in_array($page.parent_id, [7,101,85,5,16,17,18])}
+
+<body class="{if $isShowSidebar}with-sidebar{/if}{if isset($page) && $page.id && $page.full_url !== ''} inner-page{/if}">
+
+{/if}
+
+
+{include file="`$wa_active_theme_path`/header.html" inline}
+
+{include file="`$wa_active_theme_path`/main.html" inline}
+
+{if $isShowSidebar}
+<aside class="sidebar d-none d-xl-block" id="sidebar">
+    {include file="`$wa_active_theme_path`/__sidebar.html" inline}
+</aside>
+{/if}
+
+{include file="`$wa_active_theme_path`/footer.html" inline}
+
+
+<div id="before-load">
+    <div class="before-load__content">
+        <div class="before-load__logo">
+            <img src="/wa-data/public/site/themes/default/img/logo.svg" alt="">
+        </div>
+        <div class="before-load__spinner">
+            <i class="fa fa-spinner fa-spin"></i>
+        </div>
+    </div>
+</div>
+
+<a href="#" id="return-to-top">
+    <i></i>
+</a>
+
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript" >
+    (function (d, w, c) {
+        (w[c] = w[c] || []).push(function() {
+            try {
+                w.yaCounter46161360 = new Ya.Metrika({
+                    id:46161360,
+                    clickmap:true,
+                    trackLinks:true,
+                    accurateTrackBounce:true,
+                    webvisor:true
+                });
+            } catch(e) { }
+        });
+
+        var n = d.getElementsByTagName("script")[0],
+            s = d.createElement("script"),
+            f = function () { n.parentNode.insertBefore(s, n); };
+        s.type = "text/javascript";
+        s.async = true;
+        s.src = "https://mc.yandex.ru/metrika/watch.js";
+
+        if (w.opera == "[object Opera]") {
+            d.addEventListener("DOMContentLoaded", f, false);
+        } else { f(); }
+    })(document, window, "yandex_metrika_callbacks");
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/46161360" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+
+<!--<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>-->
+<script> var qazy_image = "{$wa_theme_url}img/spinner.svg";  </script>
+<script src="{$wa_theme_url}js/qazy.min.js"></script>
+<script src="{$wa_theme_url}js/yall.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script src="{$wa_theme_url}js/owl.carousel/dist/owl.carousel.min.js"></script>
+<script src="{$wa_theme_url}js/lightbox2/dist/js/lightbox.min.js"></script>
+<script src="{$wa_theme_url}js/aos/dist/aos.js"></script>
+<script src="{$wa_theme_url}js/app.js{if $wa->debug()}?t={$smarty.now}?v=1.2.0{/if}"></script>
+<script src="{$wa_theme_url}js/svgxuse.min.js" defer></script>
+</body>
+</html>

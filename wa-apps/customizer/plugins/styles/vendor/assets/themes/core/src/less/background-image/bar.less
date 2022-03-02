@@ -1,0 +1,106 @@
+//
+// Component:       Bar
+//
+// ========================================================================
+
+
+// Variables
+// ========================================================================
+
+@internal-bar-default-gradient:                                        ~'';
+@internal-bar-muted-gradient:                                          ~'';
+@internal-bar-primary-gradient:                                        ~'';
+@internal-bar-secondary-gradient:                                      ~'';
+@internal-bar-overlay-light-gradient:                                  ~'';
+@internal-bar-overlay-dark-gradient:                                   ~'';
+
+
+// Component
+// ========================================================================
+
+.hook-bar() {}
+.hook-bar-container() {}
+
+.hook-bar-nav-item() {}
+.hook-bar-nav-item-hover() {}
+.hook-bar-nav-item-onclick() {}
+.hook-bar-nav-item-active() {}
+
+.hook-bar-item() {}
+
+.hook-bar-toggle() {}
+.hook-bar-toggle-hover() {}
+.hook-bar-toggle-active() {}
+.hook-bar-toggle-inverted() {}
+
+.hook-bar-title() {}
+
+.hook-bar-link() {}
+.hook-bar-link-hover() {}
+.hook-bar-link-active() {}
+
+.hook-bar-small() {}
+.hook-bar-medium() {}
+.hook-bar-large() {}
+
+.hook-bar-default() when not (@internal-bar-default-gradient = ~'') {
+    background-image: @internal-bar-default-gradient;
+}
+.hook-bar-muted() when not (@internal-bar-muted-gradient = ~'') {
+    background-image: @internal-bar-muted-gradient;
+}
+.hook-bar-primary() when not (@internal-bar-primary-gradient = ~'') {
+    background-image: @internal-bar-primary-gradient;
+}
+.hook-bar-secondary() when not (@internal-bar-secondary-gradient = ~'') {
+    background-image: @internal-bar-secondary-gradient;
+}
+.hook-bar-overlay-light() when not (@internal-bar-overlay-light-gradient = ~'') {
+    background-image: @internal-bar-overlay-light-gradient;
+}
+.hook-bar-overlay-dark() when not (@internal-bar-overlay-dark-gradient = ~'') {
+    background-image: @internal-bar-overlay-dark-gradient;
+}
+.hook-bar-sticky() {}
+
+
+// Hooks
+// ========================================================================
+
+.hook-bar-misc() {}
+
+
+// Inverse
+// ========================================================================
+
+.hook-inverse-bar-nav-item() {}
+.hook-inverse-bar-nav-item-hover() {}
+.hook-inverse-bar-nav-item-onclick() {}
+.hook-inverse-bar-nav-item-active() {}
+.hook-inverse-bar-item() {}
+.hook-inverse-bar-toggle() {}
+.hook-inverse-bar-toggle-hover() {}
+.hook-inverse-bar-toggle-active() {}
+.hook-inverse-bar-toggle-inverted() {}
+.hook-inverse-bar-title() {}
+.hook-inverse-bar-link() {}
+.hook-inverse-bar-link-hover() {}
+.hook-inverse-bar-link-active() {}
+
+
+// Primary
+// ========================================================================
+
+.hook-primary-bar-nav-item() {}
+.hook-primary-bar-nav-item-hover() {}
+.hook-primary-bar-nav-item-onclick() {}
+.hook-primary-bar-nav-item-active() {}
+.hook-primary-bar-item() {}
+.hook-primary-bar-toggle() {}
+.hook-primary-bar-toggle-hover() {}
+.hook-primary-bar-toggle-active() {}
+.hook-primary-bar-toggle-inverted() {}
+.hook-primary-bar-title() {}
+.hook-primary-bar-link() {}
+.hook-primary-bar-link-hover() {}
+.hook-primary-bar-link-active() {}

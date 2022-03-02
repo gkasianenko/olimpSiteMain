@@ -1,0 +1,172 @@
+// Name:            Form WA
+// Description:     Utilities to align embedded content
+//
+// Component:       `wa-form`
+//                  `wa-name`
+//					`wa-field`
+//                  `wa-value`
+//                  `field`
+//
+// ========================================================================
+
+
+// Variables
+// ========================================================================
+
+@form-wa-required-content:                        ' *';
+@form-wa-required-color:                          @global-danger-background;
+
+
+/* ========================================================================
+   Component: Form WA
+ ========================================================================== */
+
+.wa-form legend {
+  width: 100%;
+  border: 0;
+  padding: 0;
+  padding-bottom: 1rem;
+  font-size: 18px;
+  line-height: 30px;
+}
+.wa-form legend:after {
+  content: "";
+  display: block;
+  border-bottom: 1px solid #dddddd;
+  width: 100%;
+}
+
+.wa-form .wa-field .wa-value input.wa-error:extend(.uk-form-danger) {}
+.wa-form .wa-field .wa-value textarea.wa-error:extend(.uk-form-danger) {}
+
+.wa-form .wa-field .wa-value .wa-error-msg {
+	font-size: 0.875rem;
+	display: block;
+}
+.wa-form .wa-field .wa-value .wa-error-msg:extend(.uk-alert) {}
+.wa-form .wa-field .wa-value .wa-error-msg:extend(.uk-alert-danger) {}
+
+.wa-form .wa-field .wa-value p .field:before,
+.wa-form .wa-field .wa-value p .field:after,
+.wa-form .wa-field:before,
+.wa-form .wa-field:after {
+	content: "";
+	display: table;
+}
+.wa-form .wa-field .wa-value p .field:after,
+.wa-form .wa-field:after { clear: both; }
+
+/*
+ * Vertical gutter
+ * 1. Fix Webasyst out
+ */
+/* 1 */
+.wa-form input + .wa-field,
+.wa-form .wa-field + .wa-field,
+.wa-form .wa-field .wa-value p .field + .field {
+	margin-top: @global-small-margin;
+}
+.wa-form .wa-field .wa-value label {
+	display: block;
+}
+.wa-form .wa-field .wa-value label + label {
+	//margin-top: @global-small-margin;
+}
+.wa-form .wa-field .wa-value p span {
+	display: block;
+}
+.wa-form .wa-field .wa-value p .field span {
+	color: #999;
+	font-size: 0.875rem;
+}
+.wa-form .wa-field .wa-value > :last-child {
+	margin-bottom: 0;
+}
+
+.wa-form .wa-field .wa-value > input:not([type="radio"]):not([type="checkbox"]):not([type="hidden"]) + input:not([type="radio"]):not([type="checkbox"]),
+.wa-form .wa-field .wa-value > input:not([type="radio"]):not([type="checkbox"]) + select,
+.wa-form .wa-field .wa-value > select + input:not([type="radio"]):not([type="checkbox"]),
+.wa-form .wa-field .wa-value > select + select {
+	margin-left: @global-small-margin;
+}
+
+.wa-form .wa-field-birthday select { width: auto; }
+
+/* Small */
+@media (max-width: @breakpoint-xsmall-max) {
+
+	.wa-form .wa-field .wa-name {
+		display: block;
+		margin-bottom: 5px;
+		font-weight: bold;
+	}
+
+	.wa-form .wa-field .wa-value p .field {
+		margin-left: 0.75rem;
+	}
+
+	.wa-form input:not([type="radio"]):not([type="checkbox"]),
+	.wa-form textarea,
+	.wa-form select { width: 100%; }
+
+	.wa-form .wa-field-birthday select { width: auto !important; }
+
+}
+
+/* Medium and bigger */
+@media (min-width: @breakpoint-small) {
+
+	.wa-form .wa-field .wa-name {
+		width: 200px;
+		margin-top: 5px;
+		float: left;
+	}
+
+	.wa-form .wa-field .wa-value {
+		margin-left: 215px;
+	}
+
+	#wa-my-info-read-wrapper.wa-form .wa-field:not(:last-child) {
+		border-top: 1px dashed #e5e5e5;
+	}
+
+	#wa-my-info-read-wrapper.wa-form .wa-field .wa-value {
+		margin-top: 5px;
+	}
+
+}
+
+/* Required field */
+.wa-form .wa-field .wa-value p .field.wa-required span:after,
+.wa-form .wa-field.wa-required .wa-name:after {
+	content: @form-wa-required-content;
+	color: @form-wa-required-color;
+}
+
+/*
+ * wa-captcha
+ */
+
+.wa-captcha > p {
+	display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+	-ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+    margin: 0 0 5px;
+}
+.wa-captcha > p > * + * {
+	margin-left: 5px;
+}
+
+a.wa-captcha-refresh:extend(a.uk-link-muted) {}
+.wa-captcha-refresh:extend(.uk-text-small) {}
+
+
+// Hooks
+// ========================================================================
+
+.hook-form-wa-misc;
+
+.hook-form-wa-misc() {}

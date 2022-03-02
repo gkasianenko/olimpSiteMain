@@ -1,0 +1,196 @@
+//
+// Global
+//
+
+@global-color: #555;
+@global-emphasis-color: @global-primary-background;
+@global-muted-color: #aaa;
+@global-link-color: #000;
+@global-link-hover-color: fade(@global-link-color, 60%);
+
+@global-background: #ffffff;
+@global-muted-background: #f5f5f5;
+@global-primary-background: #111111;
+@global-secondary-background: #F2F2F2;
+
+@global-border: fade(@global-primary-background, 6%);
+
+@global-small-box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+@global-medium-box-shadow: 0 5px 15px rgba(0,0,0,0.04);
+@global-large-box-shadow: 0 15px 55px rgba(0,0,0,0.04);
+@global-xlarge-box-shadow: 0 28px 50px rgba(0,0,0,0.06);
+
+//
+// Alert
+//
+
+@alert-primary-background: @global-muted-background;
+@alert-success-background: @global-muted-background;
+@alert-warning-background: @global-muted-background;
+@alert-danger-background: @global-muted-background;
+@alert-border-width: 2px;
+@alert-border-mode: -left;
+@alert-border: @global-color;
+@alert-success-border: @global-success-background;
+@alert-warning-border: @global-warning-background;
+@alert-danger-border: @global-danger-background;
+@alert-primary-border: @global-emphasis-color;
+//
+// Base
+//
+
+@base-link-text-decoration: underline;
+
+//
+// bar
+//
+
+@bar-secondary-color-mode: dark;
+@bar-overlay-dark-color-mode: dark;
+
+//
+// Button
+//
+
+@button-default-color: @global-emphasis-color;
+@button-default-hover-color: @global-emphasis-color;
+@button-default-hover-background: darken(@global-secondary-background, 2%);
+@button-default-active-background: darken(@global-secondary-background, 5%);
+@button-default-active-color: @global-emphasis-color;
+
+@button-secondary-border: fade(@global-primary-background, 20%);
+@button-secondary-color: fade(@global-primary-background, 50%);
+@button-secondary-hover-background: @global-primary-background;
+@button-secondary-active-background: fade(@global-primary-background, 80%);
+
+//
+// Card
+//
+
+@card-primary-border: @global-border;
+@card-primary-hover-border: fade(@global-primary-background, 14%);
+@card-secondary-color: @global-color;
+@card-secondary-color-mode: none;
+@card-secondary-hover-background: @global-muted-background;
+@card-secondary-title-color: @global-emphasis-color;
+@card-sidebar-header-background: @global-secondary-background;
+@card-sidebar-title-color: @global-color;
+
+//
+// Dotnav
+//
+
+@dotnav-item-border: fade(@global-primary-background, 25%);
+@dotnav-item-hover-background: fade(@global-primary-background, 25%);
+@dotnav-item-onclick-background: @global-primary-background;
+@dotnav-item-active-background: @global-primary-background;
+
+//
+// Dropdown
+//
+
+@dropdown-background: darken(@global-background, 2%);
+@dropdown-nav-item-hover-color: @global-emphasis-color;
+@dropdown-nav-sublist-item-hover-color: @global-emphasis-color;
+
+//
+// divider
+//
+
+@divider-icon-color: fade(@global-border, 10%);
+@divider-small-border: fade(@global-border, 10%);
+@divider-vertical-border: fade(@global-border, 10%);
+@divider-small-border-width: 2px;
+@divider-vertical-border-width: 2px;
+
+//
+// Form
+//
+
+@form-radio-checked-focus-background: @global-primary-background;
+@form-radio-checked-background: @global-primary-background;
+@form-border: @global-border;
+@form-radio-border: fade(@global-border, 10%);
+
+//
+// Icon
+//
+
+@icon-button-color: @global-emphasis-color;
+@icon-button-hover-color: @global-color;
+@icon-button-active-background: fade(@global-secondary-background, 60%);
+@icon-button-active-color: @global-emphasis-color;
+
+//
+// Navbar
+//
+
+@navbar-dropdown-background: darken(@navbar-background, 2%);
+@navbar-dropdown-nav-item-hover-color: @global-emphasis-color;
+@navbar-dropdown-nav-item-active-color: @global-emphasis-color;
+@navbar-dropdown-nav-sublist-item-hover-color: @global-emphasis-color;
+
+//
+// notification
+//
+
+@notification-message-border-width: 2px;
+@notification-message-border: @global-color;
+@notification-message-primary-border: @global-emphasis-color;
+@notification-message-primary-color: @global-emphasis-color;
+@notification-message-success-border: @global-success-background;
+@notification-message-success-color: @global-success-background;
+@notification-message-warning-border: @global-warning-background;
+@notification-message-warning-color: @global-warning-background;
+@notification-message-danger-border: @global-danger-background;
+@notification-message-danger-color: @global-danger-background;
+@notification-message-danger-color-mode: dark;
+@notification-message-warning-color-mode: dark;
+@notification-message-success-color-mode: dark;
+@notification-message-primary-color-mode: dark;
+@notification-message-primary-background: @global-muted-background;
+@notification-message-success-background: @global-muted-background;
+@notification-message-warning-background: @global-muted-background;
+@notification-message-danger-background: @global-muted-background;
+@notification-message-border-mode: -left;
+
+//
+// Overlay
+//
+
+@overlay-primary-color-mode: dark;
+@overlay-default-background: fade(@global-background, 90%);
+@overlay-primary-background: fade(@global-primary-background, 90%);
+
+//
+// Section
+//
+
+@section-secondary-color-mode: none;
+
+//
+// Section
+//
+
+@search-default-border: @global-border;
+
+//
+// Tile
+//
+
+@tile-secondary-color-mode: none;
+
+//
+// Tooltip
+//
+
+@tooltip-background: @global-primary-background;
+
+//
+// Toolbar
+//
+
+@theme-toolbar-color-mode: dark;
+
+@tab-item-border-width: 0;
+@subnav-pill-item-border-radius: 5px;

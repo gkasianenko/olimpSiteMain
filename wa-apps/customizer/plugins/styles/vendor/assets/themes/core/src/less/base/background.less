@@ -1,0 +1,37 @@
+//
+// Component: Background
+//
+// ========================================================================
+
+
+// Variables
+// ========================================================================
+
+//
+// New
+//
+
+@background-danger-background:                  @global-danger-background;
+
+
+// Miscellaneous
+// ========================================================================
+
+.hook-background-misc() {
+
+    .uk-background-default { .hook-background-default(); }
+    .uk-background-muted { .hook-background-muted(); }
+    .uk-background-primary { .hook-background-primary(); }
+    .uk-background-secondary { .hook-background-secondary(); }
+    .uk-background-danger {
+        background-color: @background-danger-background;
+        .hook-background-danger();
+    }
+
+}
+
+.hook-background-default() {};
+.hook-background-muted() {};
+.hook-background-primary() {};
+.hook-background-secondary() {};
+.hook-background-danger() {};

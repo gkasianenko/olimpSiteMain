@@ -1,0 +1,88 @@
+{if !empty($captcha_selector)}
+<div id="site-review-captcha-selector" style="display: none;">{$wa->captcha()}</div>
+{/if}
+
+<script>
+    $(function ($) {
+        var form_selector = '{$form_selector}';
+        var captcha_selector = '{$captcha_selector}';
+        var success_selector = '{$success_selector}';
+        var error_selector = '{$error_selector}';
+        var site_url = '{$site_url}';
+
+        if (success_selector) {
+            $(success_selector).hide();
+        }
+
+        if (error_selector) {
+            $(error_selector).hide();
+        }
+
+        var $form = $(form_selector);
+
+        if (captcha_selector.length) {
+            $(captcha_selector).html($('#site-feedback-captcha-selector').html());
+        }
+
+        $form.on('submit', function (event) {
+            event.preventDefault();
+
+            var formData = new FormData();
+
+            $(this).serializeArray().forEach(function (item) {
+                formData.append(item.name, item.value);
+            });
+
+            if (document.getElementById('fileInputElement2').files.length > 0) {
+                for (let x = 0; x < document.getElementById('fileInputElement2').files.length; x++) {
+                    formData.append('attachment[]', document.getElementById('fileInputElement2').files[x]);
+                }
+            }
+
+            var url = site_url + 'review/send/';
+            var xhr = new XMLHttpRequest();
+
+            xhr.open("POST", url);
+            xhr.send(formData);
+
+            var left = 10;
+            var timer_selector;
+
+            xhr.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    var response = JSON.parse(this.responseText);
+
+                    if (response.status === 'ok') {
+                        if (success_selector) {
+                            $(success_selector).show();
+                            $(form_selector).hide();
+
+                            timer_selector = $(success_selector).find('.string__timer');
+                        }
+                    } else {
+                        if (error_selector) {
+                            $(error_selector).show();
+                            $(form_selector).hide();
+
+                            timer_selector = $(error_selector).find('.string__timer');
+                        }
+                    }
+
+                    if (timer_selector) {
+                        var feedbackTimerId = setInterval(function () {
+                            timer_selector.text('Вы будете перенаправлены через ' + left-- + ' сек.');
+
+                            if (left <= 0) {
+                                clearTimeout(feedbackTimerId);
+                                location.reload();
+                            }
+
+                        }, 1000);
+                    }
+                }
+            };
+
+            return false;
+        });
+    });
+</script>

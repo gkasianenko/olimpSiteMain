@@ -1,0 +1,132 @@
+{* @event (frontend_action_default|frontend_action_post|frontend_action_page|frontend_action_error).%plugin_id%.nav_before *}
+{foreach $frontend_action as $plugin => $output}
+{if !empty($output.nav_before)}{$output.nav_before}{/if}
+{/foreach}
+
+{$hide_breadcrumb = false}
+
+{if isset($is_concrete_blog) && $is_concrete_blog}
+    {foreach $wa->blog->blogs() as $blog_item}
+        {if $wa->block("blog_`$blog_item.id`")}
+            {$hide_breadcrumb = true}
+            {break}
+        {/if}
+    {/foreach}
+{elseif isset($settlement_one_blog) && $settlement_one_blog}
+    {if isset($post) && $post.id && $wa->block("blog_`$post.blog_id`")}
+        {$hide_breadcrumb = true}
+    {/if}
+{/if}
+
+<main class="main">
+    {if !$hide_breadcrumb}
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb" itemprop="breadcrumb">
+            <li class="breadcrumb-item">
+                <a href="/">Главная</a>
+            </li>
+            {if isset($error_code) && $error_code}
+            {*<li class="breadcrumb-item active">
+                Ошибка
+            </li>*}
+            {else}
+            {if $action == 'post'}
+            <li class="breadcrumb-item">
+                <a href="/{$post.blog_url}">{$post.blog_name}</a>
+            </li>
+            <li class="breadcrumb-item active" aria-current="page">
+                {$post.title}
+            </li>
+            {else if $stream_title}
+            <li class="breadcrumb-item">
+                {foreach $posts as $p}
+                <a href="/{$p.blog_url}">{$p.blog_name}</a>
+                {break}
+                {/foreach}
+            </li>
+            <li class="breadcrumb-item active">
+                {$stream_title}
+            </li>
+            {else}
+            <li class="breadcrumb-item active" aria-current="page">
+                {if isset($posts)}
+                {foreach $posts as $p}
+                <a href="/{$p.blog_url}">{$p.blog_name}</a>
+                {break}
+                {/foreach}
+                {else}
+                {foreach $wa->blog->blogs() as $blog}
+                {if $blog.link == $wa->currentUrl(true)}{$blog.name}{/if}
+                {/foreach}
+                {/if}
+            </li>
+            {/if}
+            {/if}
+        </ol>
+    </nav>
+    {/if}
+
+    <div class="page">
+        {if $action == 'default'}
+        <div itemscope itemtype="http://schema.org/WebPage">
+            {$blogCategories = blogCustomerHelper::getBlogCategories()}
+            <div class="section section__page section__page-with-nav">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-12 col-md-auto px-0 section__bg section__bg--gray">
+                            <div class="section__page-nav">
+                                <div class="page-nav__container">
+                                    <div class="nav">
+                                        <ul>
+                                            <li{if '/portfolio/' == $wa->currentUrl(false)|regex_replace:"/\?.+/":""} class="active"{/if}>
+                                                <a href="/portfolio/">Все работы</a>
+                                            </li>
+                                            {foreach $blogCategories as $blogCat}
+                                            <li{if $blogCat['url'] == $wa->currentUrl(true)|regex_replace:"/\?.+/":""} class="active"{/if}>
+                                            <a href="{$blogCat['url']}">{$blogCat['name']}</a>
+                                            </li>
+                                            {/foreach}
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-md pl-0">
+                            <div class="section__page-content" style="max-width: 1320px">
+                                {if empty($posts) && $wa->currentUrl() == $wa_app_url}
+
+                                <div class="welcome">
+                                    <h1>[`Welcome to your new blog!`]</h1>
+                                    <p>{sprintf('[`Start by <a href="%s">writing a post</a> in your blog backend.`]',
+                                        $wa_backend_url|cat:'blog/')}</p>
+                                </div>
+
+                                {else}
+
+                                {$content}
+
+                                {/if}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="clear-both"></div>
+
+        </div>
+        {else}
+
+        {$content}
+
+        {/if}
+    </div>
+
+    <div class="container-fluid px-0">
+        {include file="`$wa_parent_theme_path`/components.html" inline}
+        {include file="`$wa_parent_theme_path`/form.html" inline}
+    </div>
+</main>
+
+{include file="`$wa_active_theme_path`/__menu.html" inline}

@@ -1,0 +1,760 @@
+// Name:            Bar
+// Description:     Component to create horizontal navigation bars
+//
+// Component:       `uk-bar`
+//
+// Sub-objects:     `uk-bar-container`
+//                  `uk-bar-nav`
+//                  `uk-bar-item`
+//                  `uk-bar-toggle`
+//
+// Adopted:         ``
+//
+// Modifiers:       `uk-bar-small`
+//                  `uk-bar-medium`
+//                  `uk-bar-large`
+//                  `uk-bar-transparent`
+//                  `uk-bar-muted`
+//                  `uk-bar-primary`
+//                  `uk-bar-secondary`
+//                  `uk-bar-overlay-light`
+//                  `uk-bar-overlay-dark`
+//
+// States:          `uk-active`
+//                  `uk-parent`
+//                  `uk-open`
+//
+//
+// ========================================================================
+
+
+// Variables
+// ========================================================================
+
+@bar-nav-item-padding-horizontal:               15px;
+@bar-nav-item-font-size:                        @global-font-size;
+@bar-nav-item-font-family:                      @global-font-family;
+
+@bar-nav-item-color:                            @global-muted-color;
+@bar-nav-item-hover-color:                   	@global-color;
+@bar-nav-item-onclick-color:                 	@global-emphasis-color;
+@bar-nav-item-active-color:                  	@global-emphasis-color;
+
+@bar-item-divider-margin:						15px;
+@bar-item-divider-small-margin:					10px;
+@bar-item-color:                             	@global-color;
+
+@bar-toggle-color:                           	@global-muted-color;
+@bar-toggle-hover-color:                     	@global-color;
+@bar-toggle-active-color:                       @global-color;
+@bar-toggle-inverted-background:                @global-primary-background;
+@bar-toggle-inverted-color:                     @global-color;
+
+@bar-title-color:								@global-color;
+@bar-title-font-size:							@global-medium-font-size;
+@bar-title-margin:								10px;
+
+@bar-subnav-margin:								0;
+@bar-subnav-margin-horizontal:                  10px;
+
+@bar-link-color:                                @global-emphasis-color;
+@bar-link-hover-color:                          @global-color;
+@bar-link-active-color:                         @global-color;
+
+@bar-small-item-height:                         42px;
+@bar-medium-item-height:                        56px;
+@bar-large-item-height:                         70px;
+
+@bar-default-background:                        @global-background;
+@bar-default-color-mode:                        dark;
+@bar-muted-background:                          @global-muted-background;
+@bar-muted-color-mode:                          dark;
+@bar-primary-background:                        @global-primary-background;
+@bar-primary-color-mode:                        light;
+@bar-secondary-background:                      @global-secondary-background;
+@bar-secondary-color-mode:                      light;
+@bar-overlay-light-background:					fade(@global-background, 70%);
+@bar-overlay-light-color-mode:                  dark;
+@bar-overlay-dark-background:					fade(@global-secondary-background, 70%);
+@bar-overlay-dark-color-mode:                   light;
+
+
+/* ========================================================================
+   Component: Navbar
+ ========================================================================== */
+
+/*
+ * 1. Create position context to center navbar group
+ */
+
+.uk-bar {
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    /* 1 */
+    position: relative;
+    .hook-bar();
+}
+
+/*
+.uk-container > .uk-bar {
+	margin-left: -@navbar-nav-item-padding-horizontal;
+	margin-right: -@navbar-nav-item-padding-horizontal;
+}
+*/
+
+/* Container
+ ========================================================================== */
+
+//.uk-bar-container:not(.uk-bar-muted):not(.uk-bar-primary):not(.uk-bar-secondary):not(.uk-bar-transparent):not(.uk-bar-overlay-light):not(.uk-bar-overlay-dark) {
+    //background: @bar-background;
+//    .hook-navbar-container();
+//}
+.uk-bar-container {
+    .hook-bar-container();
+}
+
+
+/*
+ * Remove pseudo elements created by micro clearfix as precaution (if Container component is used)
+ */
+
+.uk-bar-container > ::before,
+.uk-bar-container > ::after { display: none !important; }
+
+/*
+ * Remove horizontal padding nested containers
+ */
+
+@media (max-width: @breakpoint-large-max) {
+	.uk-bar-container .uk-container {
+		padding-left: 0;
+		padding-right: 0;
+	}
+}
+
+
+/* Groups
+ ========================================================================== */
+
+.uk-bar-group {
+	display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
+}
+
+
+/* Nav
+ ========================================================================== */
+
+/*
+ * 1. Reset lists
+ */
+
+.uk-bar-nav {
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+	-ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+    /* 1 */
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+/*
+ * Items
+ * 1. Center content vertically or horizontally
+ * 2. Dimensions
+ * 3. Style
+ * 4. Required for `a`
+ */
+
+.uk-bar-nav > li > a,    // Nav item
+.uk-bar-item,            // Content item
+.uk-bar-toggle {         // Clickable item
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    /* 1 */
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+    /* 2 */
+    box-sizing: border-box;
+    padding: 0 @bar-nav-item-padding-horizontal;
+    /* 3 */
+    font-size: @bar-nav-item-font-size;
+    font-family: @bar-nav-item-font-family;
+    /* 4 */
+    text-decoration: none;
+}
+
+
+/*
+ * Nav items
+ */
+
+.uk-bar-nav > li > a {
+    color: @bar-nav-item-color;
+    .hook-bar-nav-item();
+}
+
+
+/*
+ * Hover
+ * Apply hover style also to focus state and if dropdown is opened
+ */
+
+.uk-bar-nav > li:hover > a,
+.uk-bar-nav > li > a:focus,
+.uk-bar-nav > li > a.uk-open {
+    color: @bar-nav-item-hover-color;
+    outline: none;
+    .hook-bar-nav-item-hover();
+}
+
+/* OnClick */
+.uk-bar-nav > li > a:active {
+    color: @bar-nav-item-onclick-color;
+    .hook-bar-nav-item-onclick();
+}
+
+/* Active */
+.uk-bar-nav > li.uk-active > a {
+    color: @bar-nav-item-active-color;
+    .hook-bar-nav-item-active();
+}
+
+
+/* Item
+ ========================================================================== */
+
+.uk-bar-item {
+    color: @bar-item-color;
+    .hook-bar-item();
+}
+
+.uk-bar-item-divider:not(.uk-bar-item-divider-small) { margin: @bar-item-divider-margin @bar-item-divider-margin 0 0; padding: 0; }
+.uk-bar-item-divider-small { margin: @bar-item-divider-small-margin @bar-item-divider-small-margin 0 0; padding: 0; }
+
+
+/* Toggle
+ ========================================================================== */
+
+.uk-bar-toggle {
+    color: @bar-toggle-color;
+    .hook-bar-toggle();
+}
+
+.uk-bar-toggle:hover,
+.uk-bar-toggle:focus,
+.uk-bar-toggle.uk-open {
+    color: @bar-toggle-hover-color;
+    outline: none;
+    text-decoration: none;
+    .hook-bar-toggle-hover();
+}
+
+.uk-bar-toggle.uk-active {
+	color: @bar-toggle-active-color;
+    .hook-bar-toggle-active();
+}
+
+.uk-bar-toggle.uk-bar-toggle-inverted:not(.uk-cart-empty){
+    background: @bar-toggle-inverted-background;
+    color: @bar-toggle-inverted-color;
+    .hook-bar-toggle-inverted();
+}
+
+
+/* Title
+ ========================================================================== */
+
+.uk-bar-title {
+	color: @bar-title-color;
+	font-size: @bar-title-font-size;
+	margin: 0 0 @bar-title-margin 0;
+	font-weight: normal;
+    text-transform: none;
+    .hook-bar-title();
+}
+
+
+/* Margin
+ ========================================================================== */
+
+.uk-bar-margin { margin-top: @bar-nav-item-padding-horizontal * 2; }
+
+
+/* List
+ ========================================================================== */
+
+.uk-bar-list > li:nth-child(n+2) { margin-top: 0; }
+
+.uk-bar-list > li > a {
+	color: @bar-nav-item-color;
+}
+.uk-bar-list > li:hover > a,
+.uk-bar-list > li > a:focus {
+    color: @bar-nav-item-hover-color;
+}
+.uk-bar-list > li.uk-active > a {
+    color: @bar-nav-item-active-color;
+}
+
+
+/* Subnav
+ ========================================================================== */
+
+.uk-bar-subnav { margin-left: -@bar-subnav-margin-horizontal; }
+.uk-bar-subnav > * { padding-left: @bar-subnav-margin-horizontal; }
+.uk-bar-subnav > * > :first-child {
+	font-size: @bar-nav-item-font-size;
+	text-transform: none;
+}
+.uk-bar-subnav-margin {
+	margin-top: @bar-subnav-margin;
+}
+
+
+/* Link
+ ========================================================================== */
+
+a.uk-bar-link,
+.uk-bar-link a {
+    color: @bar-link-color;
+    text-decoration: none;
+    .hook-bar-link();
+}
+
+a.uk-bar-link:hover,
+.uk-bar-link a:hover {
+    color: @bar-link-hover-color;
+    .hook-bar-link-hover();
+}
+
+.uk-active > a.uk-bar-link,
+.uk-bar-link .uk-active > a {
+    color: @bar-link-active-color;
+    .hook-bar-link-active();
+}
+
+
+/* Size modifier
+ ========================================================================== */
+
+/* Small */
+.uk-bar-small .uk-bar-nav > li > a,
+.uk-bar-small .uk-bar-item,
+.uk-bar-small .uk-bar-toggle {
+    min-height: @bar-small-item-height;
+    .hook-bar-small();
+}
+
+/* Medium */
+.uk-bar-medium .uk-bar-nav > li > a,
+.uk-bar-medium .uk-bar-item,
+.uk-bar-medium .uk-bar-toggle {
+    min-height: @bar-medium-item-height;
+    .hook-bar-medium();
+}
+
+/* Large */
+.uk-bar-large .uk-bar-nav > li > a,
+.uk-bar-large .uk-bar-item,
+.uk-bar-large .uk-bar-toggle {
+    min-height: @bar-large-item-height;
+    .hook-bar-large();
+}
+
+/* fix for IE10-11 */
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+    .uk-bar-nav > li > a::before,
+    .uk-bar-item::before,
+    .uk-bar-toggle::before {
+        content: "";
+        min-height: inherit;
+        font-size: 0px;
+    }
+}
+
+
+/* Style modifier
+ ========================================================================== */
+
+.uk-bar-default {
+    background: @bar-default-background;
+    .hook-bar-default();
+}
+.uk-bar-default:extend(.uk-dark all) when (@bar-default-color-mode = dark) {}
+.uk-bar-default:extend(.uk-light all) when (@bar-default-color-mode = light) {}
+.uk-bar-default:extend(.uk-primary all) when (@bar-default-color-mode = primary) {}
+
+.uk-bar-muted {
+    background: @bar-muted-background;
+    .hook-bar-muted();
+}
+.uk-bar-muted:extend(.uk-dark all) when (@bar-muted-color-mode = dark) {}
+.uk-bar-muted:extend(.uk-light all) when (@bar-muted-color-mode = light) {}
+.uk-bar-muted:extend(.uk-primary all) when (@bar-muted-color-mode = primary) {}
+
+.uk-bar-primary {
+    background: @bar-primary-background;
+    .hook-bar-primary();
+}
+.uk-bar-primary:extend(.uk-dark all) when (@bar-primary-color-mode = dark) {}
+.uk-bar-primary:extend(.uk-light all) when (@bar-primary-color-mode = light) {}
+.uk-bar-primary:extend(.uk-primary all) when (@bar-primary-color-mode = primary) {}
+
+.uk-bar-secondary {
+    background: @bar-secondary-background;
+    .hook-bar-secondary();
+}
+.uk-bar-secondary:extend(.uk-dark all) when (@bar-secondary-color-mode = dark) {}
+.uk-bar-secondary:extend(.uk-light all) when (@bar-secondary-color-mode = light) {}
+.uk-bar-secondary:extend(.uk-primary all) when (@bar-secondary-color-mode = primary) {}
+
+.uk-bar-overlay-light {
+    background: @bar-overlay-light-background;
+    .hook-bar-overlay-light();
+}
+.uk-bar-overlay-light:extend(.uk-dark all) when (@bar-overlay-light-color-mode = dark) {}
+.uk-bar-overlay-light:extend(.uk-light all) when (@bar-overlay-light-color-mode = light) {}
+.uk-bar-overlay-light:extend(.uk-primary all) when (@bar-overlay-light-color-mode = primary) {}
+
+.uk-bar-overlay-dark {
+    background: @bar-overlay-dark-background;
+    .hook-bar-overlay-dark();
+}
+.uk-bar-overlay-dark:extend(.uk-dark all) when (@bar-overlay-dark-color-mode = dark) {}
+.uk-bar-overlay-dark:extend(.uk-light all) when (@bar-overlay-dark-color-mode = light) {}
+.uk-bar-overlay-dark:extend(.uk-primary all) when (@bar-overlay-dark-color-mode = primary) {}
+
+.uk-bar-sticky {
+    .hook-bar-sticky();
+}
+.uk-bar-sticky:not(.uk-active) { background: transparent; border-bottom: 1px solid transparent; box-shadow: none; }
+.uk-bar-sticky:not(.uk-active) > * { display: none; }
+.uk-bar-sticky.uk-active { z-index: @sticky-z-index + 1; }
+.uk-bar-sticky ~ .uk-sticky-placeholder { display: none; }
+
+
+// Hooks
+// ========================================================================
+
+.hook-bar-misc;
+
+.hook-bar() {}
+.hook-bar-container() {}
+
+.hook-bar-nav-item() {}
+.hook-bar-nav-item-hover() {}
+.hook-bar-nav-item-onclick() {}
+.hook-bar-nav-item-active() {}
+
+.hook-bar-item() {}
+
+.hook-bar-toggle() {}
+.hook-bar-toggle-hover() {}
+.hook-bar-toggle-active() {}
+.hook-bar-toggle-inverted() {}
+
+.hook-bar-title() {}
+
+.hook-bar-link() {}
+.hook-bar-link-hover() {}
+.hook-bar-link-active() {}
+
+.hook-bar-small() {}
+.hook-bar-medium() {}
+.hook-bar-large() {}
+
+.hook-bar-default() {}
+.hook-bar-muted() {}
+.hook-bar-primary() {}
+.hook-bar-secondary() {}
+.hook-bar-overlay-light() {}
+.hook-bar-overlay-dark() {}
+.hook-bar-sticky() {}
+.hook-bar-misc() {}
+
+
+// Inverse
+// ========================================================================
+
+@inverse-bar-nav-item-color:                   @inverse-global-muted-color;
+@inverse-bar-nav-item-hover-color:             @inverse-global-color;
+@inverse-bar-nav-item-hover-background:        fade(@inverse-global-color, 10%);
+@inverse-bar-nav-item-onclick-color:           @inverse-global-emphasis-color;
+@inverse-bar-nav-item-onclick-background:      fade(@inverse-global-color, 10%);
+@inverse-bar-nav-item-active-color:            @inverse-global-emphasis-color;
+@inverse-bar-nav-item-active-background:       fade(@inverse-global-color, 10%);
+@inverse-bar-item-color:                       @inverse-global-color;
+@inverse-bar-toggle-color:                     @inverse-global-muted-color;
+@inverse-bar-toggle-hover-color:               @inverse-global-color;
+@inverse-bar-toggle-hover-background:          fade(@inverse-global-color, 10%);
+@inverse-bar-toggle-active-color:              @inverse-global-emphasis-color;
+@inverse-bar-toggle-inverted-background:       @global-secondary-background;
+@inverse-bar-toggle-inverted-color:            @global-primary-background;
+@inverse-bar-title-color:					   @inverse-global-emphasis-color;
+@inverse-bar-list-color:					   @inverse-global-muted-color;
+@inverse-bar-list-hover-color:                 @inverse-global-color;
+@inverse-bar-list-active-color:                @inverse-global-emphasis-color;
+
+@inverse-bar-list-item-color:                  @inverse-global-muted-color;
+@inverse-bar-list-item-hover-color:            @inverse-global-color;
+@inverse-bar-list-item-active-color:           @inverse-global-emphasis-color;
+
+@inverse-bar-link-color:                       @inverse-global-muted-color;
+@inverse-bar-link-hover-color:                 @inverse-global-color;
+@inverse-bar-link-active-color:                @inverse-global-emphasis-color;
+
+.hook-inverse() {
+
+    .uk-bar-nav > li > a {
+        color: @inverse-bar-nav-item-color;
+        .hook-inverse-bar-nav-item();
+    }
+
+    .uk-bar-nav > li:hover > a,
+    .uk-bar-nav > li > a:focus,
+    .uk-bar-nav > li > a.uk-open {
+        color: @inverse-bar-nav-item-hover-color;
+		background: @inverse-bar-nav-item-hover-background;
+        .hook-inverse-bar-nav-item-hover();
+    }
+
+    .uk-bar-nav > li > a:active {
+        color: @inverse-bar-nav-item-onclick-color;
+		background: @inverse-bar-nav-item-onclick-background;
+        .hook-inverse-bar-nav-item-onclick();
+    }
+
+    .uk-bar-nav > li.uk-active > a {
+        color: @inverse-bar-nav-item-active-color;
+		background: @inverse-bar-nav-item-active-background;
+        .hook-inverse-bar-nav-item-active();
+    }
+
+    .uk-bar-item {
+        color: @inverse-bar-item-color;
+        .hook-inverse-bar-item();
+    }
+
+    .uk-bar-toggle {
+        color: @inverse-bar-toggle-color;
+        .hook-inverse-bar-toggle();
+    }
+
+    .uk-bar-toggle:hover,
+    .uk-bar-toggle:focus,
+    .uk-bar-toggle.uk-open {
+        color: @inverse-bar-toggle-hover-color;
+		background: @inverse-bar-toggle-hover-background;
+        .hook-inverse-bar-toggle-hover();
+    }
+
+    .uk-bar-toggle.uk-active {
+    	color: @inverse-bar-toggle-active-color;
+        .hook-inverse-bar-toggle-active();
+    }
+
+    .uk-bar-toggle.uk-bar-toggle-inverted:not(.uk-cart-empty){
+        background: @inverse-bar-toggle-inverted-background;
+        color: @inverse-bar-toggle-inverted-color;
+        .hook-inverse-bar-toggle-inverted();
+    }
+
+	.uk-bar-title {
+		color: @inverse-bar-title-color;
+        .hook-inverse-bar-title();
+	}
+
+	.uk-bar-list > li > a {
+		color: @inverse-bar-list-item-color;
+	}
+	.uk-bar-list > li:hover > a,
+	.uk-bar-list > li > a:focus {
+		color: @inverse-bar-list-item-hover-color;
+	}
+	.uk-bar-list > li.uk-active > a {
+		color: @inverse-bar-list-item-active-color;
+	}
+
+    a.uk-bar-link,
+    .uk-bar-link a {
+        color: @inverse-bar-link-color;
+        .hook-inverse-bar-link();
+    }
+
+    a.uk-bar-link:hover,
+    .uk-bar-link a:hover {
+        color: @inverse-bar-link-hover-color;
+        .hook-inverse-bar-link-hover();
+    }
+
+    .uk-active > a.uk-bar-link,
+    .uk-bar-link .uk-active > a {
+        color: @inverse-bar-link-active-color;
+        .hook-inverse-bar-link-active();
+    }
+
+}
+
+.hook-inverse-bar-nav-item() {}
+.hook-inverse-bar-nav-item-hover() {}
+.hook-inverse-bar-nav-item-onclick() {}
+.hook-inverse-bar-nav-item-active() {}
+.hook-inverse-bar-item() {}
+.hook-inverse-bar-toggle() {}
+.hook-inverse-bar-toggle-hover() {}
+.hook-inverse-bar-toggle-active() {}
+.hook-inverse-bar-toggle-inverted() {}
+.hook-inverse-bar-title() {}
+.hook-inverse-bar-link() {}
+.hook-inverse-bar-link-hover() {}
+.hook-inverse-bar-link-active() {}
+
+
+// Primary
+// ========================================================================
+
+@primary-bar-nav-item-color:                   @primary-global-muted-color;
+@primary-bar-nav-item-hover-color:             @primary-global-color;
+@primary-bar-nav-item-hover-background:        fade(@primary-global-color, 10%);
+@primary-bar-nav-item-onclick-color:           @primary-global-emphasis-color;
+@primary-bar-nav-item-onclick-background:      fade(@primary-global-color, 10%);
+@primary-bar-nav-item-active-color:            @primary-global-emphasis-color;
+@primary-bar-nav-item-active-background:       fade(@primary-global-color, 10%);
+@primary-bar-item-color:                       @primary-global-color;
+@primary-bar-toggle-color:                     @primary-global-muted-color;
+@primary-bar-toggle-hover-color:               @primary-global-color;
+@primary-bar-toggle-hover-background:          fade(@primary-global-color, 10%);
+@primary-bar-toggle-active-color:              @primary-global-emphasis-color;
+@primary-bar-toggle-inverted-background:       @global-primary-background;
+@primary-bar-toggle-inverted-color:            @global-color;
+
+@primary-bar-title-color:                      @primary-global-emphasis-color;
+@primary-bar-list-color:					   @primary-global-muted-color;
+@primary-bar-list-hover-color:                 @primary-global-color;
+@primary-bar-list-active-color:                @primary-global-emphasis-color;
+
+@primary-bar-list-item-color:                  @primary-global-muted-color;
+@primary-bar-list-item-hover-color:            @primary-global-color;
+@primary-bar-list-item-active-color:           @primary-global-emphasis-color;
+
+@primary-bar-link-color:                       @primary-global-muted-color;
+@primary-bar-link-hover-color:                 @primary-global-color;
+@primary-bar-link-active-color:                @primary-global-emphasis-color;
+
+.hook-primary() {
+
+    .uk-bar-nav > li > a {
+        color: @primary-bar-nav-item-color;
+        .hook-primary-bar-nav-item();
+    }
+
+    .uk-bar-nav > li:hover > a,
+    .uk-bar-nav > li > a:focus,
+    .uk-bar-nav > li > a.uk-open {
+        color: @primary-bar-nav-item-hover-color;
+		background: @primary-bar-nav-item-hover-background;
+        .hook-primary-bar-nav-item-hover();
+    }
+
+    .uk-bar-nav > li > a:active {
+        color: @primary-bar-nav-item-onclick-color;
+		background: @primary-bar-nav-item-onclick-background;
+        .hook-primary-bar-nav-item-onclick();
+    }
+
+    .uk-bar-nav > li.uk-active > a {
+        color: @primary-bar-nav-item-active-color;
+		background: @primary-bar-nav-item-active-background;
+        .hook-primary-bar-nav-item-active();
+    }
+
+    .uk-bar-item {
+        color: @primary-bar-item-color;
+        .hook-primary-bar-item();
+    }
+
+    .uk-bar-toggle {
+        color: @primary-bar-toggle-color;
+        .hook-primary-bar-toggle();
+    }
+
+    .uk-bar-toggle:hover,
+    .uk-bar-toggle:focus,
+    .uk-bar-toggle.uk-open {
+        color: @primary-bar-toggle-hover-color;
+		background: @primary-bar-toggle-hover-background;
+        .hook-primary-bar-toggle-hover();
+    }
+
+    .uk-bar-toggle.uk-active {
+    	color: @primary-bar-toggle-active-color;
+        .hook-primary-bar-toggle-active();
+    }
+
+    .uk-bar-toggle.uk-bar-toggle-inverted:not(.uk-cart-empty){
+        background: @primary-bar-toggle-inverted-background;
+        color: @primary-bar-toggle-inverted-color;
+        .hook-primary-bar-toggle-inverted();
+    }
+
+	.uk-bar-title {
+		color: @primary-bar-title-color;
+        .hook-primary-bar-title();
+	}
+
+	.uk-bar-list > li > a {
+		color: @primary-bar-list-item-color;
+	}
+	.uk-bar-list > li:hover > a,
+	.uk-bar-list > li > a:focus {
+		color: @primary-bar-list-item-hover-color;
+	}
+	.uk-bar-list > li.uk-active > a {
+		color: @primary-bar-list-item-active-color;
+	}
+
+    a.uk-bar-link,
+    .uk-bar-link a {
+        color: @primary-bar-link-color;
+        .hook-primary-bar-link();
+    }
+
+    a.uk-bar-link:hover,
+    .uk-bar-link a:hover {
+        color: @primary-bar-link-hover-color;
+        .hook-primary-bar-link-hover();
+    }
+
+    .uk-active > a.uk-bar-link,
+    .uk-bar-link .uk-active > a {
+        color: @primary-bar-link-active-color;
+        .hook-primary-bar-link-active();
+    }
+
+}
+
+.hook-primary-bar-nav-item() {}
+.hook-primary-bar-nav-item-hover() {}
+.hook-primary-bar-nav-item-onclick() {}
+.hook-primary-bar-nav-item-active() {}
+.hook-primary-bar-item() {}
+.hook-primary-bar-toggle() {}
+.hook-primary-bar-toggle-hover() {}
+.hook-primary-bar-toggle-active() {}
+.hook-primary-bar-toggle-inverted() {}
+.hook-primary-bar-title() {}
+.hook-primary-bar-link() {}
+.hook-primary-bar-link-hover() {}
+.hook-primary-bar-link-active() {}

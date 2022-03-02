@@ -1,0 +1,312 @@
+//
+// Component: Button
+//
+// ========================================================================
+
+
+// Variables
+// ========================================================================
+
+//
+// New
+//
+
+@button-default-box-shadow:                     none;
+@button-default-hover-box-shadow:               none;
+
+@button-primary-box-shadow:                     none;
+@button-primary-hover-box-shadow:               none;
+
+@button-secondary-box-shadow:                   none;
+@button-secondary-hover-box-shadow:             none;
+
+@button-danger-box-shadow:                      none;
+@button-danger-hover-box-shadow:                none;
+
+@button-feature-box-shadow:                     none;
+@button-feature-hover-box-shadow:               none;
+
+@button-color-box-shadow:                       none;
+@button-color-hover-box-shadow:                 none;
+
+
+// Component
+// ========================================================================
+
+.hook-button() {}
+
+.hook-button-hover() {}
+
+.hook-button-focus() {}
+
+.hook-button-active() {}
+
+
+// Style modifiers
+// ========================================================================
+
+.hook-button-default() when not (@button-default-box-shadow = none) {
+    box-shadow: @button-default-box-shadow;
+}
+
+.hook-button-default-hover() when not (@button-default-hover-box-shadow = none) {
+    box-shadow: @button-default-hover-box-shadow;
+}
+
+.hook-button-default-active() {}
+
+//
+// Primary
+//
+
+.hook-button-primary() when not (@button-primary-box-shadow = none) {
+    box-shadow: @button-primary-box-shadow;
+}
+
+.hook-button-primary-hover() when not (@button-primary-hover-box-shadow = none) {
+    box-shadow: @button-primary-hover-box-shadow;
+}
+
+.hook-button-primary-active() {}
+
+//
+// Secondary
+//
+
+.hook-button-secondary() when not (@button-secondary-box-shadow = none) {
+    box-shadow: @button-secondary-box-shadow;
+}
+
+.hook-button-secondary-hover() when not (@button-secondary-hover-box-shadow = none) {
+    box-shadow: @button-secondary-hover-box-shadow;
+}
+
+.hook-button-secondary-active() {}
+
+//
+// Danger
+//
+
+.hook-button-danger() when not (@button-danger-box-shadow = none) {
+    box-shadow: @button-danger-box-shadow;
+}
+
+.hook-button-danger-hover() when not (@button-danger-hover-box-shadow = none) {
+    box-shadow: @button-danger-hover-box-shadow;
+}
+
+.hook-button-danger-active() {}
+
+
+// Disabled
+// ========================================================================
+
+.hook-button-disabled() { box-shadow: none; }
+
+
+// Size modifiers
+// ========================================================================
+
+.hook-button-small() {}
+
+.hook-button-large() {}
+
+
+// Text modifier
+// ========================================================================
+
+.hook-button-text() {}
+
+.hook-button-text-hover() {}
+
+.hook-button-text-disabled() {}
+
+
+// Link modifier
+// ========================================================================
+
+.hook-button-link() {}
+.hook-button-link-hover() {}
+.hook-button-link-disabled() {}
+
+
+// Feature modifier
+// ========================================================================
+
+.hook-button-feature() when not (@button-feature-box-shadow = none) {
+    box-shadow: @button-feature-box-shadow;
+}
+
+.hook-button-feature-hover() when not (@button-feature-hover-box-shadow = none) {
+    box-shadow: @button-feature-hover-box-shadow;
+}
+.hook-button-feature-active() {}
+.hook-button-feature-disabled() { box-shadow: none; }
+.hook-button-feature-disabled-active() { box-shadow: none; }
+
+
+// Color modifier
+// ========================================================================
+
+.hook-button-color() when not (@button-color-box-shadow = none) {
+    box-shadow: @button-color-box-shadow;
+}
+
+.hook-button-color-hover() when not (@button-color-hover-box-shadow = none) {
+    box-shadow: @button-color-hover-box-shadow;
+}
+.hook-button-color-active() {}
+.hook-button-color-disabled() { box-shadow: none; }
+.hook-button-color-disabled-active() { box-shadow: none; }
+
+
+// Miscellaneous
+// ========================================================================
+
+.hook-button-misc() {}
+
+
+// Inverse
+// ========================================================================
+
+@inverse-button-default-box-shadow:                     none;
+@inverse-button-default-hover-box-shadow:               none;
+
+@inverse-button-primary-box-shadow:                     none;
+@inverse-button-primary-hover-box-shadow:               none;
+
+@inverse-button-secondary-box-shadow:                   none;
+@inverse-button-secondary-hover-box-shadow:             none;
+
+@inverse-button-feature-box-shadow:                     none;
+@inverse-button-feature-hover-box-shadow:               none;
+
+@inverse-button-color-box-shadow:                       none;
+@inverse-button-color-hover-box-shadow:                 none;
+
+.hook-inverse-button-default() when not (@button-default-box-shadow = @inverse-button-default-box-shadow) {
+    box-shadow: @inverse-button-default-box-shadow;
+}
+.hook-inverse-button-default-hover() when not (@button-default-hover-box-shadow = @inverse-button-default-hover-box-shadow) {
+    box-shadow: @inverse-button-default-hover-box-shadow;
+}
+.hook-inverse-button-default-active() {}
+
+.hook-inverse-button-primary() when not (@button-primary-box-shadow = @inverse-button-primary-box-shadow) {
+    box-shadow: @inverse-button-primary-box-shadow;
+}
+.hook-inverse-button-primary-hover() when not (@button-primary-hover-box-shadow = @inverse-button-primary-hover-box-shadow) {
+    box-shadow: @inverse-button-primary-hover-box-shadow;
+}
+.hook-inverse-button-primary-active() {}
+
+.hook-inverse-button-secondary() when not (@button-secondary-box-shadow = @inverse-button-secondary-box-shadow) {
+    box-shadow: @inverse-button-secondary-box-shadow;
+}
+.hook-inverse-button-secondary-hover() when not (@button-secondary-hover-box-shadow = @inverse-button-secondary-hover-box-shadow) {
+    box-shadow: @inverse-button-secondary-hover-box-shadow;
+}
+.hook-inverse-button-secondary-active() {}
+
+.hook-inverse-button-disabled() { box-shadow: none; }
+
+.hook-inverse-button-text() {}
+.hook-inverse-button-text-hover() {}
+.hook-inverse-button-text-disabled() {}
+
+.hook-inverse-button-link() {}
+.hook-inverse-button-link-hover() {}
+.hook-inverse-button-link-disabled() {}
+
+.hook-inverse-button-feature() when not (@button-feature-box-shadow = @inverse-button-feature-box-shadow) {
+    box-shadow: @inverse-button-feature-box-shadow;
+}
+.hook-inverse-button-feature-hover() when not (@button-feature-hover-box-shadow = @inverse-button-feature-hover-box-shadow) {
+    box-shadow: @inverse-button-feature-hover-box-shadow;
+}
+.hook-inverse-button-feature-active() {}
+.hook-inverse-button-feature-disabled() { box-shadow: none; }
+.hook-inverse-button-feature-disabled-active() { box-shadow: none; }
+
+.hook-inverse-button-color() when not (@button-color-box-shadow = @inverse-button-color-box-shadow) {
+    box-shadow: @inverse-button-color-box-shadow;
+}
+.hook-inverse-button-color-hover() when not (@button-color-hover-box-shadow = @inverse-button-color-hover-box-shadow) {
+    box-shadow: @inverse-button-color-hover-box-shadow;
+}
+.hook-inverse-button-color-active() {}
+.hook-inverse-button-color-disabled() { box-shadow: none; }
+.hook-inverse-button-color-disabled-active() { box-shadow: none; }
+
+
+// Primary
+// ========================================================================
+
+@primary-button-default-box-shadow:                     none;
+@primary-button-default-hover-box-shadow:               none;
+
+@primary-button-primary-box-shadow:                     none;
+@primary-button-primary-hover-box-shadow:               none;
+
+@primary-button-secondary-box-shadow:                   none;
+@primary-button-secondary-hover-box-shadow:             none;
+
+@primary-button-feature-box-shadow:                     none;
+@primary-button-feature-hover-box-shadow:               none;
+
+@primary-button-color-box-shadow:                       none;
+@primary-button-color-hover-box-shadow:                 none;
+
+.hook-primary-button-default() when not (@button-default-box-shadow = @primary-button-default-box-shadow) {
+    box-shadow: @primary-button-default-box-shadow;
+}
+.hook-primary-button-default-hover() when not (@button-default-hover-box-shadow = @primary-button-default-hover-box-shadow) {
+    box-shadow: @primary-button-default-hover-box-shadow;
+}
+.hook-primary-button-default-active() {}
+
+.hook-primary-button-primary() when not (@button-primary-box-shadow = @primary-button-primary-box-shadow) {
+    box-shadow: @primary-button-primary-box-shadow;
+}
+.hook-primary-button-primary-hover() when not (@button-primary-hover-box-shadow = @primary-button-primary-hover-box-shadow) {
+    box-shadow: @primary-button-primary-hover-box-shadow;
+}
+.hook-primary-button-primary-active() {}
+
+.hook-primary-button-secondary() when not (@button-secondary-box-shadow = @primary-button-secondary-box-shadow) {
+    box-shadow: @primary-button-secondary-box-shadow;
+}
+.hook-primary-button-secondary-hover() when not (@button-secondary-hover-box-shadow = @primary-button-secondary-hover-box-shadow) {
+    box-shadow: @primary-button-secondary-hover-box-shadow;
+}
+.hook-primary-button-secondary-active() {}
+
+.hook-primary-button-disabled() { box-shadow: none; }
+
+.hook-primary-button-text() {}
+.hook-primary-button-text-hover() {}
+.hook-primary-button-text-disabled() {}
+
+.hook-primary-button-link() {}
+.hook-primary-button-link-hover() {}
+.hook-primary-button-link-disabled() {}
+
+.hook-primary-button-feature() when not (@button-feature-box-shadow = @primary-button-feature-box-shadow) {
+    box-shadow: @primary-button-feature-box-shadow;
+}
+.hook-primary-button-feature-hover() when not (@button-feature-hover-box-shadow = @primary-button-feature-hover-box-shadow) {
+    box-shadow: @primary-button-feature-hover-box-shadow;
+}
+.hook-primary-button-feature-active() {}
+.hook-primary-button-feature-disabled() { box-shadow: none; }
+.hook-primary-button-feature-disabled-active() { box-shadow: none; }
+
+.hook-primary-button-color() when not (@button-color-box-shadow = @primary-button-color-box-shadow) {
+    box-shadow: @primary-button-color-box-shadow;
+}
+.hook-primary-button-color-hover() when not (@button-color-hover-box-shadow = @primary-button-color-hover-box-shadow) {
+    box-shadow: @primary-button-color-hover-box-shadow;
+}
+.hook-primary-button-color-active() {}
+.hook-primary-button-color-disabled() { box-shadow: none; }
+.hook-primary-button-color-disabled-active() { box-shadow: none; }

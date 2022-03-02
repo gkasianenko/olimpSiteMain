@@ -1,0 +1,216 @@
+<link rel="stylesheet" href="/wa-apps/site/plugins/reviewscalc/css/main.css?v2">
+<!--<script src="wa-apps/site/plugins/reviewscalc/js/jquery-3.3.1.min.js"></script>-->
+<script src="wa-apps/site/plugins/reviewscalc/js/scripts.js?v2"></script>
+<script src="wa-apps/site/plugins/reviewscalc/js/jquery.maskedinput.min.js"></script>
+
+<div class="calc">
+
+    <div class="calc__black"></div>
+
+    <div class="calc__head">Расчёт стоимости</div>
+
+    <div class="calc__wrap">
+
+        <div class="calc__left">
+
+            <div class="calc__flex calc__flex--aic">
+                <div class="calc__text">Количество филиалов</div>
+                <input data-price1="500" data-price2="400" type="text" class="calc__filials" id="calc_filials" value="1">
+            </div>
+
+            <div class="calc__body">
+
+                <div class="calc__line calc__line--first">
+                    <div class="calc__part calc__part--first">
+                        <div class="calc__text">Площадка</div>
+                    </div>
+                    <div class="calc__between calc__between--first">
+                        <div class="calc__text">Кол-во отзывов</div>
+                        <div class="calc__text">Стоимость</div>
+                    </div>
+                </div>
+
+                <div class="calc__table">
+
+                    <div data-place="Яндекс.Карты" class="calc__line calc__line--calc calc__line--yandex">
+                        <div class="calc__part">
+                            <div class="calc__delete"></div>
+                            <img src="/wa-apps/site/plugins/reviewscalc/img/yandex.png" alt="" class="calc__img">
+                            <div class="calc__tip">
+                                <div class="calc__sign">?</div>
+                                <div class="calc__fly">Размещение отзыва не сервисе Янднекс.Карты с гарантией публикации 1 мес*</div>
+                            </div>
+                        </div>
+                        <div class="calc__head730">
+                            <div class="calc__text">Кол-во отзывов</div>
+                            <div class="calc__text">Стоимость</div>
+                        </div>
+                        <div class="calc__between">
+                            <div class="calc__plusminus">
+                                <div class="calc__minus">–</div>
+                                <input class="calc__input" type="text" value="0">
+                                <div class="calc__plus">+</div>
+                            </div>
+                            <div id="calc_price_1" style="display: none;">750</div>
+                            <div id="calc_price_2" style="display: none;">600</div>
+                            <div class="calc__text calc__text--price">0 руб.</div>
+                        </div>
+                    </div>
+
+                    <div data-place="Google Maps" class="calc__line calc__line--calc calc__line--google">
+                        <div class="calc__part">
+                            <div class="calc__delete"></div>
+                            <img src="/wa-apps/site/plugins/reviewscalc/img/google.png" alt="" class="calc__img">
+                            <div class="calc__tip">
+                                <div class="calc__sign">?</div>
+                                <div class="calc__fly">Размещение отзыва не сервисе Google Maps с гарантией публикации 1 мес*</div>
+                            </div>
+
+                        </div>
+                        <div class="calc__head730">
+                            <div class="calc__text">Кол-во отзывов</div>
+                            <div class="calc__text">Стоимость</div>
+                        </div>
+                        <div class="calc__between">
+                            <div class="calc__plusminus">
+                                <div class="calc__minus">–</div>
+                                <input class="calc__input" type="text" value="0">
+                                <div class="calc__plus">+</div>
+                            </div>
+                            <div id="calc_price_1" style="display: none;">700</div>
+                            <div id="calc_price_2" style="display: none;">560</div>
+                            <div class="calc__text calc__text--price">0 руб.</div>
+                        </div>
+                    </div>
+
+                    <div data-place="ZOON" class="calc__line calc__line--calc calc__line--zoon">
+                        <div class="calc__part">
+                            <div class="calc__delete"></div>
+                            <img src="/wa-apps/site/plugins/reviewscalc/img/zoon.png" alt="" class="calc__img">
+                            <div class="calc__tip">
+                                <div class="calc__sign">?</div>
+                                <div class="calc__fly">Размещение отзыва не сервисе ZOON с гарантией публикации 1 мес*</div>
+                            </div>
+
+                        </div>
+                        <div class="calc__head730">
+                            <div class="calc__text">Кол-во отзывов</div>
+                            <div class="calc__text">Стоимость</div>
+                        </div>
+                        <div class="calc__between">
+                            <div class="calc__plusminus">
+                                <div class="calc__minus">–</div>
+                                <input class="calc__input" type="text" value="0">
+                                <div class="calc__plus">+</div>
+                            </div>
+                            <div id="calc_price_1" style="display: none;">600</div>
+                            <div id="calc_price_2" style="display: none;">480</div>
+                            <div class="calc__text calc__text--price">0 руб.</div>
+                        </div>
+                    </div>
+
+                    <div data-place="2GIS" class="calc__line calc__line--calc calc__line--2gis">
+                        <div class="calc__part">
+                            <div class="calc__delete"></div>
+                            <img src="/wa-apps/site/plugins/reviewscalc/img/2gis.png" alt="" class="calc__img">
+                            <div class="calc__tip">
+                                <div class="calc__sign">?</div>
+                                <div class="calc__fly">Размещение отзыва не сервисе 2GIS с гарантией публикации 1 мес*</div>
+                            </div>
+
+                        </div>
+                        <div class="calc__head730">
+                            <div class="calc__text">Кол-во отзывов</div>
+                            <div class="calc__text">Стоимость</div>
+                        </div>
+                        <div class="calc__between">
+                            <div class="calc__plusminus">
+                                <div class="calc__minus">–</div>
+                                <input class="calc__input" type="text" value="0">
+                                <div class="calc__plus">+</div>
+                            </div>
+                            <div id="calc_price_1" style="display: none;">600</div>
+                            <div id="calc_price_2" style="display: none;">480</div>
+                            <div class="calc__text calc__text--price">0 руб.</div>
+                        </div>
+                    </div>
+
+                    <div data-place="ПРОДОКТОРОВ" class="calc__line calc__line--calc calc__line--prodoc">
+                        <div class="calc__part">
+                            <div class="calc__delete"></div>
+                            <img src="/wa-apps/site/plugins/reviewscalc/img/prodoc.png" alt="" class="calc__img">
+                            <div class="calc__tip">
+                                <div class="calc__sign">?</div>
+                                <div class="calc__fly">Размещение отзыва не сервисе ПРОДОКТОРОВ с гарантией публикации 1 мес*</div>
+                            </div>
+
+                        </div>
+                        <div class="calc__head730">
+                            <div class="calc__text">Кол-во отзывов</div>
+                            <div class="calc__text">Стоимость</div>
+                        </div>
+                        <div class="calc__between">
+                            <div class="calc__plusminus">
+                                <div class="calc__minus">–</div>
+                                <input class="calc__input" type="text" value="0">
+                                <div class="calc__plus">+</div>
+                            </div>
+                            <div id="calc_price_1" style="display: none;">600</div>
+                            <div id="calc_price_2" style="display: none;">500</div>
+                            <div class="calc__text calc__text--price">0 руб.</div>
+                        </div>
+                    </div>
+
+
+                </div>
+
+                <div class="calc__line calc__line--add">
+                    <div class="calc__add">+</div>
+                    <div class="calc__text">Добавить площадку</div>
+                    <div class="drop">
+                        <div data-tip="Янднекс.Карты" data-price1="750" data-price2="600" data-name="yandex" class="drop__item"><img src="/wa-apps/site/plugins/reviewscalc/img/yandex.png" alt="" class="drop__img"></div>
+                        <div data-tip="Google Maps" data-price1="700" data-price2="560" data-name="google" class="drop__item"><img src="/wa-apps/site/plugins/reviewscalc/img/google.png" alt="" class="drop__img"></div>
+                        <div data-tip="ZOON" data-price1="600" data-price2="480" data-name="zoon" class="drop__item"><img src="/wa-apps/site/plugins/reviewscalc/img/zoon.png" alt="" class="drop__img"></div>
+                        <div data-tip="2GIS" data-price1="600" data-price2="480" data-name="2gis" class="drop__item"><img src="/wa-apps/site/plugins/reviewscalc/img/2gis.png" alt="" class="drop__img"></div>
+                        <div data-tip="ПРОДОКТОРОВ" data-price1="600" data-price2="500" data-name="prodoc" class="drop__item"><img src="/wa-apps/site/plugins/reviewscalc/img/prodoc.png" alt="" class="drop__img"></div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="calc__right">
+
+            <div class="calc__text calc__text--result">Общая стоимость проекта</div>
+
+            <div class="calc__result">54.000 руб</div>
+
+            <form action="!mail.php" method="POST" class="calc__form form" enctype="multipart/form-data">
+
+                <div class="form__icon form__icon--mail"><input name="form_mail" type="email" class="form__input" required></div>
+
+                <div class="form__icon form__icon--phone"><input name="form_phone" id="form_phone" type="text" class="form__input" required></div>
+
+                <div class="form__icon">
+                    <textarea name="form_comment" id="form_comment" class="form__comment"></textarea>
+                    <img class="form__file" src="/wa-apps/site/plugins/reviewscalc/img/file.png" alt="">
+                </div>
+
+                <textarea name="form_data" id="form_data" class="form__data" style="display: none;"></textarea>
+
+                <input type="file" name="userfile[]" multiple="multiple" id="form_file" style="display: none;">
+
+                <div class="form__note">Оставить комментарий или прикрепить техническое задание</div>
+
+                <input type="submit" value="Заказать отзывы" class="form__submit">
+
+            </form>
+
+        </div>
+
+
+
+    </div>
+
+</div>

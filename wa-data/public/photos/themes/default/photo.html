@@ -1,0 +1,40 @@
+{*<h1 itemprop="name" class="display-5">{$photo.name}</h1>*}
+
+<div class="row">
+    <div class="col-12">
+        {$wa->photos->getImgHtml($photo, '970x0', ['id' => 'photo','itemprop' => 'image','class' => 'img-fluid mx-auto d-block'])}
+    </div>
+
+    {if $photo.description}
+    <div class="col-12">
+        <p id="photo-description" itemprop="description" class="text-center">
+            <a href="{$photo.description}" target="_blank" rel="nofollow">Перейти на страницу {$photo.name}</a>
+        </p>
+    </div>
+    {/if}
+</div>
+
+{* @event frontend_photo.%plugin_id%.top_left *}
+{foreach $frontend_photo as $plugin_id => $item}{if !empty($item.top_left)}
+{$item.top_left}
+{/if}{/foreach}
+
+{* @event frontend_photo.%plugin_id%.top_right *}
+{foreach $frontend_photo as $plugin_id => $item}{if !empty($item.top_right)}
+{$item.top_right}
+{/if}{/foreach}
+
+<div id="photo-hook-sidebar">
+    {* @event frontend_photo.%plugin_id%.sidebar *}
+    {foreach $frontend_photo as $plugin_id => $item}{if !empty($item.sidebar)}{$item.sidebar}{/if}{/foreach}
+</div>
+
+{* @event frontend_photo.%plugin_id%.content *}
+{foreach $frontend_photo as $plugin_id => $item}{if !empty($item.content)}{$item.content}{/if}{/foreach}
+
+<div class="clear-both"></div>
+
+<div id="photo-hook-bottom">
+    {* @event frontend_photo.%plugin_id%.bottom *}
+    {foreach $frontend_photo as $plugin_id => $item}{if !empty($item.bottom)}{$item.bottom}{/if}{/foreach}
+</div>

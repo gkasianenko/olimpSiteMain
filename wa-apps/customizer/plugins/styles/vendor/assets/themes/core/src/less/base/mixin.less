@@ -1,0 +1,13 @@
+//
+// Component:       Mixin
+// Description:     Defines mixins which are used across all components
+//
+// ========================================================================
+
+
+// Progress
+// ========================================================================
+
+.progress-fill(@color, @angle: 45deg, @property: background-image) {
+    @{property}: linear-gradient(@angle, @color 25%, transparent 25%, transparent 50%, @color 50%, @color 75%, transparent 75%, transparent);
+}

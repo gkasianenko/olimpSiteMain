@@ -1,0 +1,55 @@
+
+
+msgid ""
+msgstr "Project-Id-Version: rlogs\nReport-Msgid-Bugs-To: \nLast-Translator: rlogs\nLanguage-Team: rlogs\nMIME-Version: 1.0\nContent-Type: text/plain; charset=utf-8\nContent-Transfer-Encoding: 8bit\nPOT-Creation-Date: 2019-12-04 10:48+0300\nPO-Revision-Date: \nLanguage: ru_RU\nPlural-Forms: nplurals=3; plural=((((n%10)==1)&&((n%100)!=11))?(0):(((((n%10)>=2)&&((n%10)<=4))&&(((n%100)<10)||((n%100)>=20)))?(1):2));\nX-Poedit-Language: ru_RU\nX-Poedit-SourceCharset: utf-8\nX-Poedit-Basepath: .\nX-Poedit-SearchPath-0: .\nX-Poedit-SearchPath-1: .\nPlural-Form: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+
+msgid "Hello world"
+msgstr ""
+
+msgid "Navigation"
+msgstr ""
+
+msgid "Menu item 1"
+msgstr ""
+
+msgid "Menu item 2"
+msgstr ""
+
+msgid "Menu item 3"
+msgstr ""
+
+msgid "Woohoo, Webasyst app is ready!"
+msgstr ""
+
+msgid "Settings"
+msgstr "Настройки"
+
+msgid "Plugins"
+msgstr "Плагины"
+
+msgid "This is Application for import product offers from distributor."
+msgstr ""
+
+msgid "Application in developing progress now. There may be errors in operation. Please inform the developer about them and they will be promptly eliminated."
+msgstr ""
+
+msgid "Import products"
+msgstr ""
+
+msgid "Save"
+msgstr "Сохранить"
+
+msgid "General"
+msgstr "Главная"
+
+msgid "Access denied"
+msgstr "Доступ запрещен"
+
+msgid "Plugin settings page"
+msgstr "Страница настройки плагина"
+
+msgid "This is Application for logs automatic rotation."
+msgstr "Приложение для автоматической ротации логов."
+
+msgid "Logs rotation"
+msgstr "Ротация логов"

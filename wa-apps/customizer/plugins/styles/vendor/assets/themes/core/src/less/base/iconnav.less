@@ -1,0 +1,66 @@
+//
+// Component: Iconnav
+//
+// ========================================================================
+
+
+// Variables
+// ========================================================================
+
+
+// Component
+// ========================================================================
+
+.hook-iconnav() {}
+
+.hook-iconnav-item() {}
+
+.hook-iconnav-item-hover() {}
+
+.hook-iconnav-item-active() {}
+
+
+// Miscellaneous
+// ========================================================================
+
+.hook-iconnav-misc() {}
+
+
+// Inverse
+// ========================================================================
+
+.hook-inverse-iconnav-item() {}
+.hook-inverse-iconnav-item-hover() {}
+.hook-inverse-iconnav-item-active() {}
+
+
+// Primary
+// ========================================================================
+
+@primary-iconnav-item-color:               @primary-global-muted-color;
+@primary-iconnav-item-hover-color:         @primary-global-color;
+@primary-iconnav-item-active-color:        @primary-global-color;
+
+.hook-primary() {
+
+    .uk-iconnav > * > a {
+        color: @primary-iconnav-item-color;
+        .hook-primary-iconnav-item();
+    }
+
+    .uk-iconnav > * > a:hover,
+    .uk-iconnav > * > a:focus {
+        color: @primary-iconnav-item-hover-color;
+        .hook-primary-iconnav-item-hover();
+    }
+
+    .uk-iconnav > .uk-active > a {
+        color: @primary-iconnav-item-active-color;
+        .hook-primary-iconnav-item-active();
+    }
+
+}
+
+.hook-primary-iconnav-item() {}
+.hook-primary-iconnav-item-hover() {}
+.hook-primary-iconnav-item-active() {}
