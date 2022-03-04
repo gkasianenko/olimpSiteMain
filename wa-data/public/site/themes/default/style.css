@@ -17900,7 +17900,7 @@ button:focus {
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-end;
   flex: 1 1;
   flex-basis: auto;
 }
@@ -17928,6 +17928,7 @@ button:focus {
     .header__contacts
     .contacts__icon {
     display: flex;
+    margin-right: 5px;
   }
 }
 
@@ -18117,23 +18118,19 @@ button:focus {
   margin-right: 0;
 }
 
-#exampleModal
-  .modal-dialog
-  .modal-content
-  .modal-header
-  .header__contacts
-  .contacts__tel
-  .contacts__icon
-  i.icon-phone {
-  display: none;
-  width: 25px;
-  height: 25px;
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-image: url(./img/tel_bl.svg);
+@media (max-width: 401px) {
+  #exampleModal
+    .modal-dialog
+    .modal-content
+    .modal-header
+    .header__contacts
+    .contacts__tel
+    .contacts__items {
+    display: flex;
+  }
 }
 
-@media (min-width: 400px) {
+@media (min-width: 395px) {
   #exampleModal
     .modal-dialog
     .modal-content
@@ -18141,25 +18138,14 @@ button:focus {
     .header__contacts
     .contacts__tel
     .contacts__icon
-    i.icon-phone {
+    i.icon-whatsapp {
     display: inline-block;
+    width: 25px;
+    height: 25px;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-image: url(./img/whatsapp_bl.svg);
   }
-}
-
-#exampleModal
-  .modal-dialog
-  .modal-content
-  .modal-header
-  .header__contacts
-  .contacts__tel
-  .contacts__icon
-  i.icon-whatsapp {
-  display: inline-block;
-  width: 25px;
-  height: 25px;
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-image: url(./img/whatsapp_bl.svg);
 }
 
 @media (min-width: 768px) {
@@ -18216,14 +18202,28 @@ button:focus {
   .modal-content
   .modal-header
   .header__contacts
-  .contacts__mobile
+  .contacts__tel
+  .contacts__icon
   i.icon-phone {
-  display: inline-block;
-  width: 21px;
-  height: 21px;
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-image: url(./img/tel_bl.svg);
+  display: none;
+}
+
+@media (min-width: 435px) {
+  #exampleModal
+    .modal-dialog
+    .modal-content
+    .modal-header
+    .header__contacts
+    .contacts__tel
+    .contacts__icon
+    i.icon-phone {
+    display: inline-block;
+    width: 21px;
+    height: 21px;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-image: url(./img/tel_bl.svg);
+  }
 }
 
 #exampleModal .modal-dialog .modal-content .modal-header .header__links a {
@@ -18315,6 +18315,7 @@ button:focus {
   .modal-header
   .header__contacts
   .contacts__tel {
+  padding-left: 0;
   padding-right: 0;
 }
 
@@ -18421,6 +18422,7 @@ button:focus {
   justify-content: center;
   font-size: 1.3em;
   color: #fff;
+  text-decoration: none;
 }
 
 #exampleModal
@@ -18718,10 +18720,6 @@ html {
   margin-right: 15px;
 }
 
-.header .row-contacts .header__contacts .contacts__tel {
-  margin-bottom: 10px;
-}
-
 @media (min-width: 992px) {
   .header .row-contacts .header__contacts .contacts__tel {
     margin-bottom: 0;
@@ -18729,7 +18727,8 @@ html {
 }
 
 .header .row-contacts .header__contacts .contacts__tel .contacts__icon {
-  margin-right: 15px;
+  margin-right: 10px;
+  display: flex;
 }
 
 .header .row-contacts .header__contacts .contacts__tel .contacts__icon i {
@@ -18775,7 +18774,7 @@ html {
   }
 }
 
-@media (min-width: 768px) {
+@media (min-width: 360px) {
   .header
     .row-contacts
     .header__contacts
@@ -18820,6 +18819,16 @@ html {
   display: flex;
   font-weight: 700;
   line-height: 35px;
+}
+
+.header .row-contacts .header__contacts .contacts__mobile span {
+  display: none;
+}
+
+@media (min-width: 470px) {
+  .header .row-contacts .header__contacts .contacts__mobile span {
+    display: inline-block;
+  }
 }
 
 @media (min-width: 575px) {
@@ -18881,6 +18890,11 @@ html {
 .header .row-contacts .header__links {
   padding-left: 30px;
   padding-right: 30px;
+}
+
+.header .row-contacts .header__contacts .contacts__tel {
+  margin-bottom: 10px;
+  padding-right: 5px;
 }
 
 @media (min-width: 1200px) and (max-width: 1249px) {
