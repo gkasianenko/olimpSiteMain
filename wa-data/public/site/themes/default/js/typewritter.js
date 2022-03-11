@@ -1,4 +1,6 @@
-window.onload = function() {
+window.addEventListener('DOMContentLoaded', startTyping)
+
+function startTyping() {
     const elements = document.getElementsByClassName('txt-rotate');
     for (var i=0; i<elements.length; i++) {
       const toRotate = elements[i].getAttribute('data-rotate');

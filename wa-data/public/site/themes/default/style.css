@@ -23992,3 +23992,7 @@ h1.page__header:after {
     transition: max-height 0.5s ease-in;
   }
 }
+
+.modal-body #success-selector-modal .success-message {
+  color: green;
+}
