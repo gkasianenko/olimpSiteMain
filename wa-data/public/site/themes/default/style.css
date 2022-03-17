@@ -5765,6 +5765,8 @@
   content: "\f40b";
 }
 
+.fa-telegram-plane:before
+
 .fa-voicemail:before {
   content: "\f897";
 }
@@ -21135,6 +21137,8 @@ main > .container-fluid {
 
 .form.entry_form input.form-control {
   border-left: 0;
+  display: block;
+  width: 71%;
 }
 
 .form .inputfile {
@@ -23995,4 +23999,10 @@ h1.page__header:after {
 
 .modal-body #success-selector-modal .success-message {
   color: green;
+}
+
+label.error {
+  padding-top: 5px;
+  display: inline;
+  color: red;
 }
