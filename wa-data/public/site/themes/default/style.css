@@ -5765,9 +5765,7 @@
   content: "\f40b";
 }
 
-.fa-telegram-plane:before
-
-.fa-voicemail:before {
+.fa-telegram-plane:before .fa-voicemail:before {
   content: "\f897";
 }
 
@@ -19257,7 +19255,7 @@ html {
   .header__banner
   .header-banner__content
   h2 {
-  font-size: clamp(30px, 15.5vw, 100px);
+  font-size: clamp(30px, 7.5vw, 100px);
   font-weight: 800;
   line-height: 0.85em;
   color: #e30014;
