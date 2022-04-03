@@ -19161,7 +19161,15 @@ html {
   .header__banner.header__banner--inner.header__banner--inner-compact
   .header-banner__container {
   padding-top: 28px;
-  padding-bottom: 45px;
+  padding-bottom: 28px;
+}
+
+@media (min-width: 992px) {
+  .header.header--expand:not(.header--sticky)
+    .header__banner.header__banner--inner.header__banner--inner-compact
+    .header-banner__container {
+    padding-bottom: 45px;
+  }
 }
 
 .header.header--expand:not(.header--sticky)
@@ -19233,6 +19241,34 @@ html {
 .header.header--expand:not(.header--sticky)
   .header__banner
   .header-banner__content
+  .row
+  > *
+  + * {
+  margin-top: 30px;
+}
+
+@media (min-width: 992px) {
+  .header.header--expand:not(.header--sticky)
+    .header__banner
+    .header-banner__content
+    .row
+    > *
+    + * {
+    margin-top: unset;
+  }
+}
+
+@media (min-width: 991px) {
+  .header.header--expand:not(.header--sticky)
+    .header__banner
+    .header-banner__content {
+    margin-bottom: unset;
+  }
+}
+
+.header.header--expand:not(.header--sticky)
+  .header__banner
+  .header-banner__content
   h1 {
   font-size: clamp(16px, 4.8vw, 65px);
   font-weight: 700;
@@ -19260,18 +19296,25 @@ html {
   line-height: 0.85em;
   color: #e30014;
   text-transform: uppercase;
-  margin-bottom: 4vh;
+  margin-bottom: 10px;
 }
 
-.header.header--expand:not(.header--sticky)
-  .header__banner
-  .header-banner__content
-  h3 {
-  font-size: clamp(16px, 2.65vw, 56px);
-  font-weight: 700;
-  line-height: 1em;
-  color: #fff;
-  margin-bottom: 2rem;
+@media (min-width: 754px) {
+  .header.header--expand:not(.header--sticky)
+    .header__banner
+    .header-banner__content
+    h2 {
+    margin-bottom: 2vh;
+  }
+}
+
+@media (min-width: 991px) {
+  .header.header--expand:not(.header--sticky)
+    .header__banner
+    .header-banner__content
+    h2 {
+    margin-bottom: 4vh;
+  }
 }
 
 @media (min-width: 1200px) and (orientation: landscape) {
@@ -20147,6 +20190,7 @@ main > .container-fluid {
   left: 0;
   border-right: 1px solid #dcdcdc;
   transition: 0.25s top;
+  z-index: 10;
 }
 
 .sidebar .menu-item {
@@ -20201,6 +20245,9 @@ main > .container-fluid {
   text-align: left;
   overflow: hidden;
   width: 320px;
+
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
+    rgba(0, 0, 0, 0.22) 0px 10px 10px;
 }
 
 .sidebar .menu-item .menu-item__nav .menu-item-nav__heading {

@@ -14,6 +14,9 @@
                     <div class="col-12 col-lg-auto section__bg section__bg--gray">
                         <div class="section__page-nav">
                             <div class="page-nav__container">
+                                <div class="text-center text-lg-left mb-4 mb-lg-0">
+                                    <a href="/portfolio/" class="btn btn-red portfolio__btn-more">Все портфолио</a>
+                                </div>
                                 <h1 class="text-center text-lg-left">
                                     <span itemprop="name">{$post.title}</span>
                                 </h1>
@@ -29,9 +32,7 @@
                                     {$post.text}
                                 </div>
 
-                                <div class="text-center text-lg-left mb-4 mb-lg-0">
-                                    <a href="/portfolio/" class="btn btn-red portfolio__btn-more">Все портфолио</a>
-                                </div>
+                                
 
                                 {*if $post.album_id && $post.album.id && $post.album.photos}
                                 {include 'post.album.html' album=$post.album inline}
