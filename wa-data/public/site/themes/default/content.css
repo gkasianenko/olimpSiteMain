@@ -1116,13 +1116,12 @@ article.post__review .post__cover img {
   line-height: 1.15em;
   font-weight: bold;
   margin-bottom: 25px;
+  margin-top: 25px;
 }
 .post__portfolio .section__page-nav .page-nav__container .text {
   font-size: 14px;
 }
-.post__portfolio .section__page-nav .page-nav__container .portfolio__btn-more {
-  margin-top: 50px;
-}
+
 .post__portfolio .section__page-content {
   max-width: none;
   padding: 0;
@@ -1166,13 +1165,14 @@ article.post__review .post__cover img {
   background-position: center center;
   background-size: cover;
   display: block;
-  width: 11px;
-  height: 22px;
+  width: 16px;
+  height: 17px;
   content: "";
-  background-image: url("img/owl-left.png");
+  background-image: url(./img/arrow-red.svg);
   position: absolute;
-  left: -20px;
-  top: 0;
+  left: -29px;
+  top: 2px;
+  transform: rotate(180deg);
 }
 .post__portfolio
   .portfolio__post-nav
@@ -1194,13 +1194,13 @@ article.post__review .post__cover img {
   background-position: center center;
   background-size: cover;
   display: block;
-  width: 11px;
-  height: 22px;
+  width: 16px;
+  height: 17px;
   content: "";
-  background-image: url("img/owl-right.png");
+  background-image: url(./img/arrow-red.svg);
   position: absolute;
-  right: -20px;
-  top: 0;
+  right: -28px;
+  top: 3px;
 }
 .section__page--empty {
   color: #080f42;

@@ -1,9 +1,10 @@
 {if $post.album_id && $post.album.id && $post.album.photos}
 {assign var="p" value=$post.album.photos|reset}
-
-<div class="post__image">
-    <img src="{$p.thumb_big.url}" alt="" data-qazy="false" alt="" class="img-fluid" data-aos="fade">
-</div>
+<a href="{$post.link}" target="_blank" itemprop="url" class="post__link">
+    <div class="post__image">
+        <img src="{$p.thumb_big.url}" alt="" data-qazy="false" alt="" class="img-fluid" data-aos="fade">
+    </div>
+</a>
 
 <div class="post__content">
     <a href="{$post.link}" target="_blank" itemprop="url" class="post__link">{$post.title}</a>
