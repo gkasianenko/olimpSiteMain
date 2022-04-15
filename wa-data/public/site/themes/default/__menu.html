@@ -110,11 +110,7 @@
                                                     <i class="list-icon"></i>
                                                 </div>
                                                 <div class="list-content">
-                                                    <li class="nav-item">
-                                                        <span>
-                                                            <a class="nav-link" href="/{$page.url}">{$page.name}</a>
-                                                        </span>
-                                                    </li>
+                                                    
                                                     {$subpages = $wa->site->pages($page.id)}
                                                     {if $subpages && count($subpages) > 0}
                                                     {foreach $subpages as $s}
